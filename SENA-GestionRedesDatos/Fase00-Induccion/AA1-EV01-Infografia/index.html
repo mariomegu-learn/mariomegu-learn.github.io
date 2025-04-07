@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva SENA - Mario Mendoza</title>
+    <link rel="icon" href="https://zajuna.sena.edu.co/Repositorio/Titulada/institution/SENA/Transversales/Induccion/Contenido/OVA/CF1/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://zajuna.sena.edu.co/Repositorio/Titulada/institution/SENA/Transversales/Induccion/Contenido/OVA/CF1/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        sena: {
+                            // Approximate SENA colors - adjust if official colors are known
+                            orange: '#F97316', // SENA Orange
+                            orange_dark: '#E46914', // Darker shade for rope effect
+                            green: '#10B981', // SENA Green (complementary)
+                            gray: {
+                                light: '#F3F4F6',
+                                DEFAULT: '#6B7280',
+                                dark: '#1F2937',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <style>
+        /* Custom styles for interactivity and layout */
+        body {
+            font-family: 'Century Gothic', 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Light green background */
+            overflow-x: hidden; /* Prevent horizontal scroll caused by connector */
+        }
+        .infographic-section {
+            background-color: white;
+            border-radius: 1rem; /* More rounded corners */
+            padding: 2rem;
+            margin-bottom: 2rem; /* Keep existing margin */
+            margin-top: 4rem; /* Increased margin-top for connector space */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Removed transition related to hover effect, can be kept if other transitions needed */
+            /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+            position: relative; /* Needed for absolute positioning of the connector */
+        }
+        /* Remove top margin from the first section */
+        .infographic-section:first-of-type {
+             margin-top: 0;
+        }
+        /* REMOVED: Hover effect styles */
+        /*
+        .infographic-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        */
+
+        /* --- Rope Connector Style --- */
+        /* Common properties for both ropes */
+        .infographic-section:not(:first-of-type)::before,
+        .infographic-section:not(:first-of-type)::after {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* Position above the current section */
+            width: 5px; /* Rope thickness */
+            height: 4rem; /* Length of the rope (equal to margin-top) */
+            /* Rope texture using gradient */
+            background: repeating-linear-gradient(
+                45deg,
+                #F97316, /* sena-orange */
+                #F97316 4px,
+                #E46914 4px, /* sena-orange_dark */
+                #E46914 8px
+            );
+             /* Add a subtle shadow to make it pop slightly */
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            border-radius: 2px; /* Slightly rounded edges */
+        }
+
+        /* Left Rope */
+        .infographic-section:not(:first-of-type)::before {
+            left: 2rem; /* Position from the left edge */
+        }
+
+        /* Right Rope */
+        .infographic-section:not(:first-of-type)::after {
+            right: 2rem; /* Position from the right edge */
+             /* Reverse gradient angle for variation */
+             background: repeating-linear-gradient(
+                -45deg,
+                #F97316, /* sena-orange */
+                #F97316 4px,
+                #E46914 4px, /* sena-orange_dark */
+                #E46914 8px
+            );
+        }
+        /* --- End Rope Connector Style --- */
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6); /* Dim background */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 1rem;
+            position: relative; /* For close button positioning */
+            animation: fadeIn 0.5s;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        /* Styling for symbols */
+        .symbol-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer; /* Indicate clickability */
+        }
+        .symbol-container:hover {
+            transform: scale(1.05); /* Keep scale effect on symbol hover */
+        }
+        /* Original symbol size */
+        .symbol-container img, .symbol-container .sena-logo-placeholder {
+            max-width: 170px;
+            height: 170px;
+            margin-bottom: 0.5rem;
+            object-fit: contain; /* Ensure image fits well */
+        }
+        .symbol-description {
+            display: none; /* Hidden initially */
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #4B5563; /* Gray text */
+        }
+        .symbol-container.active .symbol-description {
+            display: block; /* Show on active */
+        }
+        /* Custom SENA logo placeholder */
+        .sena-logo-placeholder {
+            width: 80px; /* Explicit width */
+            height: 80px; /* Explicit height */
+            background-color: #E5E7EB; /* Light gray */
+            border: 2px dashed #9CA3AF; /* Dashed border */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            color: #6B7280;
+            text-align: center;
+            padding: 0.5rem;
+            box-sizing: border-box; /* Include padding/border in element's total width/height */
+        }
+         /* Icon styling */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        /* Lucide Icons Font (optional, if using font) */
+        @font-face {
+            font-family: 'LucideIcons';
+            /* Use CDN link for font */
+            src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+        }
+        .lucide {
+            font-family: 'LucideIcons';
+            font-size: 1.5rem; /* Adjust size as needed */
+            line-height: 1;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        a {
+            color: #F97316; /* Naranja SENA */
+            font-weight: 600; /* Seminegrita */
+            text-decoration: none; /* Sin subrayado por defecto */
+            transition: color 0.3s ease; /* Transición suave */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Subrayado al pasar el cursor */
+            color: #E46914; /* Naranja más oscuro */
+        }
+
+        
+    </style>
+</head>
+<body class="bg-sena-gray-light text-sena-gray-dark p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+
+        <header class="text-center mb-12">
+             <div class="inline-block p-1 bg-white rounded-full shadow-lg mb-4">
+                <img src="https://zajuna.sena.edu.co/Repositorio/Titulada/institution/SENA/Transversales/Induccion/Contenido/OVA/CF1/img/logo-sena.47d29d11.svg?text=Logo+SENA" alt="Logo SENA" class="w-40 h-40 rounded-full" onerror="this.src='https://placehold.co/100x100/cccccc/ffffff?text=Logo+no+disponible'; this.alt='Logo no disponible'">
+             </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-sena-orange mb-2">Contextualización SENA</h1>
+            <p class="text-lg text-sena-gray max-w-2xl mx-auto">
+                Conoce la entidad más querida por los colombianos, su historia, misión, visión y símbolos.
+            </p>
+            <p class="text-sm text-sena-green mt-1">Desarrollado por: Mario Mendoza</p>
+        </header>
+
+        <section id="que-es" class="infographic-section">
+            <h2 class="text-2xl font-semibold text-sena-green mb-4 flex items-center">
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/info.svg" alt="Información" class="icon"/>
+                ¿Qué es el SENA?
+            </h2>
+            <p class="mb-4">Es un establecimiento público del orden nacional, adscrito al Ministerio del Trabajo, con autonomía administrativa, personería jurídica y patrimonio propio.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-4 rounded-lg border border-sena-green">
+                    <h3 class="text-lg font-semibold text-sena-green mb-2">Misión</h3>
+                    <p class="text-sm">Invertir en el desarrollo social y técnico de los trabajadores colombianos, ofreciendo y ejecutando formación profesional integral para contribuir al desarrollo social, económico y tecnológico del país.</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg border border-sena-orange">
+                    <h3 class="text-lg font-semibold text-sena-orange mb-2">Visión (2026)</h3>
+                    <p class="text-sm">Estar a la vanguardia de la cualificación del talento humano (nacional e internacional) a través de la formación, empleo, emprendimiento y reconocimiento de aprendizajes, fortaleciendo la economía campesina, popular, verde y digital.</p>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-sena-gray">Ofrece formación gratuita técnica, tecnológica y complementaria.</p>
+        </section>
+
+        <section id="historia" class="infographic-section">
+            <h2 class="text-2xl font-semibold text-sena-green mb-4 flex items-center">
+                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/scroll-text.svg" alt="Historia" class="icon"/>
+                Un Poco de Historia
+            </h2>
+            <div class="space-y-4">
+                <p><strong class="text-sena-orange">1957:</strong> Nace el SENA. Rodolfo Martínez Tono, inspirado por sistemas de formación europeos y con apoyo de la OIT, funda la entidad.</p>
+                <p><strong class="text-sena-orange">Objetivo Inicial:</strong> Crear una organización descentralizada con financiación autónoma para ofrecer instrucción técnica y formación complementaria.</p>
+                <p><strong class="text-sena-orange">Crecimiento:</strong> Con apoyo de gobiernos, gremios y sindicatos, el SENA se expandió rápidamente, inaugurando numerosos centros de formación y convirtiéndose en referente.</p>
+                <p><strong class="text-sena-orange">Fundador:</strong> Dr. Rodolfo Martínez Tono, quien dirigió la entidad por 17 años, enfatizó la importancia del SENA para el desarrollo económico y social de Colombia.</p>
+            </div>
+             <div class="mt-6 text-center">
+                 <img src="https://www.eluniversal.com.co/sites/default/files/201505/rodolfo_martinez_tono_2.jpg?text=Ilustraci%C3%B3n+Hist%C3%B3rica" alt="Ilustración histórica del SENA" class="mx-auto rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x200/cccccc/ffffff?text=Imagen+no+disponible'; this.alt='Imagen no disponible'">
+             </div>
+        </section>
+
+        <section id="simbolos" class="infographic-section">
+            <h2 class="text-2xl font-semibold text-sena-green mb-6 flex items-center">
+                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/gem.svg" alt="Símbolos" class="icon"/>
+                Símbolos Institucionales
+            </h2>
+            <p class="text-center mb-6 text-sena-gray">Haz clic en cada símbolo para ver su significado.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="symbol-container" onclick="toggleSymbol(this)">
+                    <img src="https://lostramites.com.co/wp-content/uploads/Escudo-Sena-original.jpg?text=Escudo" alt="Escudo SENA" class="mx-auto mb-2" onerror="this.src='https://placehold.co/80x80/cccccc/ffffff?text=Imagen+no+disponible'; this.alt='Imagen no disponible'">
+                    <h3 class="font-semibold mt-2">Escudo</h3>
+                    <p class="symbol-description">Refleja los tres sectores económicos: el piñón (industria), el caduceo (comercio y servicios) y el café (sector primario y extractivo).</p>
+                </div>
+                <div class="symbol-container" onclick="toggleSymbol(this)">
+                    <img src="https://2.bp.blogspot.com/-XkjW2ytZLGE/Ud7B6fNvLzI/AAAAAAAAAA8/_lXJjuu15ns/s1600/bandera.jpg?text=Bandera" alt="Bandera SENA" class="mx-auto mb-2" onerror="this.src='https://placehold.co/80x80/cccccc/ffffff?text=Imagen+no+disponible'; this.alt='Imagen no disponible'">
+                    <h3 class="font-semibold mt-2">Bandera</h3>
+                    <p class="symbol-description">Totalmente blanca, con el escudo de la institución en el centro.</p>
+                </div>
+                <div class="symbol-container" onclick="toggleSymbol(this)">
+                    <img src="https://zajuna.sena.edu.co/Repositorio/Titulada/institution/SENA/Transversales/Induccion/Contenido/OVA/CF1/img/logo-sena.47d29d11.svg?text=Logo" alt="Logo SENA" class="mx-auto mb-2" onerror="this.src='https://placehold.co/80x80/cccccc/ffffff?text=Imagen+no+disponible'; this.alt='Imagen no disponible'">
+                    <h3 class="font-semibold mt-2">Logosímbolo</h3>
+                    <p class="symbol-description">Representa gráficamente los enfoques de la formación: un camino hacia el horizonte y, simultáneamente, al hombre como responsable de su aprendizaje.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="himno" class="infographic-section">
+            <h2 class="text-2xl font-semibold text-sena-green mb-4 flex items-center">
+                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/music-4.svg" alt="Himno" class="icon"/>
+                Himno del SENA
+            </h2>
+            <p class="italic text-center mb-4">"Estudiantes del SENA adelante<br>Por Colombia luchad con amor<br>Con el ánimo noble y radiante<br>Transformémosla en mundo mejor."</p>
+            <div class="text-center">
+                <button id="himnoBtn" class="bg-sena-orange hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                    Ver Himno Completo
+                </button>
+            </div>
+        </section>
+
+         <section id="estructura" class="infographic-section">
+            <h2 class="text-2xl font-semibold text-sena-green mb-4 flex items-center">
+                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/network.svg" alt="Estructura" class="icon"/>
+                Estructura General (Simplificada)
+            </h2>
+            <p class="mb-4 text-sena-gray">El SENA se organiza jerárquicamente para cumplir sus funciones eficientemente.</p>
+            <ul class="list-disc list-inside space-y-2 text-sm">
+                <li><strong>Consejo Directivo Nacional:</strong> Máxima autoridad directiva.</li>
+                <li><strong>Dirección General:</strong> Encargada de la administración y ejecución.</li>
+                <li><strong>Secretaría General y Oficinas de Apoyo:</strong> Control, Comunicaciones, Sistemas, Jurídica, etc.</li>
+                <li><strong>Direcciones Misionales:</strong>
+                    <ul class="list-['-_'] list-inside ml-4 space-y-1">
+                        <li>Formación Profesional</li>
+                        <li>Empleo y Trabajo</li>
+                        <li>Sistema Nacional de Formación para el Trabajo</li>
+                        <li>Promoción y Relaciones Corporativas</li>
+                    </ul>
+                </li>
+                 <li><strong>Direcciones de Soporte:</strong> Planeación, Administrativa y Financiera.</li>
+                <li><strong>Direcciones Regionales y del Distrito Capital:</strong> Operación a nivel territorial.</li>
+                <li><strong>Centros de Formación Profesional:</strong> Ejecución de la formación.</li>
+            </ul>
+            <br>
+                <pre class="bg-gray-100 text-gray-800 p-4 rounded-lg overflow-x-auto text-sm">
+                Consejo Directivo Nacional
+                ├── Dirección General
+                │   ├── Oficinas de Apoyo
+                │   │   ├── Oficina de Control Interno
+                │   │   ├── Oficina de Control Disciplinario
+                │   │   ├── Oficina de Comunicaciones
+                │   │   └── Oficina de Sistemas
+                │   ├── Direcciones
+                │   │   ├── Secretaría General
+                │   │   ├── Dirección de Formación Profesional
+                │   │   │   └── Centros de Formación Profesional
+                │   │   ├── Dirección de Empleo para el Trabajo
+                │   │   ├── Direcciones Regionales y del Distrito Capital
+                │   │   ├── Dirección de Jurídica
+                │   │   └── Dirección de Planeación y Dirección Administrativa y Financiera
+                │   └── Consejo Directivo Nacional (segunda conexión)
+                │       ├── Dirección de Promoción de Relaciones Corporativas
+                │       └── Comités Técnicos de Centros
+                </pre>
+            </br>         
+        </section>
+
+        <footer class="text-center mt-12 mb-4 text-sm text-sena-gray">
+            <p>Infografía "Contextualización SENA" (Abril 2025).</p>
+            <p>&copy; <span id="year"></span> SENA - Servicio Nacional de Aprendizaje.</p>
+            <p> 
+                Desarrollado por:
+                <a href="https://zajuna.sena.edu.co/zajuna/user/profile.php?id=349309" 
+                   class="text-sena-orange font-semibold hover:underline">
+                   @Mariomegu 
+                </a> <span style="font-size: 1rem;">&reg;</span> 
+            </p>
+        </footer>
+
+    </div>
+
+    <div id="himnoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('himnoModal')">&times;</span>
+            <h3 class="text-xl font-semibold text-sena-green mb-4">Himno del SENA</h3>
+            <div class="text-sm space-y-2 text-left">
+                <p class="font-semibold text-center">Coro:<br>Estudiantes del SENA adelante<br>Por Colombia luchad con amor<br>Con el ánimo noble y radiante<br>Transformémosla en mundo mejor</p>
+                <p>I<br>De la patria el futuro destino,<br>en las manos del joven está,<br>el trabajo es seguro camino,<br>que el progreso a Colombia dará.</p>
+                <p>II<br>En la forja del SENA se forman,<br>hombres libres que anhelan triunfar,<br>con la ciencia y la técnica unidas,<br>nuevos rumbos de paz trazarán.</p>
+                <p>III<br>Hoy la patria nos grita sentida,<br>¡estudiantes del SENA triunfad!<br>solo así lograréis en la vida,<br>más justicia, mayor libertad.</p>
+                <p>IV<br>Avancemos con fuerza guerrera,<br>¡estudiantes con firme tesón!<br>que la patria en nosotros espera,<br>su pacífica revolución.</p>
+                 <p class="mt-4 text-xs text-gray-500">Letra: Luis Alfredo Sarmiento. Música: Daniel Marles Endo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Modal Functionality ---
+        const himnoModal = document.getElementById('himnoModal');
+        const himnoBtn = document.getElementById('himnoBtn');
+
+        // Function to open a modal by its ID
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex'; // Use flex for centering
+            }
+        }
+
+        // Function to close a modal by its ID
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Add click listener to the hymn button to open the modal
+        if (himnoBtn) {
+            himnoBtn.onclick = function() {
+                openModal('himnoModal');
+            }
+        }
+
+        // Add global click listener to close modal when clicking outside the content
+        window.onclick = function(event) {
+            if (event.target == himnoModal) {
+                closeModal('himnoModal');
+            }
+        }
+
+        // --- Symbol Interactivity ---
+        // Function to toggle the description visibility for a clicked symbol
+        function toggleSymbol(element) {
+            // Deactivate any other active symbol first
+            const allSymbols = document.querySelectorAll('.symbol-container');
+            allSymbols.forEach(sym => {
+                // Check if the symbol is not the clicked one and is active
+                if (sym !== element && sym.classList.contains('active')) {
+                    sym.classList.remove('active'); // Deactivate it
+                }
+            });
+            // Toggle the active class on the clicked symbol
+            element.classList.toggle('active');
+        }
+
+        // --- Footer Year ---
+        // Set the current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
