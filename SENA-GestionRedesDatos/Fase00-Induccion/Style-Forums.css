@@ -18,15 +18,42 @@ h1 {
     text-align: center;
     color: #2c3e50;
 }
+
+h2 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin-top: 40px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+  }
+
+
+  ol {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    line-height: 1.6;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #e67e22;
+  }
+
+  .highlight2 {
+    font-weight: bold;
+    color: #10B981;
+  }
+
 p {
     line-height: 1.8;
     font-size: 1.1em;
     text-align: justify;
 }
-.highlight {
-    font-weight: bold;
-    color: #2980b9;
-}
+
 .emojis {
     font-size: 1.2em;
 }
