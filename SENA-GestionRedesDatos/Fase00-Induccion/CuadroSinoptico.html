@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organigrama Interactivo Etapa Productiva SENA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos personalizados para el organigrama interactivo */
+        body {
+            font-family: 'Century Gothic', 'Inter', sans-serif;
+            background-color: #374151; /* bg-gray-700 */
+            color: #1f2937;
+            padding: 3rem;
+            overflow-x: auto; /* Permitir scroll horizontal si el gráfico es muy ancho */
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0; /* Sin gap inicial, controlado por padding/margin */
+            min-width: fit-content; /* Asegurar que el contenedor se ajuste al contenido */
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .org-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Estilo base para las cajas - Tamaño Uniforme */
+        .node-box {
+            padding: 8px 5px; /* Ajustar padding */
+            margin-top: 10px;
+            border-radius: 6px;
+            text-align: center;
+            width: 150px; /* Ancho Fijo */
+            min-height: 65px; /* Altura Mínima Fija */
+            font-size: 0.78rem; /* Ligeramente más pequeño si es necesario */
+            line-height: 1.3;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            /* margin-bottom: 20px; */ /* Eliminado, controlado por wrapper */
+            position: relative;
+            display: flex; /* Usar flex para centrar contenido */
+            flex-direction: column; /* Apilar texto y chevron */
+            justify-content: center; /* Centrar verticalmente */
+            align-items: center; /* Centrar horizontalmente */
+            cursor: default; /* Cursor por defecto */
+            transition: background-color 0.2s ease; /* Transición suave para hover */
+        }
+        .node-box-h {
+          margin-left: 10px;
+        }
+
+        .node-box.clickable {
+             cursor: pointer; /* Cambiar cursor si es clickeable */
+        }
+         .node-box.clickable:hover {
+              filter: brightness(1.1); /* Efecto hover sutil */
+         }
+
+         .node-box .node-text {
+             flex-grow: 1; /* Permitir que el texto ocupe espacio */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+         }
+
+         .node-box .chevron-icon {
+             font-size: 0.7rem;
+             color: rgba(255, 255, 255, 0.7); /* Color del chevron */
+             margin-top: 4px; /* Espacio sobre el chevron */
+             transition: transform 0.3s ease-in-out;
+         }
+         .org-node.expanded .chevron-icon {
+             transform: rotate(180deg);
+         }
+         /* Ocultar chevron si no es clickeable */
+         .node-box:not(.clickable) .chevron-icon {
+             display: none;
+         }
+
+
+         .node-box.text-white {
+             color: white;
+         }
+         .node-box.text-white .chevron-icon {
+             color: rgba(255, 255, 255, 0.8);
+         }
+
+        /* Colores */
+        .bg-etapa { background-color: #1e3a8a; }
+        .bg-contrato { background-color: #f97316; }
+        .bg-vinculacion { background-color: #fb923c; }
+        .bg-proyectos { background-color: #fdba74; }
+        .bg-apoyo-ent { background-color: #2dd4bf; }
+        .bg-monitoria { background-color: #14b8a6; }
+        .bg-pasantias { background-color: #0d9488; }
+        .bg-requisitos { background-color: #10b981; }
+        .bg-requisitos-sub { background-color: #a7f3d0; }
+
+        /* Contenedor Wrapper para Hijos (Controla Visibilidad y Espacio) */
+        .children-wrapper {
+            display: contents; /* No ocupa espacio por sí mismo, afecta a los hijos */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.4s ease-out;
+        }
+        .org-node.expanded > .children-wrapper {
+            display: contents; /* Asegurar que se muestre */
+            max-height: 1000px; /* Valor grande para permitir expansión */
+            opacity: 1;
+        }
+        /* Aplicar display:none inicial a los contenedores de hijos reales */
+         .node-children, .node-children-horizontal {
+             display: none; /* Oculto inicialmente */
+             padding-top: 20px;
+             position: relative;
+             margin-left: 10px;
+             margin-right: 10px;
+         }
+         /* Mostrar cuando el wrapper está expandido */
+         .org-node.expanded > .children-wrapper > .node-children,
+         .org-node.expanded > .children-wrapper > .node-children-horizontal {
+             display: flex; /* O 'block' según sea necesario */
+         }
+         .node-children { flex-direction: column; align-items: center; }
+         .node-children-horizontal { justify-content: center; gap: 1px; }
+
+         h1 {
+            text-align: center;
+            color: #10B981;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        h2{
+          text-align: center;
+          color: #F97316;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Cuadro Sinóptico de la Etapa Productiva del SENA</h1>
+<h2>Mario Mendoza</h2>
+    <div class="org-chart">
+        <div class="org-node">
+            <div class="node-box bg-etapa text-white clickable">
+                <span class="node-text">Etapa Productiva</span>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="children-wrapper"> <div class="org-level"> <div class="org-node">
+                        <div class="node-box bg-contrato text-white clickable">
+                             <span class="node-text">Contrato de aprendizaje</span>
+                             <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                        <div class="children-wrapper">
+                            <div class="node-children">
+                                <div class="org-node"><div class="node-box bg-contrato text-white no-children"><span class="node-text">Realización en empresas obligadas o voluntarias</span></div></div>
+                                <div class="org-node"><div class="node-box bg-contrato text-white no-children"><span class="node-text">Constancia de cumplimiento expedida por la empresa</span></div></div>
+                                <div class="org-node"><div class="node-box bg-contrato text-white no-children"><span class="node-text">Basado en actividades programa de formación</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="org-node">
+                        <div class="node-box bg-vinculacion clickable">
+                            <span class="node-text">Vinculación Laboral</span>
+                            <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                         <div class="children-wrapper">
+                            <div class="node-children">
+                                <div class="org-node"><div class="node-box bg-vinculacion no-children"><span class="node-text">Desempeño de actividades acordes al programa</span></div></div>
+                                <div class="org-node"><div class="node-box bg-vinculacion no-children"><span class="node-text">Cumple con normativas legales vigentes laborales</span></div></div>
+                                <div class="org-node"><div class="node-box bg-vinculacion no-children"><span class="node-text">Constancia de cumplimiento expedida por la empresa</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="org-node">
+                        <div class="node-box bg-proyectos clickable">
+                             <span class="node-text">Proyectos Productivos</span>
+                             <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+
+
+                        <div class="children-wrapper">
+                          <div class="node-children">
+                              <div class="org-node"><div class="node-box bg-proyectos no-children"><span class="node-text">Participación en proyectos propios o SENA</span></div></div>
+                              <div class="org-node"><div class="node-box bg-proyectos no-children"><span class="node-text">Puede incluir auxilios económicos o en especie</span></div></div>
+                              <div class="org-node"><div class="node-box bg-proyectos no-children"><span class="node-text">Simulación de entornos productivos reales</span></div></div>
+                              <div class="org-node"><div class="node-box bg-proyectos no-children"><span class="node-text">Constancia expedida por el subdirector del centro</span></div></div>
+                              <div class="org-node"><div class="node-box bg-proyectos no-children"><span class="node-text">Aplicación de conocimientos, habilidades y destrezas</span></div></div>
+                              
+                          </div>
+                      </div>   
+                    </div>
+
+                    <div class="org-node">
+                        <div class="node-box bg-apoyo-ent clickable">
+                             <span class="node-text">Apoyo a entidades Estatales</span>
+                             <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                         <div class="children-wrapper">
+                            <div class="node-children">
+                                <div class="org-node"><div class="node-box bg-apoyo-ent no-children"><span class="node-text">Actividades prácticas en instituciones estatales, ONG o entidades sin ánimo de lucro</span></div></div>
+                                <div class="org-node"><div class="node-box bg-apoyo-ent no-children"><span class="node-text">Concertación directa entre aprendiz y entidad</span></div></div>
+                                <div class="org-node"><div class="node-box bg-apoyo-ent no-children"><span class="node-text">Constancia expedida por responsable en la institución</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="org-node">
+                        <div class="node-box bg-monitoria text-white clickable">
+                            <span class="node-text">Monitoria</span>
+                            <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                         <div class="children-wrapper">
+                            <div class="node-children">
+                                <div class="org-node"><div class="node-box bg-monitoria text-white no-children"><span class="node-text">Apoyo en procesos formativos en centros SENA</span></div></div>
+                                <div class="org-node"><div class="node-box bg-monitoria text-white no-children"><span class="node-text">Debe estar relacionada con su especialidad tecnológica</span></div></div>
+                                <div class="org-node"><div class="node-box bg-monitoria text-white no-children"><span class="node-text">Constancia expedida por subdirector del centro con base en resolución</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="org-node">
+                        <div class="node-box bg-pasantias text-white clickable">
+                            <span class="node-text">Pasantias</span>
+                            <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                         <div class="children-wrapper">
+                            <div class="node-children">
+                                <div class="org-node"><div class="node-box bg-pasantias text-white no-children"><span class="node-text">Incluye asesoría a PYMES</span></div></div>
+                                <div class="org-node"><div class="node-box bg-pasantias text-white no-children"><span class="node-text">Actividades prácticas ligadas al programa</span></div></div>
+                                <div class="org-node"><div class="node-box bg-pasantias text-white no-children"><span class="node-text">Requiere aprobación y registro previo</span></div></div>
+                                <div class="org-node"><div class="node-box bg-pasantias text-white no-children"><span class="node-text">Aval otorgado por el coordinador del centro</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="org-node">
+                        <div class="node-box bg-requisitos text-white clickable">
+                             <span class="node-text">Requisito para iniciar cualquier etapa</span>
+                             <i class="fas fa-chevron-down chevron-icon"></i>
+                        </div>
+                        <div class="children-wrapper">
+                            <div class="node-children-horizontal"> <div class="org-node"><div class="node-box node-box-h bg-requisitos-sub no-children"><span class="node-text">Solicitar aval y registro a la coordinación del centro</span></div></div>
+                                <div class="org-node"><div class="node-box node-box-h bg-requisitos-sub no-children"><span class="node-text">Informar datos personales, ficha, fechas, empresa o entidad</span></div></div>
+                                <div class="org-node"><div class="node-box node-box-h bg-requisitos-sub no-children"><span class="node-text">Se asigna un instructor de seguimiento y se planifican evidencias</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                </div> </div> </div> </div>
+                
+                <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Selecciona todas las cajas que son clickeables
+            const clickableBoxes = document.querySelectorAll('.node-box.clickable');
+
+            clickableBoxes.forEach(box => {
+                box.addEventListener('click', (event) => {
+                    // Evita que el click se propague a nodos padres si están anidados
+                    event.stopPropagation();
+
+                    // Encuentra el '.org-node' padre de la caja clickeada
+                    const parentNode = box.closest('.org-node');
+
+                    if (parentNode) {
+                        // Alterna la clase 'expanded' en el nodo padre
+                        parentNode.classList.toggle('expanded');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
