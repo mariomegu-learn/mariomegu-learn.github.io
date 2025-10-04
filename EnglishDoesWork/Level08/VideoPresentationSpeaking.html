@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Fun Day at the Park</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Century Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #233d4d, #fe7f2d);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .story-section {
+            transition: opacity 0.5s ease-in-out;
+            display: none; /* Hide by default */
+        }
+        .story-section.active {
+            display: block; /* Show active section */
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .highlight2 {
+            font-weight: bold;
+            color: #10B981;
+        }
+        a {
+            color: #2980b9; /* azul elegante que combina con el borde de h2 */
+            text-decoration: none; /* elimina el subrayado por defecto */
+            font-weight: bold; /* coherente con clases como .highlight */
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #e67e22; /* naranja que resalta al pasar el mouse, combina con .highlight */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+    <main class="bg-white rounded-xl shadow-lg p-8 sm:p-12 m-4 max-w-2xl w-full">
+        <!-- Main Title -->
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
+            A Fun Day at the Park
+        </h1>
+
+        <!-- Story Sections Container -->
+        <div id="story-container" class="space-y-4 text-gray-700 leading-relaxed min-h-[350px]">
+            <!-- Section 1: Intro -->
+            <div id="section-0" class="story-section active">
+                <div class="flex justify-center mb-4">
+                    <img src="../images/fountain.png" alt="fountain Image" class="w-24 h-24 object-contain">
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Presentation</h2>
+                <p class="text-center">
+                    A few years ago, I went to the park with my friend Sarah. We were walking around when I noticed a large group of people gathered near the fountain. <br>
+                    <br>Sarah asked me, <span class="highlight2">"Do you think something special is happening there?"</span> 
+                    <br>I looked over and said, <span class="highlight">"Maybe they are just having a picnic or something"</span>.
+                </p>
+            </div>
+            <!-- Section 2: Getting Closer -->
+            <div id="section-1" class="story-section">
+                 <div class="flex justify-center mb-4">
+                    <img src="../images/woman.png" alt="woman Image" class="w-24 h-24 object-contain">
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Getting Closer</h2>
+                <p class="text-center">
+                    We decided to get closer, and then Sarah told me, <span class="highlight2">"I think they’re waiting for someone important."</span> <br>
+                    <br>I was curious, so I asked, <span class="highlight">"Who could it be?"</span> 
+                    <br>Sarah smiled and replied, <span class="highlight2">"I don’t know, but let’s find out!"</span>
+                </p>
+            </div>
+            <!-- Section 3: The Announcement -->
+            <div id="section-2" class="story-section">
+                <div class="flex justify-center mb-4">
+                     <img src="../images/announcement.png" alt="announced Image" class="w-24 h-24 object-contain">
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">The Announcement</h2>
+                <p class="text-center">
+                    As we walked nearer, a woman took the microphone and announced, <span class="highlight2">"Welcome, everyone! Thank you for coming to this surprise event!"</span><br>
+                    <br> I turned to Sarah and whispered, <span class="highlight">"I didn’t expect this!"</span> 
+                    <br>Sarah laughed and said, <span class="highlight2">"Neither did I!"</span>
+                </p>
+            </div>
+            <!-- Section 4: The Surprise -->
+            <div id="section-3" class="story-section">
+                 <div class="flex justify-center mb-4">
+                    <img src="../images/music.png" alt="music Image" class="w-24 h-24 object-contain">
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">The Surprise Concert</h2>
+                <p class="text-center">
+                    It turned out to be a surprise concert! After the performance, Sarah told me, <span class="highlight2">"I’m so glad we stayed. This was so much fun!"</span> 
+                    <br><br>I agreed and said, <span class="highlight">"Yeah, it was a perfect surprise. I’m happy we decided to come to the park that day."</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="mt-8 flex justify-center">
+            <button id="next-btn" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300">
+                Next
+            </button>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="mt-8 flex justify-left">
+            <a href="https://zajuna.sena.edu.co/zajuna/user/profile.php?id=349309" target="_blank"> @Mariomegu </a>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.story-section');
+            const nextBtn = document.getElementById('next-btn');
+            let currentSection = 0;
+
+            nextBtn.addEventListener('click', () => {
+                // Hide the current section
+                sections[currentSection].classList.remove('active');
+                
+                // Move to the next section
+                currentSection++;
+                
+                // If we've passed the last section, loop back to the first
+                if (currentSection >= sections.length) {
+                    currentSection = 0;
+                }
+                
+                // Show the new current section
+                sections[currentSection].classList.add('active');
+
+                // Update button text
+                if (currentSection === sections.length - 1) {
+                    nextBtn.textContent = 'Start Over';
+                } else {
+                    nextBtn.textContent = 'Next';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
