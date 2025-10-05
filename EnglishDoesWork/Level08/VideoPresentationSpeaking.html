@@ -281,30 +281,6 @@
 
                 requestAnimationFrame(animate);
             }
-            window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                // Recalculate points for new size
-                points.length = 0;
-                for (let i = 0; i <= cols; i++) {
-                    for (let j = 0; j <= rows; j++) {
-                        const x = i * canvas.width / cols;
-                        const y = j * canvas.height / rows;
-                        const offsetX = (Math.random() - 0.5) * 150;
-                        const offsetY = (Math.random() - 0.5) * 150;
-                        points.push({ x: x + offsetX, y: y + offsetY, originalX: x + offsetX, originalY: y + offsetY });
-                    }
-                }
-                particles.length = 0;
-                for (let i = 0; i < 200; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        size: Math.random() * 5 + 1
-                    });
-                }
-            });
-
             animate();
         });
     </script>
