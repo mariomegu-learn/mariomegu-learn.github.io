@@ -204,6 +204,27 @@ function exportToWord() {
     URL.revokeObjectURL(url);
 }
 
+// Function to reset to default values
+function resetToDefaults() {
+    // Reset license to standard
+    document.getElementById('license-select').value = 'standard';
+    // Reset inputs
+    document.getElementById('input-4.1').value = '4';
+    document.getElementById('input-4.2').value = '4';
+    document.getElementById('input-4.3').value = '4';
+    document.getElementById('input-4.4').value = '3';
+    // Reset checkboxes
+    document.getElementById('checkbox-12.1').checked = true;
+    document.getElementById('checkbox-12.2').checked = false;
+    document.getElementById('checkbox-12.3').checked = false;
+    document.getElementById('checkbox-12.4').checked = false;
+    document.getElementById('checkbox-12.5').checked = false;
+    document.getElementById('checkbox-12.6').checked = false;
+    document.getElementById('checkbox-13.1').checked = false;
+    // Re-render table
+    renderTable();
+}
+
 // Event listeners for on-demand calculation
 document.addEventListener('DOMContentLoaded', () => {
     renderTable();
@@ -211,6 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('calculate-btn').addEventListener('click', renderTable);
     // Export button
     document.getElementById('export-btn').addEventListener('click', exportToWord);
+    // Reset button
+    document.getElementById('reset-btn').addEventListener('click', resetToDefaults);
     // License selector
     document.getElementById('license-select').addEventListener('change', renderTable);
     // Checkboxes for toggles
