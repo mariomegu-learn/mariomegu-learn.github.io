@@ -80,6 +80,10 @@ h3 {
     color: #2c3e50;
 }
 
+.subtask {
+    padding-left: 20px;
+}
+
 .form-check-input:checked {
     background-color: #2980b9;
     border-color: #2980b9;
