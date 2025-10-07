@@ -8,8 +8,105 @@ body {
 }
 
 .container {
+    max-width: 1200px;
+    margin: 50px auto;/* Custom styles based on provided base */
+body {
+    font-family: 'Century Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #233d4d, #fe7f2d);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     max-width: 1000px;
     margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.2em;
+    text-align: center;
+    color: #2c3e50;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin-top: 40px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.form-control, .form-select {
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #e67e22;
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+}
+
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+    background-color: #2980b9;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(41, 128, 185, 0.1);
+}
+
+.table td:nth-child(2) {
+    text-align: justify;
+}
+
+.section-header {
+    background-color: #ecf0f1 !important;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.totals-row {
+    background-color: #bdc3c7 !important;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-check-input:checked {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
     background-color: #fff;
     padding: 30px;
     border-radius: 15px;
