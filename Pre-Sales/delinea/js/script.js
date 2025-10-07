@@ -130,7 +130,7 @@ function renderTable() {
                 <td class="text-center">${task.id}</td>
                 <td class="text-justify ${subtaskClass}">${task.description}</td>
                 <td class="text-center">${effort.qty}</td>
-                <td class="text-center">${task.duration}</td>
+                <td class="text-center">${parseFloat(task.duration).toFixed(2)}</td>
                 <td class="text-center">${effort.effort}</td>
             `;
             total += parseFloat(effort.effort);
