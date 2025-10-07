@@ -123,18 +123,21 @@ function renderTable() {
             cell.textContent = task.description;
             cell.classList.add('section-header', 'text-justify', 'fw-bold');
             row.appendChild(cell);
+            tbody.appendChild(row);
         } else {
             const effort = calculateEffort(task);
-            const subtaskClass = task.id.includes('.') ? 'subtask' : '';
-            row.innerHTML = `
-                <td class="text-center">${task.id}</td>
-                <td class="text-justify ${subtaskClass}">${task.description}</td>
-                <td class="text-center">${effort.qty}</td>
-                <td class="text-center">${effort.effort}</td>
-            `;
-            total += parseFloat(effort.effort);
+            if (parseFloat(effort.effort) > 0) {
+                const subtaskClass = task.id.includes('.') ? 'subtask' : '';
+                row.innerHTML = `
+                    <td class="text-center">${task.id}</td>
+                    <td class="text-justify ${subtaskClass}">${task.description}</td>
+                    <td class="text-center">${effort.qty}</td>
+                    <td class="text-center">${effort.effort}</td>
+                `;
+                total += parseFloat(effort.effort);
+                tbody.appendChild(row);
+            }
         }
-        tbody.appendChild(row);
     });
     // Update total hours display
     document.getElementById('total-hours').textContent = `Total Hours: ${total.toFixed(2)}`;
