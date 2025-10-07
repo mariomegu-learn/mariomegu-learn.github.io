@@ -3,7 +3,7 @@
 // Array of tasks with all data from the Excel sheet
 const tasks = [
     // Section 1
-    { id: '1', description: '1 Instalación Preeliminar', isSectionHeader: true },
+    { id: '1', description: '1. Instalación Preeliminar', isSectionHeader: true },
     { id: '1.1', description: 'Instalación y configuración de una (1) instancia de Secret Server en On Premise.', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
     { id: '1.2', description: 'Instalación de Conector y Distribute Engine un solo dominio.', isSectionHeader: false, quantity: 1, duration: 8, standardBase: 8, platinumBase: 8 },
     { id: '1.3', description: 'Instalación de Privilege Remote Access un solo dominio.', isSectionHeader: false, quantity: 1, duration: 4, standardBase: 0, platinumBase: 4 },
@@ -11,7 +11,7 @@ const tasks = [
     { id: '1.5', description: 'Autenticación a la plataforma mediante MFA predeterminado de Delinea. Nota: Encluido en Estándar?', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 0, platinumBase: 2 },
     { id: '1.6', description: 'Activación de administrador ilimitado', isSectionHeader: false, quantity: 1, duration: 1, standardBase: 1, platinumBase: 1 },
     // Section 2
-    { id: '2', description: '2 Configurar funcionalidades do Secret Server', isSectionHeader: true },
+    { id: '2', description: '2. Configurar funcionalidades do Secret Server', isSectionHeader: true },
     { id: '2.1', description: 'Diseño y construcción Grupal: Active Director y propiedad del Grupo (que grupos a que carpetas).', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
     { id: '2.2', description: 'Evaluación y asignación de roles: Creación de hasta 3 roles personalizados.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     { id: '2.3', description: 'Configuración de hasta 3 carpetas', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
@@ -20,37 +20,37 @@ const tasks = [
     { id: '3.1', description: 'Creación de hasta 3 plantillas basadas en plantillas predeterminadas de la plataforma.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     { id: '3.2', description: 'Revisión de la propiedad de la plantilla.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     // Section 4
-    { id: '4', description: '4 Lanzadores, Máximo 15 secretos', isSectionHeader: true },
+    { id: '4', description: '4. Lanzadores, Máximo 15 secretos', isSectionHeader: true },
     { id: '4.1', description: 'Configurar y validar los lanzadores de RDP hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
     { id: '4.2', description: 'Configurar y validar los lanzadores de Linux hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
     { id: '4.3', description: 'Configurar y validar los lanzadores Web hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
     { id: '4.4', description: 'Configurar y validar los lanzadores SSMS hasta (3) tres secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
     // Section 5
-    { id: '5', description: '5 Políticas de secretos', isSectionHeader: true },
+    { id: '5', description: '5. Políticas de secretos', isSectionHeader: true },
     { id: '5.1', description: 'Discutir la política en blanco', isSectionHeader: false, quantity: 1, duration: 1, standardBase: 1, platinumBase: 1 },
     { id: '5.2', description: 'Cree hasta (3) tres políticas secretas', isSectionHeader: false, quantity: 3, duration: 1.5, standardBase: 4.5, platinumBase: 4.5 },
     // Section 6
-    { id: '6', description: '6 Grabación de sesiones', isSectionHeader: true },
+    { id: '6', description: '6. Grabación de sesiones', isSectionHeader: true },
     { id: '6.1', description: 'Grabación de sesión básica, maximo 15 secretos', isSectionHeader: false, quantity: 'variable', duration: 0.5, standardBase: null, platinumBase: null },
     // Section 7
-    { id: '7', description: '7 Configurar y probar el cambio de contraseña remota (RPC)', isSectionHeader: true },
+    { id: '7', description: '7. Configurar y probar el cambio de contraseña remota (RPC)', isSectionHeader: true },
     { id: '7.1', description: 'Prueba hasta dos (2) Secretos de Active Directory', isSectionHeader: false, quantity: 2, duration: 0.5, standardBase: 1, platinumBase: 1 },
     // Section 8
-    { id: '8', description: '8 Descubrimiento', isSectionHeader: true },
+    { id: '8', description: '8. Descubrimiento', isSectionHeader: true },
     { id: '8.1', description: 'Fuentes de detección de cuentas locales y de dominio de Windows Active Directory.', isSectionHeader: false, quantity: 1, duration: 3, standardBase: 3, platinumBase: 3 },
     // Section 9
-    { id: '9', description: '9 Flujo de Trabajo', isSectionHeader: true },
+    { id: '9', description: '9. Flujo de Trabajo', isSectionHeader: true },
     { id: '9.1', description: 'Configure hasta dos (2) ejemplos de Solicitud de Acceso', isSectionHeader: false, quantity: 2, duration: 2, standardBase: 0, platinumBase: 4 },
     // Section 10
-    { id: '10', description: '10 Introduccion a Reportes, Nota: Validar si estan incluidos en los licenciamientos', isSectionHeader: true },
+    { id: '10', description: '10. Introduccion a Reportes, Nota: Validar si estan incluidos en los licenciamientos', isSectionHeader: true },
     { id: '10.1', description: 'Descripcion general de los informes predeterminados en la plataforma de Secret Server', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 0, platinumBase: 2 },
     { id: '10.2', description: 'Creación de Eventos de Suscripción predeterminados', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 0, platinumBase: 2 },
     { id: '10.3', description: 'Integración con SIEM, de acuerdo los formatos disponibles en Secret Server', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 0, platinumBase: 2 },
     // Section 11
-    { id: '11', description: '11 Cambio de contraseñas (Remote Password Changing)', isSectionHeader: true },
+    { id: '11', description: '11. Cambio de contraseñas (Remote Password Changing)', isSectionHeader: true },
     { id: '11.1', description: 'Configuracion de cambio automatico de contraseña, maximo 3 secretos para Directorio Activo', isSectionHeader: false, quantity: 3, duration: 1.5, standardBase: 4.5, platinumBase: 4.5 },
     // Section 12
-    { id: '12', description: '12 Cierre del proyecto', isSectionHeader: true },
+    { id: '12', description: '12. Cierre del proyecto', isSectionHeader: true },
     { id: '12.1', description: 'Elaboración Manual Tecnico de Instalación', isSectionHeader: false, quantity: 1, duration: 6, standardBase: 6, platinumBase: 6 },
     { id: '12.2', description: 'Elaboración Manual Usuario Administrador', isSectionHeader: false, quantity: 1, duration: 5, standardBase: 5, platinumBase: 5 },
     { id: '12.3', description: 'Elaboración Manual Usuario Final', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
@@ -58,7 +58,7 @@ const tasks = [
     { id: '12.5', description: 'Capacitación Plataforma Delinea Usuarios Finales (1 sesion)', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
     { id: '12.6', description: 'Capacitación Plataforma Delinea Usuarios Administradores (4 sesiones)', isSectionHeader: false, quantity: 4, duration: 2, standardBase: 8, platinumBase: 8 },
     // Section 13
-    { id: '13', description: '13 Gerencia de proyectos', isSectionHeader: true },
+    { id: '13', description: '13. Gerencia de proyectos', isSectionHeader: true },
     { id: '13.1', description: 'Seguimiento y control a través de gerencia de proyectos', isSectionHeader: false, quantity: 1, duration: 30, standardBase: 30, platinumBase: 30 }
 ];
 
@@ -115,15 +115,28 @@ function renderTable() {
     const tbody = document.querySelector('#effort-table tbody');
     tbody.innerHTML = '';
     let total = 0;
+    // Determine visible sections
+    const visibleSections = new Set();
+    tasks.forEach(task => {
+        if (!task.isSectionHeader) {
+            const effort = calculateEffort(task);
+            if (parseFloat(effort.effort) > 0) {
+                const sectionId = task.id.split('.')[0];
+                visibleSections.add(sectionId);
+            }
+        }
+    });
     tasks.forEach(task => {
         const row = document.createElement('tr');
         if (task.isSectionHeader) {
-            const cell = document.createElement('td');
-            cell.colSpan = 4;
-            cell.textContent = task.description;
-            cell.classList.add('section-header', 'text-justify', 'fw-bold');
-            row.appendChild(cell);
-            tbody.appendChild(row);
+            if (visibleSections.has(task.id)) {
+                const cell = document.createElement('td');
+                cell.colSpan = 4;
+                cell.textContent = task.description;
+                cell.classList.add('section-header', 'text-justify', 'fw-bold');
+                row.appendChild(cell);
+                tbody.appendChild(row);
+            }
         } else {
             const effort = calculateEffort(task);
             if (parseFloat(effort.effort) > 0) {
