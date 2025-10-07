@@ -119,7 +119,7 @@ function renderTable() {
         const row = document.createElement('tr');
         if (task.isSectionHeader) {
             const cell = document.createElement('td');
-            cell.colSpan = 5;
+            cell.colSpan = 4;
             cell.textContent = task.description;
             cell.classList.add('section-header', 'text-justify', 'fw-bold');
             row.appendChild(cell);
@@ -130,7 +130,6 @@ function renderTable() {
                 <td class="text-center">${task.id}</td>
                 <td class="text-justify ${subtaskClass}">${task.description}</td>
                 <td class="text-center">${effort.qty}</td>
-                <td class="text-center">${parseFloat(task.duration).toFixed(2)}</td>
                 <td class="text-center">${effort.effort}</td>
             `;
             total += parseFloat(effort.effort);
@@ -144,7 +143,7 @@ function renderTable() {
     const totalsRow = document.createElement('tr');
     totalsRow.classList.add('totals-row');
     totalsRow.innerHTML = `
-        <td colspan="4" class="text-center fw-bold">Total:</td>
+        <td colspan="3" class="text-center fw-bold">Total:</td>
         <td class="text-center fw-bold">${total.toFixed(2)}</td>
     `;
     tbody.appendChild(totalsRow);
