@@ -165,11 +165,52 @@ function renderTable() {
     tbody.appendChild(totalsRow);
 }
 
+// Function to export table to Word
+function exportToWord() {
+    const table = document.getElementById('effort-table');
+    const totalHours = document.getElementById('total-hours').textContent;
+    const license = document.getElementById('license-select').value;
+    const htmlContent = `
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Delinea Effort Calculator - ${license.charAt(0).toUpperCase() + license.slice(1)} License</title>
+            <style>
+                body { font-family: Arial, sans-serif; }
+                table { border-collapse: collapse; width: 100%; }
+                th, td { border: 1px solid black; padding: 8px; text-align: center; }
+                th { background-color: #f2f2f2; }
+                .text-justify { text-align: justify; }
+                .section-header { font-weight: bold; background-color: #e9ecef; }
+                .subtask { font-style: italic; }
+                .totals-row { font-weight: bold; background-color: #d1ecf1; }
+                h1 { text-align: center; }
+                p { text-align: center; font-size: 18px; }
+            </style>
+        </head>
+        <body>
+            <h1>Delinea Services Effort Calculator</h1>
+            <p>${totalHours}</p>
+            ${table.outerHTML}
+        </body>
+        </html>
+    `;
+    const blob = new Blob([htmlContent], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `delinea-effort-${license}.doc`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
 // Event listeners for on-demand calculation
 document.addEventListener('DOMContentLoaded', () => {
     renderTable();
     // Calculate button
     document.getElementById('calculate-btn').addEventListener('click', renderTable);
+    // Export button
+    document.getElementById('export-btn').addEventListener('click', exportToWord);
     // License selector
     document.getElementById('license-select').addEventListener('change', renderTable);
     // Checkboxes for toggles
