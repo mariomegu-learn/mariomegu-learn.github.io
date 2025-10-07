@@ -225,11 +225,30 @@ function resetToDefaults() {
     renderTable();
 }
 
+// Function to show overlay
+function showOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add('show');
+}
+
+// Function to hide overlay
+function hideOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.classList.remove('show');
+}
+
+// Function to calculate with overlay
+function calculateWithOverlay() {
+    showOverlay();
+    renderTable();
+    setTimeout(hideOverlay, 200);
+}
+
 // Event listeners for on-demand calculation
 document.addEventListener('DOMContentLoaded', () => {
     renderTable();
     // Calculate button
-    document.getElementById('calculate-btn').addEventListener('click', renderTable);
+    document.getElementById('calculate-btn').addEventListener('click', calculateWithOverlay);
     // Export button
     document.getElementById('export-btn').addEventListener('click', exportToWord);
     // Reset button

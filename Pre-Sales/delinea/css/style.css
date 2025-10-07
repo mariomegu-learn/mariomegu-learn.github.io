@@ -1,43 +1,59 @@
-/* Custom styles based on provided base */
+/* Custom styles for Delinea Services Effort Calculator */
 body {
     font-family: 'Century Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1F3B73, #2C2C2C);
-    color: #333;
+    background-color: #1A2A44;
+    color: #FFFFFF;
     margin: 0;
     padding: 0;
 }
 
 .container {
     max-width: 1200px;
-    margin: 50px auto;/* Custom styles based on provided base */
-body {
-    font-family: 'Century Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #233d4d, #fe7f2d);
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 1000px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: #FFFFFF;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.title-section {
+    background-color: lightgray;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 h1 {
-    font-size: 2.2em;
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
     color: #2c3e50;
+    margin: 0;
+}
+
+#total-hours {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 10px 0;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.col-md-4 {
+    padding: 0 15px;
 }
 
 h3 {
     font-size: 1.5em;
     color: #34495e;
-    margin-top: 40px;
-    border-bottom: 2px solid #2980b9;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4A90E2;
     padding-bottom: 5px;
 }
 
@@ -47,122 +63,64 @@ h3 {
 }
 
 .form-control, .form-select {
-    border: 2px solid #2980b9;
+    border: 2px solid #4A90E2;
     border-radius: 8px;
     padding: 0.75rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #FFFFFF;
+    color: #333;
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: #e67e22;
-    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    background-color: #FFFFFF;
+}
+
+.form-control:hover, .form-select:hover {
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+    background-color: rgba(74, 144, 226, 0.05);
 }
 
 .table {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
 }
 
 .table thead th {
-    background-color: #2980b9;
-    color: white;
+    background-color: #A9A9A9;
+    color: #FFFFFF;
     font-weight: bold;
-    border: none;
+    border: 1px solid #D3D3D3;
+}
+
+.table tbody td {
+    border: 1px solid #D3D3D3;
+    color: #333;
 }
 
 .table tbody tr:hover {
-    background-color: rgba(41, 128, 185, 0.1);
+    background-color: rgba(74, 144, 226, 0.1);
 }
 
-.table td:nth-child(2) {
-    text-align: justify;
+.table td:nth-child(1) { /* Item */
+    width: 20%;
 }
 
-.section-header {
-    background-color: #ecf0f1 !important;
-    font-weight: bold;
-    color: #2c3e50;
+.table td:nth-child(2) { /* Task */
+    width: 60%;
+    max-width: 300px;
+    word-wrap: break-word;
 }
 
-.totals-row {
-    background-color: #bdc3c7 !important;
-    font-weight: bold;
-    color: #2c3e50;
+.table td:nth-child(3) { /* Quantity */
+    width: 20%;
 }
 
-.form-check-input:checked {
-    background-color: #2980b9;
-    border-color: #2980b9;
-}
-
-a {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #e67e22;
-    text-decoration: underline;
-}
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2.2em;
-    text-align: center;
-    color: #2c3e50;
-}
-
-h3 {
-    font-size: 1.5em;
-    color: #34495e;
-    margin-top: 40px;
-    border-bottom: 2px solid #2980b9;
-    padding-bottom: 5px;
-}
-
-.form-label {
-    font-weight: bold;
-    color: #34495e;
-}
-
-.form-control, .form-select {
-    border: 2px solid #2980b9;
-    border-radius: 8px;
-    padding: 0.75rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: #e67e22;
-    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
-}
-
-.table {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.table thead th {
-    background-color: #2980b9;
-    color: white;
-    font-weight: bold;
-    border: none;
-}
-
-.table tbody tr:hover {
-    background-color: rgba(41, 128, 185, 0.1);
-}
-
-.table td:nth-child(2) {
-    text-align: justify;
+.table td:nth-child(4) { /* Effort */
+    width: 20%;
 }
 
 .section-header {
@@ -181,19 +139,176 @@ h3 {
     padding-left: 20px;
 }
 
+.form-check-input {
+    accent-color: #D3D3D3;
+}
+
 .form-check-input:checked {
-    background-color: #2980b9;
-    border-color: #2980b9;
+    accent-color: #4A90E2;
 }
 
-a {
-    color: #2980b9;
-    text-decoration: none;
+.btn {
+    border-radius: 8px;
+    width: 120px;
+    height: 45px;
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+    border: none;
+    color: #FFFFFF;
     font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-a:hover {
-    color: #e67e22;
-    text-decoration: underline;
+.btn:hover {
+    background: linear-gradient(135deg, #357ABD, #4A90E2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #212529;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a6268, #6c757d);
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #e0a800, #ffc107);
+}
+
+.text-center.my-4 {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 19.2px; /* 24px * 0.8 */
+    }
+
+    #total-hours {
+        font-size: 14.4px; /* 18px * 0.8 */
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-4 {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .form-control, .form-select {
+        width: 100%;
+    }
+
+    .text-center.my-4 {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .table td:nth-child(2) {
+        max-width: none;
+    }
+
+    /* Table to single column */
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        border: 1px solid #D3D3D3;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .table tbody td {
+        display: block;
+        border: none;
+        text-align: left;
+    }
+
+    .table tbody td:before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+    }
+
+    .table tbody td:nth-child(1):before { content: "Item"; }
+    .table tbody td:nth-child(2):before { content: "Task"; }
+    .table tbody td:nth-child(3):before { content: "Quantity"; }
+    .table tbody td:nth-child(4):before { content: "Effort"; }
 }
