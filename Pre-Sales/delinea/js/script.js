@@ -323,39 +323,91 @@ function debounce(func, wait) {
 // Real-time calculation with debounce
 const debouncedRenderTable = debounce(renderTable, 300);
 
-// Input validation function
-function validateInputs() {
+// Function to update input maximums dynamically
+function updateInputMaximums() {
     const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'];
-    let totalSecrets = 0;
-    let hasErrors = false;
+    let totalUsed = 0;
 
+    // Calculate total used by other inputs
     inputs.forEach(id => {
-        const input = document.getElementById(id);
-        const value = parseInt(input.value) || 0;
-        if (value < 0) {
-            input.value = 0;
+        if (id !== updateInputMaximums.currentInput) {
+            totalUsed += parseInt(document.getElementById(id).value) || 0;
         }
-        if (value > 15) {
-            input.value = 15;
-        }
-        totalSecrets += parseInt(input.value) || 0;
     });
 
-    // Check total for session recording
-    const warningElement = document.getElementById('session-warning');
-    if (totalSecrets > 15) {
-        warningElement.style.display = 'block';
-        warningElement.className = 'alert alert-danger';
-        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15.';
-    } else if (totalSecrets > 15) {
-        warningElement.style.display = 'block';
-        warningElement.className = 'alert alert-warning';
-        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed recommended limit of 15; session recording will be capped at 15.';
-    } else {
-        warningElement.style.display = 'none';
+    // Update maximum for current input
+    const currentInput = document.getElementById(updateInputMaximums.currentInput);
+    const available = 15 - totalUsed;
+    currentInput.max = Math.max(0, available);
+
+    // If current value exceeds new max, adjust it
+    if (parseInt(currentInput.value) > available) {
+        currentInput.value = available;
     }
 
-    return !hasErrors;
+    // Update help text to show available slots
+    updateHelpText(updateInputMaximums.currentInput, available);
+}
+
+// Function to update help text with available slots
+function updateHelpText(inputId, available) {
+    const helpElement = document.getElementById(inputId + '-help');
+    if (helpElement) {
+        const baseText = getBaseHelpText(inputId);
+        helpElement.textContent = `${baseText} (${available} available)`;
+    }
+}
+
+// Function to get base help text for each input
+function getBaseHelpText(inputId) {
+    const helpTexts = {
+        'input-4.1': 'Maximum recommended: 4',
+        'input-4.2': 'Maximum recommended: 4',
+        'input-4.3': 'Maximum recommended: 4',
+        'input-4.4': 'Maximum recommended: 3'
+    };
+    return helpTexts[inputId] || '';
+}
+
+// Function to initialize input maximums
+function initializeInputMaximums() {
+    const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'];
+
+    inputs.forEach(id => {
+        updateInputMaximums.currentInput = id;
+        updateInputMaximums();
+    });
+}
+
+// Function to update availability display
+function updateAvailabilityDisplay() {
+    const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'];
+    let totalSecrets = 0;
+
+    inputs.forEach(id => {
+        totalSecrets += parseInt(document.getElementById(id).value) || 0;
+    });
+
+    const available = 15 - totalSecrets;
+    const availabilityText = document.getElementById('availability-text');
+    const warningElement = document.getElementById('session-warning');
+
+    if (available === 0) {
+        availabilityText.textContent = '0 secrets available - maximum reached';
+        warningElement.className = 'alert alert-warning';
+    } else if (available < 0) {
+        availabilityText.textContent = 'Exceeded maximum - please reduce selections';
+        warningElement.className = 'alert alert-danger';
+    } else {
+        availabilityText.textContent = `${available} secrets available for launchers`;
+        warningElement.className = 'alert alert-info';
+    }
+}
+
+// Input validation function
+function validateInputs() {
+    updateAvailabilityDisplay();
+    return true;
 }
 
 // Event listeners
@@ -388,9 +440,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Real-time inputs
     ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].forEach(id => {
-        document.getElementById(id).addEventListener('input', () => {
+        const input = document.getElementById(id);
+        input.addEventListener('input', () => {
+            updateInputMaximums.currentInput = id;
+            updateInputMaximums();
             validateInputs();
             debouncedRenderTable();
         });
+        // Initialize help text
+        updateHelpText(id, 15 - (parseInt(input.value) || 0));
     });
+
+    // Initialize input maximums and availability display
+    initializeInputMaximums();
+    updateAvailabilityDisplay();
 });
