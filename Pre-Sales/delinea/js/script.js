@@ -169,11 +169,18 @@ function renderTable() {
     });
     // Update total hours display with animation
     const totalHoursElement = document.getElementById('total-hours');
+    const fixedTotalHoursElement = document.getElementById('fixed-total-hours');
     const previousTotal = parseFloat(totalHoursElement.textContent.replace('Total Hours: ', '')) || 0;
-    totalHoursElement.textContent = `Total Hours: ${total.toFixed(2)}`;
+    const totalText = `Total Hours: ${total.toFixed(2)}`;
+    totalHoursElement.textContent = totalText;
+    fixedTotalHoursElement.textContent = totalText;
     if (total !== previousTotal) {
         totalHoursElement.classList.add('updated');
-        setTimeout(() => totalHoursElement.classList.remove('updated'), 500);
+        fixedTotalHoursElement.classList.add('updated');
+        setTimeout(() => {
+            totalHoursElement.classList.remove('updated');
+            fixedTotalHoursElement.classList.remove('updated');
+        }, 500);
     }
 
     // Add totals row
