@@ -16,7 +16,7 @@ const tasks = [
     { id: '2.2', description: 'Evaluación y asignación de roles: Creación de hasta 3 roles personalizados.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     { id: '2.3', description: 'Configuración de hasta 3 carpetas', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     // Section 3
-    { id: '3', description: '3 Plantilla', isSectionHeader: true },
+    { id: '3', description: '3. Plantilla', isSectionHeader: true },
     { id: '3.1', description: 'Creación de hasta 3 plantillas basadas en plantillas predeterminadas de la plataforma.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     { id: '3.2', description: 'Revisión de la propiedad de la plantilla.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     // Section 4
@@ -332,10 +332,17 @@ function validateInputs() {
     });
 
     // Check total for session recording
+    const warningElement = document.getElementById('session-warning');
     if (totalSecrets > 15) {
-        document.getElementById('session-warning').style.display = 'block';
+        warningElement.style.display = 'block';
+        warningElement.className = 'alert alert-danger';
+        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15.';
+    } else if (totalSecrets > 12) {
+        warningElement.style.display = 'block';
+        warningElement.className = 'alert alert-warning';
+        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed recommended limit of 12; session recording will be capped at 15.';
     } else {
-        document.getElementById('session-warning').style.display = 'none';
+        warningElement.style.display = 'none';
     }
 
     return !hasErrors;
