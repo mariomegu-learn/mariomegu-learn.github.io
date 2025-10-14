@@ -142,25 +142,31 @@ function renderTable() {
             if (parseFloat(effort.effort) > 0) {
                 const subtaskClass = task.id.includes('.') ? 'subtask' : '';
                 row.innerHTML = `
-                    <td class="text-center">${task.id}</td>
-                    <td class="text-justify ${subtaskClass}">${task.description}</td>
-                    <td class="text-center">${effort.qty}</td>
-                    <td class="text-center">${effort.effort}</td>
+                    <td class="text-center" data-label="Item">${task.id}</td>
+                    <td class="text-justify ${subtaskClass}" data-label="Task">${task.description}</td>
+                    <td class="text-center" data-label="Quantity">${effort.qty}</td>
+                    <td class="text-center" data-label="Effort">${effort.effort}</td>
                 `;
                 total += parseFloat(effort.effort);
                 tbody.appendChild(row);
             }
         }
     });
-    // Update total hours display
-    document.getElementById('total-hours').textContent = `Total Hours: ${total.toFixed(2)}`;
+    // Update total hours display with animation
+    const totalHoursElement = document.getElementById('total-hours');
+    const previousTotal = parseFloat(totalHoursElement.textContent.replace('Total Hours: ', '')) || 0;
+    totalHoursElement.textContent = `Total Hours: ${total.toFixed(2)}`;
+    if (total !== previousTotal) {
+        totalHoursElement.classList.add('updated');
+        setTimeout(() => totalHoursElement.classList.remove('updated'), 500);
+    }
 
     // Add totals row
     const totalsRow = document.createElement('tr');
     totalsRow.classList.add('totals-row');
     totalsRow.innerHTML = `
-        <td colspan="3" class="text-center fw-bold">Total:</td>
-        <td class="text-center fw-bold">${total.toFixed(2)}</td>
+        <td colspan="3" class="text-center fw-bold" data-label="Total">Total:</td>
+        <td class="text-center fw-bold" data-label="Total Hours">${total.toFixed(2)}</td>
     `;
     tbody.appendChild(totalsRow);
 }
@@ -170,27 +176,46 @@ function exportToWord() {
     const table = document.getElementById('effort-table');
     const totalHours = document.getElementById('total-hours').textContent;
     const license = document.getElementById('license-select').value;
+    const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].map(id => {
+        const input = document.getElementById(id);
+        const label = input.previousElementSibling.textContent;
+        return `${label}: ${input.value}`;
+    }).join('<br>');
+    const checkboxes = ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '13.1'].map(id => {
+        const checkbox = document.getElementById('checkbox-' + id);
+        const label = checkbox.nextElementSibling.textContent;
+        return `${label}: ${checkbox.checked ? 'Yes' : 'No'}`;
+    }).join('<br>');
+
     const htmlContent = `
         <html>
         <head>
             <meta charset="UTF-8">
             <title>Delinea Effort Calculator - ${license.charAt(0).toUpperCase() + license.slice(1)} License</title>
             <style>
-                body { font-family: Arial, sans-serif; }
-                table { border-collapse: collapse; width: 100%; }
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                table { border-collapse: collapse; width: 100%; margin-top: 20px; }
                 th, td { border: 1px solid black; padding: 8px; text-align: center; }
                 th { background-color: #f2f2f2; }
                 .text-justify { text-align: justify; }
                 .section-header { font-weight: bold; background-color: #e9ecef; }
                 .subtask { font-style: italic; }
                 .totals-row { font-weight: bold; background-color: #d1ecf1; }
-                h1 { text-align: center; }
-                p { text-align: center; font-size: 18px; }
+                h1 { text-align: center; color: #1A2A44; }
+                .summary { background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .summary h2 { margin-top: 0; color: #495057; }
             </style>
         </head>
         <body>
             <h1>Delinea Services Effort Calculator</h1>
-            <p>${totalHours}</p>
+            <div class="summary">
+                <h2>Configuration Summary</h2>
+                <p><strong>License Type:</strong> ${license.charAt(0).toUpperCase() + license.slice(1)}</p>
+                <p><strong>Secret Configurations:</strong><br>${inputs}</p>
+                <p><strong>Project Closure Options:</strong><br>${checkboxes}</p>
+                <p><strong>${totalHours}</strong></p>
+            </div>
+            <h2>Effort Breakdown</h2>
             ${table.outerHTML}
         </body>
         </html>
@@ -199,7 +224,7 @@ function exportToWord() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `delinea-effort-${license}.doc`;
+    a.download = `delinea-effort-${license}-${new Date().toISOString().split('T')[0]}.doc`;
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -267,22 +292,82 @@ function loadTheme() {
     }
 }
 
-// Event listeners for on-demand calculation
+// Debounce function for real-time updates
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Real-time calculation with debounce
+const debouncedRenderTable = debounce(renderTable, 300);
+
+// Input validation function
+function validateInputs() {
+    const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'];
+    let totalSecrets = 0;
+    let hasErrors = false;
+
+    inputs.forEach(id => {
+        const input = document.getElementById(id);
+        const value = parseInt(input.value) || 0;
+        if (value < 0) {
+            input.value = 0;
+        }
+        if (id !== 'input-4.4' && value > 15) { // SSMS max 3, others no strict max but warn
+            input.setCustomValidity('Maximum recommended is 15 per type');
+            hasErrors = true;
+        } else if (id === 'input-4.4' && value > 3) {
+            input.value = 3;
+        } else {
+            input.setCustomValidity('');
+        }
+        totalSecrets += parseInt(input.value) || 0;
+    });
+
+    // Check total for session recording
+    if (totalSecrets > 15) {
+        document.getElementById('session-warning').style.display = 'block';
+    } else {
+        document.getElementById('session-warning').style.display = 'none';
+    }
+
+    return !hasErrors;
+}
+
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     loadTheme();
     renderTable();
     // Theme toggle
     document.getElementById('theme-switch').addEventListener('change', toggleTheme);
     // Calculate button
-    document.getElementById('calculate-btn').addEventListener('click', calculateWithOverlay);
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+        if (validateInputs()) {
+            calculateWithOverlay();
+        }
+    });
     // Export button
     document.getElementById('export-btn').addEventListener('click', exportToWord);
     // Reset button
     document.getElementById('reset-btn').addEventListener('click', resetToDefaults);
     // License selector
-    document.getElementById('license-select').addEventListener('change', renderTable);
+    document.getElementById('license-select').addEventListener('change', debouncedRenderTable);
     // Checkboxes for toggles
     ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '13.1'].forEach(id => {
-        document.getElementById('checkbox-' + id).addEventListener('change', renderTable);
+        document.getElementById('checkbox-' + id).addEventListener('change', debouncedRenderTable);
+    });
+    // Real-time inputs
+    ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].forEach(id => {
+        document.getElementById(id).addEventListener('input', () => {
+            validateInputs();
+            debouncedRenderTable();
+        });
     });
 });
