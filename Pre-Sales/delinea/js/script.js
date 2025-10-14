@@ -77,7 +77,22 @@ function isChecked(id) {
 
 // Function to get selected license type
 function getSelectedLicense() {
-    return document.getElementById('license-select').value;
+    const activeButton = document.querySelector('.btn-license.active');
+    return activeButton ? activeButton.getAttribute('data-value') : 'standard';
+}
+
+// Function to set selected license
+function setSelectedLicense(licenseType) {
+    // Remove active class from all buttons
+    document.querySelectorAll('.btn-license').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add active class to selected button
+    const selectedButton = document.getElementById('license-' + licenseType);
+    if (selectedButton) {
+        selectedButton.classList.add('active');
+    }
 }
 
 // Function to calculate effort for a task
@@ -175,7 +190,7 @@ function renderTable() {
 function exportToWord() {
     const table = document.getElementById('effort-table');
     const totalHours = document.getElementById('total-hours').textContent;
-    const license = document.getElementById('license-select').value;
+    const license = getSelectedLicense();
     const inputs = ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].map(id => {
         const input = document.getElementById(id);
         const label = input.previousElementSibling.textContent;
@@ -232,17 +247,12 @@ function exportToWord() {
 // Function to reset to default values
 function resetToDefaults() {
     // Reset license to standard
-    document.getElementById('license-select').value = 'standard';
+    setSelectedLicense('standard');
     // Reset inputs
     document.getElementById('input-4.1').value = '4';
     document.getElementById('input-4.2').value = '4';
     document.getElementById('input-4.3').value = '4';
     document.getElementById('input-4.4').value = '3';
-    // Update display values and maximums
-    ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].forEach(id => {
-        updateSliderValue(id);
-    });
-    initializeSliderMaximums();
     // Reset checkboxes
     document.getElementById('checkbox-12.1').checked = true;
     document.getElementById('checkbox-12.2').checked = false;
@@ -364,8 +374,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('export-btn').addEventListener('click', exportToWord);
     // Reset button
     document.getElementById('reset-btn').addEventListener('click', resetToDefaults);
-    // License selector
-    document.getElementById('license-select').addEventListener('change', debouncedRenderTable);
+    // License buttons
+    document.querySelectorAll('.btn-license').forEach(button => {
+        button.addEventListener('click', () => {
+            const licenseType = button.getAttribute('data-value');
+            setSelectedLicense(licenseType);
+            debouncedRenderTable();
+        });
+    });
     // Checkboxes for toggles
     ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '13.1'].forEach(id => {
         document.getElementById('checkbox-' + id).addEventListener('change', debouncedRenderTable);

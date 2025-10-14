@@ -27,12 +27,16 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h3><i class="fas fa-rocket"></i> Licencia</h3>
-                <label for="license-select" class="form-label">License Type:</label>
-                <select class="form-select" id="license-select" aria-label="Select license type" aria-describedby="license-help">
-                    <option value="standard">Standard</option>
-                    <option value="platinum">Platinum</option>
-                </select>
+                <h3><i class="fas fa-certificate"></i> Licencia</h3>
+                <label class="form-label">License Type:</label>
+                <div class="license-buttons">
+                    <button type="button" class="btn btn-license active" id="license-standard" data-value="standard">
+                        <i class="fas fa-star"></i> Standard
+                    </button>
+                    <button type="button" class="btn btn-license" id="license-platinum" data-value="platinum">
+                        <i class="fas fa-crown"></i> Platinum
+                    </button>
+                </div>
                 <div id="license-help" class="form-text">Choose the license type to calculate effort hours accordingly.</div>
             </div>
         </div>

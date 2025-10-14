@@ -607,6 +607,73 @@ input:checked + .slider:before {
     outline-offset: 2px;
 }
 
+/* License Button Styles */
+.license-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.btn-license {
+    flex: 1;
+    max-width: 200px;
+    padding: 12px 24px;
+    border: 2px solid var(--color-gris-gms);
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 12px;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-license:hover {
+    border-color: var(--color-azul-gms);
+    background-color: var(--color-azul-gms);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.3);
+}
+
+.btn-license.active {
+    background: var(--gradiente-principal);
+    border-color: var(--color-azul-gms);
+    color: var(--color-blanco);
+    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.4);
+}
+
+.btn-license.active:hover {
+    background: var(--gradiente-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 92, 255, 0.5);
+}
+
+.btn-license i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.btn-license:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-license:active:before {
+    width: 300px;
+    height: 300px;
+}
+
 /* Print styles */
 @media print {
     body {
