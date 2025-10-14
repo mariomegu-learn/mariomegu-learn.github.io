@@ -320,13 +320,8 @@ function validateInputs() {
         if (value < 0) {
             input.value = 0;
         }
-        if (id !== 'input-4.4' && value > 15) { // SSMS max 3, others no strict max but warn
-            input.setCustomValidity('Maximum recommended is 15 per type');
-            hasErrors = true;
-        } else if (id === 'input-4.4' && value > 3) {
-            input.value = 3;
-        } else {
-            input.setCustomValidity('');
+        if (value > 15) {
+            input.value = 15;
         }
         totalSecrets += parseInt(input.value) || 0;
     });
