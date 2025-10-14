@@ -29,7 +29,7 @@
             <div class="col-md-12">
                 <h3><i class="fas fa-certificate"></i> Licencia</h3>
                 <label class="form-label">License Type:</label>
-                <div class="license-buttons">
+                <div class="license-buttons justify-content-center">
                     <button type="button" class="btn btn-license active" id="license-standard" data-value="standard">
                         <i class="fas fa-star"></i> Standard
                     </button>
@@ -37,7 +37,7 @@
                         <i class="fas fa-crown"></i> Platinum
                     </button>
                 </div>
-                <div id="license-help" class="form-text">Choose the license type to calculate effort hours accordingly.</div>
+                <div id="license-help" class="form-text text-center mt-3">Choose the license type to calculate effort hours accordingly.</div>
             </div>
         </div>
         <div class="row">
@@ -46,29 +46,31 @@
                 <div id="session-warning" class="alert alert-warning" style="display: none;" role="alert">
                     <i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15.
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
                         <div class="mb-3">
                             <label for="input-4.1" class="form-label">4.1: Number of RDP secrets:</label>
                             <input type="number" class="form-control" id="input-4.1" min="0" max="15" step="1" value="4" aria-describedby="input-4.1-help">
                             <div id="input-4.1-help" class="form-text">Maximum recommended: 15</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-3">
                             <label for="input-4.2" class="form-label">4.2: Number of Linux secrets:</label>
                             <input type="number" class="form-control" id="input-4.2" min="0" max="15" step="1" value="4" aria-describedby="input-4.2-help">
                             <div id="input-4.2-help" class="form-text">Maximum recommended: 15</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
                         <div class="mb-3">
                             <label for="input-4.3" class="form-label">4.3: Number of Web secrets:</label>
                             <input type="number" class="form-control" id="input-4.3" min="0" max="15" step="1" value="4" aria-describedby="input-4.3-help">
                             <div id="input-4.3-help" class="form-text">Maximum recommended: 15</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="mb-3">
                             <label for="input-4.4" class="form-label">4.4: Number of SSMS secrets:</label>
                             <input type="number" class="form-control" id="input-4.4" min="0" max="15" step="1" value="3" aria-describedby="input-4.4-help">

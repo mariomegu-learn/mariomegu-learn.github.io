@@ -347,10 +347,10 @@ function validateInputs() {
         warningElement.style.display = 'block';
         warningElement.className = 'alert alert-danger';
         warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15.';
-    } else if (totalSecrets > 12) {
+    } else if (totalSecrets > 15) {
         warningElement.style.display = 'block';
         warningElement.className = 'alert alert-warning';
-        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed recommended limit of 12; session recording will be capped at 15.';
+        warningElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed recommended limit of 15; session recording will be capped at 15.';
     } else {
         warningElement.style.display = 'none';
     }
