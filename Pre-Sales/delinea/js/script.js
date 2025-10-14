@@ -400,7 +400,7 @@ function updateAvailabilityDisplay() {
         availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15. (Available: ' + Math.max(0, available) + ')';
     } else if (available === 0) {
         warningElement.className = 'alert alert-danger';
-        availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Cantidad máxima de secretos disponibles: 15 (<strong>Sin disponibilidad</strong>)';
+        availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Cantidad máxima de secretos disponibles: 15 (<strong>Ya ha seleccionado la cantidad máxima de secretos disponibles</strong>)';
     } else if (totalSecrets > 12) {
         warningElement.className = 'alert alert-warning';
         availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Cantidad máxima de secretos disponibles: 15 (Restantes: ' + available + ')';
