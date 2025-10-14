@@ -1,4 +1,4 @@
-/* CSS Variables for GMS Branding - Light Theme Only */
+/* CSS Variables for GMS Branding */
 :root {
     /* Colores principales */
     --color-azul-gms: #005CFF;
@@ -14,7 +14,7 @@
     --gradiente-principal: linear-gradient(135deg, var(--color-azul-gms), var(--color-darkblue-gms));
     --gradiente-secundario: radial-gradient(circle, var(--color-aqua-gms) 0%, var(--color-azul-gms) 100%);
 
-    /* Variables de aplicación */
+    /* Legacy variables for compatibility */
     --bg-color: var(--color-blanco);
     --text-color: var(--color-negro);
     --card-bg: var(--color-blanco);
@@ -23,11 +23,39 @@
     --neutral: #F8F9FA;
     --success: #28A745;
     --header-bg: var(--gradiente-principal);
-    --border: #E0E0E0;
+    --border: var(--color-gris-gms);
     --warning: #FFC107;
     --danger: #DC3545;
     --info: var(--color-aqua-gms);
     --secondary: var(--color-gris-gms);
+}
+
+[data-theme="light"] {
+    --bg-color: var(--color-blanco);
+    --text-color: var(--color-negro);
+    --card-bg: var(--color-blanco);
+    --card-text: var(--color-negro);
+    --neutral: #F8F9FA;
+    --header-bg: var(--gradiente-principal);
+    --border: var(--color-gris-gms);
+    --warning: #FFC107;
+    --danger: #DC3545;
+    --info: var(--color-aqua-gms);
+    --secondary: var(--color-gris-gms);
+}
+
+[data-theme="dark"] {
+    --bg-color: var(--color-negro);
+    --text-color: var(--color-blanco);
+    --card-bg: #2A2A2A;
+    --card-text: var(--color-blanco);
+    --neutral: #3A3A3A;
+    --header-bg: var(--gradiente-principal);
+    --border: #555555;
+    --warning: #FFC107;
+    --danger: #DC3545;
+    --info: var(--color-aqua-gms);
+    --secondary: #666666;
 }
 
 /* Custom styles for Delinea Services Effort Calculator */
@@ -86,7 +114,7 @@ h1 {
     gap: 24px; /* Adds horizontal separation between columns */
 }
 
-.col-md-4 {
+.col-md-4, .col-md-6, .col-md-12 {
     padding: 24px;
     background-color: var(--neutral); /* Ensure this variable is defined */
     border-radius: 8px;
@@ -94,7 +122,7 @@ h1 {
     flex: 1; /* Allows columns to grow evenly */
 }
 
-.col-md-4:hover {
+.col-md-4:hover, .col-md-6:hover, .col-md-12:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -344,7 +372,56 @@ button:hover, .btn:hover {
     font-weight: bold;
 }
 
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary);
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--card-bg);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -359,6 +436,9 @@ button:hover, .btn:hover {
         gap: 16px;
     }
 
+    .theme-toggle {
+        align-self: flex-end;
+    }
 
     h1 {
         font-size: 24px;
@@ -440,14 +520,14 @@ button:hover, .btn:hover {
     animation: fadeIn 0.5s ease-out;
 }
 
-.col-md-4 {
+.col-md-4, .col-md-6, .col-md-12 {
     animation: fadeIn 0.5s ease-out;
     animation-fill-mode: both;
 }
 
-.col-md-4:nth-child(1) { animation-delay: 0.1s; }
-.col-md-4:nth-child(2) { animation-delay: 0.2s; }
-.col-md-4:nth-child(3) { animation-delay: 0.3s; }
+.col-md-4:nth-child(1), .col-md-6:nth-child(1), .col-md-12:nth-child(1) { animation-delay: 0.1s; }
+.col-md-4:nth-child(2), .col-md-6:nth-child(2), .col-md-12:nth-child(2) { animation-delay: 0.2s; }
+.col-md-4:nth-child(3), .col-md-6:nth-child(3), .col-md-12:nth-child(3) { animation-delay: 0.3s; }
 
 .btn {
     position: relative;
@@ -540,6 +620,9 @@ button:hover, .btn:hover {
         max-width: none !important;
     }
 
+    .theme-toggle, .btn {
+        display: none !important;
+    }
 
     .table {
         border: 1px solid #000 !important;
