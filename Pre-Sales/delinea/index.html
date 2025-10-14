@@ -4,25 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delinea Services Effort Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="title-section">
-            <h1>Delinea Services Effort Calculator</h1>
-            <div id="total-hours">Total Hours: 0.00</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1>Delinea Services Effort Calculator</h1>
+                    <div id="total-hours">Total Hours: 0.00</div>
+                </div>
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
         </div>
         <div class="mb-3">
             <label for="license-select" class="form-label">License Type:</label>
-            <select class="form-select" id="license-select">
+            <select class="form-select" id="license-select" aria-label="Select license type">
                 <option value="standard">Standard</option>
                 <option value="platinum">Platinum</option>
             </select>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h3>Lanzadores</h3>
+                <h3><i class="fas fa-rocket"></i> Lanzadores</h3>
                 <div class="mb-3">
                     <label for="input-4.1" class="form-label">4.1: Number of RDP secrets:</label>
                     <input type="number" class="form-control" id="input-4.1" min="0" step="1" value="4">
@@ -41,7 +53,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h3>Cierre del proyecto</h3>
+                <h3><i class="fas fa-check-circle"></i> Cierre del proyecto</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.1" checked>
                     <label class="form-check-label" for="checkbox-12.1">12.1: Include Technical Installation Manual?</label>
@@ -68,7 +80,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h3>Gerencia de proyectos</h3>
+                <h3><i class="fas fa-users-cog"></i> Gerencia de proyectos</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-13.1">
                     <label class="form-check-label" for="checkbox-13.1">13.1: Include Project Management?</label>
@@ -76,9 +88,9 @@
             </div>
         </div>
         <div class="text-center my-4">
-            <button id="calculate-btn" class="btn btn-primary">Calculate</button>
-            <button id="export-btn" class="btn btn-secondary ms-2">Export to Word</button>
-            <button id="reset-btn" class="btn btn-warning ms-2">Reset</button>
+            <button id="calculate-btn" class="btn btn-primary"><i class="fas fa-calculator"></i> Calculate</button>
+            <button id="export-btn" class="btn btn-secondary"><i class="fas fa-file-word"></i> Export to Word</button>
+            <button id="reset-btn" class="btn btn-warning"><i class="fas fa-undo"></i> Reset</button>
         </div>
         <table id="effort-table" class="table table-bordered">
             <thead>

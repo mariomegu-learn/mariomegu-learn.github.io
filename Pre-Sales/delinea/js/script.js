@@ -244,9 +244,35 @@ function calculateWithOverlay() {
     setTimeout(hideOverlay, 200);
 }
 
+// Theme toggle functionality
+function toggleTheme() {
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+    if (themeSwitch.checked) {
+        body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Load saved theme
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeSwitch = document.getElementById('theme-switch');
+    if (savedTheme === 'light') {
+        themeSwitch.checked = true;
+        document.body.setAttribute('data-theme', 'light');
+    }
+}
+
 // Event listeners for on-demand calculation
 document.addEventListener('DOMContentLoaded', () => {
+    loadTheme();
     renderTable();
+    // Theme toggle
+    document.getElementById('theme-switch').addEventListener('change', toggleTheme);
     // Calculate button
     document.getElementById('calculate-btn').addEventListener('click', calculateWithOverlay);
     // Export button
