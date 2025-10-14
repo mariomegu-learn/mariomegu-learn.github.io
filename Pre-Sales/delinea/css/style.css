@@ -682,6 +682,62 @@ input:checked + .slider:before {
     height: 300px;
 }
 
+/* Action Button Styles */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.btn-action {
+    flex: 1;
+    max-width: 180px;
+    padding: 12px 24px;
+    border: 2px solid var(--color-gris-gms);
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 12px;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.btn-action:hover {
+    border-color: var(--color-azul-gms);
+    background-color: var(--color-azul-gms);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.3);
+    opacity: 1;
+}
+
+.btn-action i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.btn-action:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-action:active:before {
+    width: 300px;
+    height: 300px;
+}
+
 /* Print styles */
 @media print {
     body {

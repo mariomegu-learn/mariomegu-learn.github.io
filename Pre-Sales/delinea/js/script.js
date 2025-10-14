@@ -392,15 +392,21 @@ function updateAvailabilityDisplay() {
     const availabilityText = document.getElementById('availability-text');
     const warningElement = document.getElementById('session-warning');
 
-    if (available === 0) {
-        availabilityText.textContent = '0 secrets available - maximum reached';
-        warningElement.className = 'alert alert-warning';
-    } else if (available < 0) {
-        availabilityText.textContent = 'Exceeded maximum - please reduce selections';
+    // Always show the availability
+    warningElement.style.display = 'block';
+
+    if (totalSecrets > 15) {
         warningElement.className = 'alert alert-danger';
-    } else {
-        availabilityText.textContent = `${available} secrets available for launchers`;
+        availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Total secrets exceed 15; session recording will be capped at 15. (Available: ' + Math.max(0, available) + ')';
+    } else if (totalSecrets > 12) {
+        warningElement.className = 'alert alert-warning';
+        availabilityText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Cantidad máxima de secretos disponibles: 15 (Restantes: ' + available + ')';
+    } else if (totalSecrets === 15) {
         warningElement.className = 'alert alert-info';
+        availabilityText.innerHTML = '<i class="fas fa-info-circle"></i> Cantidad máxima de secretos disponibles: 15 (Todos asignados)';
+    } else {
+        warningElement.className = 'alert alert-info';
+        availabilityText.innerHTML = '<i class="fas fa-info-circle"></i> Cantidad máxima de secretos disponibles: 15 (Restantes: ' + available + ')';
     }
 }
 
