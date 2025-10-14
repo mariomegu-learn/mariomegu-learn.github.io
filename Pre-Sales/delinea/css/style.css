@@ -1,43 +1,45 @@
-/* CSS Variables for Theming */
+/* CSS Variables for GMS Branding - Light Theme Only */
 :root {
-    --bg-color: #1A2A44;
-    --text-color: #FFFFFF;
-    --card-bg: #FFFFFF;
-    --card-text: #333;
-    --accent: #4A90E2;
+    /* Colores principales */
+    --color-azul-gms: #005CFF;
+    --color-negro: #222222;
+    --color-blanco: #FFFFFF;
+
+    /* Colores secundarios */
+    --color-gris-gms: #C8C8C8;
+    --color-aqua-gms: #5FFFE5;
+    --color-darkblue-gms: #00205C;
+
+    /* Gradientes y efectos */
+    --gradiente-principal: linear-gradient(135deg, var(--color-azul-gms), var(--color-darkblue-gms));
+    --gradiente-secundario: radial-gradient(circle, var(--color-aqua-gms) 0%, var(--color-azul-gms) 100%);
+
+    /* Variables de aplicación */
+    --bg-color: var(--color-blanco);
+    --text-color: var(--color-negro);
+    --card-bg: var(--color-blanco);
+    --card-text: var(--color-negro);
+    --accent: var(--color-azul-gms);
     --neutral: #F8F9FA;
     --success: #28A745;
-    --header-bg: linear-gradient(to bottom, #1A2A44, #2C3E50);
-    --border: #495057;
+    --header-bg: var(--gradiente-principal);
+    --border: #E0E0E0;
     --warning: #FFC107;
     --danger: #DC3545;
-    --info: #17A2B8;
-    --secondary: #6C757D;
-}
-
-[data-theme="light"] {
-    --bg-color: #F8F9FA;
-    --text-color: #333;
-    --card-bg: #FFFFFF;
-    --card-text: #333;
-    --neutral: #F8F9FA;
-    --header-bg: linear-gradient(to bottom, #E9ECEF, #DEE2E6);
-    --border: #DEE2E6;
-    --warning: #FFC107;
-    --danger: #DC3545;
-    --info: #17A2B8;
-    --secondary: #6C757D;
+    --info: var(--color-aqua-gms);
+    --secondary: var(--color-gris-gms);
 }
 
 /* Custom styles for Delinea Services Effort Calculator */
 body {
-    font-family: 'Century Gothic','Inter', 'Roboto', sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 16px;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
 }
 
 .container {
@@ -59,12 +61,16 @@ body {
     color: var(--text-color);
 }
 
+h1, h2, h3, h4 {
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--color-azul-gms);
+}
+
 h1 {
     font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
     margin: 0;
-    color: var(--text-color);
 }
 
 #total-hours {
@@ -99,7 +105,7 @@ h3 {
     color: var(--card-text);
     margin-top: 0;
     margin-bottom: 16px;
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 2px solid var(--color-azul-gms);
     padding-bottom: 8px;
     display: flex;
     align-items: center;
@@ -107,7 +113,7 @@ h3 {
 }
 
 h3 i {
-    color: var(--accent);
+    color: var(--color-azul-gms);
 }
 
 .form-label {
@@ -220,9 +226,8 @@ h3 i {
 }
 
 .form-text {
-    font-size: 0.875rem;
-    color: var(--text-color);
-    opacity: 0.7;
+    font-size: 0.9rem;
+    color: var(--color-gris-gms);
 }
 
 .form-text.small {
@@ -278,53 +283,28 @@ h3 i {
     margin-right: 0.5rem;
 }
 
-.btn {
-    border-radius: 6px;
-    width: 140px;
-    height: 48px;
-    background: var(--accent);
+button, .btn {
+    background: var(--color-azul-gms);
+    color: var(--color-blanco);
     border: none;
-    color: #FFFFFF;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-family: 'Encode Sans Expanded', sans-serif;
     font-weight: 600;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.3);
 }
 
-.btn:hover {
-    background: #3A7BD5;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.btn:active {
-    transform: translateY(0);
-}
-
-.btn-primary {
-    background: var(--accent);
-}
-
-.btn-secondary {
-    background: #6c757d;
-}
-
-.btn-warning {
-    background: #ffc107;
-    color: #212529;
-}
-
-.btn-secondary:hover {
-    background: #5a6268;
-}
-
-.btn-warning:hover {
-    background: #e0a800;
+button:hover, .btn:hover {
+    background: var(--color-darkblue-gms);
+    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .text-center.my-4 {
@@ -364,56 +344,7 @@ h3 i {
     font-weight: bold;
 }
 
-/* Theme Toggle */
-.theme-toggle {
-    display: flex;
-    align-items: center;
-}
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--secondary);
-    transition: 0.3s;
-    border-radius: 24px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: var(--card-bg);
-    transition: 0.3s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: var(--accent);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -428,9 +359,6 @@ input:checked + .slider:before {
         gap: 16px;
     }
 
-    .theme-toggle {
-        align-self: flex-end;
-    }
 
     h1 {
         font-size: 24px;
@@ -569,35 +497,29 @@ input:checked + .slider:before {
 
 /* Enhanced button styles for better theme integration */
 .btn-primary {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--color-azul-gms);
 }
 
 .btn-primary:hover {
-    background: #3A7BD5;
-    border-color: #3A7BD5;
+    background: var(--color-darkblue-gms);
 }
 
 .btn-secondary {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    color: #FFFFFF;
+    background: var(--color-gris-gms);
+    color: var(--color-negro);
 }
 
 .btn-secondary:hover {
-    background: #5a6268;
-    border-color: #5a6268;
+    background: #A8A8A8;
 }
 
 .btn-warning {
     background: var(--warning);
-    border-color: var(--warning);
     color: #212529;
 }
 
 .btn-warning:hover {
     background: #e0a800;
-    border-color: #e0a800;
 }
 
 .btn:focus {
@@ -618,9 +540,6 @@ input:checked + .slider:before {
         max-width: none !important;
     }
 
-    .theme-toggle, .btn {
-        display: none !important;
-    }
 
     .table {
         border: 1px solid #000 !important;
