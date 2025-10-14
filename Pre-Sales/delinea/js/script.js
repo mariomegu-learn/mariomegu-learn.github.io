@@ -238,6 +238,11 @@ function resetToDefaults() {
     document.getElementById('input-4.2').value = '4';
     document.getElementById('input-4.3').value = '4';
     document.getElementById('input-4.4').value = '3';
+    // Update display values and maximums
+    ['input-4.1', 'input-4.2', 'input-4.3', 'input-4.4'].forEach(id => {
+        updateSliderValue(id);
+    });
+    initializeSliderMaximums();
     // Reset checkboxes
     document.getElementById('checkbox-12.1').checked = true;
     document.getElementById('checkbox-12.2').checked = false;

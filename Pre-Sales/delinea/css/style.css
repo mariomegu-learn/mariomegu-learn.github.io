@@ -108,7 +108,7 @@ h3 i {
     margin-bottom: 8px;
 }
 
-.form-control, .form-select {
+.form-control, .form-select, .form-range {
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 12px;
@@ -118,13 +118,13 @@ h3 i {
     font-size: 16px;
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus, .form-select:focus, .form-range:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
     outline: none;
 }
 
-.form-control:hover, .form-select:hover {
+.form-control:hover, .form-select:hover, .form-range:hover {
     border-color: var(--accent);
 }
 
@@ -524,7 +524,7 @@ input:checked + .slider:before {
 }
 
 /* Improved focus states for accessibility */
-.form-control:focus, .form-select:focus, .form-check-input:focus {
+.form-control:focus, .form-select:focus, .form-range:focus, .form-check-input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
     outline: 2px solid transparent;
