@@ -125,7 +125,7 @@ function renderTable() {
     // Update header
     const license = getSelectedLicense();
     const header = document.getElementById('effort-header');
-    header.textContent = license.charAt(0).toUpperCase() + license.slice(1) + ' Effort';
+    header.textContent = license.charAt(0).toUpperCase() + license.slice(1) + ' - Horas';
 
     const tbody = document.querySelector('#effort-table tbody');
     tbody.innerHTML = '';
