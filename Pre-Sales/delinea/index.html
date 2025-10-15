@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delinea Services Effort Calculator</title>
+    <title>Calculadora de Esfuerzo de Servicios Delinea</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Encode+Sans+Expanded:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,15 +13,15 @@
     <div id="fixed-hours-box" class="fixed-hours-box">
         <div class="hours-display">
             <i class="fas fa-clock"></i>
-            <span id="fixed-total-hours">Total Hours: 0.00</span>
+            <span id="fixed-total-hours">Horas Totales: 0.00</span>
         </div>
     </div>
     <div class="container">
         <div class="title-section">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h1>Delinea Services Effort Calculator</h1>
-                    <div id="total-hours">Total Hours: 0.00</div>
+                    <h1>Calculadora de Esfuerzo de Servicios Delinea</h1>
+                    <div id="total-hours">Horas Totales: 0.00</div>
                 </div>
                 <div class="theme-toggle">
                     <label class="switch">
@@ -34,16 +34,16 @@
         <div class="row">
             <div class="col-md-12">
                 <h3><i class="fas fa-certificate"></i> Licencia</h3>
-                <label class="form-label">License Type:</label>
+                <label class="form-label">Tipo de Licencia:</label>
                 <div class="license-buttons justify-content-center">
                     <button type="button" class="btn btn-license active" id="license-standard" data-value="standard">
-                        <i class="fas fa-star"></i> Standard
+                        <i class="fas fa-star"></i> Estándar
                     </button>
                     <button type="button" class="btn btn-license" id="license-platinum" data-value="platinum">
-                        <i class="fas fa-crown"></i> Platinum
+                        <i class="fas fa-crown"></i> Platino
                     </button>
                 </div>
-                <div id="license-help" class="form-text text-center mt-3">Choose the license type to calculate effort hours accordingly.</div>
+                <div id="license-help" class="form-text text-center mt-3">Elija el tipo de licencia para calcular las horas de esfuerzo en consecuencia.</div>
             </div>
         </div>
         <div class="row">
@@ -55,14 +55,14 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="mb-3">
-                            <label for="input-4.1" class="form-label">4.1: Number of RDP secrets:</label>
+                            <label for="input-4.1" class="form-label">4.1: Número de secretos RDP:</label>
                             <input type="number" class="form-control" id="input-4.1" min="0" max="4" step="1" value="4" aria-describedby="input-4.1-help">
 
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="mb-3">
-                            <label for="input-4.2" class="form-label">4.2: Number of Linux secrets:</label>
+                            <label for="input-4.2" class="form-label">4.2: Número de secretos Linux:</label>
                             <input type="number" class="form-control" id="input-4.2" min="0" max="4" step="1" value="4" aria-describedby="input-4.2-help">
 
                         </div>
@@ -71,14 +71,14 @@
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <div class="mb-3">
-                            <label for="input-4.3" class="form-label">4.3: Number of Web secrets:</label>
+                            <label for="input-4.3" class="form-label">4.3: Número de secretos Web:</label>
                             <input type="number" class="form-control" id="input-4.3" min="0" max="4" step="1" value="4" aria-describedby="input-4.3-help">
 
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="mb-3">
-                            <label for="input-4.4" class="form-label">4.4: Number of SSMS secrets:</label>
+                            <label for="input-4.4" class="form-label">4.4: Número de secretos SSMS:</label>
                             <input type="number" class="form-control" id="input-4.4" min="0" max="3" step="1" value="3" aria-describedby="input-4.4-help">
 
                         </div>
@@ -91,56 +91,56 @@
                 <h3><i class="fas fa-check-circle"></i> Cierre del proyecto</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.1" checked aria-describedby="checkbox-12.1-help">
-                    <label class="form-check-label" for="checkbox-12.1">12.1: Include Technical Installation Manual?</label>
-                    <div id="checkbox-12.1-help" class="form-text small">6 hours - Technical documentation for installation</div>
+                    <label class="form-check-label" for="checkbox-12.1">12.1: ¿Incluir Manual de Instalación Técnica?</label>
+                    <div id="checkbox-12.1-help" class="form-text small">6 horas - Documentación técnica para instalación</div>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.2" aria-describedby="checkbox-12.2-help">
-                    <label class="form-check-label" for="checkbox-12.2">12.2: Include Admin User Manual?</label>
-                    <div id="checkbox-12.2-help" class="form-text small">5 hours - Administrator guide</div>
+                    <label class="form-check-label" for="checkbox-12.2">12.2: ¿Incluir Manual de Usuario Administrador?</label>
+                    <div id="checkbox-12.2-help" class="form-text small">5 horas - Guía del administrador</div>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.3" aria-describedby="checkbox-12.3-help">
-                    <label class="form-check-label" for="checkbox-12.3">12.3: Include End-User Manual?</label>
-                    <div id="checkbox-12.3-help" class="form-text small">2 hours - User guide for end-users</div>
+                    <label class="form-check-label" for="checkbox-12.3">12.3: ¿Incluir Manual de Usuario Final?</label>
+                    <div id="checkbox-12.3-help" class="form-text small">2 horas - Guía de usuario para usuarios finales</div>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.4" aria-describedby="checkbox-12.4-help">
-                    <label class="form-check-label" for="checkbox-12.4">12.4: Include Training Slides for Admins?</label>
-                    <div id="checkbox-12.4-help" class="form-text small">4 hours - Presentation slides for admin training</div>
+                    <label class="form-check-label" for="checkbox-12.4">12.4: ¿Incluir Diapositivas de Entrenamiento para Administradores?</label>
+                    <div id="checkbox-12.4-help" class="form-text small">4 horas - Diapositivas de presentación para entrenamiento de administradores</div>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.5" aria-describedby="checkbox-12.5-help">
-                    <label class="form-check-label" for="checkbox-12.5">12.5: Include End-User Training Session (1 session)?</label>
-                    <div id="checkbox-12.5-help" class="form-text small">2 hours - One training session for end-users</div>
+                    <label class="form-check-label" for="checkbox-12.5">12.5: ¿Incluir Sesión de Entrenamiento para Usuario Final (1 sesión)?</label>
+                    <div id="checkbox-12.5-help" class="form-text small">2 horas - Una sesión de entrenamiento para usuarios finales</div>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-12.6" aria-describedby="checkbox-12.6-help">
-                    <label class="form-check-label" for="checkbox-12.6">12.6: Include Admin Training Sessions (4 sessions)?</label>
-                    <div id="checkbox-12.6-help" class="form-text small">8 hours - Four training sessions for administrators</div>
+                    <label class="form-check-label" for="checkbox-12.6">12.6: ¿Incluir Sesiones de Entrenamiento para Administradores (4 sesiones)?</label>
+                    <div id="checkbox-12.6-help" class="form-text small">8 horas - Cuatro sesiones de entrenamiento para administradores</div>
                 </div>
             </div>
             <div class="col-md-6">
                 <h3><i class="fas fa-users-cog"></i> Gerencia de proyectos</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="checkbox-13.1" aria-describedby="checkbox-13.1-help">
-                    <label class="form-check-label" for="checkbox-13.1">13.1: Include Project Management?</label>
-                    <div id="checkbox-13.1-help" class="form-text small">30 hours - Full project management oversight</div>
+                    <label class="form-check-label" for="checkbox-13.1">13.1: ¿Incluir Gestión de Proyectos?</label>
+                    <div id="checkbox-13.1-help" class="form-text small">30 horas - Supervisión completa de gestión de proyectos</div>
                 </div>
             </div>
         </div>
         <div class="action-buttons justify-content-center">
-            <button id="calculate-btn" class="btn btn-action" aria-label="Calculate total effort hours"><i class="fas fa-calculator"></i> Calculate</button>
-            <button id="export-btn" class="btn btn-action" aria-label="Export results to Word document"><i class="fas fa-file-word"></i> Export to Word</button>
-            <button id="reset-btn" class="btn btn-action" aria-label="Reset all inputs to default values"><i class="fas fa-undo"></i> Reset</button>
+            <button id="calculate-btn" class="btn btn-action" aria-label="Calcular horas totales de esfuerzo"><i class="fas fa-calculator"></i> Calcular</button>
+            <button id="export-btn" class="btn btn-action" aria-label="Exportar resultados a documento Word"><i class="fas fa-file-word"></i> Exportar a Word</button>
+            <button id="reset-btn" class="btn btn-action" aria-label="Reiniciar todas las entradas a valores predeterminados"><i class="fas fa-undo"></i> Reiniciar</button>
         </div>
         <table id="effort-table" class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="text-justify">Item</th>
-                    <th class="text-justify">Task</th>
-                    <th class="text-justify">Quantity</th>
-                    <th id="effort-header" class="text-justify">Effort</th>
+                    <th class="text-justify">Elemento</th>
+                    <th class="text-justify">Tarea</th>
+                    <th class="text-justify">Cantidad</th>
+                    <th id="effort-header" class="text-justify">Esfuerzo</th>
                 </tr>
             </thead>
             <tbody>
@@ -149,7 +149,7 @@
         </table>
     </div>
     <div id="overlay" class="overlay">
-        <div class="overlay-content">Calculating...</div>
+        <div class="overlay-content">Calculando...</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
