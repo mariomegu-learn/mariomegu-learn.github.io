@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             progress = 100;
             clearInterval(progressInterval);
         }
-        progressBar.style.setProperty('--progress', progress + '%');
+        progressBar.style.width = progress + '%';
         progressText.textContent = 'Descargando datos... ' + Math.round(progress) + '%';
     }, 200);
 
@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeOverlay() {
         clearInterval(progressInterval); // Detener la barra de progreso
         overlay.style.display = 'none';
-        mainContent.classList.remove('hidden');
-        mainContent.classList.add('show');
+        mainContent.style.opacity = '1';
     }
 
     // Event listener para el botón de cerrar
