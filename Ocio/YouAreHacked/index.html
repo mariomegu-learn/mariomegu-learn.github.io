@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riesgos de Escanear Códigos QR</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Overlay de advertencia inicial -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>¡Haz sido hackeado!</h1>
+            <p>Toda la información de su celular esta siendo descargada en este momento.</p>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+                <p id="progressText">Descargando datos... 0%</p>
+            </div>
+            <button id="closeOverlay">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Contenido principal de concienciación -->
+    <div id="mainContent" class="main-content hidden">
+        <header>
+            <h1>Riesgos de Escanear Códigos QR</h1>
+            <h2>Tranquil@ esto es una simulación</h2>
+            <p>Aprende por qué debes ser cauteloso al escanear códigos QR en la vida cotidiana.</p>
+        </header>
+
+        <section id="introduccion">
+            <h2>¿Qué son los Códigos QR?</h2>
+            <p>Los códigos QR (Quick Response) son códigos de barras bidimensionales que almacenan información. Se usan comúnmente para acceder rápidamente a sitios web, compartir datos o realizar pagos.</p>
+        </section>
+
+        <section id="riesgos">
+            <h2>Riesgos Asociados</h2>
+            <ul>
+                <li><strong>Phishing:</strong> Los códigos QR pueden dirigirte a sitios falsos que roban tus datos personales, como contraseñas o información bancaria.</li>
+                <li><strong>Malware:</strong> Escanear un código QR malicioso puede instalar virus o ransomware en tu dispositivo.</li>
+                <li><strong>Robo de Identidad:</strong> Información sensible puede ser capturada sin que te des cuenta.</li>
+                <li><strong>Enlaces Engañosos:</strong> Códigos QR en lugares públicos pueden ser alterados para redirigir a contenido peligroso.</li>
+            </ul>
+        </section>
+
+        <section id="consejos">
+            <h2>Consejos para Protegerte</h2>
+            <ul>
+                <li>Verifica la fuente del código QR antes de escanearlo.</li>
+                <li>Usa aplicaciones de escaneo confiables con funciones de seguridad.</li>
+                <li>No escanees códigos QR de fuentes desconocidas o sospechosas.</li>
+                <li>Mantén tu dispositivo actualizado con software antivirus.</li>
+                <li>Si algo parece sospechoso, no lo escanees.</li>
+            </ul>
+        </section>
+
+        <section id="ejemplos">
+            <h2>Ejemplos Reales</h2>
+            <p>En 2023, varios ataques de phishing utilizaron códigos QR en carteles publicitarios para robar credenciales de usuarios. Siempre verifica antes de actuar.</p>
+        </section>
+
+        <footer>
+            <p>Recuerda: La seguridad en línea comienza con la precaución. ¡Mantente informado!</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
