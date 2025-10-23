@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Lista de archivos simulados
+    const files = [
+        'contacts.db', 'messages.db', 'photos/', 'videos/', 'documents/', 'location_history.db',
+        'browser_history.db', 'app_data/', 'system_logs.txt', 'user_profile.json', 'settings.cfg',
+        'cache/', 'temp_files/', 'backup_data.zip', 'media_library.db', 'call_logs.db'
+    ];
+
     const overlay = document.getElementById('overlay');
     const closeButton = document.getElementById('closeOverlay');
     const mainContent = document.getElementById('mainContent');
@@ -18,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let progress = 0;
     let progressComplete = false;
+    let fileIndex = 0;
+    const fileTransferElement = document.getElementById('fileTransfer');
+
     const progressInterval = setInterval(function() {
         progress += 1; // Incremento fijo para simular descarga lenta
         if (progress >= 100) {
@@ -25,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
             progressComplete = true;
             clearInterval(progressInterval);
             document.getElementById('closeOverlay').style.display = 'block'; // Mostrar botón al completar
+            fileTransferElement.textContent = 'Transferencia completada';
+        } else {
+            // Mostrar archivo actual siendo transferido
+            const currentFile = files[fileIndex % files.length];
+            fileTransferElement.textContent = `Transfiriendo: ${currentFile}`;
+            fileTransferElement.style.opacity = '1';
+            fileIndex++;
         }
         progressBar.style.width = progress + '%';
         progressText.textContent = 'Descargando datos... ' + Math.round(progress) + '%';

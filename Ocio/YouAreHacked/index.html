@@ -48,12 +48,13 @@
                             <div id="overlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
                                 <div class="bg-white dark:bg-white/5 p-8 rounded-xl border border-gray-200 dark:border-white/10 max-w-md w-full mx-4 text-center">
                                     <h1 class="text-red-600 text-3xl font-black mb-4">¡Usted ha sido hackeado!</h1>
-                                    <p class="text-gray-600 dark:text-white/70 mb-6">Toda la información de su celular esta siendo descargada en este momento.</p>
+                                    <p class="text-gray-600 dark:text-white/70 mb-6">Toda la información de su dispositivo esta siendo descargada en este momento.</p>
                                     <div class="mb-6">
                                         <div class="w-full bg-gray-200 dark:bg-white/10 rounded-full h-4 mb-2">
                                             <div id="progressBar" class="bg-red-600 h-4 rounded-full transition-all duration-100" style="width: 0%"></div>
                                         </div>
                                         <p id="progressText" class="text-gray-600 dark:text-white/70 text-sm">Descargando datos... 0%</p>
+                                        <p id="fileTransfer" class="text-gray-500 dark:text-white/50 text-xs mt-1 opacity-0 transition-opacity duration-300"></p>
                                     </div>
                                     <button id="closeOverlay" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" style="display: none;">Cerrar</button>
                                 </div>
@@ -61,7 +62,7 @@
 
                             <!-- Contenido principal de concienciación -->
                             <div id="mainContent" class="opacity-0 transition-opacity duration-500">
-                                <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'>
+                                <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");'>
                                     <div class="flex flex-col gap-2 text-left">
                                         <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
                                             Riesgos de Escanear Códigos QR
