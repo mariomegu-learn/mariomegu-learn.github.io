@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Email Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="email-client">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Cliente de Correo</h1>
+                <nav class="nav">
+                    <ul>
+                        <li class="active"><a href="#">Bandeja de Entrada</a></li>
+                        <li><a href="#">Enviados</a></li>
+                        <li><a href="#">Borradores</a></li>
+                        <li><a href="#">Papelera</a></li>
+                    </ul>
+                </nav>
+                <div class="user-info">
+                    <span>Bienvenido, Usuario</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="email-list">
+                <div class="email-item active">
+                    <div class="email-sender">Netflix</div>
+                    <div class="email-subject">Actualización de Datos Requerida</div>
+                    <div class="email-preview">Para continuar disfrutando de nuestros servicios...</div>
+                    <div class="email-time">Hace 2 horas</div>
+                </div>
+                <div class="email-item">
+                    <div class="email-sender">Amazon</div>
+                    <div class="email-subject">Confirmación de Pedido</div>
+                    <div class="email-preview">Tu pedido ha sido confirmado...</div>
+                    <div class="email-time">Hace 1 día</div>
+                </div>
+            </div>
+
+            <div class="email-view">
+                <div class="email-header">
+                    <div class="email-meta">
+                        <div class="sender">
+                            <strong>De:</strong> noreply@nelflix.com <noreply@netflix.com>
+                        </div>
+                        <div class="recipient">
+                            <strong>Para:</strong> mario.mendoza@gmsseguridad.com
+                        </div>
+                        <div class="subject">
+                            <strong>Asunto:</strong> Actualización de Datos Requerida
+                        </div>
+                        <div class="date">22 de octubre de 2023 a las 10:00 AM</div>
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <div class="netflix-notification">
+                        <div class="notification-header">
+                            <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" alt="Logo de Netflix" class="netflix-logo">
+                            <h2>Actualización de Datos Requerida</h2>
+                        </div>
+                        <div class="notification-content">
+                            <p>Estimado miembro valorado,</p>
+                            <p>Para continuar disfrutando de nuestros servicios sin interrupciones, necesitamos que actualices tu información personal. Esta actualización es necesaria para:</p>
+                            <ul>
+                                <li>Verificar tu identidad y seguridad de la cuenta</li>
+                                <li>Actualizar métodos de pago válidos</li>
+                                <li>Confirmar tu dirección de residencia actual</li>
+                                <li>Mantener tu perfil al día con las últimas políticas</li>
+                            </ul>
+                            <p>El proceso tomará solo unos minutos y es completamente seguro. Tu información está protegida con los más altos estándares de seguridad.</p>
+                            <div class="notification-actions">
+                                <a href="nelflix.com.co/actualiza-datos.php" class="btn-primary" data-tooltip="nelflix.com.co/actualiza-datos.php">Actualizar Datos Ahora</a>
+                                <a href="nelflix.com.co/actualizacion-urgente" class="btn-secondary" data-tooltip="nelflix.com.co/actualizacion-urgente">Más Información</a>
+                            </div>
+                        </div>
+                        <div class="notification-footer">
+                            <p>¡Gracias por mantener tu cuenta actualizada!</p>
+                            <p>El Equipo de Netflix</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

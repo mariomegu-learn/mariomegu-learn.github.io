@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animación de fondo de Estrellas</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000; /* Fondo oscuro para que las estrellas destaquen */
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: linear-gradient(45deg, #fff, transparent);
+      opacity: 0;
+      animation: shoot 3s linear forwards;
+    }
+
+    .random-comet {
+      position: absolute;
+      width: 4px;
+      height: 2px;
+      background: linear-gradient(to right, #fff, transparent);
+      opacity: 0;
+      animation: randomComet 4s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes randomComet {
+      0% { opacity: 0; transform: scaleX(0.5) scaleY(0.5); }
+      10% { opacity: 1; transform: scaleX(1) scaleY(1); }
+      90% { opacity: 1; transform: scaleX(1) scaleY(1); }
+      100% { opacity: 0; transform: scaleX(2) scaleY(1.5); }
+    }
+
+
+    /* Animación de parpadeo y movimiento */
+    @keyframes twinkle {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    @keyframes shoot {
+      0% { opacity: 0; transform: translateX(0) translateY(0); }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(300px) translateY(300px); }
+    }
+
+    /* Contenedor para las estrellas */
+    #stars-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Evita que las estrellas interfieran con los clics */
+    }
+  </style>
+</head>
+<body>
+  <div id="stars-container"></div>
+
+  <script>
+    const starsContainer = document.getElementById('stars-container');
+    let inactivityTimer;
+    const inactivityTime = 5000; // 5 segundos de inactividad
+    const maxStars = 50; // Máximo número de estrellas
+
+    // Función para crear una estrella
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      // Posición aleatoria en la pantalla
+      star.style.left = `${Math.random() * window.innerWidth}px`;
+      star.style.top = `${Math.random() * window.innerHeight}px`;
+
+      // Duración y retraso aleatorios para la animación
+      star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+
+      starsContainer.appendChild(star);
+
+      // Eliminar la estrella después de que termine su animación
+      setTimeout(() => {
+        star.remove();
+      }, 4000);
+    }
+
+    // Función para crear una estrella fugaz
+    function createShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.classList.add('shooting-star');
+
+      // Posición inicial aleatoria en la parte superior
+      shootingStar.style.left = `${Math.random() * window.innerWidth}px`;
+      shootingStar.style.top = `${Math.random() * (window.innerHeight / 2)}px`;
+
+      starsContainer.appendChild(shootingStar);
+
+      // Eliminar la estrella fugaz después de la animación
+      setTimeout(() => {
+        shootingStar.remove();
+      }, 3000);
+    }
+
+    // Función para crear un cometa aleatorio
+    function createRandomComet() {
+      const randomComet = document.createElement('div');
+      randomComet.classList.add('random-comet');
+
+      // Posición aleatoria en la pantalla
+      randomComet.style.left = `${Math.random() * window.innerWidth}px`;
+      randomComet.style.top = `${Math.random() * window.innerHeight}px`;
+
+      // Rotación aleatoria
+      const rotation = Math.random() * 360;
+      randomComet.style.transform = `rotate(${rotation}deg)`;
+
+      starsContainer.appendChild(randomComet);
+
+      // Eliminar el cometa después de la animación
+      setTimeout(() => {
+        randomComet.remove();
+      }, 4000);
+    }
+
+
+    // Función para iniciar la animación de estrellas
+    function startStarsAnimation() {
+      // Crear estrellas a intervalos
+      setInterval(() => {
+        if (starsContainer.children.length < maxStars) {
+          createStar();
+        }
+      }, 200); // Crear una estrella cada 200ms
+
+      // Crear estrellas fugaces aleatoriamente
+      setInterval(() => {
+        if (Math.random() < 0.1) { // Probabilidad del 10% cada intervalo
+          createShootingStar();
+        }
+      }, 5000); // Verificar cada 5 segundos
+
+      // Crear cometas aleatorios
+      setInterval(() => {
+        if (Math.random() < 0.05) { // Probabilidad del 5% cada intervalo
+          createRandomComet();
+        }
+      }, 3000); // Verificar cada 3 segundos
+    }
+
+    // Iniciar la animación de estrellas permanentemente
+    startStarsAnimation();
+
+  </script>
+</body>
+</html>
