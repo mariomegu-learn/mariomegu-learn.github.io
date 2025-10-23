@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     const overlay = document.getElementById('overlay');
-    const closeButton = document.getElementById('closeOverlay');
     const mainContent = document.getElementById('mainContent');
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
@@ -26,7 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let progress = 0;
     let progressComplete = false;
     let fileIndex = 0;
+    let buttonShown = false;
     const fileTransferElement = document.getElementById('fileTransfer');
+    const closeButton = document.getElementById('closeOverlay');
+
+    // Mostrar botón después de 20 segundos
+    setTimeout(function() {
+        if (!progressComplete) {
+            closeButton.style.display = 'block';
+            buttonShown = true;
+        }
+    }, 20000);
 
     const progressInterval = setInterval(function() {
         progress += 1; // Incremento fijo para simular descarga lenta
@@ -34,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
             progress = 100;
             progressComplete = true;
             clearInterval(progressInterval);
-            document.getElementById('closeOverlay').style.display = 'block'; // Mostrar botón al completar
+            if (buttonShown) {
+                closeButton.textContent = 'Cerrar'; // Cambiar texto a "Cerrar" si ya se mostró
+            } else {
+                closeButton.style.display = 'block';
+            }
             fileTransferElement.textContent = 'Transferencia completada';
         } else {
             // Mostrar archivo actual siendo transferido
