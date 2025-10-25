@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Dashboard de Seguridad de la Información</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <div class="container mx-auto max-w-7xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-2xl">security</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">Dashboard de Seguridad</h1>
+                        <p class="text-blue-100">Información y métricas de ciberseguridad</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="p-8">
+            <!-- Welcome Section -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Bienvenido al Dashboard</h2>
+                <p class="text-gray-600">Descripción general de incidentes y métricas de ciberseguridad en tiempo real.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border border-red-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-red-600 font-semibold">Incidentes Críticos</p>
+                            <p class="text-2xl font-bold text-red-800">23</p>
+                        </div>
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">warning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl border border-yellow-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-yellow-600 font-semibold">Alertas Activas</p>
+                            <p class="text-2xl font-bold text-yellow-800">12</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">error</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-green-600 font-semibold">Sistemas Seguros</p>
+                            <p class="text-2xl font-bold text-green-800">98%</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">security</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-blue-600 font-semibold">Monitoreo 24/7</p>
+                            <p class="text-2xl font-bold text-blue-800">Activo</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">visibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Incidentes de Ciberseguridad por Causa</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                        <div class="pie-chart-container relative">
+                            <div class="pie-chart"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-32 h-32 rounded-full bg-gray-50"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 rounded-full bg-red-500"></div>
+                                <div>
+                                    <p class="font-bold text-lg text-gray-800">95%</p>
+                                    <p class="text-sm text-gray-600">Errores Humanos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                                <div>
+                                    <p class="font-bold text-lg text-gray-800">5%</p>
+                                    <p class="text-sm text-gray-600">Otros Errores</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Información Importante</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                            <h4 class="font-semibold text-blue-800 mb-2">Factores de Riesgo</h4>
+                            <p class="text-sm text-blue-700">La gran mayoría de los incidentes de ciberseguridad son atribuibles a errores humanos, lo que destaca un área crítica para la capacitación y la concientización.</p>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+                            <h4 class="font-semibold text-green-800 mb-2">Recomendaciones</h4>
+                            <p class="text-sm text-green-700">Implementar programas de capacitación continua y utilizar herramientas de automatización para reducir errores humanos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Sources and Analysis -->
+            <div class="mt-12 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Análisis y Fuentes de las Estadísticas</h3>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Main Statistics Analysis -->
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">El 95% de Errores Humanos en Ciberseguridad</h4>
+                        <div class="space-y-4 text-gray-700">
+                            <p class="leading-relaxed">
+                                Según múltiples estudios y reportes de ciberseguridad, el <strong>95% de los incidentes</strong> están directamente relacionados con errores humanos.
+                                Este dato alarmante destaca la vulnerabilidad más grande en la cadena de seguridad digital.
+                            </p>
+
+                            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                                <h5 class="font-semibold text-red-800 mb-2">¿Por qué es tan alto este porcentaje?</h5>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-red-700">
+                                    <li>Falta de capacitación en seguridad</li>
+                                    <li>Phishing y ingeniería social efectiva</li>
+                                    <li>Contraseñas débiles o reutilizadas</li>
+                                    <li>Configuraciones incorrectas de sistemas</li>
+                                    <li>Falta de actualización de software</li>
+                                </ul>
+                            </div>
+
+                            <p class="leading-relaxed">
+                                El <strong>80% de los ciberataques</strong> comienzan con un error humano, según reportes recientes.
+                                Esto incluye desde clics en enlaces maliciosos hasta la pérdida de dispositivos con información sensible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sources and References -->
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Fuentes y Referencias</h4>
+                        <div class="space-y-3">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                                <h5 class="font-semibold text-blue-800 mb-1">INCIBE - Instituto Nacional de Ciberseguridad</h5>
+                                <p class="text-sm text-gray-600 mb-2">"¿Sabías que el 95% de las incidencias en ciberseguridad se deben a errores humanos?"</p>
+                                <a href="https://www.incibe.es/ciudadania/blog/sabias-que-el-95-de-las-incidencias-en-ciberseguridad-se-deben-errores" class="text-blue-600 hover:text-blue-800 text-sm underline" target="_blank">Ver artículo →</a>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                                <h5 class="font-semibold text-blue-800 mb-1">USecure - El papel del error humano</h5>
+                                <p class="text-sm text-gray-600 mb-2">"El papel del error humano en el éxito de las violaciones de la ciberseguridad"</p>
+                                <a href="https://blog.usecure.io/es/the-role-of-human-error-in-successful-cyber-security-breaches" class="text-blue-600 hover:text-blue-800 text-sm underline" target="_blank">Ver artículo →</a>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                                <h5 class="font-semibold text-blue-800 mb-1">ProtecData Latam</h5>
+                                <p class="text-sm text-gray-600 mb-2">"Estudio revela que el 95% de los problemas de ciberseguridad son causados por humanos"</p>
+                                <a href="https://protecdatalatam.com/blog/estudio-revela-que-el-95-de-los-problemas-de-ciberseguridad-son-causados-por-humanos" class="text-blue-600 hover:text-blue-800 text-sm underline" target="_blank">Ver artículo →</a>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                                <h5 class="font-semibold text-blue-800 mb-1">Secureframe - Estadísticas de Ciberseguridad</h5>
+                                <p class="text-sm text-gray-600 mb-2">"130+ Estadísticas de Ciberseguridad para Inspirar Acción"</p>
+                                <a href="https://secureframe.com/es-es/blog/cybersecurity-statistics" class="text-blue-600 hover:text-blue-800 text-sm underline" target="_blank">Ver artículo →</a>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                                <h5 class="font-semibold text-blue-800 mb-1">Infobae - Ciberataques y errores humanos</h5>
+                                <p class="text-sm text-gray-600 mb-2">"El 80% de los ciberataques comienzan con un error humano"</p>
+                                <a href="https://www.infobae.com/tecno/2025/02/17/el-80-de-los-ciberataques-comienzan-con-un-error-humano-por-que-pasa-esto" class="text-blue-600 hover:text-blue-800 text-sm underline" target="_blank">Ver artículo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Insights -->
+                <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-3">Implicaciones para la Seguridad Empresarial</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600 mb-1">95%</div>
+                            <p class="text-blue-700">de incidentes por error humano</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600 mb-1">80%</div>
+                            <p class="text-blue-700">de ataques comienzan con error humano</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600 mb-1">+130</div>
+                            <p class="text-blue-700">estadísticas de ciberseguridad documentadas</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-700 mt-4 leading-relaxed">
+                        Estos datos enfatizan la necesidad urgente de invertir en capacitación continua, concienciación sobre ciberseguridad,
+                        y la implementación de medidas preventivas que reduzcan la dependencia del factor humano como punto de falla.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

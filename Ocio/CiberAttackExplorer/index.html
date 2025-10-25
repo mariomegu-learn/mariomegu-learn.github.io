@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorador de Ciberataques</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00BFFF",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#1A1A2E",
+                        "card-dark": "#2D3250",
+                        "text-main": "#EAEAEA",
+                        "text-secondary": "#A9A9A9",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .group-open\:rotate-180 {
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .group-open\:rotate-180 {
+            transform: rotate(180deg);
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details .transition-max-height {
+            transition: max-height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-10 sm:py-16">
+<div class="layout-content-container flex flex-col max-w-5xl flex-1">
+<div class="flex flex-col items-center text-center gap-3 p-4 mb-8">
+<h1 class="text-4xl md:text-5xl font-black tracking-tight text-white">Clasificación de Ciberataques</h1>
+<p class="text-text-secondary text-base md:text-lg font-normal max-w-3xl">
+                            Explore las diversas categorías de ciberataques, comprenda sus subtipos y los objetivos que persiguen. Esta guía exhaustiva le ayudará a identificar y protegerse de las amenazas digitales más comunes y sofisticadas.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">bug_report</span>
+<p class="text-white text-lg font-bold">1. Malware</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Virus:</strong> Infectar archivos y propagarse a otros sistemas.</li>
+<li><strong>Gusano:</strong> Replicarse y propagarse a través de redes sin intervención humana.</li>
+<li><strong>Troyano:</strong> Disfrazarse de software legítimo para obtener acceso no autorizado.</li>
+<li><strong>Ransomware:</strong> Cifrar archivos y exigir un rescate para su liberación.</li>
+<li><strong>Spyware:</strong> Recopilar información de un dispositivo sin el consentimiento del usuario.</li>
+</ul>
+</div>
+</details>
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+<p class="text-white text-lg font-bold">2. Ingeniería Social</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Phishing:</strong> Engañar a las víctimas para que revelen información sensible a través de correos electrónicos fraudulentos.</li>
+<li><strong>Vishing:</strong> Utilizar llamadas telefónicas para manipular a las víctimas.</li>
+<li><strong>Smishing:</strong> Emplear mensajes de texto (SMS) para el engaño.</li>
+<li><strong>Baiting:</strong> Dejar dispositivos infectados (como USBs) para que las víctimas los encuentren y usen.</li>
+<li><strong>Pretexting:</strong> Crear un escenario falso para obtener información.</li>
+</ul>
+</div>
+</details>
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<p class="text-white text-lg font-bold">3. Ataques con IA</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Deepfakes:</strong> Crear videos o audios falsos y convincentes para difamar o engañar.</li>
+<li><strong>Generación de Mensajes Falsos:</strong> Crear correos electrónicos de phishing o noticias falsas altamente personalizados y creíbles.</li>
+<li><strong>Envenenamiento de Datos:</strong> Manipular los datos de entrenamiento de un modelo de IA para corromper sus resultados.</li>
+</ul>
+</div>
+</details>
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">lan</span>
+<p class="text-white text-lg font-bold">4. Ataques de Red</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Denegación de Servicio (DoS/DDoS):</strong> Inundar un servicio con tráfico para hacerlo inaccesible.</li>
+<li><strong>Man-in-the-Middle (MitM):</strong> Interceptar y alterar la comunicación entre dos partes.</li>
+<li><strong>Spoofing:</strong> Falsificar la identidad (IP, correo electrónico) para engañar a los sistemas o usuarios.</li>
+</ul>
+</div>
+</details>
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">code</span>
+<p class="text-white text-lg font-bold">5. Ataques a Aplicaciones Web</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Inyección SQL:</strong> Insertar código SQL malicioso para manipular bases de datos.</li>
+<li><strong>Cross-Site Scripting (XSS):</strong> Inyectar scripts maliciosos en sitios web para ejecutarlos en los navegadores de los usuarios.</li>
+<li><strong>Falsificación de Peticiones (CSRF):</strong> Engañar a un usuario para que realice acciones no deseadas en un sitio web en el que está autenticado.</li>
+</ul>
+</div>
+</details>
+<details class="flex flex-col rounded-lg bg-card-dark shadow-lg group hover:shadow-primary/20 transition-shadow duration-300">
+<summary class="flex cursor-pointer items-center justify-between gap-4 p-5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">sensor_door</span>
+<p class="text-white text-lg font-bold">6. Ataques Físicos</p>
+</div>
+<div class="text-white group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-5 pb-5 transition-max-height">
+<ul class="text-text-secondary text-sm font-normal leading-relaxed list-disc pl-5 space-y-2">
+<li><strong>Robo de dispositivos:</strong> Sustraer portátiles, teléfonos o servidores para acceder a los datos.</li>
+<li><strong>Acceso no autorizado:</strong> Ingresar a instalaciones para instalar malware o robar información.</li>
+<li><strong>Dumpster Diving:</strong> Rebuscar en la basura en busca de documentos o dispositivos con información sensible.</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
