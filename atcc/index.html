@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Presentación - Detección de Phishing | ATCC</title>
+    <meta name="description" content="Presentación interactiva sobre detección de phishing con ejemplos prácticos y consejos de seguridad">
+    <meta name="keywords" content="phishing, ciberseguridad, seguridad digital, presentación, tutorial">
+    <meta name="author" content="ATTC - Especialista en Ciberseguridad">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="presentation-container">
+        <!-- Slide Navigation -->
+        <div class="slide-navigation">
+            <button id="prevBtn" class="btn btn-primary nav-btn" disabled>
+                <i class="bi bi-chevron-left"></i> Anterior
+            </button>
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+            </div>
+            <button id="nextBtn" class="btn btn-primary nav-btn">
+                Siguiente <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Slides Container -->
+        <div class="slides-container">
+            <!-- Slide 1: Presentación -->
+            <div class="slide active" id="slide1">
+                <div class="slide-content d-flex align-items-center">
+                    <div class="w-100">
+                        <div class="hero-section mb-5 text-center">
+                            <i class="bi bi-shield-exclamation text-primary mb-4" style="font-size: 5rem;"></i>
+                            <h1 class="display-3 fw-bold text-primary mb-3">Detección de Phishing</h1>
+                            <p class="lead fs-2 mb-4 text-muted">Una Guía Completa para la Seguridad Digital</p>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="card border-primary shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-person-circle text-primary mb-3" style="font-size: 2rem;"></i>
+                                        <h5 class="card-title">Presentación preparada por</h5>
+                                        <p class="card-text text-muted">[Tu Nombre o Empresa]</p>
+                                        <small class="text-muted">Especialista en Ciberseguridad</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Introducción -->
+            <div class="slide" id="slide2">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Introducción</h2>
+                        <div class="row">
+                            <div class="col-md-8 mx-auto">
+                                <p class="lead fs-4 mb-4">
+                                    En la era digital actual, las amenazas cibernéticas representan uno de los mayores riesgos
+                                    para individuos y organizaciones. Entre estas amenazas, el phishing se destaca como una
+                                    de las más comunes y peligrosas.
+                                </p>
+                                <div class="row text-start">
+                                    <div class="col-md-6">
+                                        <h4 class="text-primary"><i class="bi bi-check-circle"></i> ¿Qué aprenderemos?</h4>
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-dot"></i> Conceptos básicos del phishing</li>
+                                            <li><i class="bi bi-dot"></i> Tipos más comunes</li>
+                                            <li><i class="bi bi-dot"></i> Técnicas de detección</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4 class="text-primary"><i class="bi bi-target"></i> Objetivos</h4>
+                                        <ul class="list-unstyled">
+                                            <li><i class="bi bi-dot"></i> Identificar amenazas</li>
+                                            <li><i class="bi bi-dot"></i> Prevenir ataques</li>
+                                            <li><i class="bi bi-dot"></i> Proteger información</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: ¿Qué es el phishing? -->
+            <div class="slide" id="slide3">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">¿Qué es el Phishing?</h2>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <div class="definition-box mb-4 p-4">
+                                    <i class="bi bi-quote text-primary mb-3" style="font-size: 2rem;"></i>
+                                    <blockquote class="blockquote mb-0">
+                                        <p class="lead fs-3 mb-3">
+                                            <strong>El phishing es una técnica de ingeniería social utilizada por ciberdelincuentes
+                                            para obtener información confidencial mediante el engaño.</strong>
+                                        </p>
+                                        <footer class="blockquote-footer text-light">Definición técnica de ciberseguridad</footer>
+                                    </blockquote>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card h-100 border-warning">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-envelope-exclamation text-warning" style="font-size: 3rem;"></i>
+                                                <h5 class="card-title mt-3">Cómo funciona</h5>
+                                                <p class="card-text">
+                                                    Los atacantes se hacen pasar por entidades confiables para
+                                                    engañar a las víctimas y obtener datos sensibles.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card h-100 border-danger">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-shield-x text-danger" style="font-size: 3rem;"></i>
+                                                <h5 class="card-title mt-3">Objetivo</h5>
+                                                <p class="card-text">
+                                                    Robar credenciales, información financiera, datos personales
+                                                    o instalar malware en los dispositivos.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Impacto del phishing -->
+            <div class="slide" id="slide4">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Impacto del Phishing</h2>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <div class="alert alert-danger mb-4 border-0 shadow-sm">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-exclamation-triangle-fill text-danger me-3" style="font-size: 2rem;"></i>
+                                        <div>
+                                            <h4 class="alert-heading mb-1">Consecuencias Graves</h4>
+                                            <p class="mb-0">
+                                                El phishing no es solo una molestia, puede causar daños irreparables a individuos y organizaciones.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="impact-card">
+                                            <i class="bi bi-cash-stack text-success" style="font-size: 2.5rem;"></i>
+                                            <h5 class="mt-3">Pérdidas Económicas</h5>
+                                            <p>Robo de fondos, fraudes bancarios, extorsión.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="impact-card">
+                                            <i class="bi bi-person-bounding-box text-warning" style="font-size: 2.5rem;"></i>
+                                            <h5 class="mt-3">Robo de Identidad</h5>
+                                            <p>Uso fraudulento de datos personales.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="impact-card">
+                                            <i class="bi bi-building-lock text-danger" style="font-size: 2.5rem;"></i>
+                                            <h5 class="mt-3">Daño a Organizaciones</h5>
+                                            <p>Pérdida de confianza, sanciones legales.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Tipos de Phishing - Email Phishing -->
+            <div class="slide" id="slide5">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Tipos de Phishing</h2>
+                        <h3 class="h2 text-primary mb-4">1. Email Phishing</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="phishing-example">
+                                    <h5><i class="bi bi-envelope"></i> Ejemplo de Email Phishing</h5>
+                                    <div class="mockup-container">
+                                        <div class="email-mockup">
+                                            <div class="p-6">
+                                                <div class="text-md text-gray-500 dark:text-gray-400 mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+                                                    <p><span class="font-semibold text-text-light dark:text-text-dark">De:</span> support@rnicrosoft.com.co</p>
+                                                    <p><span class="font-semibold text-text-light dark:text-text-dark">Enviado:</span> 24/10/2025 11:15 am </p>
+                                                    <p><span class="font-semibold text-text-light dark:text-text-dark">Para:</span> Mario Mendoza <Mario.Mendoza@company.com></p>
+                                                    <p><span class="font-semibold text-text-light dark:text-text-dark">Asunto:</span> ¡Acción Urgente Requerida!</p>
+                                                </div>
+                                                <div class="flex items-center mb-6">
+                                                    <img alt="Microsoft logo" class="w-10 h-10 mr-3" src="https://www.microsoft.com/favicon.ico"/>
+                                                    <span class="text-2xl font-bold text-primary">Outlook</span>
+                                                </div>
+                                                <h2 class="text-lg font-semibold text-text-light dark:text-text-dark mb-2">Cuenta de Microsoft</h2>
+                                                <h1 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4">Verifica tu cuenta</h1>
+                                                <div class="space-y-4 text-text-light dark:text-text-dark">
+                                                    <p>Detectamos una actividad inusual sobre un inicio de sesión reciente para tu cuenta de Microsoft. Es posible que estés iniciando sesión desde una nueva ubicación, aplicación o dispositivo.</p>
+                                                    <p>Para ayudar a mantener tu cuenta segura, hemos bloqueado el acceso a tu bandeja de entrada, lista de contactos y calendario para ese inicio de sesión. Por favor, revisa tu actividad reciente y te ayudaremos a asegurar tu cuenta. Para recuperar el acceso necesitarás confirmar que la actividad reciente fue tuya.</p>
+                                                    <div class="tooltip">
+                                                        <a class="text-blue-600 dark:text-blue-400 underline break-all block mt-2 hover:text-blue-800 dark:hover:text-blue-300" target="_blank" href="http://account.liive.com/ResetPassword.aspx">http://account.liive.com/ResetPassword.aspx</a>
+                                                        <span class="tooltiptext">http://account.liive.com/ResetPassword.aspx</span>
+                                                    </div>
+                                                    <p>Gracias,</p>
+                                                    <p>El Equipo de Microsoft</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detection-tips">
+                                    <h5><i class="bi bi-search"></i> Tips de Detección</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Verificar remitente (micr0soft.com vs microsoft.com)
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Revisar URLs antes de hacer clic
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Buscar errores gramaticales
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Evitar adjuntos inesperados
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Tipos de Phishing - Spear Phishing -->
+            <div class="slide" id="slide6">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Tipos de Phishing</h2>
+                        <h3 class="h2 text-primary mb-4">2. Spear Phishing</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="phishing-example">
+                                    <h5><i class="bi bi-person-lines-fill"></i> Ejemplo de Spear Phishing</h5>
+                                    <div class="mockup-container">
+                                        <div class="email-mockup">
+                                            <div class="email-header">
+                                                <strong>De:</strong> jefe.rrhh@empresa.com<br>
+                                                <strong>Asunto:</strong> Actualización de Datos Laborales
+                                            </div>
+                                            <div class="email-body">
+                                                <p>Hola [Tu Nombre],</p>
+                                                <p>Necesitamos actualizar tu información salarial. Accede al siguiente enlace:</p>
+                                                <button class="btn btn-primary btn-sm">Actualizar Datos</button>
+                                                <p class="text-danger small mt-2">
+                                                    <i class="bi bi-exclamation-triangle"></i>
+                                                    Email personalizado con datos específicos
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detection-tips">
+                                    <h5><i class="bi bi-search"></i> Tips de Detección</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Verificar con el remitente real
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            No compartir datos sensibles por email
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Usar canales oficiales de comunicación
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Reportar emails sospechosos
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Tipos de Phishing - Vishing -->
+            <div class="slide" id="slide7">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Tipos de Phishing</h2>
+                        <h3 class="h2 text-primary mb-4">3. Vishing (Voice Phishing)</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="phishing-example">
+                                    <h5><i class="bi bi-telephone"></i> Ejemplo de Vishing</h5>
+                                    <div class="mockup-container">
+                                        <div class="phone-mockup">
+                                            <div class="phone-header">
+                                                <i class="bi bi-telephone-fill text-success"></i>
+                                                Llamada entrante: Banco XYZ
+                                            </div>
+                                            <div class="phone-body">
+                                                <p>"Hola, soy del departamento de seguridad de su banco. Detectamos actividad fraudulenta en su cuenta. Para proteger sus fondos, necesito que me proporcione su número de cuenta y PIN de verificación."</p>
+                                                <p class="text-danger small mt-2">
+                                                    <i class="bi bi-exclamation-triangle"></i>
+                                                    Presión para actuar inmediatamente
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detection-tips">
+                                    <h5><i class="bi bi-search"></i> Tips de Detección</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Nunca compartir PIN o contraseñas por teléfono
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Colgar y llamar directamente al banco
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Verificar identidad del llamante
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Reportar llamadas sospechosas
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Tipos de Phishing - Smishing -->
+            <div class="slide" id="slide8">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Tipos de Phishing</h2>
+                        <h3 class="h2 text-primary mb-4">4. Smishing (SMS Phishing)</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="phishing-example">
+                                    <h5><i class="bi bi-chat-dots"></i> Ejemplo de Smishing</h5>
+                                    <div class="mockup-container">
+                                        <div class="sms-mockup">
+                                            <div class="sms-header">
+                                                <strong>De:</strong> Banco Nacional
+                                            </div>
+                                            <div class="sms-body">
+                                                <p>¡URGENTE! Su cuenta ha sido bloqueada. Haga clic para desbloquear: [ENLACE]</p>
+                                                <p class="text-danger small mt-2">
+                                                    <i class="bi bi-exclamation-triangle"></i>
+                                                    Enlace acortado sospechoso
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detection-tips">
+                                    <h5><i class="bi bi-search"></i> Tips de Detección</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            No hacer clic en enlaces de SMS
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Contactar directamente con la entidad
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Verificar URLs completas
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i>
+                                            Instalar apps de seguridad SMS
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Estadísticas sobre phishing -->
+            <div class="slide" id="slide9">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Estadísticas sobre Phishing</h2>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-icon mb-3">
+                                            <i class="bi bi-envelope-exclamation text-primary" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <div class="stat-number">300,000+</div>
+                                        <div class="stat-label">Ataques diarios</div>
+                                        <div class="stat-description">Número promedio de emails phishing enviados diariamente</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon mb-3">
+                                            <i class="bi bi-shield-x text-warning" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <div class="stat-number">90%</div>
+                                        <div class="stat-label">Éxito inicial</div>
+                                        <div class="stat-description">Porcentaje de emails phishing que logran evadir filtros</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon mb-3">
+                                            <i class="bi bi-cash-coin text-success" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <div class="stat-number">$6.9M</div>
+                                        <div class="stat-label">Pérdidas anuales</div>
+                                        <div class="stat-description">Pérdidas económicas globales por phishing (en millones)</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon mb-3">
+                                            <i class="bi bi-graph-up text-danger" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <div class="stat-number">1 de cada 99</div>
+                                        <div class="stat-label">Emails phishing</div>
+                                        <div class="stat-description">Proporción de emails que son intentos de phishing</div>
+                                    </div>
+                                </div>
+                                <div class="alert alert-warning mt-4">
+                                    <i class="bi bi-graph-up"></i>
+                                    <strong>Fuente:</strong> Informes de ciberseguridad 2024 (Verizon DBIR, IBM, etc.)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Recomendaciones -->
+            <div class="slide" id="slide10">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Recomendaciones de Seguridad</h2>
+                        <div class="row">
+                            <div class="col-md-10 mx-auto">
+                                <div class="recommendations-grid">
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-shield-check text-primary" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Educación Continua</h5>
+                                        <p class="card-text">Manténgase informado sobre las últimas técnicas de phishing y amenazas emergentes.</p>
+                                        <div class="card-badge bg-primary">Esencial</div>
+                                    </div>
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-lock text-success" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Autenticación Multifactor</h5>
+                                        <p class="card-text">Habilite MFA en todas sus cuentas importantes para mayor protección.</p>
+                                        <div class="card-badge bg-success">Crítico</div>
+                                    </div>
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-eye text-info" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Verificación</h5>
+                                        <p class="card-text">Siempre verifique la autenticidad antes de compartir información sensible.</p>
+                                        <div class="card-badge bg-info">Básico</div>
+                                    </div>
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-tools text-warning" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Herramientas de Seguridad</h5>
+                                        <p class="card-text">Use antivirus actualizados, firewalls y extensiones de navegador seguras.</p>
+                                        <div class="card-badge bg-warning">Técnico</div>
+                                    </div>
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-exclamation-triangle text-danger" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Reportar Incidentes</h5>
+                                        <p class="card-text">Reporte inmediatamente cualquier intento de phishing detectado.</p>
+                                        <div class="card-badge bg-danger">Urgente</div>
+                                    </div>
+                                    <div class="recommendation-card">
+                                        <div class="card-icon mb-3">
+                                            <i class="bi bi-people text-secondary" style="font-size: 2.5rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Concientización</h5>
+                                        <p class="card-text">Eduque a familiares y colegas sobre los riesgos del phishing.</p>
+                                        <div class="card-badge bg-secondary">Comunitario</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Cierre -->
+            <div class="slide" id="slide11">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">Conclusión</h2>
+                        <div class="row">
+                            <div class="col-md-8 mx-auto">
+                                <div class="conclusion-content">
+                                    <p class="lead fs-3 mb-4">
+                                        El phishing representa una amenaza constante en el mundo digital,
+                                        pero con conocimiento y precaución podemos protegernos efectivamente.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card border-success h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                                                    <h5 class="card-title mt-3">Recuerde</h5>
+                                                    <ul class="list-unstyled text-start">
+                                                        <li><i class="bi bi-dot"></i> La prevención es la mejor defensa</li>
+                                                        <li><i class="bi bi-dot"></i> La duda es su mejor aliada</li>
+                                                        <li><i class="bi bi-dot"></i> Verificar siempre salva vidas</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card border-primary h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="bi bi-lightbulb text-primary" style="font-size: 3rem;"></i>
+                                                    <h5 class="card-title mt-3">Llave Maestra</h5>
+                                                    <p class="card-text">
+                                                        <strong>Si algo parece demasiado bueno para ser verdad,
+                                                        probablemente lo sea.</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Agradecimiento -->
+            <div class="slide" id="slide12">
+                <div class="slide-content">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bold mb-4">¡Gracias!</h2>
+                        <div class="row">
+                            <div class="col-md-6 mx-auto">
+                                <div class="thank-you-content">
+                                    <div class="text-center mb-4">
+                                        <i class="bi bi-heart-fill text-danger animate-pulse" style="font-size: 4rem;"></i>
+                                    </div>
+                                    <h3 class="text-center mt-4 mb-4 fw-bold">Gracias por su atención</h3>
+                                    <p class="lead mb-4 text-center">
+                                        Esperamos que esta presentación haya sido útil para entender
+                                        mejor las amenazas del phishing y cómo protegerse.
+                                    </p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <div class="contact-info card border-light shadow-sm">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title text-primary mb-3">
+                                                        <i class="bi bi-question-circle"></i> ¿Preguntas?
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col-md-4 mb-2">
+                                                            <i class="bi bi-envelope text-primary me-2"></i>
+                                                            <small>[tu-email@ejemplo.com]</small>
+                                                        </div>
+                                                        <div class="col-md-4 mb-2">
+                                                            <i class="bi bi-telephone text-success me-2"></i>
+                                                            <small>[tu-teléfono]</small>
+                                                        </div>
+                                                        <div class="col-md-4 mb-2">
+                                                            <i class="bi bi-globe text-info me-2"></i>
+                                                            <small>[tu-sitio-web]</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
