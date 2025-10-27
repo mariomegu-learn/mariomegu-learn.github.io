@@ -1,27 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-  function updateDateTime() {
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('en-GB'); // DD/MM/YYYY format
-    const timeStr = now.toLocaleTimeString('en-GB', { hour12: false }); // HH:MM:SS format
-    const dateTimeStr = `${dateStr} ${timeStr}`;
-
-    // Update all "Enviado:" fields
-    const sentElements = document.querySelectorAll('p');
-    sentElements.forEach(element => {
-      if (element.textContent.includes('Enviado:')) {
-        const span = element.querySelector('span');
-        if (span) {
-          // Replace the entire content after "Enviado:"
-          const newContent = element.innerHTML.replace(/(Enviado:).*?(<\/span>)/, `$1 ${dateTimeStr}$2`);
-          element.innerHTML = newContent;
-        }
-      }
-    });
-  }
-
-  // Update immediately on page load
-  updateDateTime();
-
-  // Update every second
-  setInterval(updateDateTime, 1000);
+// JavaScript for browser simulation - no dynamic updates needed for this phishing example
+// Demuestra navegador InPrivate en la barra superior como solo texto
+const urlBar = document.querySelector('.browser-url');
+urlBar.style.background = '#1a1a1a';
+urlBar.style.color = '#aecbfa';
+urlBar.style.border = '1px solid #333';
+// Ejemplo de reacción (no funcionalidad real):
+document.querySelectorAll('.login-input').forEach(inp => {
+  inp.addEventListener('focus', e => e.target.style.borderColor = '#ffe275');
+  inp.addEventListener('blur', e => e.target.style.borderColor = '#707070');
 });
