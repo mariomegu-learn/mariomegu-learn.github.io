@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Validador de contraseñas seguro que cumple con los estándares de ciberseguridad de 2025">
+    <title>Validador de Contraseñas 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">SecurePass <span class="year">2025</span></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#validator">Validador</a></li>
+                    <li><a href="#requirements">Requisitos</a></li>
+                    <li><a href="#tips">Consejos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="validator" class="validator-section">
+            <h2>Validador de Contraseñas</h2>
+            <p>Ingresa tu contraseña para validar si cumple con los estándares de seguridad de 2025</p>
+
+            <div class="password-form">
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <div class="password-input-container">
+                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" aria-describedby="password-help">
+                        <button type="button" id="toggle-password" class="toggle-btn" aria-label="Mostrar/Ocultar contraseña">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <small id="password-help">La contraseña debe tener al menos 12 caracteres</small>
+                </div>
+
+
+            </div>
+
+            <div id="results" class="results-container" aria-live="polite">
+                <h3>Resultados de Validación</h3>
+                <div id="validation-results">
+                    <p>Ingresa una contraseña para ver los resultados de validación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="requirements" class="requirements-section">
+            <h2>Requisitos de Seguridad 2025</h2>
+            <ul class="requirements-list">
+                <li>Mínimo 12 caracteres de longitud</li>
+                <li>Al menos una letra mayúscula y una minúscula</li>
+                <li>Al menos un número</li>
+                <li>Al menos un carácter especial (!@#$%^&*)</li>
+                <li>No contener patrones comunes o palabras de diccionario</li>
+                <li>No contener información personal</li>
+                <li>Rotación regular de contraseñas</li>
+            </ul>
+        </section>
+
+        <section id="tips" class="tips-section">
+            <h2>Consejos para Contraseñas Seguras</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Usa frases</h3>
+                    <p>Considera usar frases largas en lugar de palabras simples</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>Cambia regularmente</h3>
+                    <p>Actualiza tus contraseñas cada 3-6 meses</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Usa autenticación multifactor</h3>
+                    <p>Combina contraseñas con otros métodos de verificación</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Usa un gestor de contraseñas</h3>
+                    <p>Para generar y almacenar contraseñas seguras</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SecurePass. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

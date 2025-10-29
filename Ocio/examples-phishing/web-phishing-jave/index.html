@@ -1,0 +1,67 @@
+<!DOCTYPE html> <!-- Declara el tipo de documento HTML5 -->
+<html lang="es"> <!-- Abre la etiqueta raíz HTML con idioma español -->
+<head> <!-- Abre la sección de encabezado del documento -->
+  <meta charset="utf-8"/> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/> <!-- Configura el viewport para diseño responsivo en móviles -->
+  <title>Ejemplo de Spear-Phishing</title> <!-- Establece el título de la página web -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script> <!-- Carga el framework CSS Tailwind desde CDN con plugins -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/> <!-- Enlaza la fuente Roboto de Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!-- Enlaza los iconos de Material Design -->
+  <link rel="stylesheet" href="css/styles.css"/> <!-- Enlaza la hoja de estilos CSS personalizada -->
+  <script src="js/config.js"></script> <!-- Carga el archivo JavaScript de configuración -->
+  <!-- Línea en blanco para separación -->
+</head> <!-- Cierra la sección de encabezado -->
+<body class="bg-background-light dark:bg-background-dark font-display"> <!-- Abre el cuerpo con clases de Tailwind para fondo y fuente -->
+  <div class="container mx-auto p-4 md:p-8 max-w-8xl"> <!-- Contenedor principal centrado con padding responsivo -->
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-1"> <!-- Grid de una columna con espacio entre elementos -->
+      <div class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg overflow-hidden border-2 border-blue-500 dark:border-blue-400"> <!-- Div con fondo, bordes y sombra para simular email -->
+        <!-- Línea en blanco -->
+        <div class="p-8"> <!-- Contenedor interno con padding -->
+          <!-- Simulación de navegador moderno en estilo dark -->
+          <div class="bg-gray-900 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+            <!-- Barra de título del navegador -->
+            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <span class="text-gray-300 text-sm font-medium">Navegador Seguro</span>
+              <div></div> <!-- Espacio vacío para balancear -->
+            </div>
+            <!-- Barra de direcciones -->
+            <div class="bg-gray-800 px-4 py-3 border-b border-gray-700">
+              <div class="flex items-center space-x-2">
+                <button class="text-gray-400 hover:text-gray-200">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <button class="text-gray-400 hover:text-gray-200">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <button class="text-gray-400 hover:text-gray-200">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div class="flex-1 ml-4 flex items-center">
+                  <i class="material-icons text-green-500 mr-2">lock</i>
+                  <input type="text" placeholder="https://javanet.javerianacali.edu.co" class="w-full bg-gray-700 text-gray-200 px-3 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" value="https://javanet.javerianacali.edu.co">
+                </div>
+              </div>
+            </div>
+            <!-- Área de contenido del navegador (página de login de SharePoint simulada) -->
+            <div class="bg-cover bg-center min-h-screen" style="background-image: url('img/illustration.jpg');">
+              
+            </div>
+          </div>
+        </div> <!-- Cierra el contenedor interno -->
+      </div> <!-- Cierra el div del email -->
+      <!-- Línea en blanco -->
+    </div> <!-- Cierra el grid -->
+  </div> <!-- Cierra el contenedor principal -->
+</body> <!-- Cierra el cuerpo del documento -->
+</html> <!-- Cierra la etiqueta raíz HTML -->
