@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contraseñas Robustas — Presentación</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="deck" role="application" aria-label="Presentación: Contraseñas Robustas">
+    <header>
+      <div class="title">
+        <div class="logo">CB</div>
+        <div>
+          <h1>Contraseñas Robustas: La Puerta de Entrada al Mundo Digital</h1>
+          <p class="small">45 min — Audiencia general | Interactivo</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn" id="prev">◀</button>
+        <button class="btn" id="next">▶</button>
+        <button class="btn" id="toggleNotes">Notas (N)</button>
+        <button class="btn" id="openPoll">Encuesta (P)</button>
+      </div>
+    </header>
+
+    <div class="stage">
+      <!-- Slides -->
+      <section class="slide active" data-notes="Apertura: usar analogía de puerta. Mostrar cifra 16 mil millones. Lanzar encuesta rápida.">
+        <h2>Bienvenida & Hook</h2>
+        <p class="lead">Imagina que tu contraseña es la llave de la puerta principal de tu vida digital. ¿Qué tan segura está?</p>
+        <div class="cols">
+          <div>
+            <div class="card">
+              <div class="stat">16,000M</div>
+              <div class="small">contraseñas robadas (muestra estadística representativa)</div>
+              <p class="small" style="margin-top:12px">Encuesta: pulsa <strong>P</strong> para responder: ¿Confías en tus contraseñas actuales?</p>
+            </div>
+            <div style="height:18px"></div>
+            <div class="card">
+              <h3>Objetivo</h3>
+              <ul class="small">
+                <li>Conectar emocionalmente</li>
+                <li>Mostrar riesgo real con cifras</li>
+                <li>Dejar 3 acciones prácticas al final</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="card">
+            <strong>Interacción</strong>
+            <p class="small">Inicia una poll en vivo con 3 opciones. Tus asistentes verán resultados en tiempo real.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 2: explicar crackeo — ejemplo 8 vs 16 caracteres. usar visuals comparativos.">
+        <h2>Vulnerabilidad Real</h2>
+        <p class="lead">No es paranoia: la combinatoria importa. Tiempo estimado para crackear:</p>
+        <div class="cols">
+          <div>
+            <div class="card">
+              <h3>Comparativa</h3>
+              <p class="small"><strong>8 caracteres</strong> ≈ 7 horas (varía según hardware)</p>
+              <p class="small"><strong>16 caracteres</strong> ≈ miles de millones de años</p>
+              <p class="small">Caso: Twitter 2020 — ejemplo de combinación de ingeniería social + fuerza bruta.</p>
+            </div>
+            <div style="height:18px"></div>
+            <div class="card">
+              <h3>Consecuencia</h3>
+              <p class="small">Las contraseñas cortas o basadas en patrones son explotadas rápidamente por herramientas automatizadas.</p>
+            </div>
+          </div>
+          <aside class="card">
+            <strong>Visual sugerida</strong>
+            <p class="small">Gráfico exponencial: tiempo vs. longitud de contraseña.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 3: impacto IA — ejemplos de deepfakes y 80% ransomware (2025).">
+        <h2>La Amenaza de la IA</h2>
+        <p class="lead">La IA no solo automatiza ataques, los personaliza.</p>
+        <div class="card" style="max-width:760px; margin-top:12px">
+          <h3>Qué cambia con IA</h3>
+          <ul class="small">
+            <li>Automatización masiva de intentos</li>
+            <li>Ingeniería social hiperpersonalizada</li>
+            <li>Deepfakes/voice cloning para eludir MFA débil</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 4: Reglas de Oro (5 reglas). Mostrar passphrase vs. contraseña compleja.">
+        <h2>Solución Técnica — 5 Reglas de Oro</h2>
+        <p class="lead">La mejor estrategia combina longitud, unicidad y automatización.</p>
+        <div class="cols">
+          <div>
+            <div class="card">
+              <h3>Reglas</h3>
+              <ol class="small">
+                <li>Longitud > complejidad (prefiere 12–16+ caracteres)</li>
+                <li>Usa passphrases (ej: SunflowerPizzaRocket)</li>
+                <li>Unicidad total por cuenta</li>
+                <li>Complejidad como capa secundaria</li>
+                <li>Evita patrones y datos personales</li>
+              </ol>
+            </div>
+          </div>
+          <aside class="card">
+            <h3>Ejemplo Visual</h3>
+            <p class="small"><strong>SunflowerPizzaRocket</strong> vs <strong>P@ssw0rd!23</strong> — la primera gana por entropía efectiva.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 5: gestores y MFA. mostrar Bitwarden como ejemplo simple.">
+        <h2>Implementación Práctica</h2>
+        <p class="lead">Automatiza: gestores de contraseñas + MFA = cerradura doble.</p>
+        <div class="cols">
+          <div>
+            <div class="card">
+              <h3>Gestores</h3>
+              <ul class="small">
+                <li>Facilitan unicidad y passphrases</li>
+                <li>Auto-fill y generación segura</li>
+                <li>Opciones: Bitwarden (open/free), 1Password, LastPass</li>
+              </ul>
+            </div>
+            <div style="height:18px"></div>
+            <div class="card">
+              <h3>MFA</h3>
+              <p class="small">Cómo agregar MFA simple: apps de autenticación, llaves FIDO2, SMS (solo si no hay otra opción).</p>
+            </div>
+          </div>
+          <aside class="card">
+            <h3>Tutorial rápido</h3>
+            <ol class="small">
+              <li>Instala Bitwarden</li>
+              <li>Genera contraseña maestra (passphrase larga)</li>
+              <li>Activa MFA en correo y cuentas críticas</li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 6: detección y respuesta. herramientas: HIBP. pasos si te comprometieron.">
+        <h2>Detección y Respuesta</h2>
+        <p class="lead">Saber si fuiste comprometido y actuar rápido salva mucho.</p>
+        <div class="card" style="max-width:760px">
+          <h3>Herramientas y pasos</h3>
+          <ul class="small">
+            <li>Have I Been Pwned — verifica correos y brechas</li>
+            <li>Cambia contraseñas de servicios críticos</li>
+            <li>Revisa sesiones activas y dispositivos conectados</li>
+            <li>Activa MFA y reporta a soporte si es empresa</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="slide" data-notes="Bloque 7: cierre emocional — 5 metas en 4 semanas. concluir con llamada a la acción.">
+        <h2>Cierre y Llamada a la Acción</h2>
+        <p class="lead">Transforma conocimiento en hábito con metas concretas.</p>
+        <div class="card">
+          <h3>5 metas (4 semanas)</h3>
+          <ol class="small">
+            <li>Hoy: instala un gestor y crea contraseña maestra</li>
+            <li>Esta semana: activa MFA en correo y banca</li>
+            <li>2 semanas: renueva contraseñas críticas</li>
+            <li>3 semanas: revisa brechas en Have I Been Pwned</li>
+            <li>4 semanas: completa checklist de seguridad personal</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Speaker notes panel -->
+      <div class="speaker-notes" id="notesBox" aria-hidden="true" style="display:none"></div>
+
+    </div>
+
+    <footer>
+      <div class="small">Navegación: ← → | Notas: N | Encuesta: P | Guarda: Ctrl+S</div>
+      <div style="display:flex; align-items:center; gap:12px">
+        <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+        <div class="small" id="slideIndex">1 / 7</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Poll modal (built-in, local) -->
+  <div id="pollModal" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.6); z-index:80">
+    <div style="width:420px; background:linear-gradient(180deg,#071022,#05131a); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)">
+      <h3 style="margin:0 0 8px 0">Encuesta rápida</h3>
+      <p class="small" style="margin:0 0 8px 0">¿Confías en tus contraseñas actuales?</p>
+      <div class="poll" id="pollOptions">
+        <button data-val="si">Sí, cumplo buenas prácticas</button>
+        <button data-val="mas-o-menos">Más o menos</button>
+        <button data-val="no">No, debo mejorar</button>
+      </div>
+      <div style="height:12px"></div>
+      <div style="display:flex; justify-content:space-between; align-items:center">
+        <div class="small">Resultados: <span id="pollSummary">—</span></div>
+        <button class="btn" id="closePoll">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
