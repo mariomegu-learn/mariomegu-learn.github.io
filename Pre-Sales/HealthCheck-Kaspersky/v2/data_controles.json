@@ -236,23 +236,31 @@
       "caracteristicas": [
         {
           "numero": "8.1",
-          "nombre": "Análisis de conexiones cifradas",
+          "nombre": "EDR",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
           "beneficio": "Cuando termina la instalación de Kaspersky Endpoint Security, se agrega un certificado de Kaspersky al repositorio de certificados de confianza del sistema",
           "fase": ""
         },
         {
-          "numero": "7.2",
-          "nombre": "Análisis de unidades extraíbles",
+          "numero": "8.2",
+          "nombre": "Aislamiento de dispositivos",
           "respuesta": "Manual o limitado",
           "puntos": 2.0,
           "beneficio": "Existen aplicaciones maliciosas que utilizan vulnerabilidades del sistema operativo para propagarse a través de unidades extraíbles y redes de área local. Kaspersky Endpoint Security le permite analizar los unidades extraíbles en busca de virus y otras clases de malware cuando se conectan al equipo.",
           "fase": ""
         },
         {
-          "numero": "7.3",
-          "nombre": "Protección con contraseña",
+          "numero": "8.3",
+          "nombre": "Prevención de ejecucion",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
+          "fase": ""
+        },
+        {
+          "numero": "8.4",
+          "nombre": "Cloud Sandbox",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
           "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
