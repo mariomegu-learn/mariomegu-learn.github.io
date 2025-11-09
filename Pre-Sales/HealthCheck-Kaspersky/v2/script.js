@@ -19,7 +19,8 @@ const RESPUESTAS = [
     { texto: 'En fase inicial', valor: 1 },
     { texto: 'Manual o limitado', valor: 2 },
     { texto: 'Implementado parcialmente', valor: 3 },
-    { texto: 'Implementado totalmente', valor: 4 }
+    { texto: 'Implementado totalmente', valor: 4 },
+    { texto: 'No aplica', valor: "N/A" }
 ];
 
 const DURACIONES = {
@@ -226,16 +227,27 @@ function crearCaracteristicaHTML(control, caract) {
 function calcularStatsControl(control) {
     let puntos = 0;
     let maxPuntos = control.caracteristicas.length * 4;
+    let caracteristicasValidas = 0;
 
     control.caracteristicas.forEach(caract => {
         const key = `${control.numero}_${caract.numero}`;
         const respuesta = evaluacionActual[key] || caract.respuesta || 'Desactivado';
         const respuestaObj = RESPUESTAS.find(r => r.texto === respuesta);
+
+        // Excluir características con respuesta "No aplica"
+        if (respuesta === 'No aplica') {
+            return;
+        }
+
         puntos += respuestaObj ? respuestaObj.valor : 0;
+        caracteristicasValidas++;
     });
 
+    // Ajustar maxPuntos para excluir características "No aplica"
+    maxPuntos = caracteristicasValidas * 4;
+
     const madurez = puntos / CONFIG.PUNTAJE_MAXIMO;
-    const porcentajeEsperado = control.caracteristicas.length * CONFIG.VALOR_MADUREZ_CONTROL;
+    const porcentajeEsperado = caracteristicasValidas * CONFIG.VALOR_MADUREZ_CONTROL;
     const brecha = maxPuntos > 0 ? 1 - (puntos / maxPuntos) : 0;
     const cumplimiento = 1 - brecha;
 
