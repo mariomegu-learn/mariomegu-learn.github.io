@@ -1,18 +1,21 @@
 // ===========================
 // ANÁLISIS DE MADUREZ KASPERSKY
-// Sistema de Evaluación Web v1.0
+// Sistema de Evaluación Web v1.1
 // ===========================
 
 // ===========================
 // CONFIGURACIÓN Y VARIABLES GLOBALES
 // ===========================
 
+// Nota: El puntaje máximo ahora se calcula como TOTAL_CONTROLES * 4
+// para reflejar que cada control puede obtener hasta 4 puntos
+
 const CONFIG = {
-    TOTAL_CONTROLES: 67,
-    PUNTAJE_MAXIMO: 244,    
-    VALOR_MADUREZ_CONTROL: 0.01639344262295082,
     MINUTOS_TRANSFERENCIA: 240
 };
+
+let TOTAL_CONTROLES = 0;
+let PUNTAJE_MAXIMO = 0;
 
 const RESPUESTAS = [
     { texto: 'Desactivado', valor: 0 },
@@ -48,6 +51,7 @@ const DURACIONES = {
 
 let controlesData = [];
 let evaluacionActual = {};
+let totalControlesCalculado = 0;
 
 // ===========================
 // INICIALIZACIÓN
@@ -121,7 +125,24 @@ async function cargarControles() {
             });
         });
 
+        // Calcular el total de controles, excluyendo características "No aplica"
+        totalControlesCalculado = controlesData.reduce((total, control) => {
+            const caracteristicasValidas = control.caracteristicas.filter(caract => {
+                const key = `${control.numero}_${caract.numero}`;
+                return evaluacionActual[key] !== 'No aplica';
+            });
+            return total + caracteristicasValidas.length;
+        }, 0);
+
         console.log('Controles cargados:', controlesData.length);
+        console.log('Total de características de controles:', totalControlesCalculado);
+
+        // Calcular TOTAL_CONTROLES y PUNTAJE_MAXIMO basado en características aplicables
+        TOTAL_CONTROLES = totalControlesCalculado;
+        PUNTAJE_MAXIMO = TOTAL_CONTROLES * 4;
+
+        console.log('TOTAL_CONTROLES actualizado:', TOTAL_CONTROLES);
+        console.log('PUNTAJE_MAXIMO actualizado:', PUNTAJE_MAXIMO);
     } catch (error) {
         console.error('Error cargando controles:', error);
         // Crear estructura por defecto si falla la carga
@@ -246,7 +267,7 @@ function calcularStatsControl(control) {
     // Ajustar maxPuntos para excluir características "No aplica"
     maxPuntos = caracteristicasValidas * 4;
 
-    const madurez = puntos / CONFIG.PUNTAJE_MAXIMO;
+    const madurez = puntos / PUNTAJE_MAXIMO;
     const porcentajeEsperado = caracteristicasValidas * CONFIG.VALOR_MADUREZ_CONTROL;
     const brecha = maxPuntos > 0 ? 1 - (puntos / maxPuntos) : 0;
     const cumplimiento = 1 - brecha;
@@ -271,7 +292,7 @@ function calcularStatsGlobales() {
         maxPuntosTotal += stats.maxPuntos;
     });
 
-    const madurezGlobal = puntosTotal / CONFIG.PUNTAJE_MAXIMO;
+    const madurezGlobal = puntosTotal / PUNTAJE_MAXIMO;
 
     return {
         puntosTotal,
@@ -360,6 +381,18 @@ function actualizarResultados() {
     const puntosElement = document.getElementById('puntos-obtenidos');
     if (puntosElement) {
         puntosElement.textContent = stats.puntosTotal.toFixed(0);
+    }
+
+    // Mostrar el total de controles calculado
+    const totalControlesElement = document.getElementById('total-controles');
+    if (totalControlesElement) {
+        totalControlesElement.textContent = totalControlesCalculado;
+    }
+
+    // Actualizar el máximo de puntos posibles en la UI
+    const puntosMaximosElement = document.getElementById('puntos-maximos');
+    if (puntosMaximosElement) {
+        puntosMaximosElement.textContent = `de ${PUNTAJE_MAXIMO} posibles`;
     }
 
     // Calcular tiempo de implementación

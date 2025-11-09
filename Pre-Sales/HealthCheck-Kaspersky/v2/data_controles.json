@@ -32,7 +32,7 @@
         {
           "numero": "1.4",
           "nombre": "Protección contra ataques BadUSB",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0,
           "beneficio": " impide que los dispositivos USB infectados que emulan un teclado se conecten al equipo.",
           "fase": ""
@@ -164,7 +164,7 @@
         {
           "numero": "5.1",
           "nombre": "Borrado remoto",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0,
           "beneficio": " tarea para eliminar información a distancia de los equipos de los usuarios, de forma permanente o a través del propio sistema operativo",
           "fase": ""
@@ -397,7 +397,7 @@
         {
           "numero": "13.1",
           "nombre": "Monitor de integridad de archivos",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0,
           "beneficio": "De forma predeterminada, el Monitor de integridad de archivos no supervisa los cambios en las carpetas del sistema o los archivos de mantenimiento del sistema de archivos, para evitar que la información sobre los cambios de archivos de rutina, que el sistema operativo realiza constantemente, ingrese a los informes de tareas",
           "fase": ""
@@ -405,7 +405,7 @@
         {
           "numero": "13.2",
           "nombre": "Inspección de Logs",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0,
           "beneficio": "Cuando se ejecuta la tarea de inspección de registros, Kaspersky Security para Windows Server supervisa la integridad del entorno protegido en función de los resultados de una inspección de los registros de eventos de Windows. La aplicación notifica al administrador al detectar un comportamiento anormal en el sistema, lo que puede ser una indicación de intentos de ciberataques.",
           "fase": ""
@@ -420,25 +420,25 @@
         {
           "numero": "14.1",
           "nombre": "Instalación remota de aplicaciones",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0
         },
         {
           "numero": "14.2",
           "nombre": "Instalación remota de sistemas operativos",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0
         },
         {
           "numero": "14.3",
           "nombre": "Monitor de Vulnerabilidades",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0
         },
         {
           "numero": "14.4",
           "nombre": "Remediación de Vulnerabilidades",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0
         },
         {
@@ -450,13 +450,13 @@
         {
           "numero": "14.6",
           "nombre": "Inventario de Hardware y Software",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0
         },
         {
           "numero": "14.7",
           "nombre": "Help Desk (Escritorio remoto)",
-          "respuesta": "Desactivado",
+          "respuesta": "Implementado totalmente",
           "puntos": 0.0
         }
       ]
@@ -469,7 +469,7 @@
         {
           "numero": "15.1",
           "nombre": "Protección para Dispositivos móviles",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0
         }
       ]
@@ -513,7 +513,7 @@
         {
           "numero": "17.1",
           "nombre": "Integración con SIEM",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0,
           "beneficio": "La exportación de eventos se puede utilizar en sistemas centralizados que tratan problemas de seguridad a un nivel organizativo y técnico, proporcionan servicios de control de la seguridad y consolidan la información de soluciones diferentes. Estos son sistemas SIEM, que proporcionan el análisis en tiempo real de alertas de seguridad y eventos generados por el hardware y las aplicaciones de la red o Centros de Operación de Seguridad (SOC).",
           "fase": ""
@@ -574,7 +574,7 @@
         {
           "numero": "18.2",
           "nombre": "Perfiles de conexión",
-          "respuesta": "No aplica",
+          "respuesta": "Implementado totalmente",
           "puntos": 0
         }
       ]
@@ -685,10 +685,5 @@
     "Agente de Red": 10.0,
     "Estado general de la distribución": 60.0,
     "Versiones": 60.0
-  },
-  "configuracion": {
-    "total_controles": 67,
-    "puntaje_maximo": 244,
-    "valor_madurez_control": 0.01639344262295082
   }
 }
