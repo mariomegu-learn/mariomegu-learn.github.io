@@ -1,7 +1,7 @@
 {
   "controles": [
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "1.0",
       "nombre": "Protección Básica",
       "caracteristicas": [
@@ -10,7 +10,7 @@
           "nombre": "Protección contra amenazas de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "permite evitar la infección del sistema de archivos del equipo. De manera predeterminada, el componente se mantiene cargado en la RAM del equipo. Protección contra archivos peligrosos analiza los archivos de todas las unidades del equipo, incluidas las que se conectan al mismo. Para proteger el equipo",
+          "beneficio": "Previene la infección del sistema de archivos mediante análisis en tiempo real de todos los archivos, incluidas unidades extraíbles, proporcionando una defensa proactiva contra malware",
           "fase": ""
         },
         {
@@ -18,7 +18,7 @@
           "nombre": "protección contra amenazas web",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " está diseñado para bloquear sitios web maliciosos y fraudulentos e impedir la descarga de archivos dañinos de Internet",
+          "beneficio": "Bloquea sitios web maliciosos y fraudulentos, impidiendo la descarga de archivos peligrosos y protegiendo contra ataques basados en navegación",
           "fase": ""
         },
         {
@@ -26,7 +26,7 @@
           "nombre": "Protección contra amenazas en el correo electrónico",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "analiza los archivos adjuntos a los mensajes de correo entrantes y salientes para detectar virus y otras amenazas. También analiza los mensajes en busca de vínculos maliciosos o fraudulentos",
+          "beneficio": "Analiza archivos adjuntos y enlaces en correos electrónicos para detectar y bloquear amenazas, previniendo infecciones a través de vectores de correo",
           "fase": ""
         },
         {
@@ -34,7 +34,7 @@
           "nombre": "Protección contra ataques BadUSB",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": " impide que los dispositivos USB infectados que emulan un teclado se conecten al equipo.",
+          "beneficio": "Previene ataques BadUSB bloqueando dispositivos USB que intentan emular un teclado para ejecutar comandos maliciosos",
           "fase": ""
         },
         {
@@ -42,13 +42,13 @@
           "nombre": "Proveedor de protección AMSI",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "está diseñado para admitir la interfaz de análisis antimalware de Microsoft. La interfaz de análisis antimalware AMSI permite que las aplicaciones de terceros envíen a Kaspersky Endpoint Security aquellos objetos que precisan analizar (por ejemplo, scripts de PowerShell). Una vez que el análisis se completa, el resultado se devuelve a la aplicación que originó la solicitud",
+          "beneficio": "Integra con la interfaz AMSI de Microsoft para analizar scripts y otros objetos, mejorando la detección de amenazas en tiempo de ejecución",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "2.0",
       "nombre": "Protección de Red",
       "caracteristicas": [
@@ -57,7 +57,7 @@
           "nombre": "Firewall",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Impide que se establezcan conexiones no autorizadas cuando el equipo está conectado a una red local o a Internet. Firewall también controla la actividad de red de las aplicaciones instaladas en el equipo",
+          "beneficio": "Controla el tráfico de red y las conexiones de aplicaciones, previniendo accesos no autorizados y protegiendo contra intrusiones",
           "fase": ""
         },
         {
@@ -65,13 +65,13 @@
           "nombre": "Protección de Ataques de Red",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "analiza el tráfico de red entrante en busca de actividad típica de ataques de red.",
+          "beneficio": "Detecta y bloquea ataques de red analizando el tráfico entrante en busca de patrones maliciosos",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "3.0",
       "nombre": "Protección Avanzada",
       "caracteristicas": [
@@ -80,7 +80,7 @@
           "nombre": "Kaspersky Security Network",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Kaspersky Security Network (también conocida como \"KSN\") es una infraestructura de servicios en línea que proporciona acceso a la base de conocimiento operativo de Kaspersky Lab sobre la reputación de archivos, recursos web y programas. Kaspersky Security Network permite que Kaspersky Security for Windows Server reaccione rápidamente a nuevas amenazas, mejora\nEl rendimiento de varios componentes de protección y reduce la probabilidad de falsos positivos",
+          "beneficio": "Mejora la detección de amenazas y reduce falsos positivos mediante el acceso a la base de conocimiento global de Kaspersky sobre reputación de archivos y recursos web",
           "fase": ""
         },
         {
@@ -88,7 +88,7 @@
           "nombre": "Detección de Comportamientos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " recibe datos sobre las acciones de las aplicaciones del equipo y transmite esta información a los demás componentes de protección para mejorar su rendimiento.",
+          "beneficio": "Monitorea el comportamiento de aplicaciones para detectar actividades sospechosas y mejorar la protección proactiva",
           "fase": ""
         },
         {
@@ -96,7 +96,7 @@
           "nombre": "Prevención de intrusiones en el host",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "impide que las aplicaciones realicen acciones que puedan ser peligrosas para el sistema operativo y garantiza el control del acceso a los recursos del sistema operativo y a los datos personales. ",
+          "beneficio": "Previene acciones peligrosas de aplicaciones y controla el acceso a recursos críticos del sistema",
           "fase": ""
         },
         {
@@ -104,7 +104,7 @@
           "nombre": "Prevención de vulnerabilidades (exploits)",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " detecta código de software diseñado para aprovechar vulnerabilidades en el equipo y, a través de estas, realizar acciones maliciosas o abusar de los privilegios de administración",
+          "beneficio": "Detecta y bloquea exploits que intentan aprovechar vulnerabilidades del sistema para obtener privilegios elevados",
           "fase": ""
         },
         {
@@ -112,13 +112,13 @@
           "nombre": "Motor de reparación",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " permite a Kaspersky Endpoint Security deshacer acciones que han sido realizadas por el malware en el sistema operativo.",
+          "beneficio": "Revierte cambios maliciosos realizados por malware, restaurando la integridad del sistema",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "4.0",
       "nombre": "Controles Endpoint",
       "caracteristicas": [
@@ -127,7 +127,7 @@
           "nombre": "Control de aplicaciones",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "e utiliza para gestionar la ejecución de aplicaciones en los equipos de los usuarios. Permite, con ello, implementar una política de seguridad corporativa que regule el uso de aplicaciones. ",
+          "beneficio": "Implementa políticas de seguridad para controlar la ejecución de aplicaciones, reduciendo riesgos de software no autorizado",
           "fase": ""
         },
         {
@@ -135,7 +135,7 @@
           "nombre": "Control de Dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "rastrea los intentos de conectar dispositivos de almacenamiento masivo USB a un servidor protegido y permite o niega el uso de estos dispositivos de acuerdo con las reglas de control de dispositivos especificadas.",
+          "beneficio": "Controla el uso de dispositivos USB según políticas de seguridad, previniendo infecciones a través de medios extraíbles",
           "fase": ""
         },
         {
@@ -143,7 +143,7 @@
           "nombre": "Control de navegación",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": " permite regular el acceso de los usuarios a los recursos web. El componente ayuda a reducir tanto el volumen de tráfico como el tiempo que se malgasta en actividades no laborales",
+          "beneficio": "Regula el acceso a recursos web, mejorando la productividad y reduciendo riesgos de navegación no segura",
           "fase": ""
         },
         {
@@ -151,13 +151,13 @@
           "nombre": "Control Adaptativo de Anomalías",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " detecta y bloquea acciones que no son típicas de los equipos conectados a una red corporativa. Para ello utiliza una serie de reglas, diseñadas para buscar comportamientos que no se consideran usuales",
+          "beneficio": "Detecta comportamientos anómalos en equipos de red utilizando reglas avanzadas de análisis de comportamiento",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "5.0",
       "nombre": "Borrado Remoto",
       "caracteristicas": [
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "6.0",
       "nombre": "Cifrado",
       "caracteristicas": [
@@ -181,25 +181,27 @@
           "nombre": "Cifrado de Disco Completo",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": " permite cifrar archivos y carpetas que están almacenados en unidades locales o extraíbles, o unidades extraíbles y discos duros en su totalidad. El cifrado de datos minimiza el riesgo de fugas de información que pueden ocurrir como consecuencia del robo o la pérdida de un equipo portátil",
+          "beneficio": "Protege datos sensibles mediante cifrado completo de discos, previniendo accesos no autorizados en caso de pérdida o robo",
           "fase": ""
         },
         {
           "numero": "6.2",
           "nombre": "Cifrado de Archivos o carpetas",
           "respuesta": "Implementado totalmente",
-          "puntos": 1.0
+          "puntos": 1.0,
+          "beneficio": "Protege información confidencial mediante cifrado selectivo de archivos y carpetas críticas"
         },
         {
           "numero": "6.3",
           "nombre": "cifrado de unidades extraíbles",
           "respuesta": "Implementado totalmente",
-          "puntos": 1.0
+          "puntos": 1.0,
+          "beneficio": "Asegura datos en dispositivos extraíbles mediante cifrado, previniendo accesos no autorizados"
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "7.0",
       "nombre": "Configuración General del Endpoint",
       "caracteristicas": [
@@ -208,7 +210,7 @@
           "nombre": "Análisis de conexiones cifradas",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Cuando termina la instalación de Kaspersky Endpoint Security, se agrega un certificado de Kaspersky al repositorio de certificados de confianza del sistema",
+          "beneficio": "Fortalece la seguridad de conexiones cifradas mediante la integración de certificados de confianza",
           "fase": ""
         },
         {
@@ -216,7 +218,7 @@
           "nombre": "Análisis de unidades extraíbles",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Existen aplicaciones maliciosas que utilizan vulnerabilidades del sistema operativo para propagarse a través de unidades extraíbles y redes de área local. Kaspersky Endpoint Security le permite analizar los unidades extraíbles en busca de virus y otras clases de malware cuando se conectan al equipo.",
+          "beneficio": "Analiza unidades extraíbles en tiempo real para detectar y bloquear malware que explote vulnerabilidades",
           "fase": ""
         },
         {
@@ -224,13 +226,13 @@
           "nombre": "Protección con contraseña",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
+          "beneficio": "Protege la configuración de seguridad con contraseña, previniendo modificaciones no autorizadas",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "ENDPOINT",
+      "aplicacion": "Endpoint",
       "numero": "8.0",
       "nombre": "EDR",
       "caracteristicas": [
@@ -239,7 +241,7 @@
           "nombre": "EDR",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Cuando termina la instalación de Kaspersky Endpoint Security, se agrega un certificado de Kaspersky al repositorio de certificados de confianza del sistema",
+          "beneficio": "Proporciona capacidades avanzadas de detección y respuesta a incidentes (EDR)",
           "fase": ""
         },
         {
@@ -247,7 +249,7 @@
           "nombre": "Aislamiento de dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Existen aplicaciones maliciosas que utilizan vulnerabilidades del sistema operativo para propagarse a través de unidades extraíbles y redes de área local. Kaspersky Endpoint Security le permite analizar los unidades extraíbles en busca de virus y otras clases de malware cuando se conectan al equipo.",
+          "beneficio": "Aísla dispositivos comprometidos para prevenir la propagación de amenazas en la red",
           "fase": ""
         },
         {
@@ -255,7 +257,7 @@
           "nombre": "Prevención de ejecucion",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
+          "beneficio": "Previene la ejecución de archivos maliciosos mediante análisis avanzado de comportamiento",
           "fase": ""
         },
         {
@@ -263,139 +265,148 @@
           "nombre": "Cloud Sandbox",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
+          "beneficio": "Analiza archivos sospechosos en un entorno seguro (sandbox) para detectar amenazas avanzadas",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
-      "numero": "8.0",
+      "aplicacion": "Protección para Servidores",
+      "numero": "9.0",
       "nombre": "Protección Basica",
       "caracteristicas": [
         {
-          "numero": "8.1",
+          "numero": "9.1",
           "nombre": "Protección contra amenazas de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "permite evitar la infección del sistema de archivos del equipo. De manera predeterminada, el componente se mantiene cargado en la RAM del equipo. Protección contra archivos peligrosos analiza los archivos de todas las unidades del equipo, incluidas las que se conectan al mismo. Para proteger el equipo",
-          "fase": ""
-        },
-        {
-          "numero": "8.2",
-          "nombre": "protección contra amenazas web",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0,
-          "beneficio": " está diseñado para bloquear sitios web maliciosos y fraudulentos e impedir la descarga de archivos dañinos de Internet",
-          "fase": ""
-        },
-        {
-          "numero": "8.3",
-          "nombre": "Proteccion contra amenazas en red",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0
-        }
-      ]
-    },
-    {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
-      "numero": "9.0",
-      "nombre": "Protección Avanzada",
-      "caracteristicas": [
-        {
-          "numero": "9.1",
-          "nombre": "Anti - Cryptor",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0,
-          "beneficio": "permite detectar el cifrado malicioso de los recursos de archivos de red de un servidor protegido desde computadoras remotas en la red corporativa",
+          "beneficio": "Protege servidores contra infecciones de archivos mediante análisis en tiempo real y prevención de amenazas",
           "fase": ""
         },
         {
           "numero": "9.2",
+          "nombre": "protección contra amenazas web",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Bloquea sitios web maliciosos y fraudulentos e impide la descarga de archivos dañinos de Internet",
+          "fase": ""
+        },
+        {
+          "numero": "9.3",
+          "nombre": "Proteccion contra amenazas en red",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Protege contra ataques que se propagan a través de la red"
+        }
+      ]
+    },
+    {
+      "aplicacion": "Protección para Servidores",
+      "numero": "10.0",
+      "nombre": "Protección Avanzada",
+      "caracteristicas": [
+        {
+          "numero": "10.1",
+          "nombre": "Anti - Cryptor",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Detecta y bloquea intentos de cifrado malicioso de recursos de red, protegiendo contra ransomware",
+          "fase": ""
+        },
+        {
+          "numero": "10.2",
           "nombre": "Detección de Comportamientos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " recibe datos sobre las acciones de las aplicaciones del equipo y transmite esta información a los demás componentes de protección para mejorar su rendimiento.",
+          "beneficio": "Mejora la detección de amenazas mediante análisis de comportamiento de aplicaciones",
           "fase": ""
         }
       ]
     },
     {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
-      "numero": "10.0",
+      "aplicacion": "Protección para Servidores",
+      "numero": "11.0",
       "nombre": "Configuración General",
       "caracteristicas": [
         {
-          "numero": "10.1",
+          "numero": "11.1",
           "nombre": "Configuración de la aplicacion",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
-        },
-        {
-          "numero": "10.2",
-          "nombre": "Configuración de red",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0
-        },
-        {
-          "numero": "10.3",
-          "nombre": "Exclusiones globales",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0
-        },
-        {
-          "numero": "10.4",
-          "nombre": "Configuración de almacenamiento",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0
-        }
-      ]
-    },
-    {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
-      "numero": "11.0",
-      "nombre": "Tareas",
-      "caracteristicas": [
-        {
-          "numero": "11.1",
-          "nombre": "Gestión de tareas",
-          "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Optimiza la protección del servidor mediante configuración personalizada de la aplicación"
         },
         {
           "numero": "11.2",
-          "nombre": "Dispositivos extraibles",
+          "nombre": "Configuración de red",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Ajusta configuraciones de red para maximizar la seguridad y el rendimiento del servidor"
+        },
+        {
+          "numero": "11.3",
+          "nombre": "Exclusiones globales",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Reduce falsos positivos excluyendo archivos y carpetas específicas del análisis"
+        },
+        {
+          "numero": "11.4",
+          "nombre": "Configuración de almacenamiento",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Configura parámetros de almacenamiento para una protección eficiente de datos"
         }
       ]
     },
     {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
+      "aplicacion": "Protección para Servidores",
       "numero": "12.0",
-      "nombre": "Configuración de eventos",
+      "nombre": "Tareas",
       "caracteristicas": [
         {
           "numero": "12.1",
-          "nombre": "Criticos",
+          "nombre": "Gestión de tareas",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Automatiza tareas de seguridad críticas mediante programación centralizada"
         },
         {
           "numero": "12.2",
-          "nombre": "Informativos",
+          "nombre": "Dispositivos extraibles",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Controla y protege dispositivos extraíbles conectados al servidor"
         }
       ]
     },
     {
-      "aplicacion": "PROTECCIÓN PARA SERVIDORES",
+      "aplicacion": "Protección para Servidores",
       "numero": "13.0",
-      "nombre": "Inspección del sistema",
+      "nombre": "Configuración de eventos",
       "caracteristicas": [
         {
           "numero": "13.1",
+          "nombre": "Criticos",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Registra y alerta sobre eventos críticos para una respuesta rápida a incidentes"
+        },
+        {
+          "numero": "13.2",
+          "nombre": "Informativos",
+          "respuesta": "Implementado totalmente",
+          "puntos": 4.0,
+          "beneficio": "Ofrece visibilidad detallada de eventos para análisis de seguridad proactivo"
+        }
+      ]
+    },
+    {
+      "aplicacion": "Protección para Servidores",
+      "numero": "15.0",
+      "nombre": "Inspección del sistema",
+      "caracteristicas": [
+        {
+          "numero": "14.1",
           "nombre": "Monitor de integridad de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
@@ -403,7 +414,7 @@
           "fase": ""
         },
         {
-          "numero": "13.2",
+          "numero": "14.2",
           "nombre": "Inspección de Logs",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
@@ -413,130 +424,131 @@
       ]
     },
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
-      "numero": "14.0",
+      "aplicacion": "Servidor de Administración",
+      "numero": "15.0",
       "nombre": "Gestión de Sistemas",
       "caracteristicas": [
         {
-          "numero": "14.1",
+          "numero": "15.1",
           "nombre": "Instalación remota de aplicaciones",
           "respuesta": "Implementado totalmente",
-          "puntos": 2.0
+          "puntos": 2.0,
+          "beneficio": "Facilita el despliegue centralizado de aplicaciones de seguridad en toda la red"
         },
         {
-          "numero": "14.2",
+          "numero": "15.2",
           "nombre": "Instalación remota de sistemas operativos",
           "respuesta": "Implementado totalmente",
-          "puntos": 0
+          "puntos": 0,
+          "beneficio": "Automatiza la instalación de sistemas operativos en equipos remotos"
         },
         {
-          "numero": "14.3",
+          "numero": "15.3",
           "nombre": "Monitor de Vulnerabilidades",
           "respuesta": "Implementado totalmente",
-          "puntos": 0.0
+          "puntos": 0.0,
+          "beneficio": "Escanea y reporta vulnerabilidades de seguridad para una remediación proactiva"
         },
         {
-          "numero": "14.4",
+          "numero": "15.4",
           "nombre": "Remediación de Vulnerabilidades",
           "respuesta": "Implementado totalmente",
-          "puntos": 0.0
+          "puntos": 0.0,
+          "beneficio": "Implementa automáticamente parches de seguridad para vulnerabilidades críticas"
         },
         {
-          "numero": "14.5",
+          "numero": "15.5",
           "nombre": "Sincronización con Wsus",
           "respuesta": "Implementado totalmente",
-          "puntos": 1.0
+          "puntos": 1.0,
+          "beneficio": "Centraliza la gestión de actualizaciones mediante integración con WSUS"
         },
         {
-          "numero": "14.6",
+          "numero": "15.6",
           "nombre": "Inventario de Hardware y Software",
           "respuesta": "Implementado totalmente",
-          "puntos": 0.0
+          "puntos": 0.0,
+          "beneficio": "Proporciona visibilidad completa del inventario de hardware y software para una mejor gestión"
         },
         {
-          "numero": "14.7",
+          "numero": "15.7",
           "nombre": "Help Desk (Escritorio remoto)",
           "respuesta": "Implementado totalmente",
-          "puntos": 0.0
+          "puntos": 0.0,
+          "beneficio": "Ofrece asistencia técnica remota para resolver problemas rápidamente"
         }
       ]
     },
+    
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
-      "numero": "15.0",
-      "nombre": "Administración de dispositivos móviles",
-      "caracteristicas": [
-        {
-          "numero": "15.1",
-          "nombre": "Protección para Dispositivos móviles",
-          "respuesta": "Implementado totalmente",
-          "puntos": 0
-        }
-      ]
-    },
-    {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
+      "aplicacion": "Servidor de Administración",
       "numero": "16.0",
       "nombre": "Tareas",
       "caracteristicas": [
         {
           "numero": "16.1",
-          "nombre": "Copia de seguridad del servidor de administración",
+          "nombre": "Copia de seguridad del Servidor de Administración",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Crea un respaldo de la configuración del Servidor de Administración y de la base de datos",
           "puntos": 4.0
         },
         {
           "numero": "16.2",
           "nombre": "Descarga de actualizaciones al repositorio",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Garantiza que todos los dispositivos tengan acceso a las últimas actualizaciones de seguridad"
         },
         {
           "numero": "16.4",
           "nombre": "Actualización de firmas para los dispositivos",
           "respuesta": "Implementado totalmente",
-          "puntos": 3.0
+          "puntos": 3.0,
+          "beneficio": "Mantiene la protección actualizada mediante distribución automática de firmas de seguridad"
         },
         {
           "numero": "16.5",
           "nombre": "Análisis antimalware para los dispositivos",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Ejecuta análisis de seguridad programados en todos los dispositivos para detectar amenazas"
         }
       ]
     },
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
+      "aplicacion": "Servidor de Administración",
       "numero": "17.0",
-      "nombre": "Configuración general del servidor de Administración",
+      "nombre": "Configuración general del Servidor de Administración",
       "caracteristicas": [
         {
           "numero": "17.1",
           "nombre": "Integración con SIEM",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
-          "beneficio": "La exportación de eventos se puede utilizar en sistemas centralizados que tratan problemas de seguridad a un nivel organizativo y técnico, proporcionan servicios de control de la seguridad y consolidan la información de soluciones diferentes. Estos son sistemas SIEM, que proporcionan el análisis en tiempo real de alertas de seguridad y eventos generados por el hardware y las aplicaciones de la red o Centros de Operación de Seguridad (SOC).",
+          "beneficio": "Mejora la correlación de eventos y la respuesta a incidentes mediante integración con SIEM",
           "fase": ""
         },
         {
           "numero": "17.2",
           "nombre": "Configuración de perfiles de acceso",
           "respuesta": "Implementado totalmente",
-          "puntos": 3.0
+          "puntos": 3.0,
+          "beneficio": "Implementa control de acceso basado en roles para una seguridad granular"
         },
         {
           "numero": "17.3",
           "nombre": "Consola Web",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": " es una aplicación web diseñada para administrar el estado del sistema de seguridad de la red protegida por las aplicaciones de Kaspersky.",
+          "beneficio": "Es una aplicación web diseñada para administrar el estado del sistema de seguridad de la red protegida por las aplicaciones de Kaspersky.",
           "fase": ""
         },
         {
           "numero": "17.4",
           "nombre": "Puntos de Distribución",
           "respuesta": "Implementado totalmente",
-          "puntos": 2.0
+          "puntos": 2.0,
+          "beneficio": "Optimiza la distribución de actualizaciones y configuraciones a través de puntos estratégicos"
         },
         {
           "numero": "17.5",
@@ -548,18 +560,20 @@
           "numero": "17.6",
           "nombre": "personalización de informes",
           "respuesta": "Implementado totalmente",
-          "puntos": 3.0
+          "puntos": 3.0,
+          "beneficio": "Genera informes de seguridad personalizados para análisis y cumplimiento"
         },
         {
           "numero": "17.7",
           "nombre": "Kaspersky Security Network Proxy",
           "respuesta": "Implementado totalmente",
-          "puntos": 4.0
+          "puntos": 4.0,
+          "beneficio": "Optimiza el rendimiento de la red de seguridad mediante el uso de un proxy dedicado"
         }
       ]
     },
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
+      "aplicacion": "Servidor de Administración",
       "numero": "18.0",
       "nombre": "Agente de Red",
       "caracteristicas": [
@@ -568,19 +582,20 @@
           "nombre": "Protección con contraseña",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Si los usuarios tienen acceso no restringido a Kaspersky Endpoint Security y a su configuración, es posible que se reduzca el nivel general de protección del equipo.",
+          "beneficio": "Previene accesos no autorizados a la configuración de seguridad mediante autenticación robusta",
           "fase": ""
         },
         {
           "numero": "18.2",
           "nombre": "Perfiles de conexión",
           "respuesta": "Implementado totalmente",
-          "puntos": 0
+          "puntos": 0,
+          "beneficio": "Adapta la protección según el tipo de conexión de red (local, remota, VPN)"
         }
       ]
     },
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
+      "aplicacion": "Servidor de Administración",
       "numero": "19.0",
       "nombre": "Estado general de la distribución",
       "caracteristicas": [
@@ -588,30 +603,34 @@
           "numero": "19.1",
           "nombre": "Despliegue en estaciones de trabajo Windows",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Garantiza que todos los endpoints Windows estén protegidos adecuadamente",
           "puntos": 4.0
         },
         {
           "numero": "19.2",
           "nombre": "Despliegue disposivos MaC",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Garantiza que todos los endpoints Mac estén protegidos adecuadamente",
           "puntos": 4.0
         },
         {
           "numero": "19.3",
           "nombre": "Despliegue en Servidores",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Garantiza que todos los servidores estén protegidos adecuadamente",
           "puntos": 4.0
         },
         {
           "numero": "19.4",
           "nombre": "Se usan las versionas más recientes",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Valida que todos los dispositivos utilicen las versiones más recientes del software de seguridad",
           "puntos": 3.0
         }
       ]
     },
     {
-      "aplicacion": "SERVIDOR DE ADMINISTRACIÓN",
+      "aplicacion": "Servidor de Administración",
       "numero": "20.0",
       "nombre": "Versiones",
       "caracteristicas": [
@@ -619,25 +638,43 @@
           "numero": "20.1",
           "nombre": "Consola de Administracion",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Valida que la consola de administración esté actualizada con la última versión disponible",
           "puntos": 2.0
         },
         {
           "numero": "20.2",
           "nombre": "Agente de Red",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Tener el agente de red actualizado garantiza una comunicación segura y eficiente entre el servidor de administración y los dispositivos gestionados",
           "puntos": 4.0
         },
         {
           "numero": "20.3",
           "nombre": "Kaspersky Endpoint Security",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Permite estar al día con las últimas mejoras de seguridad y funcionalidades",
           "puntos": 3.0
         },
         {
           "numero": "20.4",
           "nombre": "Kaspersky Security para Servidores",
           "respuesta": "Implementado totalmente",
+          "beneficio": "Asegura que los servidores estén protegidos con las últimas actualizaciones y mejoras de seguridad",
           "puntos": 3.0
+        }
+      ]
+    },
+    {
+      "aplicacion": "Servidor de Administración",
+      "numero": "21.0",
+      "nombre": "Administración de dispositivos móviles",
+      "caracteristicas": [
+        {
+          "numero": "21.1",
+          "nombre": "Protección para Dispositivos móviles",
+          "respuesta": "Implementado totalmente",
+          "beneficio": "Garantiza que todos los dispositivos móviles estén protegidos adecuadamente",
+          "puntos": 0
         }
       ]
     }
@@ -681,7 +718,7 @@
     "Gestión de Sistemas": 30.0,
     "Administración de dispositivos móviles": 60.0,
     "Tareas": 30.0,
-    "Configuración general del servidor de Administración": 15.0,
+    "Configuración general del Servidor de Administración": 15.0,
     "Agente de Red": 10.0,
     "Estado general de la distribución": 60.0,
     "Versiones": 60.0
