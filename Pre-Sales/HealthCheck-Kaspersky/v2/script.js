@@ -319,6 +319,9 @@ function cambiarRespuesta(selectElement) {
 
     evaluacionActual[key] = selectElement.value;
 
+    // Recalcular TOTAL_CONTROLES y PUNTAJE_MAXIMO basado en respuestas actuales
+    recalcularTotales();
+
     // Actualizar la tarjeta del control
     actualizarControlCard(controlNum);
 
@@ -365,6 +368,23 @@ function actualizarTodo() {
     actualizarMadurez();
 }
 
+function recalcularTotales() {
+    // Recalcular el total de controles, excluyendo características "No aplica"
+    TOTAL_CONTROLES = controlesData.reduce((total, control) => {
+        const caracteristicasValidas = control.caracteristicas.filter(caract => {
+            const key = `${control.numero}_${caract.numero}`;
+            return evaluacionActual[key] !== 'No aplica';
+        });
+        return total + caracteristicasValidas.length;
+    }, 0);
+
+    // Actualizar el puntaje máximo
+    PUNTAJE_MAXIMO = TOTAL_CONTROLES * 4;
+
+    console.log('TOTAL_CONTROLES recalculado:', TOTAL_CONTROLES);
+    console.log('PUNTAJE_MAXIMO recalculado:', PUNTAJE_MAXIMO);
+}
+
 // ===========================
 // ACTUALIZACIÓN DE RESULTADOS
 // ===========================
@@ -386,7 +406,7 @@ function actualizarResultados() {
     // Mostrar el total de controles calculado
     const totalControlesElement = document.getElementById('total-controles');
     if (totalControlesElement) {
-        totalControlesElement.textContent = totalControlesCalculado;
+        totalControlesElement.textContent = TOTAL_CONTROLES;
     }
 
     // Actualizar el máximo de puntos posibles en la UI

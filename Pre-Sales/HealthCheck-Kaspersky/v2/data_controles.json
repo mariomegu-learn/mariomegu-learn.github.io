@@ -40,7 +40,7 @@
         {
           "numero": "1.5",
           "nombre": "Proveedor de protección AMSI",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0,
           "beneficio": "está diseñado para admitir la interfaz de análisis antimalware de Microsoft. La interfaz de análisis antimalware AMSI permite que las aplicaciones de terceros envíen a Kaspersky Endpoint Security aquellos objetos que precisan analizar (por ejemplo, scripts de PowerShell). Una vez que el análisis se completa, el resultado se devuelve a la aplicación que originó la solicitud",
           "fase": ""
@@ -55,7 +55,7 @@
         {
           "numero": "2.1",
           "nombre": "Firewall",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0,
           "beneficio": "Impide que se establezcan conexiones no autorizadas cuando el equipo está conectado a una red local o a Internet. Firewall también controla la actividad de red de las aplicaciones instaladas en el equipo",
           "fase": ""
@@ -94,7 +94,7 @@
         {
           "numero": "3.4",
           "nombre": "Prevención de intrusiones en el host",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0,
           "beneficio": "impide que las aplicaciones realicen acciones que puedan ser peligrosas para el sistema operativo y garantiza el control del acceso a los recursos del sistema operativo y a los datos personales. ",
           "fase": ""
@@ -125,7 +125,7 @@
         {
           "numero": "4.1",
           "nombre": "Control de aplicaciones",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0,
           "beneficio": "e utiliza para gestionar la ejecución de aplicaciones en los equipos de los usuarios. Permite, con ello, implementar una política de seguridad corporativa que regule el uso de aplicaciones. ",
           "fase": ""
@@ -133,7 +133,7 @@
         {
           "numero": "4.2",
           "nombre": "Control de Dispositivos",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0,
           "beneficio": "rastrea los intentos de conectar dispositivos de almacenamiento masivo USB a un servidor protegido y permite o niega el uso de estos dispositivos de acuerdo con las reglas de control de dispositivos especificadas.",
           "fase": ""
@@ -141,7 +141,7 @@
         {
           "numero": "4.3",
           "nombre": "Control de navegación",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0,
           "beneficio": " permite regular el acceso de los usuarios a los recursos web. El componente ayuda a reducir tanto el volumen de tráfico como el tiempo que se malgasta en actividades no laborales",
           "fase": ""
@@ -179,7 +179,7 @@
         {
           "numero": "6.1",
           "nombre": "Cifrado de Disco Completo",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0,
           "beneficio": " permite cifrar archivos y carpetas que están almacenados en unidades locales o extraíbles, o unidades extraíbles y discos duros en su totalidad. El cifrado de datos minimiza el riesgo de fugas de información que pueden ocurrir como consecuencia del robo o la pérdida de un equipo portátil",
           "fase": ""
@@ -187,13 +187,13 @@
         {
           "numero": "6.2",
           "nombre": "Cifrado de Archivos o carpetas",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0
         },
         {
           "numero": "6.3",
           "nombre": "cifrado de unidades extraíbles",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0
         }
       ]
@@ -214,7 +214,7 @@
         {
           "numero": "7.2",
           "nombre": "Análisis de unidades extraíbles",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0,
           "beneficio": "Existen aplicaciones maliciosas que utilizan vulnerabilidades del sistema operativo para propagarse a través de unidades extraíbles y redes de área local. Kaspersky Endpoint Security le permite analizar los unidades extraíbles en busca de virus y otras clases de malware cuando se conectan al equipo.",
           "fase": ""
@@ -245,7 +245,7 @@
         {
           "numero": "8.2",
           "nombre": "Aislamiento de dispositivos",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0,
           "beneficio": "Existen aplicaciones maliciosas que utilizan vulnerabilidades del sistema operativo para propagarse a través de unidades extraíbles y redes de área local. Kaspersky Endpoint Security le permite analizar los unidades extraíbles en busca de virus y otras clases de malware cuando se conectan al equipo.",
           "fase": ""
@@ -444,7 +444,7 @@
         {
           "numero": "14.5",
           "nombre": "Sincronización con Wsus",
-          "respuesta": "En fase inicial",
+          "respuesta": "Implementado totalmente",
           "puntos": 1.0
         },
         {
@@ -494,7 +494,7 @@
         {
           "numero": "16.4",
           "nombre": "Actualización de firmas para los dispositivos",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         },
         {
@@ -521,7 +521,7 @@
         {
           "numero": "17.2",
           "nombre": "Configuración de perfiles de acceso",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         },
         {
@@ -535,7 +535,7 @@
         {
           "numero": "17.4",
           "nombre": "Puntos de Distribución",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0
         },
         {
@@ -547,7 +547,7 @@
         {
           "numero": "17.6",
           "nombre": "personalización de informes",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         },
         {
@@ -605,7 +605,7 @@
         {
           "numero": "19.4",
           "nombre": "Se usan las versionas más recientes",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         }
       ]
@@ -618,7 +618,7 @@
         {
           "numero": "20.1",
           "nombre": "Consola de Administracion",
-          "respuesta": "Manual o limitado",
+          "respuesta": "Implementado totalmente",
           "puntos": 2.0
         },
         {
@@ -630,13 +630,13 @@
         {
           "numero": "20.3",
           "nombre": "Kaspersky Endpoint Security",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         },
         {
           "numero": "20.4",
           "nombre": "Kaspersky Security para Servidores",
-          "respuesta": "Implementado parcialmente",
+          "respuesta": "Implementado totalmente",
           "puntos": 3.0
         }
       ]
