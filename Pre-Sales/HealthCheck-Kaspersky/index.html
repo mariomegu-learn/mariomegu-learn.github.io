@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Madurez KL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Análisis de Madurez de Kaspersky</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'levantamiento')">Levantamiento de Información</button>
+            <button class="tab-button" onclick="openTab(event, 'controles')">Controles</button>
+            <button class="tab-button" onclick="openTab(event, 'resultados')">Resultados</button>
+            <button class="tab-button" onclick="openTab(event, 'brechas')">Brechas</button>
+            <button class="tab-button" onclick="openTab(event, 'madurez')">Madurez</button>
+            <button class="tab-button" onclick="openTab(event, 'implementacion')">Implementación</button>
+            <button class="tab-button" onclick="openTab(event, 'variables')">Variables</button>
+        </div>
+
+        <div id="levantamiento" class="tab-content active">
+            <h2>Levantamiento de Información</h2>
+            <form id="levantamiento-form">
+                <label>Empresa*: <input type="text" id="empresa"></label><br>
+                <label>Contacto*: <input type="text" id="contacto"></label><br>
+                <label>Teléfono*: <input type="text" id="telefono"></label><br>
+                <label>Correo Electrónico*: <input type="email" id="correo"></label><br>
+                <label>Elaborado Por*: <input type="text" id="elaborado"></label><br>
+                <label>Fecha*: <input type="date" id="fecha"></label><br>
+                <label>Tipo de Licenciamiento: <input type="text" id="licenciamiento"></label><br>
+                <label>Cantidad de Estaciones de Trabajo: <input type="number" id="estaciones"></label><br>
+                <label>Cantidad de Servidores: <input type="number" id="servidores"></label><br>
+                <label>Cantidad de Dispositivos Móviles: <input type="number" id="moviles"></label><br>
+            </form>
+        </div>
+
+        <div id="controles" class="tab-content">
+            <h2>Controles</h2>
+            <table id="controles-table">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>NO</th>
+                        <th>Controles</th>
+                        <th>Características</th>
+                        <th>Respuesta</th>
+                        <th>Puntos</th>
+                        <th>Madurez</th>
+                        <th>% Esperado</th>
+                        <th>Brecha</th>
+                        <th>Cumplimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="resultados" class="tab-content">
+            <h2>Resultados</h2>
+            <div id="resultados-content"></div>
+        </div>
+
+        <div id="brechas" class="tab-content">
+            <h2>Brechas</h2>
+            <table id="brechas-table">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>NO</th>
+                        <th>Controles</th>
+                        <th>Puntos</th>
+                        <th>Madurez</th>
+                        <th>% Esperado</th>
+                        <th>Oportunidad de Mejora</th>
+                        <th>Cumplimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="madurez" class="tab-content">
+            <h2>Madurez</h2>
+            <table id="madurez-table">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>Fase</th>
+                        <th>NO</th>
+                        <th>Características</th>
+                        <th>Beneficio</th>
+                        <th>Políticas de Seguridad</th>
+                        <th>C</th>
+                        <th>I</th>
+                        <th>D</th>
+                        <th>Cumplimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="implementacion" class="tab-content">
+            <h2>Implementación</h2>
+            <table id="implementacion-table">
+                <thead>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Controles</th>
+                        <th>Brecha</th>
+                        <th>Duración de Implementación</th>
+                        <th>Total Minutos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="variables" class="tab-content">
+            <h2>Variables</h2>
+            <table id="variables-table">
+                <thead>
+                    <tr>
+                        <th>Riesgo/Nivel</th>
+                        <th>Puntuación</th>
+                        <th>Respuestas</th>
+                        <th>Valor</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Controles</th>
+                        <th>Duración Minutos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/logica.js"></script>
+</body>
+</html>

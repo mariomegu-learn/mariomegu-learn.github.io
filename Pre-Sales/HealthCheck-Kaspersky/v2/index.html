@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Madurez Kaspersky</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🔒 Análisis de Madurez - Kaspersky</h1>
+            <p class="subtitle">Evaluación del Estado de Implementación</p>
+        </header>
+
+        <!-- Tabs Navigation -->
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="informacion">📋 Información</button>
+            <button class="tab-button" data-tab="controles">✅ Controles</button>
+            <button class="tab-button" data-tab="resultados">📊 Resultados</button>
+            <button class="tab-button" data-tab="brechas">🎯 Brechas</button>
+            <button class="tab-button" data-tab="implementacion">⏱️ Implementación</button>
+            <button class="tab-button" data-tab="madurez">📈 Madurez</button>
+        </nav>
+
+        <!-- Tab: Levantamiento de Información -->
+        <section id="informacion" class="tab-content active">
+            <h2>Levantamiento de Información</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="empresa">Empresa *</label>
+                    <input type="text" id="empresa" placeholder="Nombre de la empresa">
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Contacto *</label>
+                    <input type="text" id="contacto" placeholder="Nombre del contacto">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" placeholder="Teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico *</label>
+                    <input type="email" id="correo" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="elaborado">Elaborado por *</label>
+                    <input type="text" id="elaborado" placeholder="Nombre del evaluador">
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha *</label>
+                    <input type="date" id="fecha">
+                </div>
+            </div>
+
+            <h3>Tipo de Licenciamiento</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="estaciones">Cantidad de Estaciones de Trabajo</label>
+                    <input type="number" id="estaciones" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="servidores">Cantidad de Servidores</label>
+                    <input type="number" id="servidores" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="moviles">Cantidad de Dispositivos Móviles</label>
+                    <input type="number" id="moviles" placeholder="0" min="0">
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Controles -->
+        <section id="controles" class="tab-content">
+            <h2>Evaluación de Controles</h2>
+            <div class="controls-actions">
+                <button class="btn btn-primary" onclick="guardarEvaluacion()">💾 Guardar Evaluación</button>
+                <button class="btn btn-secondary" onclick="cargarEvaluacion()">📁 Cargar Evaluación</button>
+                <button class="btn btn-secondary" onclick="exportarJSON()">📤 Exportar JSON</button>
+            </div>
+            <div id="controles-container"></div>
+        </section>
+
+        <!-- Tab: Resultados -->
+        <section id="resultados" class="tab-content">
+            <h2>Resumen de Resultados</h2>
+            <div class="results-summary">
+                <div class="metric-card primary">
+                    <h3>Nivel de Madurez</h3>
+                    <div class="metric-value" id="madurez-total">0%</div>
+                    <div class="metric-label">Madurez Global</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Puntos Obtenidos</h3>
+                    <div class="metric-value" id="puntos-obtenidos">0</div>
+                    <div class="metric-label">de 244 posibles</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Tiempo de Implementación</h3>
+                    <div class="metric-value" id="tiempo-total">0h</div>
+                    <div class="metric-label">Esfuerzo estimado</div>
+                </div>
+            </div>
+
+            <h3>Distribución de Controles</h3>
+            <div class="distribution-grid">
+                <div class="dist-card critical">
+                    <div class="dist-count" id="count-critico">0</div>
+                    <div class="dist-label">Brechas Críticas</div>
+                    <div class="dist-desc">Cumplimiento < 50%</div>
+                </div>
+                <div class="dist-card warning">
+                    <div class="dist-count" id="count-mejora">0</div>
+                    <div class="dist-label">Oportunidades</div>
+                    <div class="dist-desc">50% ≤ Cumplimiento < 80%</div>
+                </div>
+                <div class="dist-card success">
+                    <div class="dist-count" id="count-fortaleza">0</div>
+                    <div class="dist-label">Fortalezas</div>
+                    <div class="dist-desc">Cumplimiento ≥ 80%</div>
+                </div>
+                <div class="dist-card neutral">
+                    <div class="dist-count" id="count-noaplica">0</div>
+                    <div class="dist-label">No Aplica</div>
+                    <div class="dist-desc">Sin evaluación</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Brechas -->
+        <section id="brechas" class="tab-content">
+            <h2>Análisis de Brechas</h2>
+            <div id="brechas-container"></div>
+        </section>
+
+        <!-- Tab: Implementación -->
+        <section id="implementacion" class="tab-content">
+            <h2>Plan de Implementación</h2>
+            <div id="implementacion-container"></div>
+        </section>
+
+        <!-- Tab: Madurez -->
+        <section id="madurez" class="tab-content">
+            <h2>Análisis de Madurez por Control</h2>
+            <div id="madurez-container"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
