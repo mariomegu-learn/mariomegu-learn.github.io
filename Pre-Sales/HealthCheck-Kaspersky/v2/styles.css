@@ -498,6 +498,11 @@ body {
     color: white;
 }
 
+.badge-neutral {
+    background: var(--neutral-color);
+    color: white;
+}
+
 /* Implementación Timeline */
 .fase-card {
     background: white;

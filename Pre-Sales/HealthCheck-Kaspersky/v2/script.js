@@ -1,22 +1,32 @@
-// ===========================
-// ANÁLISIS DE MADUREZ KASPERSKY
-// Sistema de Evaluación Web v1.1
-// ===========================
+/**
+ * ===========================
+ * ANÁLISIS DE MADUREZ KASPERSKY
+ * Sistema de Evaluación Web v1.1
+ * ===========================
+ *
+ * Este sistema permite evaluar la madurez de la implementación de Kaspersky
+ * en una organización, proporcionando métricas y análisis detallados.
+ */
 
-// ===========================
-// CONFIGURACIÓN Y VARIABLES GLOBALES
-// ===========================
+/**
+ * ===========================
+ * CONFIGURACIÓN Y VARIABLES GLOBALES
+ * ===========================
+ *
+ * Nota: El puntaje máximo ahora se calcula como TOTAL_CONTROLES * 4
+ * para reflejar que cada control puede obtener hasta 4 puntos
+ */
 
-// Nota: El puntaje máximo ahora se calcula como TOTAL_CONTROLES * 4
-// para reflejar que cada control puede obtener hasta 4 puntos
-
+// Configuración general del sistema
 const CONFIG = {
-    MINUTOS_TRANSFERENCIA: 240
+    MINUTOS_TRANSFERENCIA: 240 // Tiempo estimado para transferencia de conocimiento
 };
 
-let TOTAL_CONTROLES = 0;
-let PUNTAJE_MAXIMO = 0;
+// Variables globales para el cálculo de métricas
+let TOTAL_CONTROLES = 0; // Total de controles evaluados
+let PUNTAJE_MAXIMO = 0; // Puntaje máximo posible
 
+// Opciones de respuesta para cada característica de control
 const RESPUESTAS = [
     { texto: 'Desactivado', valor: 0 },
     { texto: 'En fase inicial', valor: 1 },
@@ -26,6 +36,7 @@ const RESPUESTAS = [
     { texto: 'No aplica', valor: "N/A" }
 ];
 
+// Duraciones estimadas para la implementación de cada control
 const DURACIONES = {
     'Protección Básica': 20,
     'Protección de Red': 35,
@@ -49,9 +60,10 @@ const DURACIONES = {
     'Versiones': 60
 };
 
-let controlesData = [];
-let evaluacionActual = {};
-let totalControlesCalculado = 0;
+// Almacenamiento de datos de controles y evaluaciones
+let controlesData = []; // Datos de controles cargados desde JSON
+let evaluacionActual = {}; // Evaluación actual del usuario
+let totalControlesCalculado = 0; // Total de controles calculado
 
 // ===========================
 // INICIALIZACIÓN
@@ -301,8 +313,10 @@ function calcularStatsGlobales() {
     };
 }
 
-function clasificarControl(cumplimiento) {
-    if (cumplimiento === 0) return 'noaplica';
+function clasificarControl(cumplimiento, puntos, maxPuntos) {
+    // Si todos los controles son "No aplica" (0/0), categorizar como no aplica
+    if (puntos === 0 && maxPuntos === 0) return 'noaplica';
+    if (cumplimiento === 0) return 'critico';
     if (cumplimiento < 0.5) return 'critico';
     if (cumplimiento < 0.8) return 'mejora';
     return 'fortaleza';
@@ -427,7 +441,7 @@ function actualizarResultados() {
 
     controlesData.forEach(control => {
         const stats = calcularStatsControl(control);
-        const tipo = clasificarControl(stats.cumplimiento);
+        const tipo = clasificarControl(stats.cumplimiento, stats.puntos, stats.maxPuntos);
 
         if (tipo === 'critico') critico++;
         else if (tipo === 'mejora') mejora++;
@@ -450,11 +464,11 @@ function actualizarResultados() {
     const metricCard = document.querySelector('.metric-card.primary.dinamyc-color');
     if (metricCard) {
         if (madurezPorcentaje < 50) {
-            metricCard.style.background = 'linear-gradient(135deg, var(--danger-color), #ff6961)';
+            metricCard.style.background = 'linear-gradient(135deg, var(--danger-color), #eb1206ff)';
         } else if (madurezPorcentaje < 80) {
-            metricCard.style.background = 'linear-gradient(135deg, var(--warning-color), #ffb84d)';
+            metricCard.style.background = 'linear-gradient(135deg, var(--warning-color), #f78401ff)';
         } else {
-            metricCard.style.background = 'linear-gradient(135deg, var(--success-color), #5dd879)';
+            metricCard.style.background = 'linear-gradient(135deg, var(--success-color), #02681aff)';
         }
     }
 }
@@ -484,11 +498,13 @@ function actualizarBrechas() {
 
     controlesData.forEach(control => {
         const stats = calcularStatsControl(control);
-        const tipo = clasificarControl(stats.cumplimiento);
-        const badgeClass = tipo === 'critico' ? 'badge-critico' : 
-                          tipo === 'mejora' ? 'badge-mejora' : 'badge-fortaleza';
+        const tipo = clasificarControl(stats.cumplimiento, stats.puntos, stats.maxPuntos);
+        const badgeClass = tipo === 'critico' ? 'badge-critico' :
+                          tipo === 'mejora' ? 'badge-mejora' :
+                          tipo === 'noaplica' ? 'badge-neutral' : 'badge-fortaleza';
         const badgeText = tipo === 'critico' ? 'Brecha Crítica' :
-                         tipo === 'mejora' ? 'Oportunidad' : 'Fortaleza';
+                         tipo === 'mejora' ? 'Oportunidad' :
+                         tipo === 'noaplica' ? 'No Aplica' : 'Fortaleza';
 
         html += `
             <tr>
@@ -623,13 +639,25 @@ function actualizarMadurez() {
                     const respuesta = evaluacionActual[key] || 'Desactivado';
                     const beneficio = caract.beneficio || 'Sin descripción disponible';
 
+                    // Determinar la clase del badge basado en la respuesta
+                    let badgeClass = 'badge-neutral';
+                    if (respuesta === 'Implementado totalmente') {
+                        badgeClass = 'badge-fortaleza';
+                    } else if (respuesta === 'Desactivado') {
+                        badgeClass = 'badge-critico';
+                    } else if (respuesta === 'No aplica') {
+                        badgeClass = 'badge-neutral';
+                    } else {
+                        badgeClass = 'badge-mejora';
+                    }
+
                     return `
                         <div class="madurez-detail">
                             <div class="madurez-header">
                                 <div>
                                     <strong>${caract.numero}</strong> - ${caract.nombre}
                                 </div>
-                                <span class="badge ${respuesta === 'Implementado totalmente' ? 'badge-fortaleza' : respuesta === 'Desactivado' ? 'badge-critico' : 'badge-mejora'}">
+                                <span class="badge ${badgeClass}">
                                     ${respuesta}
                                 </span>
                             </div>
