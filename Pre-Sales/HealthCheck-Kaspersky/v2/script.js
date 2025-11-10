@@ -780,6 +780,73 @@ function exportarJSON() {
     URL.revokeObjectURL(url);
 }
 
+// Función para importar datos desde un archivo JSON
+function importarJSON() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+
+    input.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (!file) {
+            alert('❌ No se seleccionó ningún archivo');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const contenido = e.target.result;
+                const datos = JSON.parse(contenido);
+
+                // Validar estructura básica del JSON
+                if (!datos.evaluacion || !datos.informacion) {
+                    alert('❌ El archivo JSON no tiene el formato esperado');
+                    return;
+                }
+
+                // Cargar información
+                Object.keys(datos.informacion).forEach(key => {
+                    const element = document.getElementById(key);
+                    if (element) element.value = datos.informacion[key] || '';
+                });
+
+                // Cargar evaluación
+                evaluacionActual = datos.evaluacion;
+
+                // Actualizar los valores de los controles en la interfaz
+                controlesData.forEach(control => {
+                    control.caracteristicas.forEach(caract => {
+                        const key = `${control.numero}_${caract.numero}`;
+                        if (evaluacionActual[key]) {
+                            caract.respuesta = evaluacionActual[key];
+                            // Actualizar el select en la interfaz
+                            const selectElement = document.querySelector(`select[data-control="${control.numero}"][data-caract="${caract.numero}"]`);
+                            if (selectElement) {
+                                selectElement.value = evaluacionActual[key];
+                                // Disparar el evento change para actualizar en tiempo real
+                                selectElement.dispatchEvent(new Event('change'));
+                            }
+                        }
+                    });
+                });
+
+                // Re-renderizar controles y actualizar todas las pestañas
+                renderizarControles();
+                actualizarTodo();
+
+                alert('✅ Datos importados correctamente');
+            } catch (error) {
+                console.error('Error al importar JSON:', error);
+                alert('❌ Error al importar el archivo JSON');
+            }
+        };
+        reader.readAsText(file);
+    });
+
+    input.click();
+}
+
 // ===========================
 // LOG DE INICIALIZACIÓN
 // ===========================
