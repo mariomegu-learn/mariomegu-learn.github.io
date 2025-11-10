@@ -1,7 +1,7 @@
 /* Reset y Variables */
 :root {
-    --primary-color: #0066cc;
-    --secondary-color: #5856d6;
+    --primary-color: #005bfe;
+    --secondary-color: #00215e;
     --success-color: #34c759;
     --warning-color: #ff9500;
     --danger-color: #ff3b30;
@@ -337,6 +337,12 @@ body {
     padding: 25px;
     text-align: center;
     transition: all 0.3s ease;
+}
+
+.metric-card.dinamyc-color {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
 }
 
 .metric-card.primary {

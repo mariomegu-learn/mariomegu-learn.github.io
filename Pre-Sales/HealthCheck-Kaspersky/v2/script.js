@@ -444,6 +444,19 @@ function actualizarResultados() {
     if (countMejora) countMejora.textContent = mejora;
     if (countFortaleza) countFortaleza.textContent = fortaleza;
     if (countNoaplica) countNoaplica.textContent = noaplica;
+
+    // Actualizar color del fondo según el nivel de madurez
+    const madurezPorcentaje = stats.madurezGlobal * 100;
+    const metricCard = document.querySelector('.metric-card.primary.dinamyc-color');
+    if (metricCard) {
+        if (madurezPorcentaje < 30) {
+            metricCard.style.background = 'linear-gradient(135deg, var(--danger-color), #ff6961)';
+        } else if (madurezPorcentaje < 70) {
+            metricCard.style.background = 'linear-gradient(135deg, var(--warning-color), #ffb84d)';
+        } else {
+            metricCard.style.background = 'linear-gradient(135deg, var(--success-color), #5dd879)';
+        }
+    }
 }
 
 // ===========================

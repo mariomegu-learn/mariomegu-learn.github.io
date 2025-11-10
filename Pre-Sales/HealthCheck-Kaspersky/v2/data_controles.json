@@ -232,7 +232,7 @@
       ]
     },
     {
-      "aplicacion": "Endpoint",
+      "aplicacion": "Detection and Response",
       "numero": "8.0",
       "nombre": "EDR",
       "caracteristicas": [
