@@ -10,7 +10,7 @@
           "nombre": "Protección contra amenazas de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Previene la infección del sistema de archivos mediante análisis en tiempo real de todos los archivos, incluidas unidades extraíbles, proporcionando una defensa proactiva contra malware",
+          "beneficio": "Supervisa constantemente todos los archivos del sistema y dispositivos externos mediante análisis en tiempo real, identificando comportamientos maliciosos y bloqueando amenazas antes de su ejecución. Evita infecciones por malware, ransomware o troyanos, garantizando la integridad operativa de los equipos y la continuidad del servicio sin afectar el rendimiento del sistema.",
           "fase": ""
         },
         {
@@ -18,7 +18,7 @@
           "nombre": "protección contra amenazas web",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Bloquea sitios web maliciosos y fraudulentos, impidiendo la descarga de archivos peligrosos y protegiendo contra ataques basados en navegación",
+          "beneficio": "Analiza y bloquea sitios maliciosos, descargas sospechosas y enlaces fraudulentos que intentan comprometer al usuario durante la navegación. Emplea reputación en la nube e inteligencia de amenazas para prevenir el acceso a dominios peligrosos o suplantados, reduciendo significativamente la exposición a ataques de phishing, explotación de navegadores y robo de credenciales corporativas.",
           "fase": ""
         },
         {
@@ -26,7 +26,7 @@
           "nombre": "Protección contra amenazas en el correo electrónico",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Analiza archivos adjuntos y enlaces en correos electrónicos para detectar y bloquear amenazas, previniendo infecciones a través de vectores de correo",
+          "beneficio": "Escanea de forma automática los correos entrantes y salientes, verificando adjuntos y enlaces en busca de malware o intentos de phishing. Detecta y bloquea amenazas antes de llegar al buzón del usuario, fortaleciendo la seguridad del canal de comunicación más vulnerable y reduciendo riesgos de infección o robo de información confidencial.",
           "fase": ""
         },
         {
@@ -34,7 +34,7 @@
           "nombre": "Protección contra ataques BadUSB",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": "Previene ataques BadUSB bloqueando dispositivos USB que intentan emular un teclado para ejecutar comandos maliciosos",
+          "beneficio": "Monitorea y bloquea dispositivos USB que intenten emular teclados o ejecutar comandos no autorizados en el sistema. Evita ataques físicos que aprovechan periféricos comprometidos para ejecutar código malicioso, brindando una capa adicional de defensa frente a intrusiones externas o internas mediante ingeniería de hardware.",
           "fase": ""
         },
         {
@@ -42,7 +42,7 @@
           "nombre": "Proveedor de protección AMSI",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Integra con la interfaz AMSI de Microsoft para analizar scripts y otros objetos, mejorando la detección de amenazas en tiempo de ejecución",
+          "beneficio": "Se integra con la interfaz AMSI de Microsoft para analizar scripts, macros y otros objetos en ejecución, detectando amenazas avanzadas y ataques sin archivos. Esta integración mejora la visibilidad del comportamiento en tiempo de ejecución, permitiendo bloquear acciones maliciosas antes de que comprometan la estabilidad o seguridad del sistema operativo.",
           "fase": ""
         }
       ]
@@ -57,7 +57,7 @@
           "nombre": "Firewall",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Controla el tráfico de red y las conexiones de aplicaciones, previniendo accesos no autorizados y protegiendo contra intrusiones",
+          "beneficio": "Supervisa todas las conexiones entrantes y salientes en el endpoint, aplicando políticas de control para evitar accesos no autorizados y tráfico sospechoso. Protege los dispositivos frente a movimientos laterales, intentos de intrusión y exfiltración de datos, manteniendo la integridad de la red corporativa mediante reglas personalizables y control granular del flujo de información.",
           "fase": ""
         },
         {
@@ -65,7 +65,7 @@
           "nombre": "Protección de Ataques de Red",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Detecta y bloquea ataques de red analizando el tráfico entrante en busca de patrones maliciosos",
+          "beneficio": "Detecta y bloquea intentos de intrusión analizando patrones de tráfico en tiempo real. Identifica ataques como escaneos, exploits o denegaciones de servicio antes de que afecten los sistemas. Proporciona una defensa preventiva que protege los endpoints frente a amenazas de red y asegura la estabilidad de la infraestructura corporativa.",
           "fase": ""
         }
       ]
@@ -80,7 +80,7 @@
           "nombre": "Kaspersky Security Network",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Mejora la detección de amenazas y reduce falsos positivos mediante el acceso a la base de conocimiento global de Kaspersky sobre reputación de archivos y recursos web",
+          "beneficio": "Utiliza inteligencia global en la nube para evaluar en milisegundos la reputación de archivos, dominios y procesos. Permite bloquear amenazas emergentes y desconocidas con alta precisión, reduciendo falsos positivos. La conexión con la red de conocimiento de Kaspersky mejora la respuesta frente a ataques dirigidos y mantiene las defensas actualizadas frente a amenazas globales en evolución constante.",
           "fase": ""
         },
         {
@@ -88,7 +88,7 @@
           "nombre": "Detección de Comportamientos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Monitorea el comportamiento de aplicaciones para detectar actividades sospechosas y mejorar la protección proactiva",
+          "beneficio": "Supervisa en tiempo real la actividad de las aplicaciones y procesos del sistema, identificando patrones anómalos que puedan representar comportamientos maliciosos. Bloquea automáticamente actividades sospechosas, como cifrados no autorizados o modificaciones críticas, previniendo ataques de día cero y amenazas sin firma conocidas.",
           "fase": ""
         },
         {
@@ -96,7 +96,7 @@
           "nombre": "Prevención de intrusiones en el host",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Previene acciones peligrosas de aplicaciones y controla el acceso a recursos críticos del sistema",
+          "beneficio": "Supervisa la interacción de aplicaciones con los recursos del sistema operativo y bloquea acciones no permitidas que puedan comprometer la estabilidad o seguridad del equipo. Esta capa de defensa refuerza el control sobre procesos y evita alteraciones maliciosas en componentes críticos del endpoint.",
           "fase": ""
         },
         {
@@ -104,7 +104,7 @@
           "nombre": "Prevención de vulnerabilidades (exploits)",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Detecta y bloquea exploits que intentan aprovechar vulnerabilidades del sistema para obtener privilegios elevados",
+          "beneficio": "Detecta y bloquea exploits que intentan aprovechar fallos en aplicaciones o sistemas operativos para obtener control o elevar privilegios. Analiza el comportamiento de los procesos y detiene ataques antes de que logren ejecución de código, reduciendo drásticamente la superficie de exposición a amenazas.",
           "fase": ""
         },
         {
@@ -112,7 +112,7 @@
           "nombre": "Motor de reparación",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Revierte cambios maliciosos realizados por malware, restaurando la integridad del sistema",
+          "beneficio": "Restaura de forma automática los cambios dañinos realizados por malware, corrigiendo configuraciones alteradas y recuperando archivos del sistema. Garantiza la estabilidad operativa tras un incidente y reduce el tiempo de recuperación al eliminar rastros de infección y restaurar el entorno a su estado seguro anterior.",
           "fase": ""
         }
       ]
@@ -127,7 +127,7 @@
           "nombre": "Control de aplicaciones",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Implementa políticas de seguridad para controlar la ejecución de aplicaciones, reduciendo riesgos de software no autorizado",
+          "beneficio": "Permite crear políticas que regulan qué programas pueden ejecutarse en cada endpoint, asegurando que solo software autorizado y verificado opere en el entorno corporativo. Previene la ejecución de herramientas no deseadas o maliciosas, reduciendo el riesgo de uso indebido de software o instalación no controlada.",
           "fase": ""
         },
         {
@@ -135,7 +135,7 @@
           "nombre": "Control de Dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Controla el uso de dispositivos USB según políticas de seguridad, previniendo infecciones a través de medios extraíbles",
+          "beneficio": "Administra el uso de medios extraíbles como memorias USB, discos externos o periféricos conectados. Aplica restricciones según tipo, usuario o grupo, evitando fugas de información y bloqueando la introducción de malware a través de dispositivos externos no aprobados por la organización.",
           "fase": ""
         },
         {
@@ -143,7 +143,7 @@
           "nombre": "Control de navegación",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Regula el acceso a recursos web, mejorando la productividad y reduciendo riesgos de navegación no segura",
+          "beneficio": "Regula el acceso a internet mediante políticas que limitan el uso de sitios no relacionados con las funciones laborales o potencialmente peligrosos. Reduce la exposición a contenido malicioso y mejora la productividad al controlar el tráfico web dentro de parámetros definidos por el área de TI.",
           "fase": ""
         },
         {
@@ -151,7 +151,7 @@
           "nombre": "Control Adaptativo de Anomalías",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Detecta comportamientos anómalos en equipos de red utilizando reglas avanzadas de análisis de comportamiento",
+          "beneficio": "Analiza el comportamiento normal de los usuarios y equipos para detectar actividades fuera del patrón habitual. Al identificar anomalías operativas, alerta y bloquea comportamientos sospechosos que podrían indicar intrusiones, errores de configuración o uso indebido de recursos.",
           "fase": ""
         }
       ]
@@ -166,7 +166,7 @@
           "nombre": "Borrado remoto",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": " tarea para eliminar información a distancia de los equipos de los usuarios, de forma permanente o a través del propio sistema operativo",
+          "beneficio": "Permite eliminar de forma segura y definitiva los datos almacenados en equipos perdidos, robados o comprometidos. Garantiza que la información confidencial no pueda ser recuperada ni utilizada de manera indebida, contribuyendo al cumplimiento de normativas de protección de datos y mitigando el impacto de incidentes físicos sobre la seguridad de la información.",
           "fase": ""
         }
       ]
@@ -181,7 +181,7 @@
           "nombre": "Cifrado de Disco Completo",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Protege datos sensibles mediante cifrado completo de discos, previniendo accesos no autorizados en caso de pérdida o robo",
+          "beneficio": "Protege la información almacenada mediante cifrado integral del disco, asegurando que los datos permanezcan inaccesibles en caso de robo o pérdida del dispositivo. Incluye autenticación previa al arranque, evitando accesos no autorizados y garantizando la confidencialidad de la información corporativa en todo momento.",
           "fase": ""
         },
         {
@@ -189,14 +189,14 @@
           "nombre": "Cifrado de Archivos o carpetas",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Protege información confidencial mediante cifrado selectivo de archivos y carpetas críticas"
+          "beneficio": "Permite aplicar cifrado selectivo sobre archivos o directorios que contienen información sensible. Los datos permanecen protegidos incluso si se copian o envían fuera del equipo, garantizando la confidencialidad de documentos críticos y el cumplimiento de políticas de seguridad de la organización."
         },
         {
           "numero": "6.3",
           "nombre": "cifrado de unidades extraíbles",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Asegura datos en dispositivos extraíbles mediante cifrado, previniendo accesos no autorizados"
+          "beneficio": "Asegura que toda la información transferida a memorias USB o discos externos se cifre automáticamente. Solo los usuarios autorizados pueden acceder a los datos, evitando fugas de información y protegiendo la portabilidad segura de archivos fuera de la red corporativa."
         }
       ]
     },
@@ -210,7 +210,7 @@
           "nombre": "Análisis de conexiones cifradas",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Fortalece la seguridad de conexiones cifradas mediante la integración de certificados de confianza",
+          "beneficio": "Examina el tráfico HTTPS y otras conexiones seguras mediante certificados de confianza para identificar contenido malicioso oculto. Garantiza la detección de amenazas dentro de canales cifrados sin comprometer la privacidad ni el rendimiento del sistema.",
           "fase": ""
         },
         {
@@ -218,7 +218,7 @@
           "nombre": "Análisis de unidades extraíbles",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Analiza unidades extraíbles en tiempo real para detectar y bloquear malware que explote vulnerabilidades",
+          "beneficio": "Escanea de forma automática cada dispositivo conectado al equipo, detectando y bloqueando malware, exploits o amenazas que intenten aprovechar vulnerabilidades del sistema. Refuerza la protección contra infecciones a través de medios físicos.",
           "fase": ""
         },
         {
@@ -226,7 +226,7 @@
           "nombre": "Protección con contraseña",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Protege la configuración de seguridad con contraseña, previniendo modificaciones no autorizadas",
+          "beneficio": "Restringe el acceso a las configuraciones de seguridad mediante contraseñas administrativas. Evita modificaciones no autorizadas, garantizando la aplicación uniforme de políticas de seguridad y protegiendo la integridad de la configuración en todos los endpoints.",
           "fase": ""
         }
       ]
@@ -241,7 +241,7 @@
           "nombre": "EDR",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Proporciona capacidades avanzadas de detección y respuesta a incidentes (EDR)",
+          "beneficio": "Proporciona capacidades avanzadas de detección y respuesta ante incidentes, permitiendo visualizar la cadena completa de ataque, aislar dispositivos y tomar acciones correctivas rápidas. Facilita la investigación forense, el análisis de causa raíz y la contención inmediata de amenazas, fortaleciendo la resiliencia ante ataques dirigidos o complejos.",
           "fase": ""
         },
         {
@@ -249,7 +249,7 @@
           "nombre": "Aislamiento de dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Aísla dispositivos comprometidos para prevenir la propagación de amenazas en la red",
+          "beneficio": "Permite desconectar de forma remota los equipos comprometidos sin afectar la operación del resto de la red. Este aislamiento previene la propagación de amenazas, protege los datos críticos y mantiene la estabilidad operativa mientras se realiza el proceso de remediación.",
           "fase": ""
         },
         {
@@ -257,7 +257,7 @@
           "nombre": "Prevención de ejecucion",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Previene la ejecución de archivos maliciosos mediante análisis avanzado de comportamiento",
+          "beneficio": "Bloquea automáticamente la ejecución de archivos maliciosos o procesos no confiables mediante análisis avanzado de comportamiento. Previene la activación de malware antes de que pueda comprometer el sistema, fortaleciendo la seguridad frente a ataques de día cero y ransomware.",
           "fase": ""
         },
         {
@@ -265,7 +265,7 @@
           "nombre": "Cloud Sandbox",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Analiza archivos sospechosos en un entorno seguro (sandbox) para detectar amenazas avanzadas",
+          "beneficio": "Analiza archivos sospechosos en un entorno virtual seguro, observando su comportamiento antes de permitir su ejecución en el sistema real. Esta función detecta amenazas avanzadas y malware polimórfico que evaden las defensas tradicionales, garantizando una protección proactiva frente a ataques desconocidos.",
           "fase": ""
         }
       ]
@@ -280,7 +280,7 @@
           "nombre": "Protección contra amenazas de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Protege servidores contra infecciones de archivos mediante análisis en tiempo real y prevención de amenazas",
+          "beneficio": "Supervisa y analiza en tiempo real todos los archivos almacenados o ejecutados en los servidores. Detecta y bloquea malware, ransomware y troyanos, asegurando la continuidad del servicio y la integridad de los datos críticos de la organización.",
           "fase": ""
         },
         {
@@ -288,7 +288,7 @@
           "nombre": "protección contra amenazas web",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Bloquea sitios web maliciosos y fraudulentos e impide la descarga de archivos dañinos de Internet",
+          "beneficio": "Bloquea el acceso a sitios maliciosos y evita la descarga de contenido peligroso que pudiera comprometer los sistemas del servidor. Refuerza la seguridad perimetral y previene infecciones a través de la navegación web o procesos automatizados.",
           "fase": ""
         },
         {
@@ -296,7 +296,7 @@
           "nombre": "Proteccion contra amenazas en red",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Protege contra ataques que se propagan a través de la red"
+          "beneficio": "Analiza el tráfico entrante y saliente del servidor para detectar y bloquear ataques que se propagan por la red. Evita movimientos laterales, intrusiones y explotación de vulnerabilidades, protegiendo los recursos corporativos de accesos no autorizados."
         }
       ]
     },
@@ -310,7 +310,7 @@
           "nombre": "Anti - Cryptor",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Detecta y bloquea intentos de cifrado malicioso de recursos de red, protegiendo contra ransomware",
+          "beneficio": "Detecta y bloquea intentos de cifrado malicioso sobre recursos compartidos, impidiendo que ransomware u otros ataques afecten los archivos del servidor. Esta función asegura la disponibilidad de los datos críticos y minimiza el impacto operacional ante ataques de cifrado.",
           "fase": ""
         },
         {
@@ -318,7 +318,7 @@
           "nombre": "Detección de Comportamientos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Mejora la detección de amenazas mediante análisis de comportamiento de aplicaciones",
+          "beneficio": "Supervisa continuamente las actividades del servidor, identificando patrones anómalos y comportamientos sospechosos. Permite reaccionar ante amenazas desconocidas o no firmadas, fortaleciendo la defensa proactiva frente a ataques dirigidos y actividades maliciosas internas.",
           "fase": ""
         }
       ]
@@ -333,28 +333,28 @@
           "nombre": "Configuración de la aplicacion",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Optimiza la protección del servidor mediante configuración personalizada de la aplicación"
+          "beneficio": "Permite ajustar las políticas de protección y rendimiento según las necesidades del entorno del servidor. Optimiza el equilibrio entre seguridad y eficiencia, asegurando que la protección se adapte a los requerimientos operativos."
         },
         {
           "numero": "11.2",
           "nombre": "Configuración de red",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Ajusta configuraciones de red para maximizar la seguridad y el rendimiento del servidor"
+          "beneficio": "Gestiona parámetros de red para maximizar la protección frente a intrusiones, accesos no autorizados y explotación de vulnerabilidades. Fortalece la comunicación segura entre servidores y reduce el riesgo de exposición."
         },
         {
           "numero": "11.3",
           "nombre": "Exclusiones globales",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Reduce falsos positivos excluyendo archivos y carpetas específicas del análisis"
+          "beneficio": "Permite excluir archivos, procesos o carpetas específicas del análisis, reduciendo falsos positivos y optimizando el rendimiento de los servidores sin comprometer la seguridad general."
         },
         {
           "numero": "11.4",
           "nombre": "Configuración de almacenamiento",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Configura parámetros de almacenamiento para una protección eficiente de datos"
+          "beneficio": "Gestiona políticas de protección para entornos de almacenamiento conectados, garantizando la seguridad de los datos compartidos y previniendo accesos o modificaciones no autorizadas."
         }
       ]
     },
@@ -368,14 +368,14 @@
           "nombre": "Gestión de tareas",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Automatiza tareas de seguridad críticas mediante programación centralizada"
+          "beneficio": "Permite automatizar y programar tareas de seguridad críticas como análisis, actualizaciones y verificaciones de integridad. Centraliza la administración desde una única consola, optimizando recursos y garantizando que las acciones de protección se ejecuten de forma oportuna sin requerir intervención manual constante."
         },
         {
           "numero": "12.2",
           "nombre": "Dispositivos extraibles",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Controla y protege dispositivos extraíbles conectados al servidor"
+          "beneficio": "Supervisa, controla y protege el uso de medios externos conectados a los servidores, evitando la introducción de malware y el acceso no autorizado a datos sensibles. Aplica políticas de restricción que refuerzan la seguridad física y digital del entorno del servidor."
         }
       ]
     },
@@ -389,14 +389,14 @@
           "nombre": "Criticos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Registra y alerta sobre eventos críticos para una respuesta rápida a incidentes"
+          "beneficio": "Registra, clasifica y notifica eventos de seguridad de alta severidad, permitiendo una respuesta inmediata ante incidentes que puedan comprometer la operación del servidor. Proporciona visibilidad completa del estado de protección y facilita la trazabilidad de eventos para auditorías y cumplimiento normativo."
         },
         {
           "numero": "13.2",
           "nombre": "Informativos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Ofrece visibilidad detallada de eventos para análisis de seguridad proactivo"
+          "beneficio": "Recopila y presenta eventos relevantes del sistema que no representan amenazas activas, pero que contribuyen al análisis proactivo de la seguridad. Permite detectar tendencias, patrones de comportamiento y posibles puntos débiles antes de que se conviertan en incidentes críticos."
         }
       ]
     },
@@ -410,7 +410,7 @@
           "nombre": "Monitor de integridad de archivos",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
-          "beneficio": "De forma predeterminada, el Monitor de integridad de archivos no supervisa los cambios en las carpetas del sistema o los archivos de mantenimiento del sistema de archivos, para evitar que la información sobre los cambios de archivos de rutina, que el sistema operativo realiza constantemente, ingrese a los informes de tareas",
+          "beneficio": "Supervisa los cambios en archivos y carpetas críticas del sistema, detectando modificaciones no autorizadas que puedan indicar intentos de manipulación o ataque. Esta función garantiza la trazabilidad y la integridad de los datos del servidor, fortaleciendo el control sobre entornos sensibles.",
           "fase": ""
         },
         {
@@ -418,7 +418,7 @@
           "nombre": "Inspección de Logs",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
-          "beneficio": "Cuando se ejecuta la tarea de inspección de registros, Kaspersky Security para Windows Server supervisa la integridad del entorno protegido en función de los resultados de una inspección de los registros de eventos de Windows. La aplicación notifica al administrador al detectar un comportamiento anormal en el sistema, lo que puede ser una indicación de intentos de ciberataques.",
+          "beneficio": "Analiza los registros del sistema y eventos de Windows en busca de comportamientos anómalos o indicadores de compromiso. Permite identificar ataques en fases tempranas, mejorar la visibilidad del entorno y fortalecer las capacidades de detección y respuesta ante amenazas avanzadas.",
           "fase": ""
         }
       ]
@@ -433,49 +433,49 @@
           "nombre": "Instalación remota de aplicaciones",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Facilita el despliegue centralizado de aplicaciones de seguridad en toda la red"
+          "beneficio": "Permite desplegar de forma centralizada las aplicaciones de seguridad en todos los dispositivos de la red, reduciendo tiempos de implementación y garantizando la uniformidad en la protección. Automatiza el proceso de instalación y simplifica la administración de entornos distribuidos."
         },
         {
           "numero": "15.2",
           "nombre": "Instalación remota de sistemas operativos",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
-          "beneficio": "Automatiza la instalación de sistemas operativos en equipos remotos"
+          "beneficio": "Automatiza el despliegue de sistemas operativos en equipos remotos, facilitando la estandarización y el aprovisionamiento seguro de endpoints. Reduce la carga administrativa y minimiza errores humanos durante las implementaciones masivas."
         },
         {
           "numero": "15.3",
           "nombre": "Monitor de Vulnerabilidades",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": "Escanea y reporta vulnerabilidades de seguridad para una remediación proactiva"
+          "beneficio": "Escanea de forma continua el entorno para identificar vulnerabilidades presentes en sistemas operativos y aplicaciones. Proporciona reportes detallados que permiten priorizar acciones de mitigación y reducir la superficie de ataque antes de que las fallas sean explotadas."
         },
         {
           "numero": "15.4",
           "nombre": "Remediación de Vulnerabilidades",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": "Implementa automáticamente parches de seguridad para vulnerabilidades críticas"
+          "beneficio": "Automatiza la instalación de parches y actualizaciones críticas en los equipos identificados como vulnerables. Esta función acelera los procesos de remediación, mejora la postura de seguridad y garantiza el cumplimiento de políticas corporativas de mantenimiento preventivo."
         },
         {
           "numero": "15.5",
           "nombre": "Sincronización con Wsus",
           "respuesta": "Implementado totalmente",
           "puntos": 1.0,
-          "beneficio": "Centraliza la gestión de actualizaciones mediante integración con WSUS"
+          "beneficio": "Integra la administración de actualizaciones de Microsoft con WSUS, centralizando la distribución de parches de seguridad. Asegura que todos los sistemas mantengan versiones actualizadas, mejorando la coherencia y reduciendo los riesgos por software obsoleto."
         },
         {
           "numero": "15.6",
           "nombre": "Inventario de Hardware y Software",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": "Proporciona visibilidad completa del inventario de hardware y software para una mejor gestión"
+          "beneficio": "Proporciona una visibilidad completa del parque tecnológico, recopilando información detallada de equipos, componentes y aplicaciones instaladas. Facilita la gestión de activos, el control de licencias y la planificación de actualizaciones."
         },
         {
           "numero": "15.7",
           "nombre": "Help Desk (Escritorio remoto)",
           "respuesta": "Implementado totalmente",
           "puntos": 0.0,
-          "beneficio": "Ofrece asistencia técnica remota para resolver problemas rápidamente"
+          "beneficio": "Permite a los administradores ofrecer soporte remoto seguro a los usuarios, resolviendo incidencias sin desplazamiento físico. Mejora la eficiencia operativa, reduce tiempos de atención y asegura la continuidad del servicio ante incidentes."
         }
       ]
     },
@@ -489,7 +489,7 @@
           "numero": "16.1",
           "nombre": "Copia de seguridad del Servidor de Administración",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Crea un respaldo de la configuración del Servidor de Administración y de la base de datos",
+          "beneficio": "Crea respaldos automáticos de la configuración, políticas y bases de datos del servidor, garantizando la recuperación rápida ante fallos o incidentes. Asegura la disponibilidad continua de la plataforma de gestión centralizada.",
           "puntos": 4.0
         },
         {
@@ -497,21 +497,21 @@
           "nombre": "Descarga de actualizaciones al repositorio",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Garantiza que todos los dispositivos tengan acceso a las últimas actualizaciones de seguridad"
+          "beneficio": "Administra y almacena las actualizaciones de seguridad de forma centralizada, asegurando que todos los dispositivos administrados tengan acceso a las versiones más recientes y estables del software."
         },
         {
           "numero": "16.4",
           "nombre": "Actualización de firmas para los dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Mantiene la protección actualizada mediante distribución automática de firmas de seguridad"
+          "beneficio": "Distribuye automáticamente las firmas antimalware a todos los endpoints, asegurando detección oportuna frente a las últimas amenazas. Mantiene la protección homogénea en toda la infraestructura."
         },
         {
           "numero": "16.5",
           "nombre": "Análisis antimalware para los dispositivos",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Ejecuta análisis de seguridad programados en todos los dispositivos para detectar amenazas"
+          "beneficio": "Permite programar y ejecutar análisis antivirus de manera centralizada sobre todos los equipos. Detecta infecciones activas, evalúa el estado de seguridad y mantiene la higiene digital corporativa."
         }
       ]
     },
@@ -525,7 +525,7 @@
           "nombre": "Integración con SIEM",
           "respuesta": "Implementado totalmente",
           "puntos": 0,
-          "beneficio": "Mejora la correlación de eventos y la respuesta a incidentes mediante integración con SIEM",
+          "beneficio": "Envía eventos de seguridad al sistema SIEM corporativo, mejorando la correlación de datos y la detección temprana de incidentes. Fortalece la inteligencia de amenazas y la visibilidad en tiempo real del entorno.",
           "fase": ""
         },
         {
@@ -533,14 +533,14 @@
           "nombre": "Configuración de perfiles de acceso",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Implementa control de acceso basado en roles para una seguridad granular"
+          "beneficio": "Implementa control de acceso basado en roles, asignando privilegios según funciones específicas. Aumenta la seguridad administrativa y previene cambios no autorizados en la infraestructura."
         },
         {
           "numero": "17.3",
           "nombre": "Consola Web",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Es una aplicación web diseñada para administrar el estado del sistema de seguridad de la red protegida por las aplicaciones de Kaspersky.",
+          "beneficio": "Ofrece una interfaz web centralizada para administrar el estado de seguridad de toda la red protegida. Permite monitorear, desplegar políticas y responder a incidentes desde cualquier ubicación.",
           "fase": ""
         },
         {
@@ -548,7 +548,7 @@
           "nombre": "Puntos de Distribución",
           "respuesta": "Implementado totalmente",
           "puntos": 2.0,
-          "beneficio": "Optimiza la distribución de actualizaciones y configuraciones a través de puntos estratégicos"
+          "beneficio": "Optimiza la entrega de actualizaciones, políticas y tareas a través de nodos distribuidos, reduciendo el consumo de ancho de banda y mejorando la eficiencia de la gestión remota."
         },
         {
           "numero": "17.5",
@@ -558,17 +558,17 @@
         },
         {
           "numero": "17.6",
-          "nombre": "personalización de informes",
+          "nombre": "Personalización de informes",
           "respuesta": "Implementado totalmente",
           "puntos": 3.0,
-          "beneficio": "Genera informes de seguridad personalizados para análisis y cumplimiento"
+          "beneficio": "Genera reportes adaptados a los requerimientos del negocio, ofreciendo métricas detalladas sobre estado de protección, amenazas detectadas y cumplimiento normativo."
         },
         {
           "numero": "17.7",
           "nombre": "Kaspersky Security Network Proxy",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Optimiza el rendimiento de la red de seguridad mediante el uso de un proxy dedicado"
+          "beneficio": "Optimiza la comunicación entre los endpoints y la red de inteligencia de Kaspersky, reduciendo el consumo de ancho de banda y mejorando la eficiencia en entornos con restricciones de conectividad."
         }
       ]
     },
@@ -582,7 +582,7 @@
           "nombre": "Protección con contraseña",
           "respuesta": "Implementado totalmente",
           "puntos": 4.0,
-          "beneficio": "Previene accesos no autorizados a la configuración de seguridad mediante autenticación robusta",
+          "beneficio": "Restringe el acceso a la configuración del agente mediante autenticación segura, evitando manipulaciones no autorizadas. Garantiza la integridad de las políticas de seguridad y la coherencia en los endpoints gestionados.",
           "fase": ""
         },
         {
@@ -603,28 +603,28 @@
           "numero": "19.1",
           "nombre": "Despliegue en estaciones de trabajo Windows",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Garantiza que todos los endpoints Windows estén protegidos adecuadamente",
+          "beneficio": "Asegura que todos los equipos con sistema Windows cuenten con protección activa y actualizada. Permite monitorear el estado de instalación y cobertura desde la consola central.",
           "puntos": 4.0
         },
         {
           "numero": "19.2",
           "nombre": "Despliegue disposivos MaC",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Garantiza que todos los endpoints Mac estén protegidos adecuadamente",
+          "beneficio": "Garantiza la protección integral de los equipos Mac dentro del entorno corporativo, manteniendo políticas unificadas de seguridad y administración desde la plataforma central.",
           "puntos": 4.0
         },
         {
           "numero": "19.3",
           "nombre": "Despliegue en Servidores",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Garantiza que todos los servidores estén protegidos adecuadamente",
+          "beneficio": "Supervisa la instalación y el estado de las soluciones de seguridad en los servidores corporativos, garantizando uniformidad en la protección de los recursos críticos.",
           "puntos": 4.0
         },
         {
           "numero": "19.4",
           "nombre": "Se usan las versionas más recientes",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Valida que todos los dispositivos utilicen las versiones más recientes del software de seguridad",
+          "beneficio": "Verifica que todos los dispositivos utilicen versiones actualizadas del software, asegurando compatibilidad, nuevas funcionalidades y protección frente a amenazas emergentes.",
           "puntos": 3.0
         }
       ]
@@ -638,28 +638,28 @@
           "numero": "20.1",
           "nombre": "Consola de Administracion",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Valida que la consola de administración esté actualizada con la última versión disponible",
+          "beneficio": "Mantiene la consola actualizada con la última versión disponible, asegurando acceso a mejoras de rendimiento, seguridad y nuevas capacidades de gestión.",
           "puntos": 2.0
         },
         {
           "numero": "20.2",
           "nombre": "Agente de Red",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Tener el agente de red actualizado garantiza una comunicación segura y eficiente entre el servidor de administración y los dispositivos gestionados",
+          "beneficio": "Garantiza la comunicación segura y eficiente entre el servidor y los dispositivos administrados mediante la actualización constante del agente de red.",
           "puntos": 4.0
         },
         {
           "numero": "20.3",
           "nombre": "Kaspersky Endpoint Security",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Permite estar al día con las últimas mejoras de seguridad y funcionalidades",
+          "beneficio": "Mantiene los endpoints protegidos con las versiones más recientes del producto, optimizando la detección, respuesta y rendimiento general.",
           "puntos": 3.0
         },
         {
           "numero": "20.4",
           "nombre": "Kaspersky Security para Servidores",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Asegura que los servidores estén protegidos con las últimas actualizaciones y mejoras de seguridad",
+          "beneficio": "Asegura que los servidores cuenten con las últimas actualizaciones y mejoras de seguridad, reforzando la estabilidad y la protección del entorno crítico.",
           "puntos": 3.0
         }
       ]
@@ -673,7 +673,7 @@
           "numero": "21.1",
           "nombre": "Protección para Dispositivos móviles",
           "respuesta": "Implementado totalmente",
-          "beneficio": "Garantiza que todos los dispositivos móviles estén protegidos adecuadamente",
+          "beneficio": "Ofrece gestión y protección integral para smartphones y tablets corporativos. Permite aplicar políticas de seguridad, realizar borrado remoto, controlar aplicaciones y proteger los datos empresariales frente a pérdida, robo o uso indebido.",
           "puntos": 0
         }
       ]
