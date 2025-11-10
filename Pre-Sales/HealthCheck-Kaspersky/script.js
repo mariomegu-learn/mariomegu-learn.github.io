@@ -694,14 +694,14 @@ function guardarEvaluacion() {
     };
 
     localStorage.setItem('evaluacionKaspersky', JSON.stringify(datosGuardar));
-    alert('✅ Evaluación guardada correctamente en el navegador');
+    showAlert('<i class="bi bi-check-circle"></i> Evaluación guardada correctamente en el navegador', 'success');
 }
 
 function cargarEvaluacion() {
     const datosGuardados = localStorage.getItem('evaluacionKaspersky');
 
     if (!datosGuardados) {
-        alert('❌ No hay evaluaciones guardadas');
+        showAlert('<i class="bi bi-exclamation-triangle"></i> No hay evaluaciones guardadas', 'error');
         return;
     }
 
@@ -721,10 +721,10 @@ function cargarEvaluacion() {
         renderizarControles();
         actualizarTodo();
 
-        alert('✅ Evaluación cargada correctamente');
+        showAlert('<i class="bi bi-check-circle"></i> Evaluación cargada correctamente', 'success');
     } catch (error) {
         console.error('Error al cargar evaluación:', error);
-        alert('❌ Error al cargar la evaluación guardada');
+        showAlert('<i class="bi bi-exclamation-triangle"></i> Error al cargar la evaluación guardada', 'error');
     }
 }
 
@@ -789,7 +789,7 @@ function importarJSON() {
     input.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (!file) {
-            alert('❌ No se seleccionó ningún archivo');
+            showAlert('<i class="bi bi-exclamation-triangle"></i> No se seleccionó ningún archivo', 'error');
             return;
         }
 
@@ -801,7 +801,7 @@ function importarJSON() {
 
                 // Validar estructura básica del JSON
                 if (!datos.evaluacion || !datos.informacion) {
-                    alert('❌ El archivo JSON no tiene el formato esperado');
+                    showAlert('<i class="bi bi-exclamation-triangle"></i> El archivo JSON no tiene el formato esperado', 'error');
                     return;
                 }
 
@@ -835,10 +835,10 @@ function importarJSON() {
                 renderizarControles();
                 actualizarTodo();
 
-                alert('✅ Datos importados correctamente');
+                showAlert('<i class="bi bi-check-circle"></i> Datos importados correctamente', 'success');
             } catch (error) {
                 console.error('Error al importar JSON:', error);
-                alert('❌ Error al importar el archivo JSON');
+                showAlert('<i class="bi bi-exclamation-triangle"></i> Error al importar el archivo JSON', 'error');
             }
         };
         reader.readAsText(file);
@@ -909,7 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function showAlert(message, type) {
     const alertContainer = document.createElement('div');
     alertContainer.className = `alert alert-${type}`;
-    alertContainer.textContent = message;
+    alertContainer.innerHTML = message;
     document.body.appendChild(alertContainer);
 
     // Remove alert after 3 seconds
