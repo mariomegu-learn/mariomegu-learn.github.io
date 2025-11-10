@@ -449,9 +449,9 @@ function actualizarResultados() {
     const madurezPorcentaje = stats.madurezGlobal * 100;
     const metricCard = document.querySelector('.metric-card.primary.dinamyc-color');
     if (metricCard) {
-        if (madurezPorcentaje < 30) {
+        if (madurezPorcentaje < 50) {
             metricCard.style.background = 'linear-gradient(135deg, var(--danger-color), #ff6961)';
-        } else if (madurezPorcentaje < 70) {
+        } else if (madurezPorcentaje < 80) {
             metricCard.style.background = 'linear-gradient(135deg, var(--warning-color), #ffb84d)';
         } else {
             metricCard.style.background = 'linear-gradient(135deg, var(--success-color), #5dd879)';

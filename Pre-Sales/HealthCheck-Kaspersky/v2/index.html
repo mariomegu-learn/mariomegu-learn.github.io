@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Madurez Kaspersky</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>🔒 Análisis de Madurez - Kaspersky</h1>
-            <p class="subtitle">Evaluación del Estado de Implementación</p>
+            <h1><i class="bi bi-shield-lock-fill"></i> Assessment de Madurez Operativa – Kaspersky</h1>
+            <p class="subtitle">Evaluación integral del despliegue, configuración y administración de la solución</p>
         </header>
 
         <!-- Tabs Navigation -->
         <nav class="tabs">
-            <button class="tab-button active" data-tab="informacion">📋 Información</button>
-            <button class="tab-button" data-tab="controles">✅ Controles</button>
-            <button class="tab-button" data-tab="resultados">📊 Resultados</button>
-            <button class="tab-button" data-tab="brechas">🎯 Brechas</button>
+            <button class="tab-button active" data-tab="informacion"><i class="bi bi-info-circle-fill"></i> Información</button>
+            <button class="tab-button" data-tab="controles"><i class="bi bi-list-check"></i> Controles</button>
+            <button class="tab-button" data-tab="resultados"><i class="bi bi-bar-chart-fill"></i> Resultados</button>
+            <button class="tab-button" data-tab="brechas"><i class="bi bi-shield-x"></i> Brechas</button>
             <!-- <button class="tab-button" data-tab="implementacion">⏱️ Implementación</button> -->
-            <button class="tab-button" data-tab="madurez">📈 Madurez</button>
+            <button class="tab-button" data-tab="madurez"><i class="bi bi-graph-up-arrow"></i> Madurez</button>
         </nav>
 
         <!-- Tab: Levantamiento de Información -->
@@ -75,9 +77,9 @@
         <section id="controles" class="tab-content">
             <h2>Evaluación de Controles</h2>
             <div class="controls-actions">
-                <button class="btn btn-primary" onclick="guardarEvaluacion()">💾 Guardar Evaluación</button>
-                <button class="btn btn-secondary" onclick="cargarEvaluacion()">📁 Cargar Evaluación</button>
-                <button class="btn btn-secondary" onclick="exportarJSON()">📤 Exportar JSON</button>
+                <button class="btn btn-primary" onclick="guardarEvaluacion()"><i class="bi bi-bookmark-check"></i> Guardar Evaluación</button>
+                <button class="btn btn-secondary" onclick="cargarEvaluacion()"><i class="bi bi-folder-fill"></i> Cargar Evaluación</button>
+                <button class="btn btn-secondary" onclick="exportarJSON()"><i class="bi bi-filetype-json"></i> Exportar JSON</button>
             </div>
             <div id="controles-container"></div>
         </section>
