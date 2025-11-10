@@ -3,152 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Madurez KL</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Análisis de Madurez Kaspersky</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
 </head>
 <body>
     <div class="container">
-        <h1>Análisis de Madurez de Kaspersky</h1>
-        <div class="tabs">
-            <button class="tab-button active" onclick="openTab(event, 'levantamiento')">Levantamiento de Información</button>
-            <button class="tab-button" onclick="openTab(event, 'controles')">Controles</button>
-            <button class="tab-button" onclick="openTab(event, 'resultados')">Resultados</button>
-            <button class="tab-button" onclick="openTab(event, 'brechas')">Brechas</button>
-            <button class="tab-button" onclick="openTab(event, 'madurez')">Madurez</button>
-            <button class="tab-button" onclick="openTab(event, 'implementacion')">Implementación</button>
-            <button class="tab-button" onclick="openTab(event, 'variables')">Variables</button>
-        </div>
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="bi bi-shield-lock-fill"></i> Assessment de Madurez Operativa – Kaspersky</h1>
+            <p class="subtitle">Evaluación integral del despliegue, configuración y administración de la solución</p>
+        </header>
 
-        <div id="levantamiento" class="tab-content active">
+        <!-- Tabs Navigation -->
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="informacion"><i class="bi bi-info-circle-fill"></i> Información</button>
+            <button class="tab-button" data-tab="controles"><i class="bi bi-list-check"></i> Controles</button>
+            <button class="tab-button" data-tab="resultados"><i class="bi bi-bar-chart-fill"></i> Resultados</button>
+            <button class="tab-button" data-tab="brechas"><i class="bi bi-shield-x"></i> Brechas</button>
+            <!-- <button class="tab-button" data-tab="implementacion">⏱️ Implementación</button> -->
+            <button class="tab-button" data-tab="madurez"><i class="bi bi-graph-up-arrow"></i> Madurez</button>
+        </nav>
+
+        <!-- Tab: Levantamiento de Información -->
+        <section id="informacion" class="tab-content active">
             <h2>Levantamiento de Información</h2>
-            <form id="levantamiento-form">
-                <label>Empresa*: <input type="text" id="empresa"></label><br>
-                <label>Contacto*: <input type="text" id="contacto"></label><br>
-                <label>Teléfono*: <input type="text" id="telefono"></label><br>
-                <label>Correo Electrónico*: <input type="email" id="correo"></label><br>
-                <label>Elaborado Por*: <input type="text" id="elaborado"></label><br>
-                <label>Fecha*: <input type="date" id="fecha"></label><br>
-                <label>Tipo de Licenciamiento: <input type="text" id="licenciamiento"></label><br>
-                <label>Cantidad de Estaciones de Trabajo: <input type="number" id="estaciones"></label><br>
-                <label>Cantidad de Servidores: <input type="number" id="servidores"></label><br>
-                <label>Cantidad de Dispositivos Móviles: <input type="number" id="moviles"></label><br>
-            </form>
-        </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="empresa">Empresa *</label>
+                    <input type="text" id="empresa" placeholder="Nombre de la empresa">
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Contacto *</label>
+                    <input type="text" id="contacto" placeholder="Nombre del contacto">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" placeholder="Teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico *</label>
+                    <input type="email" id="correo" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="elaborado">Elaborado por *</label>
+                    <input type="text" id="elaborado" placeholder="Nombre del evaluador">
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha *</label>
+                    <input type="date" id="fecha">
+                </div>
+            </div>
 
-        <div id="controles" class="tab-content">
-            <h2>Controles</h2>
-            <table id="controles-table">
-                <thead>
-                    <tr>
-                        <th>Aplicación</th>
-                        <th>NO</th>
-                        <th>Controles</th>
-                        <th>Características</th>
-                        <th>Respuesta</th>
-                        <th>Puntos</th>
-                        <th>Madurez</th>
-                        <th>% Esperado</th>
-                        <th>Brecha</th>
-                        <th>Cumplimiento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows will be dynamically added by JS -->
-                </tbody>
-            </table>
-        </div>
+            <h3>Tipo de Licenciamiento</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="estaciones">Cantidad de Estaciones de Trabajo</label>
+                    <input type="number" id="estaciones" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="servidores">Cantidad de Servidores</label>
+                    <input type="number" id="servidores" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="moviles">Cantidad de Dispositivos Móviles</label>
+                    <input type="number" id="moviles" placeholder="0" min="0">
+                </div>
+            </div>
+        </section>
 
-        <div id="resultados" class="tab-content">
-            <h2>Resultados</h2>
-            <div id="resultados-content"></div>
-        </div>
+        <!-- Tab: Controles -->
+        <section id="controles" class="tab-content">
+            <h2>Evaluación de Controles</h2>
+            <div class="controls-actions">
+                <button class="btn btn-primary" onclick="guardarEvaluacion()"><i class="bi bi-bookmark-check"></i> Guardar Evaluación</button>
+                <button class="btn btn-secondary" onclick="cargarEvaluacion()"><i class="bi bi-folder-fill"></i> Cargar Evaluación</button>
+                <button class="btn btn-secondary" onclick="exportarJSON()"><i class="bi bi-filetype-json"></i> Exportar JSON</button>
+                <button class="btn btn-primary" onclick="importarJSON()"><i class="bi bi-cloud-upload"></i> Importar JSON</button>
+            </div>
+            <div id="controles-container"></div>
+        </section>
 
-        <div id="brechas" class="tab-content">
-            <h2>Brechas</h2>
-            <table id="brechas-table">
-                <thead>
-                    <tr>
-                        <th>Aplicación</th>
-                        <th>NO</th>
-                        <th>Controles</th>
-                        <th>Puntos</th>
-                        <th>Madurez</th>
-                        <th>% Esperado</th>
-                        <th>Oportunidad de Mejora</th>
-                        <th>Cumplimiento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows by JS -->
-                </tbody>
-            </table>
-        </div>
+        <!-- Tab: Resultados -->
+        <section id="resultados" class="tab-content">
+            <h2>Resumen de Resultados</h2>
+            <div class="results-summary">
+                <div class="metric-card primary dinamyc-color">
+                    <h3>Nivel de Madurez</h3>
+                    <div class="metric-value" id="madurez-total">0%</div>
+                    <div class="metric-label">Madurez Global</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Puntos Obtenidos</h3>
+                    <div class="metric-value" id="puntos-obtenidos">0</div>
+                    <div class="metric-label" id="puntos-maximos">de 284 posibles</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Características</h3>
+                    <div class="metric-value" id="total-controles">0</div>
+                    <div class="metric-label">Evaluadas</div>
+                </div>
+                <!-- 
+                <div class="metric-card">
+                    <h3>Tiempo de Implementación</h3>
+                    <div class="metric-value" id="tiempo-total">0h</div>
+                    <div class="metric-label">Esfuerzo estimado</div>
+                </div>
+                -->
+            </div>
 
-        <div id="madurez" class="tab-content">
-            <h2>Madurez</h2>
-            <table id="madurez-table">
-                <thead>
-                    <tr>
-                        <th>Aplicación</th>
-                        <th>Fase</th>
-                        <th>NO</th>
-                        <th>Características</th>
-                        <th>Beneficio</th>
-                        <th>Políticas de Seguridad</th>
-                        <th>C</th>
-                        <th>I</th>
-                        <th>D</th>
-                        <th>Cumplimiento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows by JS -->
-                </tbody>
-            </table>
-        </div>
+            <h3>Distribución de Controles</h3>
+            <div class="distribution-grid">
+                <div class="dist-card critical">
+                    <div class="dist-count" id="count-critico">0</div>
+                    <div class="dist-label">Brechas Críticas</div>
+                    <div class="dist-desc">Cumplimiento < 50%</div>
+                </div>
+                <div class="dist-card warning">
+                    <div class="dist-count" id="count-mejora">0</div>
+                    <div class="dist-label">Oportunidades</div>
+                    <div class="dist-desc">50% ≤ Cumplimiento < 80%</div>
+                </div>
+                <div class="dist-card success">
+                    <div class="dist-count" id="count-fortaleza">0</div>
+                    <div class="dist-label">Fortalezas</div>
+                    <div class="dist-desc">Cumplimiento ≥ 80%</div>
+                </div>
+                <div class="dist-card neutral">
+                    <div class="dist-count" id="count-noaplica">0</div>
+                    <div class="dist-label">No Aplica</div>
+                    <div class="dist-desc">Sin evaluación</div>
+                </div>
+            </div>
+        </section>
 
-        <div id="implementacion" class="tab-content">
-            <h2>Implementación</h2>
-            <table id="implementacion-table">
-                <thead>
-                    <tr>
-                        <th>Fase</th>
-                        <th>Controles</th>
-                        <th>Brecha</th>
-                        <th>Duración de Implementación</th>
-                        <th>Total Minutos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows by JS -->
-                </tbody>
-            </table>
-        </div>
+        <!-- Tab: Brechas -->
+        <section id="brechas" class="tab-content">
+            <h2>Análisis de Brechas</h2>
+            <div id="brechas-container"></div>
+        </section>
 
-        <div id="variables" class="tab-content">
-            <h2>Variables</h2>
-            <table id="variables-table">
-                <thead>
-                    <tr>
-                        <th>Riesgo/Nivel</th>
-                        <th>Puntuación</th>
-                        <th>Respuestas</th>
-                        <th>Valor</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>Controles</th>
-                        <th>Duración Minutos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows by JS -->
-                </tbody>
-            </table>
-        </div>
+        
+        <!-- Tab: Implementación 
+        <section id="implementacion" class="tab-content">
+            <h2>Plan de Implementación</h2>
+            <div id="implementacion-container"></div>
+        </section>
+        -->
+
+        <!-- Tab: Madurez -->
+        <section id="madurez" class="tab-content">
+            <h2>Análisis de Madurez por Control</h2>
+            <div id="madurez-container"></div>
+        </section>
     </div>
 
-    <script src="js/logica.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
