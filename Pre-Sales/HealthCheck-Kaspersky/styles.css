@@ -707,3 +707,31 @@ body {
     padding: 12px;
     margin-top: 15px;
 }
+
+/* Alert styles */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 9999;
+    box-shadow: var(--shadow-hover);
+    max-width: 400px;
+}
+
+.alert-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.alert-error {
+    background: var(--danger-color);
+    color: white;
+}
+
+.alert-info {
+    background: var(--primary-color);
+    color: white;
+}

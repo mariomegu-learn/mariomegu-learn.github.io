@@ -888,20 +888,32 @@ document.addEventListener('DOMContentLoaded', () => {
         // Simple validation
         if (username === 'mario.mendoza' && password === 'Zaq12wsx') {
             closeModal();
-            alert('Login successful!');
+            showAlert('Login successful!', 'success');
 
             // Show buttons after successful login
             document.getElementById('guardarBtn').style.display = 'inline-block';
             document.getElementById('cargarBtn').style.display = 'inline-block';
             document.getElementById('exportarBtn').style.display = 'inline-block';
         } else {
-            alert('Credenciales incorrectas, intenta de nuevo.');
+            showAlert('Credenciales incorrectas, intenta de nuevo.', 'error');
         }
     }
 
     // Handle guest button click
     guestButton.onclick = function() {
         closeModal();
-        alert('Acceso como invitado. Bienvenido!');
+        showAlert('Acceso como invitado. Bienvenido!', 'info');
     }
 });
+
+function showAlert(message, type) {
+    const alertContainer = document.createElement('div');
+    alertContainer.className = `alert alert-${type}`;
+    alertContainer.textContent = message;
+    document.body.appendChild(alertContainer);
+
+    // Remove alert after 3 seconds
+    setTimeout(() => {
+        alertContainer.remove();
+    }, 3000);
+}
