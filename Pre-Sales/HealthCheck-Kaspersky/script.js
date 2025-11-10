@@ -853,3 +853,40 @@ function importarJSON() {
 
 console.log('%c🔒 Sistema de Análisis de Madurez Kaspersky', 'color: #0066cc; font-size: 16px; font-weight: bold;');
 console.log('%cVersión 1.0 - Sistema cargado correctamente', 'color: #34c759; font-size: 12px;');
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('loginModal');
+    const closeBtn = document.querySelector('.close-button');
+    const loginForm = document.getElementById('loginForm');
+
+    // Open modal when page loads
+    modal.style.display = 'flex';
+
+    // Close modal when clicking on close button
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside of modal content
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Handle login form submission
+    loginForm.onsubmit = function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Simple validation
+        if (username === 'admin' && password === 'admin') {
+            modal.style.display = 'none';
+            alert('Login successful!');
+        } else {
+            alert('Invalid credentials. Please try again.');
+        }
+    }
+});
