@@ -864,15 +864,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open modal when page loads
     modal.style.display = 'flex';
 
-    // Close modal when clicking on close button
-    closeBtn.onclick = function() {
+    // Close modal function
+    function closeModal() {
         modal.style.display = 'none';
     }
+
+    // Close modal when clicking on close button
+    closeBtn.onclick = closeModal;
 
     // Close modal when clicking outside of modal content
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = 'none';
+            closeModal();
         }
     }
 
@@ -883,8 +886,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('password').value;
 
         // Simple validation
-        if (username === 'admin' && password === 'admin') {
-            modal.style.display = 'none';
+        if (username === 'mario.mendoza' && password === 'Zaq12wsx') {
+            closeModal();
             alert('Login successful!');
 
             // Show buttons after successful login
@@ -892,13 +895,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('cargarBtn').style.display = 'inline-block';
             document.getElementById('exportarBtn').style.display = 'inline-block';
         } else {
-            alert('Invalid credentials. Please try again.');
+            alert('Credenciales incorrectas, intenta de nuevo.');
         }
     }
 
     // Handle guest button click
     guestButton.onclick = function() {
-        modal.style.display = 'none';
+        closeModal();
         alert('Acceso como invitado. Bienvenido!');
     }
 });
