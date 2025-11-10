@@ -885,6 +885,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (username === 'admin' && password === 'admin') {
             modal.style.display = 'none';
             alert('Login successful!');
+
+            // Show buttons after successful login
+            document.getElementById('guardarBtn').style.display = 'inline-block';
+            document.getElementById('cargarBtn').style.display = 'inline-block';
+            document.getElementById('exportarBtn').style.display = 'inline-block';
         } else {
             alert('Invalid credentials. Please try again.');
         }

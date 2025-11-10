@@ -95,9 +95,9 @@
         <section id="controles" class="tab-content">
             <h2>Evaluación de Controles</h2>
             <div class="controls-actions">
-                <button class="btn btn-primary" onclick="guardarEvaluacion()"><i class="bi bi-bookmark-check"></i> Guardar Evaluación</button>
-                <button class="btn btn-secondary" onclick="cargarEvaluacion()"><i class="bi bi-folder-fill"></i> Cargar Evaluación</button>
-                <button class="btn btn-secondary" onclick="exportarJSON()"><i class="bi bi-filetype-json"></i> Exportar JSON</button>
+                <button class="btn btn-primary" onclick="guardarEvaluacion()" id="guardarBtn" style="display: none;"><i class="bi bi-bookmark-check"></i> Guardar Evaluación</button>
+                <button class="btn btn-secondary" onclick="cargarEvaluacion()" id="cargarBtn" style="display: none;"><i class="bi bi-folder-fill"></i> Cargar Evaluación</button>
+                <button class="btn btn-secondary" onclick="exportarJSON()" id="exportarBtn" style="display: none;"><i class="bi bi-filetype-json"></i> Exportar JSON</button>
                 <button class="btn btn-primary" onclick="importarJSON()"><i class="bi bi-cloud-upload"></i> Importar JSON</button>
             </div>
             <div id="controles-container"></div>
