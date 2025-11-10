@@ -859,6 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('loginModal');
     const closeBtn = document.querySelector('.close-button');
     const loginForm = document.getElementById('loginForm');
+    const guestButton = document.getElementById('guestButton');
 
     // Open modal when page loads
     modal.style.display = 'flex';
@@ -893,5 +894,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('Invalid credentials. Please try again.');
         }
+    }
+
+    // Handle guest button click
+    guestButton.onclick = function() {
+        modal.style.display = 'none';
+        alert('Acceso como invitado. Bienvenido!');
     }
 });
