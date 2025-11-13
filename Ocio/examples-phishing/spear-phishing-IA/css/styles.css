@@ -1,0 +1,173 @@
+/* Custom styles can be added here if needed */
+
+body {
+  background: linear-gradient(45deg, #00205c 0%, #005bfe 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  word-wrap: break-word;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Netflix notification styles */
+.netflix-notification {
+  background: linear-gradient(135deg, #141414 0%, #1a1a1a 100%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.notification-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.netflix-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.notification-header h2 {
+  color: #e50914;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.notification-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.notification-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.notification-content li {
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.notification-actions {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 0.5rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.btn-primary {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #f40612;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #e50914;
+  border: 2px solid #e50914;
+}
+
+.btn-secondary:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.notification-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+
+.notification-footer p {
+  margin-bottom: 0.5rem;
+}
+
+/* Tooltip styles for buttons */
+.btn-primary:hover::after,
+.btn-secondary:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: -5px;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+}
+
