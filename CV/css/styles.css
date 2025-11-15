@@ -1,0 +1,57 @@
+        /* Estilo base para la tipografía */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Estilos para la línea separadora */
+        .separator {
+            width: 100%;
+            height: 2px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #dbeafe; /* Soft blue */
+        }
+        /* Estilo para las secciones de experiencia */
+        .experience-item {
+            border-left: 3px solid #bfdbfe; /* Light blue for timeline */
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+        }
+        /* ESTILO PARA LAS VIÑETAS PERSONALIZADAS (BULLETS) */
+        .styled-list {
+            list-style: none; /* Quita el bullet nativo */
+            padding-left: 0;
+            margin-left: 0;
+        }
+        .styled-list li {
+            position: relative;
+            padding-left: 1rem; /* Espacio para el bullet personalizado */
+            margin-bottom: 0.25rem;
+        }
+        .styled-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            width: 6px;
+            height: 6px;
+            background-color: #3b82f6; /* Soft blue */
+            border-radius: 50%;
+        }
+        /* ESTILO PARA PALABRAS CLAVE: Fuente más oscura y negrita */
+        .keyword {
+            font-weight: 700;
+            color: #1e40af; /* Soft accent blue */
+        }
