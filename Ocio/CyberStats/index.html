@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CyberStats - Visualización en tiempo real de ciberamenazas globales. Mapa interactivo 3D mostrando ataques de malware, phishing, DDoS y más.">
+    <meta name="keywords" content="ciberseguridad, amenazas, malware, visualización, mapa global, ataques cibernéticos">
+    <meta name="author" content="Mario Mendoza">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CyberStats - Mapa Global de Ciberamenazas">
+    <meta property="og:description" content="Visualización en tiempo real de ataques cibernéticos globales">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CyberStats - Mapa Global de Ciberamenazas">
+
+    <title>CyberStats - Mapa Global de Ciberamenazas en Tiempo Real</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- D3.js for data visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div id="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">🛡️</span>
+                    <span class="logo-text">Cyber<span class="highlight">Stats</span></span>
+                </h1>
+                <p class="tagline">Monitoreo Global de Ciberamenazas en Tiempo Real</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Ataques Detectados</span>
+                    <span class="stat-value" id="total-attacks">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Países Afectados</span>
+                    <span class="stat-value" id="countries-affected">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Amenazas Activas</span>
+                    <span class="stat-value" id="active-threats">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Globe Visualization Container -->
+            <section id="globe-container" class="globe-section">
+                <canvas id="globe-canvas"></canvas>
+
+                <!-- Globe Controls Overlay -->
+                <div class="globe-controls">
+                    <button class="control-btn" id="toggle-rotation" title="Pausar/Reanudar rotación">
+                        <span class="icon">⏸️</span>
+                    </button>
+                    <button class="control-btn" id="reset-view" title="Restablecer vista">
+                        <span class="icon">🔄</span>
+                    </button>
+                    <button class="control-btn" id="toggle-labels" title="Mostrar/Ocultar etiquetas">
+                        <span class="icon">🏷️</span>
+                    </button>
+                </div>
+
+                <!-- FPS Counter -->
+                <div class="fps-counter" id="fps-counter">60 FPS</div>
+            </section>
+
+            <!-- Left Sidebar - Statistics Dashboard -->
+            <aside class="sidebar sidebar-left">
+                <div class="panel stats-panel">
+                    <h2 class="panel-title">
+                        <span class="panel-icon">📊</span>
+                        Estadísticas Globales
+                    </h2>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon malware">🦠</span>
+                                <span class="stat-name">Malware</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-malware">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon phishing">🎣</span>
+                                <span class="stat-name">Phishing</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-phishing">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon ddos">⚡</span>
+                                <span class="stat-name">DDoS</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-ddos">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon ransomware">🔒</span>
+                                <span class="stat-name">Ransomware</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-ransomware">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon web-attack">🌐</span>
+                                <span class="stat-name">Web Attack</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-web-attack">0</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-icon exploit">💥</span>
+                                <span class="stat-name">Exploit</span>
+                            </div>
+                            <div class="stat-card-value" id="stat-exploit">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Threat Distribution Chart -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">Distribución de Amenazas</h3>
+                        <canvas id="threat-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Threat Filters -->
+                <div class="panel filters-panel">
+                    <h2 class="panel-title">
+                        <span class="panel-icon">🎛️</span>
+                        Filtros
+                    </h2>
+
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-malware" checked>
+                            <span class="filter-text">Malware</span>
+                            <span class="filter-indicator malware"></span>
+                        </label>
+
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-phishing" checked>
+                            <span class="filter-text">Phishing</span>
+                            <span class="filter-indicator phishing"></span>
+                        </label>
+
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-ddos" checked>
+                            <span class="filter-text">DDoS</span>
+                            <span class="filter-indicator ddos"></span>
+                        </label>
+
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-ransomware" checked>
+                            <span class="filter-text">Ransomware</span>
+                            <span class="filter-indicator ransomware"></span>
+                        </label>
+
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-web-attack" checked>
+                            <span class="filter-text">Web Attack</span>
+                            <span class="filter-indicator web-attack"></span>
+                        </label>
+
+                        <label class="filter-label">
+                            <input type="checkbox" class="filter-checkbox" id="filter-exploit" checked>
+                            <span class="filter-text">Exploit</span>
+                            <span class="filter-indicator exploit"></span>
+                        </label>
+                    </div>
+
+                    <div class="speed-control">
+                        <label class="speed-label">Velocidad de Simulación</label>
+                        <div class="speed-buttons">
+                            <button class="speed-btn" data-speed="0.5">0.5x</button>
+                            <button class="speed-btn active" data-speed="1">1x</button>
+                            <button class="speed-btn" data-speed="2">2x</button>
+                            <button class="speed-btn" data-speed="5">5x</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Sidebar - Live Feed -->
+            <aside class="sidebar sidebar-right">
+                <div class="panel feed-panel">
+                    <h2 class="panel-title">
+                        <span class="panel-icon">📡</span>
+                        Feed en Vivo
+                        <span class="live-indicator">
+                            <span class="pulse"></span>
+                            LIVE
+                        </span>
+                    </h2>
+
+                    <div class="feed-container" id="live-feed">
+                        <!-- Attack items will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Top Targets Panel -->
+                <div class="panel targets-panel">
+                    <h2 class="panel-title">
+                        <span class="panel-icon">🎯</span>
+                        Principales Objetivos
+                    </h2>
+
+                    <div class="targets-list" id="top-targets">
+                        <!-- Top target countries will be listed here -->
+                    </div>
+                </div>
+            </aside>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p class="footer-text">
+                CyberStats © 2025 | Datos simulados con fines educativos |
+                <a href="#" class="footer-link">Acerca de</a> |
+                <a href="#" class="footer-link">GitHub</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip hidden">
+        <div class="tooltip-content"></div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/data-generator.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/attack-visualizer.js"></script>
+    <script src="js/statistics.js"></script>
+    <script src="js/ui-controls.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

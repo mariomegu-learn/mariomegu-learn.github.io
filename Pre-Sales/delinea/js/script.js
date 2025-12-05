@@ -4,7 +4,7 @@
 const tasks = [
     // Section 1
     { id: '1', description: '1. Instalación Preeliminar', isSectionHeader: true },
-    { id: '1.1', description: 'Instalación y configuración de una (1) instancia de Secret Server en On Premise.', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
+    { id: '1.1', description: 'Instalación y configuración de una (1) instancia de Secret Server.', isSectionHeader: false, quantity: 1, duration: 2, standardBase: 2, platinumBase: 2 },
     { id: '1.2', description: 'Instalación de Conector y Distribute Engine un solo dominio.', isSectionHeader: false, quantity: 1, duration: 8, standardBase: 8, platinumBase: 8 },
     { id: '1.3', description: 'Instalación de Privilege Remote Access un solo dominio.', isSectionHeader: false, quantity: 1, duration: 4, standardBase: 0, platinumBase: 4 },
     { id: '1.4', description: 'Sincronización de Active Directory para la autenticación de un solo nombre de dominio.', isSectionHeader: false, quantity: 1, duration: 3, standardBase: 3, platinumBase: 3 },
@@ -21,17 +21,17 @@ const tasks = [
     { id: '3.2', description: 'Revisión de la propiedad de la plantilla.', isSectionHeader: false, quantity: 3, duration: 0.6666666666666666, standardBase: 2, platinumBase: 2 },
     // Section 4
     { id: '4', description: '4. Lanzadores, Máximo 15 secretos', isSectionHeader: true },
-    { id: '4.1', description: 'Configurar y validar los lanzadores de RDP hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
-    { id: '4.2', description: 'Configurar y validar los lanzadores de Linux hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
-    { id: '4.3', description: 'Configurar y validar los lanzadores Web hasta (4) cuatro secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
-    { id: '4.4', description: 'Configurar y validar los lanzadores SSMS hasta (3) tres secretos.', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
+    { id: '4.1', description: 'Configurar y validar los lanzadores de RDP hasta:', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
+    { id: '4.2', description: 'Configurar y validar los lanzadores de Linux hasta:', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
+    { id: '4.3', description: 'Configurar y validar los lanzadores Web hasta:', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
+    { id: '4.4', description: 'Configurar y validar los lanzadores SSMS hasta:', isSectionHeader: false, quantity: 'variable', duration: 2.5, standardBase: null, platinumBase: null },
     // Section 5
     { id: '5', description: '5. Políticas de secretos', isSectionHeader: true },
     { id: '5.1', description: 'Discutir la política en blanco', isSectionHeader: false, quantity: 1, duration: 1, standardBase: 1, platinumBase: 1 },
     { id: '5.2', description: 'Cree hasta (3) tres políticas secretas', isSectionHeader: false, quantity: 3, duration: 1.5, standardBase: 4.5, platinumBase: 4.5 },
     // Section 6
     { id: '6', description: '6. Grabación de sesiones', isSectionHeader: true },
-    { id: '6.1', description: 'Grabación de sesión básica, maximo 15 secretos', isSectionHeader: false, quantity: 'variable', duration: 0.5, standardBase: null, platinumBase: null },
+    { id: '6.1', description: 'Grabación de sesión básica, maximo: ', isSectionHeader: false, quantity: 'variable', duration: 0.5, standardBase: null, platinumBase: null },
     // Section 7
     { id: '7', description: '7. Configurar y probar el cambio de contraseña remota (RPC)', isSectionHeader: true },
     { id: '7.1', description: 'Prueba hasta dos (2) Secretos de Active Directory', isSectionHeader: false, quantity: 2, duration: 0.5, standardBase: 1, platinumBase: 1 },
