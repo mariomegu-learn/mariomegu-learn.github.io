@@ -7,7 +7,7 @@ import { exportToWord } from './modules/export.js';
 /**
  * @file Main script for the Delinea Effort Calculator.
  * @summary This script handles the main application logic, including loading data, handling user interactions, and coordinating updates between different modules.
- * @author Gemini
+ * @author Mario Mendoza
  */
 
 (async () => {
