@@ -1,6 +1,6 @@
 'use strict';
 
-import { showOverlay, hideOverlay, getSelectedLicense, setSelectedLicense, renderTable, updateAvailabilityDisplay, setButtonLoading, loadTheme, updateThemeIcon } from './modules/ui.js';
+import { showOverlay, hideOverlay, getSelectedLicense, setSelectedLicense, renderTable, updateAvailabilityDisplay, setButtonLoading, loadTheme } from './modules/ui.js';
 import { calculateEffort } from './modules/calculator.js';
 import { exportToWord } from './modules/export.js';
 
@@ -19,9 +19,11 @@ import { exportToWord } from './modules/export.js';
     function handleCalculateClick() {
         const btn = document.getElementById('calculate-btn');
         setButtonLoading(btn, true);
+        showOverlay();
         setTimeout(() => {
             renderTable(tasks, (task, license) => calculateEffort(task, license, tasks), getSelectedLicense);
             setButtonLoading(btn, false);
+            hideOverlay();
         }, 500);
     }
 
@@ -66,7 +68,6 @@ import { exportToWord } from './modules/export.js';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
     });
 
     document.getElementById('calculate-btn').addEventListener('click', handleCalculateClick);

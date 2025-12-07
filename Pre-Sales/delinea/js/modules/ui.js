@@ -137,17 +137,6 @@ export function setButtonLoading(button, isLoading) {
     }
 }
 
-export function updateThemeIcon(theme) {
-    const themeIcon = document.getElementById('theme-icon');
-    if (theme === 'light') {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-    }
-}
-
 export function loadTheme() {
     let theme = localStorage.getItem('theme');
     if (theme === null) {
@@ -155,5 +144,4 @@ export function loadTheme() {
         localStorage.setItem('theme', 'dark');
     }
     document.body.setAttribute('data-theme', theme);
-    updateThemeIcon(theme);
 }
