@@ -307,6 +307,55 @@ h3 i { color: var(--accent); }
 /* Fixed Hours Box */
 .fixed-hours-box { position: fixed; top: 20px; left: 20px; background: var(--gradiente-principal); color: var(--color-blanco); padding: 10px 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); z-index: 1000; font-family: 'Encode Sans Expanded', sans-serif; font-weight: 600; font-size: 14px; }
 
+/* Footer */
+.site-footer {
+    background: var(--gradiente-principal);
+    color: var(--color-blanco);
+    padding: 24px 40px;
+    margin-top: 40px;
+    border-top: 3px solid var(--color-aqua-gms);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-left .copyright {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 4px;
+    padding-left: 22px; /* Align with the text above, considering the icon */
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-right a {
+    color: var(--color-blanco);
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: var(--color-aqua-gms);
+    transform: translateY(-2px); /* Lifts the icon slightly */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container { padding: 20px; margin: 20px auto; }
@@ -318,4 +367,18 @@ h3 i { color: var(--accent); }
     .table tbody td { display: block; border: none; text-align: left !important; padding: 4px 0; }
     .table tbody td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--accent); display: inline-block; width: 120px; }
     .subtask { padding-left: 15px !important; }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-left {
+        text-align: center;
+    }
+
+    .footer-left p, .footer-left .copyright {
+        justify-content: center;
+        padding-left: 0; /* Reset padding for center alignment */
+    }
 }
