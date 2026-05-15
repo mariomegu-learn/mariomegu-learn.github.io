@@ -1,20 +1,5 @@
 /* ============================================================
-   Linux operativo para Kaspersky XDR Optimum
-   app.js COMPLETO - Fases 1 a Final
-   Autor: Kaspersky Presales Enablement
-
-   Requisitos esperados del HTML:
-   - main#mainContent
-   - nav#sidebarNav
-   - nav#mobileNav
-   - input#moduleSearch
-   - input#mobileModuleSearch
-   - #helpModal, #resetProgressModal, #toastContainer
-   - Bootstrap 5, Bootstrap Icons y Prism.js cargados por CDN
-
-   Seguridad:
-   Este curso NO ejecuta comandos reales. Solo muestra comandos,
-   resalta sintaxis y permite copiar al portapapeles.
+   Creado por Mario Mendoza - https://mariomegu.com
 ============================================================ */
 
 const STORAGE_KEY = "kasperskyLinuxCourseProgressFull";
@@ -432,7 +417,7 @@ function renderDashboard() {
   main.innerHTML = `
     <section class="hero-section">
       <span class="badge rounded-pill text-bg-primary mb-3"><i class="bi bi-shield-check me-1"></i>Curso interactivo completo</span>
-      <h1>Linux operativo para Kaspersky XDR Optimum</h1>
+      <h1>Fundamentos de Linux para Kaspersky XDR Optimum</h1>
       <p>Curso interactivo para implementación, administración y soporte de Linux en escenarios Kaspersky Security Center Linux y Kaspersky Endpoint Security for Linux.</p>
       <div class="d-flex flex-wrap justify-content-center gap-2">
         <button class="btn btn-custom-primary" data-open-module="module-0"><i class="bi bi-play-fill me-1"></i>Comenzar curso</button>
@@ -575,7 +560,7 @@ function renderStandardModule(module) {
       <section class="mb-5"><h2 class="h4 mb-3">Objetivos del módulo</h2><div class="row g-3">${data.objectives.map(learningItem).join("")}</div></section>
       ${data.sections.map((s, idx) => `<section class="mb-5"><h2 class="h4 mb-3">${idx + 1}. ${esc(s.title)}</h2><div class="info-box"><p class="mb-0">${esc(s.body)}</p></div></section>`).join("")}
       <section class="mb-5"><h2 class="h4 mb-3">Comandos prácticos</h2><p class="text-muted">Comandos de referencia para laboratorio y soporte. Validar según versión, distribución y autorización.</p>${renderCommandsGrouped(data.commands)}</section>
-      <section class="mb-5"><h2 class="h4 mb-3">Laboratorio guiado</h2><div class="card border-0 shadow-sm"><div class="card-body"><p>Ejecuta este laboratorio en un ambiente autorizado.</p>${codeBlock(data.lab)}<div class="warning-box mb-0"><strong>Nota:</strong> no ejecutes cambios destructivos en producción sin aprobación.</div></div></div></section>
+      <section class="mb-5"><h2 class="h4 mb-3">Laboratorio guiado</h2><div class="card border-0 shadow-sm"><div class="card-body"><p>Ejecuta este laboratorio en un ambiente autorizado.</p>${codeBlock(data.lab)}<div class="warning-box mb-0"><strong>Nota:</strong> no ejecutes cambios que puedan afectar el entorno en producción sin aprobación.</div></div></div></section>
       <section class="mb-5"><h2 class="h4 mb-3">Checklist del módulo</h2><ul class="list-group shadow-sm">${data.checklist.map(checkItem).join("")}</ul></section>
       <section class="mb-5"><h2 class="h4 mb-3">Quiz del módulo</h2>${renderQuiz(module.id, data.quiz)}</section>
     </section>`;
