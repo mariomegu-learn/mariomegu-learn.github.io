@@ -18,6 +18,7 @@
 ============================================================ */
 
 const STORAGE_KEY = "kasperskyLinuxCourseProgressFull";
+const HELP_MODAL_SEEN_KEY = "kasperskyLinuxCourseHelpSeen";
 let currentModuleId = null;
 let courseProgress = {
   completedModules: [],
@@ -380,6 +381,10 @@ function initApp() {
   renderDashboard();
   updateGlobalProgress();
   refreshPrism();
+
+// Mostrar ayuda automáticamente solo en el primer acceso
+  showHelpModalOnFirstVisit();
+
 }
 
 function bindEvents() {
@@ -676,6 +681,32 @@ function filterModules(query) {
 }
 function openHelpModal() { const el = $("helpModal"); if (el && window.bootstrap) new bootstrap.Modal(el).show(); }
 function openResetProgressModal() { const el = $("resetProgressModal"); if (el && window.bootstrap) new bootstrap.Modal(el).show(); else if (confirm("¿Reiniciar progreso?")) resetProgress(); }
+function showHelpModalOnFirstVisit() {
+  const alreadySeen = localStorage.getItem(HELP_MODAL_SEEN_KEY) === "true";
+
+  if (alreadySeen) return;
+
+  const helpModalElement = document.getElementById("helpModal");
+
+  if (!helpModalElement || typeof bootstrap === "undefined") {
+    return;
+  }
+
+  // Marcar como visto solo cuando realmente se muestre el modal
+  helpModalElement.addEventListener(
+    "shown.bs.modal",
+    () => {
+      localStorage.setItem(HELP_MODAL_SEEN_KEY, "true");
+    },
+    { once: true }
+  );
+
+  // Pequeño delay para asegurar que dashboard, Bootstrap y DOM estén listos
+  setTimeout(() => {
+    const modal = new bootstrap.Modal(helpModalElement);
+    modal.show();
+  }, 400);
+}
 async function copyCommand(command, button) { try { if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(command); else fallbackCopy(command); if (button) { const old = button.innerHTML; button.classList.add("copied"); button.innerHTML = `<i class="bi bi-check2 me-1"></i>Copiado`; setTimeout(() => { button.classList.remove("copied"); button.innerHTML = old; }, 1500); } showToast("Comando copiado.", "success"); } catch { showToast("No se pudo copiar.", "error"); } }
 function fallbackCopy(text) { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.left = "-9999px"; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); }
 function showToast(message, type = "info") { const c = $("toastContainer"); if (!c) return; const id = `toast-${Date.now()}`; const div = document.createElement("div"); div.id = id; div.className = `toast ${type}`; div.setAttribute("role", "status"); div.innerHTML = `<div class="d-flex align-items-start gap-2"><i class="bi ${toastIcon(type)} fs-5"></i><div class="flex-grow-1">${esc(message)}</div><button type="button" class="btn-close ms-2" onclick="this.closest('.toast').remove()" aria-label="Cerrar"></button></div>`; c.appendChild(div); setTimeout(() => $(id)?.remove(), 4200); }

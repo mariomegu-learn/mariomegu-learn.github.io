@@ -357,7 +357,8 @@ body {
 
 .info-box,
 .warning-box,
-.danger-box {
+.danger-box,
+.success-box {
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1.5rem 0;
@@ -376,6 +377,11 @@ body {
 .danger-box {
     background: rgba(255, 59, 48, 0.08);
     border-left: 4px solid var(--danger-color);
+}
+
+.success-box {
+    background: rgba(52, 199, 89, 0.08);
+    border-left: 4px solid var(--success-color);
 }
 
 .quiz-card {

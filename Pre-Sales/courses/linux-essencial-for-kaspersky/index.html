@@ -207,28 +207,6 @@
             >
                 <!--
                     Renderizado dinámicamente por app.js.
-
-                    Fase 1:
-                    - Dashboard principal
-                    - Módulo 0: Introducción
-                    - Comandos destacados
-                    - Glosario rápido
-                    - Quiz introductorio
-                    - Placeholders de módulos futuros
-
-                    Fases futuras:
-                    - Módulo 1: Fundamentos de Linux
-                    - Módulo 2: Comandos esenciales
-                    - Módulo 3: Administración de paquetes
-                    - Módulo 4: Servicios y systemd
-                    - Módulo 5: Red, DNS y conectividad
-                    - Módulo 6: Procesos, recursos y rendimiento
-                    - Módulo 7: Logs y diagnóstico
-                    - Módulo 8: Kaspersky Security Center Linux
-                    - Módulo 9: Network Agent para Linux
-                    - Módulo 10: Kaspersky Endpoint Security for Linux
-                    - Módulo 11: Troubleshooting aplicado
-                    - Módulo 12: Laboratorios prácticos
                 -->
 
                 <noscript>
@@ -361,10 +339,10 @@
                 <div class="modal-header">
                     <div>
                         <h5 class="modal-title" id="helpModalLabel">
-                            ¿Cómo usar este curso?
+                            <strong>¿Cómo usar este curso?</strong>
                         </h5>
                         <small class="text-muted">
-                            Guía rápida para navegar la experiencia interactiva
+                            Guía rápida
                         </small>
                     </div>
 
@@ -378,9 +356,19 @@
 
                 <div class="modal-body">
 
+                    <div class="success-box">
+                        He diseñado este curso para ser una guía práctica y complementaria a la documentación 
+                        oficial de Kaspersky. No pretende reemplazarla ni cubrir todos los escenarios posibles. 
+                        Siempre consulta la documentación oficial para tu versión específica de Kaspersky Security 
+                        Center Linux, Network Agent y Kaspersky Endpoint Security for Linux antes de realizar 
+                        implementaciones o cambios en producción.
+                        <br><br>
+                        <strong>Mario Mendoza</strong>
+                    </div>
+
                     <div class="info-box mt-0">
                         <strong>Objetivo:</strong>
-                        aprender Linux operativo aplicado a implementación y soporte de
+                        aprender sobre los fundamentos de Linux aplicado a implementación y soporte de
                         Kaspersky Security Center Linux, Network Agent y Kaspersky Endpoint
                         Security for Linux.
                     </div>
@@ -396,8 +384,7 @@
                             Copia comandos con el botón correspondiente.
                         </li>
                         <li class="mb-2">
-                            Los comandos se muestran con resaltado visual usando
-                            <strong>Prism.js</strong>.
+                            Los comandos se muestran con resaltado visual
                         </li>
                         <li class="mb-2">
                             Completa quizzes para marcar avance.
@@ -405,32 +392,26 @@
                         <li class="mb-2">
                             Usa el buscador para encontrar módulos por tema.
                         </li>
+                        
                         <li class="mb-2">
-                            En fases posteriores se agregarán laboratorios, checklists,
-                            casos de soporte y evaluaciones técnicas.
+                            Valida el manual del comando o función en tu sistema antes de ejecutarlo.
                         </li>
-                        <li class="mb-2">
-                            No ejecutes comandos destructivos en producción sin validación previa.
-                        </li>
-                        <li class="mb-0">
-                            Si trabajas en ambientes corporativos restringidos, considera
-                            usar una versión offline con dependencias locales.
-                        </li>
+                        
                     </ul>
 
                     <div class="warning-box">
                         <strong>Importante:</strong>
                         los comandos, rutas, servicios y parámetros pueden variar según
                         versión del producto, distribución Linux y arquitectura. Siempre
-                        valida contra la documentación oficial correspondiente a la versión
+                        valida la documentación oficial correspondiente a la versión
                         instalada.
                     </div>
 
                     <div class="danger-box">
                         <strong>Seguridad:</strong>
-                        este curso no ejecuta comandos reales. Los comandos se muestran
+                        este curso no ejecuta comandos automaticamente. Los comandos se muestran
                         con fines educativos y deben ejecutarse únicamente en sistemas
-                        autorizados, preferiblemente laboratorios o ambientes controlados.
+                        autorizados o ambientes controlados.
                     </div>
 
                 </div>
