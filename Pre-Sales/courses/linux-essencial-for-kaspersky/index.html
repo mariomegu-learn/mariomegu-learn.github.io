@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux para Kaspersky XDR Optimum</title>
+
+    <meta name="description" content="Curso interactivo para implementación, administración y soporte de Linux en escenarios Kaspersky Security Center Linux y Kaspersky Endpoint Security for Linux.">
+    <meta name="author" content="Kaspersky Presales Enablement">
+    <meta name="theme-color" content="#00215e">
+
+    <!-- =========================================================
+         Bootstrap 5 CSS vía CDN
+         Nota:
+         Para ambientes corporativos, demos offline, clientes con
+         políticas restrictivas o laboratorios sin internet, se
+         recomienda descargar Bootstrap y Prism.js y referenciarlos
+         localmente desde /assets/css y /assets/js.
+    ========================================================== -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons vía CDN -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         Prism.js CSS vía CDN
+         Tema: Tomorrow
+         Plugins: Toolbar + Copy to Clipboard
+    ========================================================== -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Accesibilidad: enlace para saltar al contenido principal -->
+    <a href="#mainContent" class="visually-hidden-focusable">
+        Saltar al contenido principal
+    </a>
+
+    <div class="app-shell">
+
+        <!-- =====================================================
+             SIDEBAR DESKTOP
+        ====================================================== -->
+        <aside
+            class="sidebar d-none d-lg-flex"
+            id="desktopSidebar"
+            aria-label="Navegación principal del curso"
+        >
+            <div class="sidebar-brand">
+                <h5 class="mb-1">
+                    <i class="bi bi-shield-shaded me-2" aria-hidden="true"></i>
+                    Kaspersky Linux
+                </h5>
+                <small class="text-white-50">
+                    XDR Optimum Enablement
+                </small>
+            </div>
+
+            <nav
+                class="sidebar-nav"
+                id="sidebarNav"
+                aria-label="Ruta de aprendizaje"
+            >
+                <!-- Renderizado dinámicamente por app.js -->
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="progress-wrapper">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="small">Progreso global</span>
+                        <span class="small" id="progressPercent">0%</span>
+                    </div>
+
+                    <div
+                        class="progress"
+                        style="height: 6px;"
+                        role="progressbar"
+                        aria-label="Progreso global del curso"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                    >
+                        <div
+                            class="progress-bar"
+                            id="sidebarProgress"
+                            style="width: 0%"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- =====================================================
+             MAIN WRAPPER
+        ====================================================== -->
+        <div class="main-wrapper">
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+            <header class="topbar">
+                <div class="container-fluid">
+                    <div class="row align-items-center g-2">
+
+                        <!-- Botón menú móvil -->
+                        <div class="col-auto d-lg-none">
+                            <button
+                                class="btn btn-icon"
+                                type="button"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#mobileMenu"
+                                aria-controls="mobileMenu"
+                                aria-label="Abrir menú de navegación"
+                            >
+                                <i class="bi bi-list fs-4" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <!-- Título dinámico -->
+                        <div class="col">
+                            <h6 class="mb-0 text-truncate" id="pageTitle">
+                                Dashboard
+                            </h6>
+                        </div>
+
+                        <!-- Buscador desktop/tablet -->
+                        <div class="col-12 col-md-4 col-xl-3 order-3 order-md-2">
+                            <label for="moduleSearch" class="visually-hidden">
+                                Buscar módulos
+                            </label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                </span>
+                                <input
+                                    type="search"
+                                    class="form-control"
+                                    id="moduleSearch"
+                                    placeholder="Buscar módulo, comando o tema..."
+                                    aria-label="Buscar módulos"
+                                    autocomplete="off"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Acciones -->
+                        <div class="col-auto order-2 order-md-3">
+                            <div class="d-flex gap-2">
+
+                                <button
+                                    class="btn btn-icon d-none d-sm-inline-flex"
+                                    type="button"
+                                    id="dashboardBtn"
+                                    aria-label="Volver al dashboard"
+                                    title="Dashboard"
+                                >
+                                    <i class="bi bi-house-door" aria-hidden="true"></i>
+                                </button>
+
+                                <button
+                                    class="btn btn-icon d-none d-md-inline-flex"
+                                    type="button"
+                                    id="resetProgressBtn"
+                                    aria-label="Reiniciar progreso"
+                                    title="Reiniciar progreso"
+                                >
+                                    <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                                </button>
+
+                                <button
+                                    class="btn btn-icon"
+                                    type="button"
+                                    id="helpBtn"
+                                    aria-label="Abrir ayuda"
+                                    title="Ayuda"
+                                >
+                                    <i class="bi bi-question-circle" aria-hidden="true"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- =================================================
+                 MAIN CONTENT
+            ================================================== -->
+            <main
+                id="mainContent"
+                class="main-content"
+                tabindex="-1"
+            >
+                <!--
+                    Renderizado dinámicamente por app.js.
+
+                    Fase 1:
+                    - Dashboard principal
+                    - Módulo 0: Introducción
+                    - Comandos destacados
+                    - Glosario rápido
+                    - Quiz introductorio
+                    - Placeholders de módulos futuros
+
+                    Fases futuras:
+                    - Módulo 1: Fundamentos de Linux
+                    - Módulo 2: Comandos esenciales
+                    - Módulo 3: Administración de paquetes
+                    - Módulo 4: Servicios y systemd
+                    - Módulo 5: Red, DNS y conectividad
+                    - Módulo 6: Procesos, recursos y rendimiento
+                    - Módulo 7: Logs y diagnóstico
+                    - Módulo 8: Kaspersky Security Center Linux
+                    - Módulo 9: Network Agent para Linux
+                    - Módulo 10: Kaspersky Endpoint Security for Linux
+                    - Módulo 11: Troubleshooting aplicado
+                    - Módulo 12: Laboratorios prácticos
+                -->
+
+                <noscript>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>JavaScript está deshabilitado.</strong>
+                        Este curso interactivo requiere JavaScript para navegar módulos,
+                        guardar progreso, ejecutar quizzes y copiar comandos.
+                    </div>
+                </noscript>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- =========================================================
+         MOBILE OFFCANVAS MENU
+    ========================================================== -->
+    <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+    >
+        <div class="offcanvas-header">
+            <div>
+                <h5 class="offcanvas-title mb-0" id="mobileMenuLabel">
+                    <i class="bi bi-shield-shaded me-2" aria-hidden="true"></i>
+                    Kaspersky Linux
+                </h5>
+                <small class="text-muted">
+                    Ruta de aprendizaje
+                </small>
+            </div>
+
+            <button
+                type="button"
+                class="btn-close text-reset"
+                data-bs-dismiss="offcanvas"
+                aria-label="Cerrar menú"
+            ></button>
+        </div>
+
+        <div class="offcanvas-body">
+
+            <!-- Buscador móvil -->
+            <div class="mb-3">
+                <label for="mobileModuleSearch" class="visually-hidden">
+                    Buscar módulos
+                </label>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search" aria-hidden="true"></i>
+                    </span>
+                    <input
+                        type="search"
+                        class="form-control"
+                        id="mobileModuleSearch"
+                        placeholder="Buscar módulo..."
+                        aria-label="Buscar módulos en menú móvil"
+                        autocomplete="off"
+                    >
+                </div>
+            </div>
+
+            <nav id="mobileNav" aria-label="Navegación móvil del curso">
+                <!-- Renderizado dinámicamente por app.js -->
+            </nav>
+
+            <hr>
+
+            <div class="progress-wrapper mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted">Progreso global</span>
+                    <span class="small fw-semibold" id="mobileProgressPercent">0%</span>
+                </div>
+
+                <div
+                    class="progress"
+                    style="height: 6px;"
+                    role="progressbar"
+                    aria-label="Progreso global del curso en móvil"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                >
+                    <div
+                        class="progress-bar"
+                        id="mobileSidebarProgress"
+                        style="width: 0%"
+                    ></div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button
+                    class="btn btn-custom-secondary"
+                    type="button"
+                    id="mobileDashboardBtn"
+                >
+                    <i class="bi bi-house-door me-2" aria-hidden="true"></i>
+                    Dashboard
+                </button>
+
+                <button
+                    class="btn btn-outline-danger"
+                    type="button"
+                    id="mobileResetProgressBtn"
+                >
+                    <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
+                    Reiniciar progreso
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =========================================================
+         HELP MODAL
+    ========================================================== -->
+    <div
+        class="modal fade"
+        id="helpModal"
+        tabindex="-1"
+        aria-labelledby="helpModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="helpModalLabel">
+                            ¿Cómo usar este curso?
+                        </h5>
+                        <small class="text-muted">
+                            Guía rápida para navegar la experiencia interactiva
+                        </small>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar ayuda"
+                    ></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="info-box mt-0">
+                        <strong>Objetivo:</strong>
+                        aprender Linux operativo aplicado a implementación y soporte de
+                        Kaspersky Security Center Linux, Network Agent y Kaspersky Endpoint
+                        Security for Linux.
+                    </div>
+
+                    <ul class="mb-4">
+                        <li class="mb-2">
+                            Explora la ruta de aprendizaje desde el panel lateral.
+                        </li>
+                        <li class="mb-2">
+                            Inicia por el <strong>Módulo 0</strong>.
+                        </li>
+                        <li class="mb-2">
+                            Copia comandos con el botón correspondiente.
+                        </li>
+                        <li class="mb-2">
+                            Los comandos se muestran con resaltado visual usando
+                            <strong>Prism.js</strong>.
+                        </li>
+                        <li class="mb-2">
+                            Completa quizzes para marcar avance.
+                        </li>
+                        <li class="mb-2">
+                            Usa el buscador para encontrar módulos por tema.
+                        </li>
+                        <li class="mb-2">
+                            En fases posteriores se agregarán laboratorios, checklists,
+                            casos de soporte y evaluaciones técnicas.
+                        </li>
+                        <li class="mb-2">
+                            No ejecutes comandos destructivos en producción sin validación previa.
+                        </li>
+                        <li class="mb-0">
+                            Si trabajas en ambientes corporativos restringidos, considera
+                            usar una versión offline con dependencias locales.
+                        </li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <strong>Importante:</strong>
+                        los comandos, rutas, servicios y parámetros pueden variar según
+                        versión del producto, distribución Linux y arquitectura. Siempre
+                        valida contra la documentación oficial correspondiente a la versión
+                        instalada.
+                    </div>
+
+                    <div class="danger-box">
+                        <strong>Seguridad:</strong>
+                        este curso no ejecuta comandos reales. Los comandos se muestran
+                        con fines educativos y deben ejecutarse únicamente en sistemas
+                        autorizados, preferiblemente laboratorios o ambientes controlados.
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-custom-primary"
+                        data-bs-dismiss="modal"
+                    >
+                        Entendido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         CONFIRM RESET MODAL
+         Opcional: app.js puede usar este modal o confirm().
+    ========================================================== -->
+    <div
+        class="modal fade"
+        id="resetProgressModal"
+        tabindex="-1"
+        aria-labelledby="resetProgressModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetProgressModalLabel">
+                        Reiniciar progreso
+                    </h5>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar"
+                    ></button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="mb-0">
+                        Esta acción eliminará el avance guardado del curso en este navegador.
+                        ¿Deseas continuar?
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        id="confirmResetProgressBtn"
+                    >
+                        Sí, reiniciar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         TOAST CONTAINER
+    ========================================================== -->
+    <div
+        class="toast-container"
+        id="toastContainer"
+        aria-live="polite"
+        aria-atomic="true"
+    >
+        <!-- Toasts renderizados dinámicamente por app.js -->
+    </div>
+
+    <!-- =========================================================
+         BOOTSTRAP JS BUNDLE vía CDN
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =========================================================
+         PRISM.JS vía CDN
+         Nota:
+         Prism.js se usa únicamente para resaltado visual de comandos.
+         No ejecuta comandos del sistema operativo.
+    ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-ini.min.js"></script>
+
+    <!-- =========================================================
+         CUSTOM APP
+    ========================================================== -->
+    <script src="app.js"></script>
+</body>
+</html>
