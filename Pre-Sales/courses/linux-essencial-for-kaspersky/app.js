@@ -462,7 +462,7 @@ function renderDashboard() {
     <section class="container-fluid mb-5" id="commandsSection">
       <h2 class="h4 mb-1">Comandos destacados que verás en el curso</h2>
       <p class="text-muted">Vista previa de comandos Linux y Kaspersky usados en los módulos.</p>
-      <div class="danger-box"><strong>Importante:</strong> este curso no ejecuta comandos reales. Los comandos deben ejecutarse solo en sistemas autorizados.</div>
+      <div class="danger-box"><strong>Importante:</strong> este curso no ejecuta comandos automaticamente. Los comandos deben ejecutarse solo en sistemas autorizados.</div>
       ${renderCommandsGrouped(featuredCommands)}
     </section>
     <section class="container-fluid mb-5" id="glossarySection">
@@ -558,7 +558,7 @@ function renderIntroModule() {
       <section class="mb-5"><h2 class="h4 mb-3">Metodología</h2><div class="card border-0 shadow-sm"><div class="card-body"><p>Cada módulo combina conceptos, comandos, ejemplos, casos Kaspersky, laboratorio, checklist, quiz y resumen.</p><div class="row g-3">${["Conceptos","Comandos","Ejemplos","Casos Kaspersky","Laboratorio","Checklist","Quiz","Resumen"].map(x => conceptCard(x, "Contenido aplicado y práctico." )).join("")}</div></div></div></section>
       <section class="mb-5"><h2 class="h4 mb-3">Recomendaciones</h2><ul class="list-group shadow-sm">${["Tener una máquina Linux de laboratorio.","No ejecutar comandos destructivos en producción.","Documentar cambios.","Validar versión oficial instalada.","Trabajar con permisos adecuados.","Usar snapshots o respaldos.","Guardar evidencia para soporte."].map(checkItem).join("")}</ul></section>
       <div class="warning-box"><strong>Advertencia técnica:</strong> rutas, servicios y parámetros pueden variar por versión, distribución y arquitectura.</div>
-      <div class="danger-box"><strong>Seguridad:</strong> este curso no ejecuta comandos reales.</div>
+      <div class="danger-box"><strong>Seguridad:</strong> este curso no ejecuta comandos automaticamente. Los comandos deben ejecutarse solo en sistemas autorizados.</div>
       <section class="mb-5"><h2 class="h4 mb-3">Mini quiz introductorio</h2>${renderQuiz("module-0", introQuiz)}</section>
     </section>`;
   refreshPrism();
