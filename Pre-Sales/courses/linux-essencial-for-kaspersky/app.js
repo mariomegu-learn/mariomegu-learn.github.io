@@ -389,6 +389,7 @@ function bindEvents() {
     const quizOpt = e.target.closest("[data-quiz-option]");
     const quizSubmit = e.target.closest("[data-submit-quiz]");
     const quizReset = e.target.closest("[data-reset-quiz]");
+    const glossaryCard = e.target.closest("[data-glossary-card]");
 
     if (open) openModule(open.dataset.openModule);
     if (copy) copyCommand(decodeURIComponent(copy.dataset.copyCommand), copy);
@@ -396,7 +397,18 @@ function bindEvents() {
     if (quizOpt) selectQuizOption(quizOpt.dataset.moduleId, quizOpt.dataset.questionId, quizOpt.dataset.optionId);
     if (quizSubmit) handleQuizSubmit(quizSubmit.dataset.moduleId);
     if (quizReset) resetQuiz(quizReset.dataset.moduleId);
+    if (glossaryCard) toggleGlossaryCard(glossaryCard);
   });
+  document.addEventListener("keydown", e => {
+  const glossaryCard = e.target.closest("[data-glossary-card]");
+
+  if (!glossaryCard) return;
+
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    toggleGlossaryCard(glossaryCard);
+  }
+});
 }
 
 /* ============================================================
@@ -584,8 +596,77 @@ function renderCommandsGrouped(commands) {
 function renderCommandCard(c) {
   return `<div class="col-12 col-lg-6"><article class="command-card h-100"><div class="command-meta"><span class="category">${esc(c.category)}</span><button class="copy-btn" type="button" data-copy-command="${encodeURIComponent(c.command)}"><i class="bi bi-clipboard me-1"></i>Copiar</button></div><p class="text-muted small mb-3">${esc(c.description)}</p>${codeBlock(c.command)}</article></div>`;
 }
-function renderGlossary() { return `<div class="glossary-grid">${glossary.map(g => `<article class="glossary-card"><h6>${esc(g.term)}</h6><p>${esc(g.definition)}</p></article>`).join("")}</div>`; }
+function renderGlossary() {
+  return `
+    <div class="glossary-grid">
+      ${glossary.map((g, index) => `
+        <article
+          class="glossary-card glossary-flip-card"
+          data-glossary-card
+          tabindex="0"
+          role="button"
+          aria-expanded="false"
+          aria-controls="glossary-definition-${index}"
+        >
+          <div class="glossary-card-header">
+            <div>
+              <h6 class="mb-1">${esc(g.term)}</h6>
+              <small class="text-muted glossary-hint">
+                Haz clic para ver significado
+              </small>
+            </div>
 
+            <i class="bi bi-chevron-down glossary-icon" aria-hidden="true"></i>
+          </div>
+
+          <div
+            class="glossary-definition"
+            id="glossary-definition-${index}"
+            hidden
+          >
+            <hr>
+            <p class="mb-0">${esc(g.definition)}</p>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+function toggleGlossaryCard(card) {
+  const isExpanded = card.getAttribute("aria-expanded") === "true";
+
+  document.querySelectorAll("[data-glossary-card]").forEach(otherCard => {
+    const otherDefinition = otherCard.querySelector(".glossary-definition");
+    const otherHint = otherCard.querySelector(".glossary-hint");
+
+    otherCard.classList.remove("revealed");
+    otherCard.setAttribute("aria-expanded", "false");
+
+    if (otherDefinition) {
+      otherDefinition.hidden = true;
+    }
+
+    if (otherHint) {
+      otherHint.textContent = "Haz clic para ver significado";
+    }
+  });
+
+  if (!isExpanded) {
+    const definition = card.querySelector(".glossary-definition");
+    const hint = card.querySelector(".glossary-hint");
+
+    if (definition) {
+      definition.hidden = false;
+    }
+
+    card.classList.add("revealed");
+    card.setAttribute("aria-expanded", "true");
+
+    if (hint) {
+      hint.textContent = "Haz clic para ocultar significado";
+    }
+  }
+}
 /* ============================================================
    QUIZZES GENÉRICOS
 ============================================================ */

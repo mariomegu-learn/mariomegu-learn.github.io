@@ -588,3 +588,76 @@ button:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--neutral-color);
 }
+
+/* ============================================================
+   Glosario interactivo tipo tarjetas revelables
+============================================================ */
+
+.glossary-flip-card {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.glossary-flip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(0, 91, 254, 0.25);
+}
+
+.glossary-flip-card:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.glossary-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.glossary-icon {
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.glossary-definition {
+    animation: glossaryReveal 0.22s ease;
+}
+
+.glossary-definition p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.glossary-flip-card.revealed {
+    border-color: rgba(0, 91, 254, 0.35);
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(0, 91, 254, 0.035) 100%
+    );
+}
+
+.glossary-flip-card.revealed .glossary-icon {
+    transform: rotate(180deg);
+}
+
+.glossary-flip-card.revealed h6 {
+    color: var(--secondary-color);
+}
+
+@keyframes glossaryReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
