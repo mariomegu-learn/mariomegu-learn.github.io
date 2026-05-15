@@ -1,0 +1,96 @@
+/* ============================================================
+   Modo Instructor - Integración incremental
+   Pegar al final de styles.css o cargar como instructor-mode.css
+============================================================ */
+
+.instructor-note {
+    display: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(52, 199, 89, 0.08);
+    border-left: 4px solid var(--success-color);
+    box-shadow: var(--shadow);
+}
+
+.instructor-note h3,
+.instructor-note h4,
+.instructor-note h5 {
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+.instructor-note p,
+.instructor-note li {
+    color: var(--text-primary);
+    font-size: 0.92rem;
+}
+
+.instructor-note ul {
+    padding-left: 1.2rem;
+}
+
+.instructor-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--success-color);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+}
+
+body.instructor-mode .instructor-note {
+    display: block;
+}
+
+body.instructor-mode #instructorModeBtn {
+    background: rgba(52, 199, 89, 0.14);
+    color: var(--success-color);
+}
+
+body.instructor-mode #mobileInstructorModeBtn {
+    background: rgba(52, 199, 89, 0.14);
+    color: var(--success-color);
+    border-color: rgba(52, 199, 89, 0.35);
+}
+
+.instructor-mode-indicator {
+    display: none;
+    position: fixed;
+    right: 1rem;
+    bottom: 5rem;
+    z-index: 1050;
+    background: var(--success-color);
+    color: white;
+    border-radius: 999px;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-hover);
+}
+
+body.instructor-mode .instructor-mode-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+@media print {
+    .instructor-mode-indicator {
+        display: none !important;
+    }
+
+    .instructor-note {
+        display: none !important;
+    }
+
+    body.instructor-mode .instructor-note {
+        display: block !important;
+        box-shadow: none;
+        border: 1px solid #d2d2d7;
+        border-left: 4px solid var(--success-color);
+    }
+}
