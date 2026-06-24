@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Módulos y Snap-ins - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="09-pipeline.html">Módulo 09</a></li>
+                <li class="breadcrumb-item active">Módulo 10: Módulos</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html" class="active">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-intermedio mb-3 d-inline-block">Intermedio</span>
+                <h1 class="mb-4"><i class="bi bi-box-seam me-2 text-orange"></i>Módulo 10: Módulos y Snap-ins</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-box me-2"></i>¿Qué son los Módulos?</h2>
+                    <p>Los módulos son paquetes que contienen cmdlets, funciones, providers, scripts y otros recursos de PowerShell. Permiten organizar y reutilizar código de manera eficiente.</p>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Ventaja:</strong> Los módulos permiten compartir código, mantener versiones y organizar funcionalidades relacionadas.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-search me-2"></i>Gestionar Módulos</h2>
+                    
+                    <h4>Buscar módulos</h4>
+                    <div class="code-block">
+                        <code># Buscar en PowerShell Gallery
+Find-Module -Name "*azure*"
+
+# Buscar módulos específicos
+Find-Module -Name "AzureAD"
+Find-Module -Name "PSScriptAnalyzer"</code>
+                    </div>
+
+                    <h4>Instalar módulos</h4>
+                    <div class="code-block">
+                        <code># Instalar un módulo
+Install-Module -Name "Az"
+
+# Instalar sin confirmar
+Install-Module -Name "Az" -Force
+
+# Instalar para todos los usuarios
+Install-Module -Name "ModuleName" -Scope AllUsers
+
+# Instalar versión específica
+Install-Module -Name "ModuleName" -RequiredVersion "1.0.0"</code>
+                    </div>
+
+                    <h4>Ver módulos instalados</h4>
+                    <div class="code-block">
+                        <code># Listar módulos instalados
+Get-Module -ListAvailable
+
+# Listar módulos cargados
+Get-Module
+
+# Buscar módulo específico
+Get-Module -ListAvailable -Name "Az*"</code>
+                    </div>
+
+                    <h4>Actualizar módulos</h4>
+                    <div class="code-block">
+                        <code># Actualizar PowerShellGet
+Update-Module -Name "PowerShellGet"
+
+# Actualizar un módulo específico
+Update-Module -Name "Az"
+
+# Actualizar todos los módulos
+Get-Module -ListAvailable | Update-Module -Force</code>
+                    </div>
+
+                    <h4>Eliminar módulos</h4>
+                    <div class="code-block">
+                        <code># Desinstalar módulo
+Uninstall-Module -Name "ModuleName"
+
+# Desinstalar versión específica
+Uninstall-Module -Name "ModuleName" -RequiredVersion "1.0.0"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrow-repeat me-2"></i>Importar y Exportar Módulos</h2>
+                    
+                    <h4>Importar módulos</h4>
+                    <div class="code-block">
+                        <code># Importar módulo
+Import-Module -Name "Az"
+
+# Importar con versión específica
+Import-Module -Name "Az" -RequiredVersion "2.0.0"
+
+# Importar sin cargar dependencias
+Import-Module -Name "ModuleName" -PassThru
+
+# Verificar si un módulo está importado
+Get-Module -Name "Az"</code>
+                    </div>
+
+                    <h4>Exportar funciones</h4>
+                    <div class="code-block">
+                        <code># Ver funciones exportadas por un módulo
+Get-Module -Name "Az" | Select-Object -ExpandProperty ExportedCommands
+
+# Obtener cmdlets de un módulo
+Get-Command -Module "Az"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-code me-2"></i>Crear tu Propio Módulo</h2>
+                    
+                    <h4>Estructura básica</h4>
+                    <p>Un módulo consta de al menos un archivo .psm1 (script module) y opcionalmente un archivo .psd1 (manifest).</p>
+
+                    <h4>Crear archivo de módulo (.psm1)</h4>
+                    <div class="code-block">
+                        <code># MiModulo.psm1
+
+# Función 1
+function Get-Hello {
+    param(
+        [string]$Nombre = "Mundo"
+    )
+    Write-Host "¡Hola, $Nombre!"
+}
+
+# Función 2
+function Get-FechaActual {
+    Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+}
+
+# Función 3
+function Test-Conexion {
+    param([string]$Computadora = "localhost")
+    Test-Connection -ComputerName $Computadora -Count 1 -Quiet
+}</code>
+                    </div>
+
+                    <h4>Crear manifiesto del módulo (.psd1)</h4>
+                    <div class="code-block">
+                        <code># Nueva-ModuleManifest -Path "MiModulo.psd1" -ScriptModuleFile "MiModulo.psm1"
+
+# Contenido del manifiesto
+@{
+    RootModule = 'MiModulo.psm1'
+    ModuleVersion = '1.0'
+    GUID = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'
+    Author = 'Tu Nombre'
+    CompanyName = 'Tu Empresa'
+    Copyright = '© 2024 Tu Empresa. Todos los derechos reservados.'
+    Description = 'Mi módulo personalizado de PowerShell'
+    PowerShellVersion = '5.1'
+    FunctionsToExport = @('Get-Hello', 'Get-FechaActual', 'Test-Conexion')
+    CmdletsToExport = @()
+    VariablesToExport = @()
+    AliasesToExport = @()
+}</code>
+                    </div>
+
+                    <h4>Instalar tu módulo</h4>
+                    <div class="code-block">
+                        <code># Copiar a la carpeta de módulos
+$modulePath = "$env:USERPROFILE\Documents\PowerShell\Modules"
+Copy-Item -Path "MiModulo" -Destination $modulePath -Recurse
+
+# Importar y usar
+Import-Module -Name "MiModulo"
+Get-Hello -Nombre "Carlos"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-shop me-2"></i>PowerShell Gallery</h2>
+                    
+                    <p>PowerShell Gallery es el repositorio central de módulos y scripts de PowerShell.</p>
+
+                    <div class="code-block">
+                        <code># Ver información de un módulo
+Find-Module -Name "Az" | Select-Object Name, Version, Description, Author
+
+# Descargar módulo sin instalar
+Save-Module -Name "Az" -Path "C:\Downloads"
+
+# Buscar por etiqueta
+Find-Module -Tag "Azure"
+
+# Buscar módulos con actualizaciones
+Get-Module -ListAvailable | Where-Object {
+    $_.Version -lt (Find-Module -Name $_.Name).Version
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-tools me-2"></i>Módulos Útiles Recomendados</h2>
+                    
+                    <div class="cmd-box">
+                        <div class="cmd">PSReadLine</div>
+                        <div class="desc">Mejora la línea de comandos con syntax highlighting y autocompletado</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">PSScriptAnalyzer</div>
+                        <div class="desc">Analizador de código para verificar mejores prácticas</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">PlatyPS</div>
+                        <div class="desc">Genera documentación para módulos desde markdown</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">Pester</div>
+                        <div class="desc">Framework de testing para PowerShell</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">Posh-Git</div>
+                        <div class="desc">Extensión de Git para PowerShell con información del repositorio</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">PSWriteHTML</div>
+                        <div class="desc">Crea reportes HTML desde PowerShell</div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Trabajando con Módulos</h5>
+                        <ol>
+                            <li>Busca e instala el módulo "PSScriptAnalyzer"</li>
+                            <li>Verifica qué módulos tienes instalados con Get-Module -ListAvailable</li>
+                            <li>Importa el módulo "Az.Accounts" y verifica su versión</li>
+                            <li>Crea tu propio módulo con al menos 3 funciones útiles</li>
+                            <li>Crea el manifiesto .psd1 para tu módulo</li>
+                            <li>Instala tu módulo en la carpeta de módulos de PowerShell</li>
+                            <li>Importa tu módulo y prueba todas las funciones</li>
+                            <li>Busca un módulo en PowerShell Gallery que te sea útil e instálalo</li>
+                            <li>Actualiza todos tus módulos a la última versión</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa nombres descriptivos:</strong> Para tu módulo y funciones</li>
+                        <li><strong>Documenta tu módulo:</strong> Incluye descripción y comentarios</li>
+                        <li><strong>Usa versiones:</strong> Controla cambios con versionamiento semántico</li>
+                        <li><strong>Exporta solo lo necesario:</strong> No expongas funciones internas</li>
+                        <li><strong>Mantén módulos actualizados:</strong> Revisa actualizaciones regularmente</li>
+                        <li><strong>Usa PowerShell Gallery:</strong> Es la fuente oficial y segura</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="09-pipeline.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Pipeline
+                    </a>
+                    <a href="11-remoting.html" class="btn btn-ps">
+                        Siguiente: Remoting <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

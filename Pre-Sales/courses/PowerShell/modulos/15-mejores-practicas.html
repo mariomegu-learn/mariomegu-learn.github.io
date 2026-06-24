@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 15: Mejores Prácticas y Certificación - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="14-automatizacion.html">Módulo 14</a></li>
+                <li class="breadcrumb-item active">Módulo 15: Mejores Prácticas</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html" class="active">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-avanzado mb-3 d-inline-block">Avanzado</span>
+                <h1 class="mb-4"><i class="bi bi-check2-all me-2 text-orange"></i>Módulo 15: Mejores Prácticas y Certificación</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-code-slash me-2"></i>Estándares de Código</h2>
+                    
+                    <h4>Nombres de variables</h4>
+                    <div class="code-block">
+                        <code># CORRECTO - PascalCase para variables compuestas
+$NombreUsuario
+$FechaCreacion
+$ListaProcesos
+
+# CORRECTO - CamelCase para variables simples
+$contador
+$indice
+$valor
+
+# INCORRECTO
+$nombreusuario
+$FECHA
+$var1</code>
+                    </div>
+
+                    <h4>Nombres de funciones</h4>
+                    <div class="code-block">
+                        <code># Usar verbos estándar de PowerShell
+Get-UsuarioPorEmail
+Set-ConfiguracionApp
+New-ReporteDiario
+Remove-ArchivoTemporal
+Test-ConexionServidor
+Start-ServicioWindows
+Stop-Proceso
+
+# Verbs recomendados: https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-card-heading me-2"></i>Comentarios y Documentación</h2>
+                    
+                    <h4>Comentarios en línea</h4>
+                    <div class="code-block">
+                        <code># Este script realiza el backup de archivos críticos
+# Autor: Juan Pérez
+# Fecha: 2024-01-15
+# Versión: 1.0
+
+param(
+    # Ruta de origen de los archivos
+    [Parameter(Mandatory=$true)]
+    [string]$RutaOrigen,
+    
+    # Ruta de destino para el backup
+    [Parameter(Mandatory=$true)]
+    [string]$RutaDestino
+)
+
+# Crear carpeta de destino si no existe
+if (!(Test-Path $RutaDestino)) {
+    New-Item -ItemType Directory -Path $RutaDestino -Force
+}</code>
+                    </div>
+
+                    <h4>Help XML (Comment-Based Help)</h4>
+                    <div class="code-block">
+                        <code>function Get-UsuarioPorEmail {
+    <#
+    .SYNOPSIS
+        Busca un usuario de Active Directory por su dirección de email.
+    
+    .DESCRIPTION
+        Esta función busca usuarios en Active Directory filtrando por 
+        dirección de correo electrónico. Retorna el objeto de usuario completo.
+    
+    .PARAMETER Email
+        Dirección de correo electrónico a buscar.
+    
+    .EXAMPLE
+        Get-UsuarioPorEmail -Email "juan@empresa.com"
+    
+    .EXAMPLE
+        Get-UsuarioPorEmail -Email "*@empresa.com" | Select-Object Name
+    
+    .LINK
+        https://docs.microsoft.com/en-us/powershell/module/activedirectory/
+    #>
+    
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Email
+    )
+    
+    Get-ADUser -Filter "EmailAddress -like '$Email'" -Properties EmailAddress
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-shield-check me-2"></i>Seguridad</h2>
+                    
+                    <h4>No almacenar credenciales en scripts</h4>
+                    <div class="code-block">
+                        <code># INCORRECTO - NUNCA hacer esto
+$password = "MiPassword123!"
+$cred = New-Object System.Management.Automation.PSCredential("usuario", $password)
+
+# CORRECTO - Pedir credenciales interactivamente
+$cred = Get-Credential
+
+# CORRECTO - Usar credenciales cifradas
+$cred = Import-Clixml -Path "C:\Credenciales\cred.xml"
+
+# CORRECTO - Usar Managed Identity o Service Principal</code>
+                    </div>
+
+                    <h4>Validar entradas</h4>
+                    <div class="code-block">
+                        <code>function Set-Configuracion {
+    param(
+        [Parameter(Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$NombreConfig,
+        
+        [ValidateSet("Dev", "Test", "Prod")]
+        [string]$Ambiente = "Dev",
+        
+        [ValidatePattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")]
+        [string]$EmailNotificacion
+    )
+    
+    # Validación adicional
+    if ($Ambiente -eq "Prod" -and [string]::IsNullOrWhiteSpace($EmailNotificacion)) {
+        throw "Producción requiere email de notificación"
+    }
+}</code>
+                    </div>
+
+                    <h4>Política de ejecución</h4>
+                    <div class="code-block">
+                        <code># Usar política apropiada
+Get-ExecutionPolicy
+
+# Configurar RemoteSigned para producción
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+
+# Firmar scripts en producción
+Set-AuthenticodeSignature -FilePath "C:\Scripts\MiScript.ps1" -Certificate $cert</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-graph-up me-2"></i>Manejo de Errores Robusto</h2>
+                    
+                    <div class="code-block">
+                        <code>function Get-DatosServidor {
+    [CmdletBinding()]
+    param(
+        [string]$Computadora = "localhost"
+    )
+    
+    try {
+        $errorActionPreference = "Stop"
+        
+        # Intentar conectar
+        $resultado = Get-Service -ComputerName $Computadora -ErrorAction Stop
+        
+        return $resultado
+    }
+    catch [System.ServiceProcess.ServiceNotFoundException] {
+        Write-Warning "Servicio no encontrado en $Computadora"
+        return $null
+    }
+    catch [System.Net.NetException] {
+        Write-Error "No se pudo conectar a $Computadora"
+        return $null
+    }
+    catch {
+        Write-Error "Error inesperado: $($_.Exception.Message)"
+        return $null
+    }
+    finally {
+        $errorActionPreference = "Continue"
+    }
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-bug me-2"></i>Testing de Scripts</h2>
+                    
+                    <h4>Usar Pester</h4>
+                    <div class="code-block">
+                        <code># Instalar Pester
+Install-Module -Name Pester -Force
+
+# Crear archivo de prueba
+# MiFuncion.Tests.ps1
+Describe "Get-UsuarioPorEmail" {
+    Context "Cuando el email existe" {
+        It "Debería retornar el usuario" {
+            $resultado = Get-UsuarioPorEmail -Email "test@empresa.com"
+            $resultado | Should -Not -BeNullOrEmpty
+        }
+    }
+    
+    Context "Cuando el email no existe" {
+        It "Debería retornar null" {
+            $resultado = Get-UsuarioPorEmail -Email "inexistente@empresa.com"
+            $resultado | Should -BeNullOrEmpty
+        }
+    }
+}
+
+# Ejecutar tests
+Invoke-Pester -Path ".\MiFuncion.Tests.ps1"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-tools me-2"></i>Herramientas de Análisis</h2>
+                    
+                    <h4>PSScriptAnalyzer</h4>
+                    <div class="code-block">
+                        <code># Instalar
+Install-Module -Name PSScriptAnalyzer
+
+# Analizar script
+Invoke-ScriptAnalyzer -Path "C:\Scripts\MiScript.ps1"
+
+# Analizar todo el directorio
+Invoke-ScriptAnalyzer -Path "C:\Scripts\" -Recurse
+
+# Ver reglas disponibles
+Get-ScriptAnalyzerRule
+
+# Ignorar reglas específicas
+Invoke-ScriptAnalyzer -Path "script.ps1" -ExcludeRule PSUseShouldProcessForStateChangingFunctions</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-award me-2"></i>Certificaciones PowerShell</h2>
+                    
+                    <h4>Certificaciones Microsoft</h4>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Certificación</th>
+                                <th>Nivel</th>
+                                <th>Requisitos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MD-102: Endpoint Administrator</td>
+                                <td>Associate</td>
+                                <td>Gestión de endpoints con PowerShell</td>
+                            </tr>
+                            <tr>
+                                <td>MS-900: Microsoft 365 Fundamentals</td>
+                                <td>Fundamentals</td>
+                                <td>Conceptos básicos de M365 y PowerShell</td>
+                            </tr>
+                            <tr>
+                                <td>AZ-104: Azure Administrator</td>
+                                <td>Associate</td>
+                                <td>Automatización Azure con PowerShell</td>
+                            </tr>
+                            <tr>
+                                <td>SC-100: Cybersecurity Architect</td>
+                                <td>Expert</td>
+                                <td>Seguridad y automatización</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Preparación para certificación</h4>
+                    <div class="code-block">
+                        <code># Recursos recomendados:
+# 1. Microsoft Learn (gratis)
+# 2. Practice exams
+# 3. Labs prácticos
+# 4. Grupos de estudio
+# 5. GitHub con ejemplos reales</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico Final</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Proyecto Final</h5>
+                        <ol>
+                            <li>Crea un script profesional que cumpla con todas las mejores prácticas</li>
+                            <li>Agrega Comment-Based Help completo</li>
+                            <li>Implementa manejo de errores con try-catch-finally</li>
+                            <li>Usa validación de parámetros (Mandatory, ValidateSet, etc.)</li>
+                            <li>Agrega logging de información y errores</li>
+                            <li>Usa PSScriptAnalyzer para verificar calidad del código</li>
+                            <li>Crea tests básicos con Pester</li>
+                            <li>Programa el script para ejecución automática</li>
+                            <li>Documenta el script con ejemplos de uso</li>
+                            <li>Versiona el script usando Git</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Checklist de Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li>✅ Nombres descriptivos para variables y funciones</li>
+                        <li>✅ Usar verbos estándar de PowerShell</li>
+                        <li>✅ Agregar comentarios y documentación</li>
+                        <li>✅ Implementar manejo de errores</li>
+                        <li>✅ Validar parámetros de entrada</li>
+                        <li>✅ No almacenar credenciales en texto plano</li>
+                        <li>✅ Usar PSScriptAnalyzer</li>
+                        <li>✅ Escribir tests con Pester</li>
+                        <li>✅ Mantener scripts versionados en Git</li>
+                        <li>✅ Documentar con ejemplos</li>
+                        <li>✅ Usar -WhatIf cuando sea apropiado</li>
+                        <li>✅ Implementar logging adecuado</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-trophy me-2"></i>¡Felicidades!</h2>
+                    <p>Has completado el curso completo de PowerShell Master. Ahora tienes las habilidades para:</p>
+                    <ul>
+                        <li>Automatizar tareas de administración de sistemas</li>
+                        <li>Crear scripts profesionales y mantenibles</li>
+                        <li>Administrar Active Directory y servidores</li>
+                        <li>Implementar soluciones de automatización empresarial</li>
+                        <li>Prepararte para certificaciones Microsoft</li>
+                    </ul>
+                    <p class="mt-4"><strong>¡Sigue practicando y aprendiendo!</strong> PowerShell es una habilidad muy demandada en el mercado laboral.</p>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="14-automatizacion.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Automatización
+                    </a>
+                    <a href="../index.html" class="btn btn-ps">
+                        <i class="bi bi-house me-2"></i>Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell Master - Curso Práctico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="modulos/01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="modulos/00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span class="badge">100% Práctico</span>
+                    <h1 class="mb-4">Domina PowerShell desde Cero</h1>
+                    <p class="lead mb-4" style="color: #a0aec0;">Aprende PowerShell paso a paso con ejemplos reales. Desde fundamentos hasta automatización avanzada y certificación.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="modulos/01-introduccion.html" class="btn btn-ps btn-lg">
+                            <i class="bi bi-play-circle me-2"></i>Comenzar Ahora
+                        </a>
+                        <a href="modulos/00-referencias.html" class="btn btn-outline-ps btn-lg">
+                            <i class="bi bi-book me-2"></i>Referencia Rápida
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-4 mt-lg-0">
+                    <div class="terminal-preview">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">PS></span> <span class="terminal-cmd">Get-Command</span></div>
+                            <div class="terminal-line"><span class="terminal-output">CommandType     Name                Version    Source</span></div>
+                            <div class="terminal-line"><span class="terminal-output">-----------     ----                -------    ------</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Cmdlet          Get-Command         7.0.4      Microsoft.PowerShell.Utility</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Cmdlet          Get-Process         7.0.4      Microsoft.PowerShell.Management</span></div>
+                            <div class="terminal-line"><span class="terminal-prompt">PS></span> <span class="terminal-cmd">Get-Process | Where-Object {$_.CPU -gt 100}</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName</span></div>
+                            <div class="terminal-line"><span class="terminal-output">-------  ------    -----      -----     ------     --  -- -----------</span></div>
+                            <div class="terminal-line"><span class="terminal-prompt">PS> </span><span class="terminal-cmd"> By: @Mariomegu (Mario Mendoza)</span><span class="terminal-prompt"> _</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card card-custom stats-card p-4 text-center h-100">
+                        <div class="stats-number">16</div>
+                        <div class="stats-label">Módulos</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom stats-card p-4 text-center h-100">
+                        <div class="stats-number">50+</div>
+                        <div class="stats-label">Comandos</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom stats-card p-4 text-center h-100">
+                        <div class="stats-number">100%</div>
+                        <div class="stats-label">Práctico</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-custom stats-card p-4 text-center h-100">
+                        <div class="stats-number">Free</div>
+                        <div class="stats-label">Siempre</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="bi bi-book me-2"></i>Estructura del Curso</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 p-4">
+                        <i class="bi bi-rocket-takeoff card-icon"></i>
+                        <span class="level-badge level-básico mb-3">Básico</span>
+                        <h5 class="card-title mb-2">Fundamentos</h5>
+                        <p class="card-text">Conceptos básicos, sintaxis, cmdlets esenciales, variables y navegación en el sistema de archivos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 p-4">
+                        <i class="bi bi-gear-wide-connected card-icon"></i>
+                        <span class="level-badge level-intermedio mb-3">Intermedio</span>
+                        <h5 class="card-title mb-2">Administración</h5>
+                        <p class="card-text">Gestión de archivos, procesos, servicios, funciones, pipeline y automatización de tareas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 p-4">
+                        <i class="bi bi-award card-icon"></i>
+                        <span class="level-badge level-avanzado mb-3">Avanzado</span>
+                        <h5 class="card-title mb-2">Dominio</h5>
+                        <p class="card-text">Scripting avanzado, módulos, remoting, manejo de errores, Active Directory y prácticas profesionales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="bi bi-lightning me-2"></i>Módulos del Curso</h2>
+            <div class="row g-4" id="modulos-grid">
+                <!-- Módulo 01: Introducción -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-básico">Básico</span>
+                                <span class="text-muted small">Módulo 01</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-rocket-takeoff me-2 text-orange"></i>Introducción a PowerShell</h5>
+                            <p class="card-text">¿Qué es PowerShell? Historia, diferencias con CMD y otras shells. Instalación y primeros pasos.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/01-introduccion.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 02: Entorno -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-básico">Básico</span>
+                                <span class="text-muted small">Módulo 02</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-window-desktop me-2 text-orange"></i>El Entorno de PowerShell</h5>
+                            <p class="card-text">ISE, VS Code, Terminal. Personalización del prompt, perfiles y entornos de ejecución.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/02-entorno.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 03: Variables -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-básico">Básico</span>
+                                <span class="text-muted small">Módulo 03</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-box-seam me-2 text-orange"></i>Variables y Tipos de Datos</h5>
+                            <p class="card-text">Declaración de variables, tipos de datos básicos, arreglos, hashtables y constantes.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/03-variables.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 04: Operadores -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-básico">Básico</span>
+                                <span class="text-muted small">Módulo 04</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-calculator me-2 text-orange"></i>Operadores y Expresiones</h5>
+                            <p class="card-text">Operadores aritméticos, de comparación, lógicos, de asignación y manipulación de cadenas.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/04-operadores.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 05: Estructuras -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-básico">Básico</span>
+                                <span class="text-muted small">Módulo 05</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-diagram-3 me-2 text-orange"></i>Estructuras de Control</h5>
+                            <p class="card-text">Condicionales, bucles, switch y estructuras de flujo para scripting.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/05-estructuras.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 06: Funciones -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-intermedio">Intermedio</span>
+                                <span class="text-muted small">Módulo 06</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-gear me-2 text-orange"></i>Funciones y Procedimientos</h5>
+                            <p class="card-text">Creación de funciones, parámetros, ámbitos, return y manejo de funciones avanzadas.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/06-funciones.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 07: Errores -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-intermedio">Intermedio</span>
+                                <span class="text-muted small">Módulo 07</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-bug me-2 text-orange"></i>Manejo de Errores</h5>
+                            <p class="card-text">Try-Catch, Finally, Throw, Write-Error, $Error y logging de errores.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/07-errores.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 08: Archivos -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-intermedio">Intermedio</span>
+                                <span class="text-muted small">Módulo 08</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-folder me-2 text-orange"></i>Archivos y Directorios</h5>
+                            <p class="card-text">Lectura, escritura, manipulación de rutas, permisos y gestión de archivos.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/08-archivos.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 09: Pipeline -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-intermedio">Intermedio</span>
+                                <span class="text-muted small">Módulo 09</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-arrow-left-right me-2 text-orange"></i>Pipeline y Filtrado</h5>
+                            <p class="card-text">Uso de pipelines, cmdlets de filtrado y selección de datos para procesamiento eficiente.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/09-pipeline.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 10: Módulos -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-intermedio">Intermedio</span>
+                                <span class="text-muted small">Módulo 10</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-box-seam me-2 text-orange"></i>Módulos y Snap-ins</h5>
+                            <p class="card-text">Gestión de módulos, creación de módulos propios, importación, exportación y GitHub.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/10-modulos.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 11: Remoting -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-avanzado">Avanzado</span>
+                                <span class="text-muted small">Módulo 11</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-hdd-network me-2 text-orange"></i>Remoting y WS-Management</h5>
+                            <p class="card-text">PowerShell Remoting, WinRM, sesiones remotas, Invoke-Command y credenciales.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/11-remoting.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 12: Fechas -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-avanzado">Avanzado</span>
+                                <span class="text-muted small">Módulo 12</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-calendar3 me-2 text-orange"></i>Fechas y Formato</h5>
+                            <p class="card-text">Manejo de fechas, formatos de fecha/hora, zonas horarias y operaciones temporales.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/12-fechas.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 13: Active Directory -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-avanzado">Avanzado</span>
+                                <span class="text-muted small">Módulo 13</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-people me-2 text-orange"></i>Active Directory</h5>
+                            <p class="card-text">Gestión de usuarios, grupos, OU, políticas y automatización de tareas de AD.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/13-active-directory.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 14: Automatización -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-avanzado">Avanzado</span>
+                                <span class="text-muted small">Módulo 14</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-robot me-2 text-orange"></i>Automatización y Tareas</h5>
+                            <p class="card-text">Windows Task Scheduler, Jobs en background, Workflows y automatización de procesos.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/14-automatizacion.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Módulo 15: Mejores Prácticas -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom h-100 d-flex flex-column">
+                        <div class="card-body p-4 flex-grow-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="level-badge level-avanzado">Avanzado</span>
+                                <span class="text-muted small">Módulo 15</span>
+                            </div>
+                            <h5 class="card-title"><i class="bi bi-check2-all me-2 text-orange"></i>Mejores Prácticas y Certif.</h5>
+                            <p class="card-text">Estándares de código, seguridad, comentarios, testing y preparación para certificación.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                            <a href="modulos/15-mejores-practicas.html" class="btn btn-ps w-100">Comenzar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <h2><i class="bi bi-question-circle me-2"></i>¿Por qué PowerShell?</h2>
+                    <p class="text-white-50">PowerShell es el lenguaje de scripting nativo de Windows y el estándar para la administración de sistemas Microsoft.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Automatización de tareas repetitivas</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Administración de sistemas Windows y Azure</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Gestión de servicios en la nube</li>
+                        <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Integración con Active Directory y Exchange</li>
+                    </ul>
+                </div>
+                <div class="col-lg-7">
+                    <div class="terminal-preview">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="terminal-prompt">PS></span> <span class="terminal-cmd">Get-Service | Where-Object {$_.Status -eq 'Running'} | Sort-Object Name</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Status   Name               DisplayName</span></div>
+                            <div class="terminal-line"><span class="terminal-output">------   ----               -----------</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Running  W32Time            Windows Time</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Running  WinDefend          Microsoft Defender Antivirus</span></div>
+                            <div class="terminal-line"><span class="terminal-output">Running  wscsvc             Security Center</span></div>
+                            <div class="terminal-line"><span class="terminal-prompt">PS> _</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-4">¿Listo para comenzar?</h2>
+            <p class="lead text-white-50 mb-4">Empieza ahora mismo con la primera lección gratuita</p>
+            <a href="modulos/01-introduccion.html" class="btn btn-ps btn-lg">
+                <i class="bi bi-arrow-right-circle me-2"></i>Ir a la Lección 1
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

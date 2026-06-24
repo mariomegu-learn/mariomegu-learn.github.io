@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 05: Estructuras de Control - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="04-operadores.html">Módulo 04</a></li>
+                <li class="breadcrumb-item active">Módulo 05: Estructuras</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html" class="active">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-básico mb-3 d-inline-block">Básico</span>
+                <h1 class="mb-4"><i class="bi bi-diagram-3 me-2 text-orange"></i>Módulo 05: Estructuras de Control</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-git me-2"></i>Condicionales: If, Else If, Else</h2>
+                    
+                    <p>Las estructuras condicionales permiten ejecutar código solo si se cumple una condición.</p>
+
+                    <div class="code-block">
+                        <code># Estructura básica if
+$edad = 17
+
+if ($edad -ge 18) {
+    Write-Host "Eres mayor de edad"
+}
+
+# if-else
+if ($edad -ge 18) {
+    Write-Host "Eres mayor de edad"
+} else {
+    Write-Host "Eres menor de edad"
+}
+
+# if-else if-else
+$nota = 85
+
+if ($nota -ge 90) {
+    Write-Host "Excelente"
+} elseif ($nota -ge 80) {
+    Write-Host "Muy bien"
+} elseif ($nota -ge 70) {
+    Write-Host "Bien"
+} else {
+    Write-Host "Necesitas mejorar"
+}</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Consejo:</strong> Puedes anidar condicionales, pero intenta mantenerlos simples para mejor legibilidad.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-toggle-on me-2"></i>Switch</h2>
+                    
+                    <p>Switch es una alternativa a múltiples else if cuando comparas un valor contra varias opciones.</p>
+
+                    <div class="code-block">
+                        <code># Switch básico
+$dia = "Lunes"
+
+switch ($dia) {
+    "Lunes" { Write-Host "Comienza la semana" }
+    "Miércoles" { Write-Host "Medio día" }
+    "Viernes" { Write-Host "Casi fin de semana" }
+    "Sábado", "Domingo" { Write-Host "Fin de semana" }
+    default { Write-Host "Día de semana" }
+}
+
+# Switch con wildcard
+$archivo = "reporte.pdf"
+
+switch -Wildcard ($archivo) {
+    "*.txt" { Write-Host "Archivo de texto" }
+    "*.pdf" { Write-Host "Documento PDF" }
+    "*.jpg", "*.png" { Write-Host "Imagen" }
+    default { Write-Host "Otro tipo de archivo" }
+}</code>
+                    </div>
+
+                    <div class="code-block">
+                        <code># Switch con regex
+$correo = "usuario@empresa.com"
+
+switch -Regex ($correo) {
+    "@gmail\.com$" { Write-Host "Gmail" }
+    "@outlook\.com$" { Write-Host "Outlook" }
+    "@.*\.com$" { Write-Host "Correo comercial" }
+    "@.*\.edu$" { Write-Host "Correo educativo" }
+    default { Write-Host "Otro correo" }
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-repeat me-2"></i>Bucles: For</h2>
+                    
+                    <p>El bucle For ejecuta un bloque de código un número específico de veces.</p>
+
+                    <div class="code-block">
+                        <code># For básico
+for ($i = 0; $i -lt 5; $i++) {
+    Write-Host "Iteración número: $i"
+}
+
+# Contar hacia atrás
+for ($i = 5; $i -gt 0; $i--) {
+    Write-Host "Contando: $i"
+}
+
+# Incremento diferente
+for ($i = 0; $i -le 10; $i += 2) {
+    Write-Host "Número par: $i"
+}
+
+# Recorrer array
+$frutas = @("Manzana", "Banana", "Naranja")
+for ($i = 0; $i -lt $frutas.Count; $i++) {
+    Write-Host "Fruta $i: $($frutas[$i])"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrow-clockwise me-2"></i>Bucles: Foreach</h2>
+                    
+                    <p>Foreach es ideal para recorrer colecciones de elementos.</p>
+
+                    <div class="code-block">
+                        <code># Foreach básico
+$frutas = @("Manzana", "Banana", "Naranja", "Uva")
+
+foreach ($fruta in $frutas) {
+    Write-Host "Fruta: $fruta"
+}
+
+# Foreach con índice
+$colores = @("Rojo", "Verde", "Azul")
+for ($i = 0; $i -lt $colores.Count; $i++) {
+    Write-Host "Índice $i: $($colores[$i])"
+}
+
+# Foreach con objetos
+$users = @(
+    @{Nombre="Carlos"; Edad=30},
+    @{Nombre="Ana"; Edad=25},
+    @{Nombre="Luis"; Edad=35}
+)
+
+foreach ($user in $users) {
+    Write-Host "Usuario: $($user.Nombre), Edad: $($user.Edad)"
+}</code>
+                    </div>
+
+                    <div class="code-block">
+                        <code># Foreach-Object en pipeline
+1..10 | ForEach-Object {
+    $cuadrado = $_ * $_
+    Write-Host "$_ al cuadrado es $cuadrado"
+}
+
+# Foreach-Object con expresión
+$frutas | ForEach-Object { $_.ToUpper() }</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-infinity me-2"></i>Bucles: While</h2>
+                    
+                    <p>While ejecuta un bloque de código mientras una condición sea verdadera.</p>
+
+                    <div class="code-block">
+                        <code># While básico
+$contador = 0
+
+while ($contador -lt 5) {
+    Write-Host "Contador: $contador"
+    $contador++
+}
+
+# While con condición compleja
+$numero = 100
+
+while ($numero -gt 10) {
+    Write-Host "Número: $numero"
+    $numero /= 2
+}
+
+# Leer hasta que el usuario ingrese algo
+$entrada = ""
+while ([string]::IsNullOrWhiteSpace($entrada)) {
+    $entrada = Read-Host "Ingresa tu nombre"
+}
+Write-Host "Hola, $entrada"</code>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <strong>Cuidado:</strong> Asegúrate de que la condición eventualmente sea falsa para evitar bucles infinitos.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrow-repeat me-2"></i>Bucles: Do-While y Do-Until</h2>
+                    
+                    <p>Estos bucles ejecutan el código al menos una vez antes de verificar la condición.</p>
+
+                    <div class="code-block">
+                        <code># Do-While (verifica al final)
+$contador = 0
+
+do {
+    Write-Host "Contador: $contador"
+    $contador++
+} while ($contador -lt 5)
+
+# Do-Until (ejecuta hasta que la condición sea verdadera)
+$numero = 10
+
+do {
+    Write-Host "Número: $numero"
+    $numero--
+} until ($numero -eq 0)
+
+# Validación de entrada
+$password = ""
+do {
+    $password = Read-Host "Ingresa contraseña (mínimo 8 caracteres)"
+} until ($password.Length -ge 8)
+Write-Host "Contraseña aceptada"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-slash-circle me-2"></i>Break y Continue</h2>
+                    
+                    <p>Break sale del bucle inmediatamente. Continue salta a la siguiente iteración.</p>
+
+                    <div class="code-block">
+                        <code># Break - salir del bucle
+for ($i = 1; $i -le 10; $i++) {
+    if ($i -eq 5) {
+        Write-Host "Llegué a 5, saliendo"
+        break
+    }
+    Write-Host "Número: $i"
+}
+
+# Continue - saltar iteración
+for ($i = 1; $i -le 5; $i++) {
+    if ($i -eq 3) {
+        Write-Host "Saltando 3"
+        continue
+    }
+    Write-Host "Número: $i"
+}
+
+# Buscar un elemento
+$frutas = @("Manzana", "Banana", "Naranja", "Uva")
+
+foreach ($fruta in $frutas) {
+    if ($fruta -eq "Naranja") {
+        Write-Host "Encontré Naranja"
+        break
+    }
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Control de Flujo</h5>
+                        <ol>
+                            <li>Crea un programa que verifique si un número es positivo, negativo o cero usando if-else</li>
+                            <li>Usa switch para mostrar el nombre del mes dado su número (1=Enero, 2=Febrero, etc.)</li>
+                            <li>Usa un bucle for para imprimir los números del 1 al 100, pero multiplica por 2</li>
+                            <li>Crea un array de 5 nombres y usa foreach para imprimir cada uno con un mensaje</li>
+                            <li>Usa while para crear un contador regresivo desde 10 hasta 0</li>
+                            <li>Implementa una validación de contraseña que pida hasta que tenga al menos 8 caracteres</li>
+                            <li>Usa break para salir de un bucle cuando encuentres un número específico en un array</li>
+                            <li>Usa continue para imprimir solo números pares del 1 al 20</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa foreach para colecciones:</strong> Es más legible que for cuando no necesitas el índice</li>
+                        <li><strong>Evita bucles infinitos:</strong> Siempre asegúrate que la condición pueda ser falsa</li>
+                        <li><strong>Mantén los condicionales simples:</strong> Si son muy complejos, considera refactorizar</li>
+                        <li><strong>Usa switch para múltiples opciones:</strong> Es más limpio que muchos else if</li>
+                        <li><strong>Comenta tu lógica:</strong> Especialmente cuando uses condiciones complejas</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="04-operadores.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Operadores
+                    </a>
+                    <a href="06-funciones.html" class="btn btn-ps">
+                        Siguiente: Funciones <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

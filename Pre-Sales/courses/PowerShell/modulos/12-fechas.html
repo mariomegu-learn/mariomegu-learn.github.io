@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 12: Fechas y Formato - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="11-remoting.html">Módulo 11</a></li>
+                <li class="breadcrumb-item active">Módulo 12: Fechas</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html" class="active">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-avanzado mb-3 d-inline-block">Avanzado</span>
+                <h1 class="mb-4"><i class="bi bi-calendar3 me-2 text-orange"></i>Módulo 12: Fechas y Formato</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-clock me-2"></i>Obtener Fecha y Hora</h2>
+                    
+                    <div class="code-block">
+                        <code># Obtener fecha y hora actual
+$fecha = Get-Date
+Write-Host $fecha
+
+# Propiedades comunes
+$fecha.Year
+$fecha.Month
+$fecha.Day
+$fecha.Hour
+$fecha.Minute
+$fecha.Second
+
+# Fechas especiales
+Get-Date -Year 2024 -Month 12 -Day 25  # Navidad
+Get-Date -DayOfWeek Monday  # Próximo lunes
+(Get-Date).AddDays(7)  # Una semana desde hoy
+(Get-Date).AddHours(-2)  # Hace 2 horas</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-type me-2"></i>Formatear Fechas</h2>
+                    
+                    <h4>Formato con -Format</h4>
+                    <div class="code-block">
+                        <code># Formatos comunes
+Get-Date -Format "yyyy-MM-dd"           # 2024-01-15
+Get-Date -Format "dd/MM/yyyy"           # 15/01/2024
+Get-Date -Format "HH:mm:ss"             # 14:30:45
+Get-Date -Format "dddd, dd 'de' MMMM"   # Lunes, 15 de Enero
+
+# Formato completo
+Get-Date -Format "dddd, dd 'de' 'de' yyyy 'a las' HH:mm:ss"
+
+# Formatos estándar
+Get-Date -Format "f"    # Fecha y hora cortas
+Get-Date -Format "F"    # Fecha y hora largas
+Get-Date -Format "d"    # Fecha corta
+Get-Date -Format "D"    # Fecha larga
+Get-Date -Format "t"    # Hora corta
+Get-Date -Format "T"    # Hora larga</code>
+                    </div>
+
+                    <h4>Características de formato</h4>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>yyyy</td>
+                                <td>Año de 4 dígitos</td>
+                                <td>2024</td>
+                            </tr>
+                            <tr>
+                                <td>MM</td>
+                                <td>Mes (01-12)</td>
+                                <td>01</td>
+                            </tr>
+                            <tr>
+                                <td>dd</td>
+                                <td>Día (01-31)</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>HH</td>
+                                <td>Hora (00-23)</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>hh</td>
+                                <td>Hora (01-12)</td>
+                                <td>02</td>
+                            </tr>
+                            <tr>
+                                <td>mm</td>
+                                <td>Minutos (00-59)</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>ss</td>
+                                <td>Segundos (00-59)</td>
+                                <td>45</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-calculator me-2"></i>Operaciones con Fechas</h2>
+                    
+                    <h4>Sumar y restar tiempo</h4>
+                    <div class="code-block">
+                        <code># Sumar tiempo
+(Get-Date).AddDays(30)      # 30 días desde hoy
+(Get-Date).AddMonths(6)     # 6 meses desde hoy
+(Get-Date).AddYears(1)      # 1 año desde hoy
+(Get-Date).AddHours(2.5)    # 2.5 horas desde hoy
+(Get-Date).AddMinutes(45)   # 45 minutos desde hoy
+
+# Restar tiempo (usar negativo)
+(Get-Date).AddDays(-7)      # Hace 7 días
+(Get-Date).AddMonths(-3)    # Hace 3 meses
+
+# Diferencia entre fechas
+$fecha1 = Get-Date
+$fecha2 = (Get-Date).AddDays(10)
+$diferencia = $fecha2 - $fecha1
+
+$diferencia.Days      # Días de diferencia
+$diferencia.Hours     # Horas de diferencia
+$diferencia.TotalHours  # Horas totales (incluye fracción)</code>
+                    </div>
+
+                    <h4>Calcular edad</h4>
+                    <div class="code-block">
+                        <code>$fechaNacimiento = Get-Date "1990-05-15"
+$edad = (Get-Date) - $fechaNacimiento
+
+Write-Host "Edad en días: $($edad.Days)"
+Write-Host "Edad en años: $(($edad.Days / 365).ToString('0'))"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-cone-striped me-2"></i>Validar Fechas</h2>
+                    
+                    <div class="code-block">
+                        <code># Verificar si es fecha válida
+$fecha = "2024-02-30"
+if ($fecha -as [datetime]) {
+    Write-Host "Fecha válida"
+} else {
+    Write-Host "Fecha inválida"
+}
+
+# Usar TryParse
+$fecha = "2024-13-45"
+$resultado = [datetime]::TryParse($fecha, [ref]$null)
+if ($resultado) {
+    Write-Host "Fecha válida"
+} else {
+    Write-Host "Fecha inválida"
+}
+
+# Verificar rango
+$fecha = Get-Date
+if ($fecha -ge (Get-Date "2024-01-01") -and $fecha -le (Get-Date "2024-12-31")) {
+    Write-Host "Fecha en 2024"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-text me-2"></i>Usar Fechas en Nombres de Archivos</h2>
+                    
+                    <div class="code-block">
+                        <code># Nombre de archivo con timestamp
+$timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+$nombreArchivo = "reporte_$timestamp.txt"
+
+# Crear archivo con nombre temporal
+$archivo = "C:\Logs\log_$(Get-Date -Format 'yyyy-MM-dd').log"
+
+# Carpeta por fecha
+$carpeta = "C:\Backups\$(Get-Date -Format 'yyyy')\$(Get-Date -Format 'MM')\$(Get-Date -Format 'dd')"
+
+# Nombre ISO estándar (ordenable)
+$nombreISO = "backup_$(Get-Date -Format 'yyyyMMddTHHmmss').zip"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-globe me-2"></i>Zonas Horarias</h2>
+                    
+                    <div class="code-block">
+                        <code># Ver todas las zonas horarias
+Get-TimeZone -ListAvailable
+
+# Zona horaria actual
+Get-TimeZone
+
+# Cambiar zona horaria
+# Set-TimeZone -Id "Pacific Standard Time"
+
+# Convertir hora entre zonas
+$horaLocal = Get-Date
+$zonaUTC = Get-TimeZone -Id "UTC"
+$horaUTC = [System.TimeZoneInfo]::ConvertTime($horaLocal, (Get-TimeZone), $zonaUTC)
+
+# Hora UTC
+Get-Date -UFormat "%Y-%m-%d %H:%M:%S UTC"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Trabajando con Fechas</h5>
+                        <ol>
+                            <li>Obtén la fecha actual en formato "dd/MM/yyyy HH:mm:ss"</li>
+                            <li>Calcula cuántos días faltan para fin de año</li>
+                            <li>Obtén la fecha de hace 30 días y sumale 6 meses</li>
+                            <li>Calcula tu edad en años, meses y días</li>
+                            <li>Crea un nombre de archivo con timestamp: "backup_YYYYMMDD_HHMMSS.zip"</li>
+                            <li>Verifica si una fecha ingresada por el usuario es válida</li>
+                            <li>Genera un reporte con la fecha en formato ISO 8601</li>
+                            <li>Convierte la hora local a UTC</li>
+                            <li>Obtén el primer y último día del mes actual</li>
+                            <li>Calcula los días hábiles (excluyendo fines de semana) entre dos fechas</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa formato ISO 8601:</strong> yyyy-MM-dd para nombres de archivo (ordenables)</li>
+                        <li><strong>Usa UTC para almacenamiento:</strong> Convierte a local solo para mostrar</li>
+                        <li><strong>Valida entradas de fecha:</strong> Siempre verifica que sean fechas válidas</li>
+                        <li><strong>Usa propiedades de TimeSpan:</strong> Para cálculos de diferencia</li>
+                        <li><strong>Considera zonas horarias:</strong> En aplicaciones multi-región</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="11-remoting.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Remoting
+                    </a>
+                    <a href="13-active-directory.html" class="btn btn-ps">
+                        Siguiente: Active Directory <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

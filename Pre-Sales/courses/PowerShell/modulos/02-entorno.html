@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 02: El Entorno de PowerShell - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="01-introduccion.html">Módulo 01</a></li>
+                <li class="breadcrumb-item active">Módulo 02: El Entorno</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html" class="active">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-básico mb-3 d-inline-block">Básico</span>
+                <h1 class="mb-4"><i class="bi bi-window-desktop me-2 text-orange"></i>Módulo 02: El Entorno de PowerShell</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-display me-2"></i>Entornos de PowerShell</h2>
+                    <p>PowerShell puede ejecutarse en diferentes entornos, cada uno con sus propias ventajas según el tipo de trabajo que realices.</p>
+
+                    <h4>1. Windows Terminal (Recomendado)</h4>
+                    <p>La terminal moderna de Microsoft que soporta múltiples pestañas, perfiles y personalización avanzada.</p>
+
+                    <div class="code-block">
+                        <code># Instalar Windows Terminal desde Microsoft Store
+# O usar winget
+winget install Microsoft.WindowsTerminal</code>
+                    </div>
+
+                    <h4>2. PowerShell ISE (Integrated Scripting Environment)</h4>
+                    <p>Entorno de scripting integrado incluido con Windows. Ideal para desarrollar scripts en Windows, aunque ya no recibe nuevas características.</p>
+
+                    <h4>3. Visual Studio Code (Recomendado para desarrollo)</h4>
+                    <p>Editor de código con extensión oficial de PowerShell. Ofrece debugging, IntelliSense y control de versiones integrado.</p>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Recomendación:</strong> Usa VS Code para desarrollar scripts y Windows Terminal para ejecutar comandos interactivamente.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-gear me-2"></i>Personalización del Prompt</h2>
+                    
+                    <p>El prompt es la línea que muestra antes de cada comando. Puedes personalizarlo para mostrar información útil.</p>
+
+                    <h4>Prompt básico personalizado</h4>
+                    <div class="code-block">
+                        <code># Función para personalizar el prompt
+function prompt {
+    $hora = Get-Date -Format "HH:mm"
+    $ruta = (Get-Location).Path
+    "$hora PS $ruta> "
+}</code>
+                    </div>
+
+                    <h4>Prompt con información de git</h4>
+                    <div class="code-block">
+                        <code>function prompt {
+    $branch = git branch --show-current 2>$null
+    $ruta = Split-Path (Get-Location).Path -Leaf
+    if ($branch) {
+        "PS $ruta [$branch]> "
+    } else {
+        "PS $ruta> "
+    }
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-code me-2"></i>El Perfil de PowerShell</h2>
+                    
+                    <p>El perfil es un script que se ejecuta cada vez que abres PowerShell. Perfecto para cargar funciones, aliases y configuraciones.</p>
+
+                    <h4>Ubicación del perfil</h4>
+                    <div class="code-block">
+                        <code># Ver la ruta del perfil
+$PROFILE
+
+# Ejemplo de ruta
+# C:\Users\Usuario\Documents\PowerShell\Microsoft.PowerShell_profile.ps1</code>
+                    </div>
+
+                    <h4>Crear un perfil</h4>
+                    <div class="code-block">
+                        <code># Crear el archivo de perfil si no existe
+if (!(Test-Path -Path $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force
+}
+
+# Abrir el perfil en VS Code
+code $PROFILE</code>
+                    </div>
+
+                    <h4>Contenido típico del perfil</h4>
+                    <div class="code-block">
+                        <code># Alias personalizados
+Set-Alias v code
+Set-Alias ll Get-ChildItem
+
+# Funciones útiles
+function gs { git status }
+function gp { git push }
+function gc { git commit -m $args[0] }
+
+# Importar módulos
+Import-Module PSReadLine
+
+# Configuración de PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -Colors @{ Command = 'Cyan' }</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-shield-check me-2"></i>Políticas de Ejecución</h2>
+                    
+                    <p>PowerShell tiene políticas de seguridad que controlan qué scripts pueden ejecutarse.</p>
+
+                    <h4>Ver la política actual</h4>
+                    <div class="code-block">
+                        <code>Get-ExecutionPolicy -List</code>
+                    </div>
+
+                    <h4>Niveles de política</h4>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Política</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Restricted</td>
+                                <td>No permite scripts (por defecto)</td>
+                            </tr>
+                            <tr>
+                                <td>AllSigned</td>
+                                <td>Solo scripts firmados por editor confiable</td>
+                            </tr>
+                            <tr>
+                                <td>RemoteSigned</td>
+                                <td>Scripts locales sí, remotos deben estar firmados (Recomendado)</td>
+                            </tr>
+                            <tr>
+                                <td>Unrestricted</td>
+                                <td>Todos los scripts sin advertencia</td>
+                            </tr>
+                            <tr>
+                                <td>Bypass</td>
+                                <td>Todo sin advertencias ni bloqueos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Cambiar la política de ejecución</h4>
+                    <div class="code-block">
+                        <code># Cambiar para el usuario actual (requiere admin)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Cambiar solo para la sesión actual
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process</code>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <strong>Seguridad:</strong> No uses Unrestricted o Bypass en producción. RemoteSigned es el equilibrio recomendado.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-search me-2"></i>Comandos de Entorno</h2>
+                    
+                    <div class="cmd-box">
+                        <div class="cmd">$PSVersionTable</div>
+                        <div class="desc">Muestra información detallada sobre la versión de PowerShell</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$Host</div>
+                        <div class="desc">Objeto que representa el host de PowerShell actual</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PID</div>
+                        <div class="desc">Process ID del proceso de PowerShell actual</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PWD</div>
+                        <div class="desc">Current Working Directory (directorios actual)</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$HOME</div>
+                        <div class="desc">Ruta a la carpeta personal del usuario</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PSScriptRoot</div>
+                        <div class="desc">Directorio donde se encuentra el script actual (solo en scripts)</div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Configurando tu Entorno</h5>
+                        <ol>
+                            <li>Verifica tu versión de PowerShell: <code>$PSVersionTable.PSVersion</code></li>
+                            <li>Comprueba la política de ejecución: <code>Get-ExecutionPolicy -List</code></li>
+                            <li>Si es necesario, cambia la política: <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></li>
+                            <li>Verifica la ruta de tu perfil: <code>$PROFILE</code></li>
+                            <li>Crea tu perfil si no existe: <code>New-Item -ItemType File -Path $PROFILE -Force</code></li>
+                            <li>Agrega al menos 3 aliases útiles a tu perfil</li>
+                            <li>Agrega una función personalizada que te sea útil</li>
+                            <li>Reinicia PowerShell y verifica que tu configuración se aplicó</li>
+                            <li>Personaliza el prompt para mostrar la hora actual</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa Windows Terminal o VS Code:</strong> Son los entornos más modernos y con mejor soporte</li>
+                        <li><strong>Mantén tu perfil organizado:</strong> No sobrecargues tu perfil con demasiadas funciones</li>
+                        <li><strong>Usa políticas de ejecución seguras:</strong> RemoteSigned es el mejor equilibrio</li>
+                        <li><strong>Personaliza con moderación:</strong> Solo agrega lo que realmente uses</li>
+                        <li><strong>Versiona tu perfil:</strong> Guarda tu perfil en un repositorio Git para tenerlo en cualquier equipo</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="01-introduccion.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Introducción
+                    </a>
+                    <a href="03-variables.html" class="btn btn-ps">
+                        Siguiente: Variables <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 07: Manejo de Errores - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="06-funciones.html">Módulo 06</a></li>
+                <li class="breadcrumb-item active">Módulo 07: Errores</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html" class="active">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-intermedio mb-3 d-inline-block">Intermedio</span>
+                <h1 class="mb-4"><i class="bi bi-bug me-2 text-orange"></i>Módulo 07: Manejo de Errores</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-shield-x me-2"></i>¿Por qué Manejar Errores?</h2>
+                    <p>El manejo de errores es esencial para crear scripts robustos y confiables. Permite que tu script continúe funcionando incluso cuando algo sale mal, y proporciona información clara sobre qué sucedió.</p>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Importante:</strong> Un buen manejo de errores hace que tus scripts sean más profesionales y fáciles de depurar.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-boxes me-2"></i>Try-Catch-Finally</h2>
+                    
+                    <p>La estructura Try-Catch-Finally es la principal forma de manejar errores en PowerShell.</p>
+
+                    <div class="code-block">
+                        <code># Estructura básica
+try {
+    # Código que puede generar error
+    $resultado = 10 / 0
+    Write-Host "Resultado: $resultado"
+}
+catch {
+    # Se ejecuta si hay un error
+    Write-Host "¡Ocurrió un error!"
+    Write-Host "Mensaje: $($_.Exception.Message)"
+}
+finally {
+    # Siempre se ejecuta, haya error o no
+    Write-Host "Ejecución finalizada"
+}</code>
+                    </div>
+
+                    <h4>Ejemplo práctico</h4>
+                    <div class="code-block">
+                        <code>try {
+    $archivo = Get-Content "archivo_no_existe.txt"
+    Write-Host "Archivo leído correctamente"
+}
+catch {
+    Write-Host "No se pudo leer el archivo"
+    Write-Host "Tipo de error: $($_.Exception.GetType().FullName)"
+    Write-Host "Mensaje: $($_.Exception.Message)"
+}
+finally {
+    Write-Host "Operación completada"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-list-check me-2"></i>Catch Múltiple</h2>
+                    
+                    <p>Puedes tener múltiples bloques catch para manejar diferentes tipos de errores.</p>
+
+                    <div class="code-block">
+                        <code>try {
+    $numero = [int]Read-Host "Ingresa un número"
+    Write-Host "Número ingresado: $numero"
+}
+catch [FormatException] {
+    Write-Host "Error: El texto no es un número válido"
+}
+catch [OverflowException] {
+    Write-Host "Error: El número es demasiado grande"
+}
+catch {
+    Write-Host "Error inesperado: $($_.Exception.Message)"
+}</code>
+                    </div>
+
+                    <h4>Manejo de errores de archivo</h4>
+                    <div class="code-block">
+                        <code>try {
+    $contenido = Get-Content "ruta\archivo.txt"
+}
+catch [System.IO.FileNotFoundException] {
+    Write-Host "El archivo no existe"
+}
+catch [System.IO.DirectoryNotFoundException] {
+    Write-Host "El directorio no existe"
+}
+catch [System.UnauthorizedAccessException] {
+    Write-Host "No tienes permisos para leer el archivo"
+}
+catch {
+    Write-Host "Error general: $($_.Exception.Message)"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-bug-fill me-2"></i>Write-Error</h2>
+                    
+                    <p>Write-Error genera errores que pueden ser capturados por bloques catch.</p>
+
+                    <div class="code-block">
+                        <code># Generar un error personalizado
+function ValidarEdad {
+    param([int]$Edad)
+    
+    if ($Edad -lt 0 -or $Edad -gt 150) {
+        Write-Error "La edad debe estar entre 0 y 150" -Category InvalidArgument
+    }
+    
+    Write-Host "Edad válida: $Edad"
+}
+
+# Capturar el error
+try {
+    ValidarEdad -Edad 200
+}
+catch {
+    Write-Host "Error capturado: $($_.Exception.Message)"
+}</code>
+                    </div>
+
+                    <h4>Categorías de error</h4>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NotSpecified</td>
+                                <td>Error no especificado</td>
+                            </tr>
+                            <tr>
+                                <td>InvalidArgument</td>
+                                <td>Argumento inválido</td>
+                            </tr>
+                            <tr>
+                                <td>InvalidOperation</td>
+                                <td>Operación inválida</td>
+                            </tr>
+                            <tr>
+                                <td>ResourceUnavailable</td>
+                                <td>Recurso no disponible</td>
+                            </tr>
+                            <tr>
+                                <td>PermissionDenied</td>
+                                <td>Permiso denegado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-exclamation-octagon me-2"></i>Throw</h2>
+                    
+                    <p>Throw genera un error que detiene la ejecución y puede ser capturado por un try-catch externo.</p>
+
+                    <div class="code-block">
+                        <code>function CrearUsuario {
+    param($Nombre, $Email)
+    
+    if ([string]::IsNullOrWhiteSpace($Nombre)) {
+        throw "El nombre es obligatorio"
+    }
+    
+    if ($Email -notmatch '\w+@\w+\.\w+') {
+        throw "El email no es válido"
+    }
+    
+    Write-Host "Usuario creado: $Nombre"
+}
+
+# Usar throw
+try {
+    CrearUsuario -Nombre "" -Email "test@email.com"
+}
+catch {
+    Write-Host "Error: $($_.Exception.Message)"
+}</code>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <strong>Diferencia:</strong> Write-Error genera un error no terminante. Throw genera un error terminante que detiene la ejecución.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-text me-2"></i>$Error y $ErrorActionPreference</h2>
+                    
+                    <h4>Variable $Error</h4>
+                    <div class="code-block">
+                        <code># Ver el último error
+$Error[0]
+$Error[0].Exception.Message
+
+# Ver todos los errores
+$Error | ForEach-Object { $_.Exception.Message }
+
+# Limpiar errores
+$Error.Clear()
+
+# Ver tipo de error
+$Error[0].Exception.GetType().FullName</code>
+                    </div>
+
+                    <h4>$ErrorActionPreference</h4>
+                    <div class="code-block">
+                        <code># Configurar comportamiento global
+$ErrorActionPreference = "Stop"  # Detener en cualquier error
+$ErrorActionPreference = "Continue"  # Continuar aunque haya errores
+$ErrorActionPreference = "SilentlyContinue"  # Ignorar errores
+
+# Configurar para un comando específico
+Get-Content "archivo.txt" -ErrorAction Stop
+Get-Content "archivo.txt" -ErrorAction SilentlyContinue</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-arrow-up me-2"></i>Logging de Errores</h2>
+                    
+                    <div class="code-block">
+                        <code>function LogError {
+    param(
+        [string]$Mensaje,
+        [string]$ArchivoLog = "C:\Logs\error.log"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logEntry = "[$timestamp] ERROR: $Mensaje"
+    
+    # Crear directorio si no existe
+    $logPath = Split-Path $ArchivoLog
+    if (!(Test-Path $logPath)) {
+        New-Item -ItemType Directory -Path $logPath -Force
+    }
+    
+    # Escribir en log
+    Add-Content -Path $ArchivoLog -Value $logEntry
+}
+
+# Uso
+try {
+    $resultado = 10 / 0
+}
+catch {
+    LogError -Mensaje "Error al dividir: $($_.Exception.Message)"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Manejo de Errores</h5>
+                        <ol>
+                            <li>Crea una función que divida dos números y maneje el error de división por cero</li>
+                            <li>Crea una función que lea un archivo y maneje errores de archivo no encontrado y permisos</li>
+                            <li>Implementa múltiples catch para diferentes tipos de errores de conversión de tipos</li>
+                            <li>Crea una función que use throw para validar parámetros obligatorios</li>
+                            <li>Implementa logging de errores a un archivo con timestamp</li>
+                            <li>Crea un script que use $ErrorActionPreference = "Stop" y capture errores</li>
+                            <li>Usa Write-Error con diferentes categorías de error</li>
+                            <li>Crea un bloque try-catch-finally que siempre limpie recursos en finally</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Sé específico en catch:</strong> Captura tipos de error específicos cuando sea posible</li>
+                        <li><strong>Usa Write-Error para advertencias:</strong> Y throw para errores que deben detener la ejecución</li>
+                        <li><strong>Siempre registra errores:</strong> Usa logging para poder depurar problemas en producción</li>
+                        <li><strong>Limpia recursos en Finally:</strong> Cierra archivos, conexiones, etc.</li>
+                        <li><strong>No ignores errores:</strong> Evita usar -ErrorAction SilentlyContinue sin razón</li>
+                        <li><strong>Proporciona mensajes claros:</strong> Los mensajes de error deben ser útiles para el usuario</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="06-funciones.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Funciones
+                    </a>
+                    <a href="08-archivos.html" class="btn btn-ps">
+                        Siguiente: Archivos <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

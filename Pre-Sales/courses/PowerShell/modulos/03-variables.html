@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 03: Variables y Tipos de Datos - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="02-entorno.html">Módulo 02</a></li>
+                <li class="breadcrumb-item active">Módulo 03: Variables</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html" class="active">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-básico mb-3 d-inline-block">Básico</span>
+                <h1 class="mb-4"><i class="bi bi-box-seam me-2 text-orange"></i>Módulo 03: Variables y Tipos de Datos</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-box me-2"></i>¿Qué son las Variables?</h2>
+                    <p>Las variables son contenedores que almacenan datos en memoria. En PowerShell, las variables comienzan con el símbolo <code>$</code> y son case-insensitive (no distinguen mayúsculas/minúsculas).</p>
+
+                    <div class="code-block">
+                        <code># Crear una variable
+$nombre = "Carlos"
+$edad = 30
+$activo = $true
+
+# Usar la variable
+Write-Host "Nombre: $nombre"
+Write-Host "Edad: $edad"</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Consejo:</strong> PowerShell es case-insensitive: $Nombre, $NOMBRE y $nombre son la misma variable.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-type me-2"></i>Tipos de Datos Básicos</h2>
+                    
+                    <h4>1. String (Cadena de texto)</h4>
+                    <div class="code-block">
+                        <code>$texto = "Hola Mundo"
+$comillas = 'Él dijo "Hola"'
+$multilinea = @"
+Esta es una línea
+Esta es otra línea
+"@</code>
+                    </div>
+
+                    <h4>2. Integer (Entero)</h4>
+                    <div class="code-block">
+                        <code>$numero = 42
+$grande = 1000000
+$negativo = -50</code>
+                    </div>
+
+                    <h4>3. Double/Decimal (Punto flotante)</h4>
+                    <div class="code-block">
+                        <code>$pi = 3.1416
+$precio = 19.99
+$decimal = [decimal]10.50</code>
+                    </div>
+
+                    <h4>4. Boolean (Verdadero/Falso)</h4>
+                    <div class="code-block">
+                        <code>$verdadero = $true
+$falso = $false
+$activo = $null</code>
+                    </div>
+
+                    <h4>5. Array (Arreglo)</h4>
+                    <div class="code-block">
+                        <code># Crear arrays
+$numeros = 1, 2, 3, 4, 5
+$nombres = @("Ana", "Carlos", "Beatriz")
+$mixto = 1, "texto", $true, 3.14
+
+# Array vacío
+$vacio = @()</code>
+                    </div>
+
+                    <h4>6. Hashtable (Tabla hash)</h4>
+                    <div class="code-block">
+                        <code># Crear hashtable
+$persona = @{
+    Nombre = "Carlos"
+    Edad = 30
+    Ciudad = "Madrid"
+}
+
+# Acceder a valores
+$persona["Nombre"]
+$persona.Nombre</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-code-square me-2"></i>Declaración de Tipos</h2>
+                    
+                    <p>Puedes forzar un tipo específico usando corchetes antes del nombre de la variable.</p>
+
+                    <div class="code-block">
+                        <code># Forzar tipos específicos
+[int]$edad = 25
+[string]$nombre = "Ana"
+[double]$precio = 19.99
+[bool]$activo = $true
+[datetime]$fecha = Get-Date
+
+# Conversión de tipos
+$texto = "123"
+$numero = [int]$texto  # Convierte string a entero
+$texto2 = [string]456  # Convierte entero a string</code>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <strong>Atención:</strong> La conversión fallará si el valor no es compatible. Usa Try-Catch para manejar errores.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-list-ul me-2"></i>Trabajando con Arrays</h2>
+                    
+                    <h4>Acceder a elementos</h4>
+                    <div class="code-block">
+                        <code>$frutas = @("Manzana", "Banana", "Naranja", "Uva")
+
+# Elemento específico (índice 0)
+$frutas[0]  # "Manzana"
+
+# Último elemento
+$frutas[-1]  # "Uva"
+
+# Rango de elementos
+$frutas[1..3]  # "Banana", "Naranja", "Uva"</code>
+                    </div>
+
+                    <h4>Modificar arrays</h4>
+                    <div class="code-block">
+                        <code># Agregar elementos
+$frutas += "Kiwi"
+$frutas = $frutas + "Mango"
+
+# Agregar al principio
+$frutas = "Fresa", $frutas
+
+# Insertar en posición específica
+$array = 1, 2, 3, 4
+$array[2] = 99  # Cambia posición 2</code>
+                    </div>
+
+                    <h4>Operaciones con arrays</h4>
+                    <div class="code-block">
+                        <code># Contar elementos
+$frutas.Count
+$frutas.Length
+
+# Buscar elemento
+$frutas -contains "Banana"  # $true
+$frutas.IndexOf("Naranja")  # 2
+
+# Filtrar
+$frutas | Where-Object {$_.Length -gt 5}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-diagram-3 me-2"></i>Trabajando con Hashtables</h2>
+                    
+                    <h4>Crear y acceder</h4>
+                    <div class="code-block">
+                        <code># Crear hashtable
+$config = @{
+    Servidor = "localhost"
+    Puerto = 5432
+    Usuario = "admin"
+    Activo = $true
+}
+
+# Acceder a valores
+$config["Servidor"]
+$config.Puerto
+
+# Agregar nuevo valor
+$config["BaseDatos"] = "MiBaseDatos"
+
+# Modificar valor
+$config["Puerto"] = 3306</code>
+                    </div>
+
+                    <h4>Operaciones con hashtables</h4>
+                    <div class="code-block">
+                        <code># Obtener todas las claves
+$config.Keys
+
+# Obtener todos los valores
+$config.Values
+
+# Verificar si existe una clave
+$config.ContainsKey("Usuario")  # $true
+
+# Eliminar una clave
+$config.Remove("Activo")
+
+# Contar elementos
+$config.Count</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-people me-2"></i>Variables Automáticas</h2>
+                    
+                    <p>PowerShell tiene variables predefinidas que proporcionan información útil.</p>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PWD</div>
+                        <div class="desc">Current Working Directory - ruta del directorio actual</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$HOME</div>
+                        <div class="desc">Ruta al directorio personal del usuario</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PID</div>
+                        <div class="desc">Process ID del proceso de PowerShell actual</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$HOST</div>
+                        <div class="desc">Información sobre el host de PowerShell</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$LASTEXITCODE</div>
+                        <div class="desc">Código de salida del último comando ejecutado</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$ERROR</div>
+                        <div class="desc">Colección de los últimos errores</div>
+                    </div>
+
+                    <div class="cmd-box">
+                        <div class="cmd">$PSHOME</div>
+                        <div class="desc">Ruta a la carpeta de instalación de PowerShell</div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Trabajando con Variables</h5>
+                        <ol>
+                            <li>Crea variables para almacenar tu información personal: nombre, apellido, edad, ciudad</li>
+                            <li>Usa interpolación de strings para mostrar: "Hola, soy [nombre] de [ciudad], tengo [edad] años"</li>
+                            <li>Crea un array con 5 números y muestra el primer y último elemento</li>
+                            <li>Agrega 3 números más al array y muestra la nueva longitud</li>
+                            <li>Crea un hashtable para almacenar información de un producto (nombre, precio, stock, categoría)</li>
+                            <li>Modifica el precio del producto y agrega un nuevo campo "descuento"</li>
+                            <li>Convierte el string "123.45" a un número decimal</li>
+                            <li>Usa <code>$PSVersionTable</code> para mostrar la versión de PowerShell</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa nombres descriptivos:</strong> <code>$usuarioLogueado</code> en lugar de <code>$x</code></li>
+                        <li><strong>Sigue la convención PascalCase:</strong> <code>$NombreUsuario</code>, <code>$FechaCreacion</code></li>
+                        <li><strong>Declara tipos cuando sea necesario:</strong> Para valores que deben ser de un tipo específico</li>
+                        <li><strong>Usa hashtables para datos relacionados:</strong> Es más organizado que múltiples variables sueltas</li>
+                        <li><strong>Evita variables globales:</strong> A menos que sea realmente necesario, usa variables locales</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="02-entorno.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Entorno
+                    </a>
+                    <a href="04-operadores.html" class="btn btn-ps">
+                        Siguiente: Operadores <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

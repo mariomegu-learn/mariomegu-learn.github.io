@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 13: Active Directory - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="12-fechas.html">Módulo 12</a></li>
+                <li class="breadcrumb-item active">Módulo 13: Active Directory</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html" class="active">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-avanzado mb-3 d-inline-block">Avanzado</span>
+                <h1 class="mb-4"><i class="bi bi-people me-2 text-orange"></i>Módulo 13: Active Directory</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-info-circle me-2"></i>Requisitos Previos</h2>
+                    <p>Para trabajar con Active Directory, necesitas el módulo RSAT (Remote Server Administration Tools) instalado.</p>
+
+                    <div class="code-block">
+                        <code># Verificar si el módulo está instalado
+Get-Module -ListAvailable -Name "ActiveDirectory"
+
+# Instalar módulo AD (Windows Server)
+Install-WindowsFeature -Name RSAT-AD-PowerShell
+
+# Instalar RSAT en Windows 10/11
+# Desde Configuración → Aplicaciones → Funcionalidades opcionales
+# Agregar "RSAT: Active Directory Domain Services"</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Importante:</strong> Debes estar en un equipo unido al dominio para usar el módulo de Active Directory.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-person me-2"></i>Gestión de Usuarios</h2>
+                    
+                    <h4>Buscar usuarios</h4>
+                    <div class="code-block">
+                        <code># Obtener todos los usuarios
+Get-ADUser -Filter *
+
+# Buscar usuario por nombre
+Get-ADUser -Filter "Name -like '*Carlos*'"
+
+# Obtener usuario específico
+Get-ADUser -Identity "jdoe"
+
+# Obtener con propiedades específicas
+Get-ADUser -Identity "jdoe" -Properties EmailAddress, Department, Title
+
+# Buscar usuarios inactivos (más de 90 días)
+$searchBase = "DC=empresa,DC=com"
+$inactiveDate = (Get-Date).AddDays(-90)
+Get-ADUser -Filter {(LastLogonDate -lt $inactiveDate) -and (Enabled -eq $true)} -Properties LastLogonDate</code>
+                    </div>
+
+                    <h4>Crear usuario</h4>
+                    <div class="code-block">
+                        <code># Crear nuevo usuario
+New-ADUser -Name "Juan Pérez" `
+    -GivenName "Juan" `
+    -Surname "Pérez" `
+    -SamAccountName "jperez" `
+    -UserPrincipalName "jperez@empresa.com" `
+    -Path "OU=Usuarios,DC=empresa,DC=com" `
+    -AccountPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) `
+    -Enabled $true
+
+# Establecer información adicional
+Set-ADUser -Identity "jperez" `
+    -EmailAddress "jperez@empresa.com" `
+    -Department "IT" `
+    -Title "Administrador"</code>
+                    </div>
+
+                    <h4>Modificar usuario</h4>
+                    <div class="code-block">
+                        <code># Habilitar/deshabilitar usuario
+Enable-ADAccount -Identity "jperez"
+Disable-ADAccount -Identity "jperez"
+
+# Cambiar contraseña
+Set-ADAccountPassword -Identity "jperez" -Reset -NewPassword (ConvertTo-SecureString "NewPassword123!" -AsPlainText -Force)
+
+# Modificar atributos
+Set-ADUser -Identity "jperez" -Replace @{Department="Marketing"; Title="Gerente"}
+
+# Agregar y quitar valores
+Set-ADUser -Identity "jperez" -Add @{ProxyAddresses="SMTP:juan.perez@empresa.com"}
+Set-ADUser -Identity "jperez" -Remove @{ProxyAddresses="SMTP:juan.perez@empresa.com"}
+
+# Bloquear/desbloquear cuenta
+Unlock-ADAccount -Identity "jperez"</code>
+                    </div>
+
+                    <h4>Eliminar usuario</h4>
+                    <div class="code-block">
+                        <code># Eliminar usuario (requiere confirmación)
+Remove-ADUser -Identity "jperez"
+
+# Eliminar sin confirmar
+Remove-ADUser -Identity "jperez" -Confirm:$false
+
+# Eliminar y mover a contenedor eliminados
+Remove-ADUser -Identity "jperez" -Recursive</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-people-fill me-2"></i>Gestión de Grupos</h2>
+                    
+                    <h4>Buscar grupos</h4>
+                    <div class="code-block">
+                        <code># Obtener todos los grupos
+Get-ADGroup -Filter *
+
+# Buscar grupo específico
+Get-ADGroup -Identity "Administradores"
+
+# Buscar grupos por nombre
+Get-ADGroup -Filter "Name -like '*Admin*'"
+
+# Obtener miembros de un grupo
+Get-ADGroupMember -Identity "Administradores"
+
+# Obtener grupos de los que es miembro un usuario
+Get-ADPrincipalGroupMembership -Identity "jperez"</code>
+                    </div>
+
+                    <h4>Crear grupo</h4>
+                    <div class="code-block">
+                        <code># Crear grupo
+New-ADGroup -Name "Desarrolladores" `
+    -GroupScope Global `
+    -GroupCategory Security `
+    -Path "OU=Grupos,DC=empresa,DC=com"
+
+# Grupo de distribución (no de seguridad)
+New-ADGroup -Name "Boletin" `
+    -GroupScope Universal `
+    -GroupCategory Distribution `
+    -Path "OU=Grupos,DC=empresa,DC=com"</code>
+                    </div>
+
+                    <h4>Administrar miembros</h4>
+                    <div class="code-block">
+                        <code># Agregar miembro al grupo
+Add-ADGroupMember -Identity "Desarrolladores" -Members "jperez", "mgonzalez"
+
+# Quitar miembro
+Remove-ADGroupMember -Identity "Desarrolladores" -Members "jperez" -Confirm:$false
+
+# Reemplazar todos los miembros
+Set-ADGroup -Identity "Desarrolladores" -Replace @{member="CN=Ana,CN=Users,DC=empresa,DC=com;CN=Carlos,CN=Users,DC=empresa,DC=com"}
+
+# Verificar si un usuario es miembro
+Get-ADGroupMember -Identity "Desarrolladores" | Where-Object {$_.SamAccountName -eq "jperez"}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hierarchy me-2"></i>Unidades Organizacionales (OU)</h2>
+                    
+                    <div class="code-block">
+                        <code># Obtener todas las OU
+Get-ADOrganizationalUnit -Filter *
+
+# Obtener OU específica
+Get-ADOrganizationalUnit -Identity "OU=Usuarios,DC=empresa,DC=com"
+
+# Crear OU
+New-ADOrganizationalUnit -Name "Departamentos" -Path "DC=empresa,DC=com"
+
+# Mover objeto a OU
+Move-ADObject -Identity "CN=Juan,CN=Users,DC=empresa,DC=com" -TargetPath "OU=Usuarios,DC=empresa,DC=com"
+
+# Obtener objetos en una OU
+Get-ADUser -Filter * -SearchBase "OU=Usuarios,DC=empresa,DC=com"
+
+# Buscar en subcarpetas
+Get-ADUser -Filter * -SearchBase "DC=empresa,DC=com" -SearchScope Subtree</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-file-earmark-spreadsheet me-2"></i>Exportar Datos</h2>
+                    
+                    <div class="code-block">
+                        <code># Exportar usuarios a CSV
+Get-ADUser -Filter * -Properties EmailAddress, Department, Title | 
+    Select-Object Name, SamAccountName, EmailAddress, Department, Title, Enabled |
+    Export-Csv -Path "C:\Reportes\usuarios.csv" -NoTypeInformation -Encoding UTF8
+
+# Exportar miembros de grupos
+Get-ADGroup -Filter * | 
+    ForEach-Object {
+        $group = $_
+        $members = Get-ADGroupMember -Identity $group | Select-Object -ExpandProperty SamAccountName
+        [PSCustomObject]@{
+            Grupo = $group.Name
+            Miembros = ($members -join ";")
+        }
+    } | Export-Csv -Path "C:\Reportes\grupos.csv" -NoTypeInformation
+
+# Exportar estructura de OU
+Get-ADOrganizationalUnit -Filter * | 
+    Select-Object DistinguishedName, Name |
+    Export-Csv -Path "C:\Reportes\ou.csv" -NoTypeInformation</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Active Directory</h5>
+                        <ol>
+                            <li>Verifica si el módulo ActiveDirectory está instalado</li>
+                            <li>Obtén información de tu usuario actual: <code>Get-ADUser -Identity $env:USERNAME -Properties *</code></li>
+                            <li>Lista todos los usuarios del dominio</li>
+                            <li>Obtén los grupos de los que eres miembro</li>
+                            <li>Busca usuarios inactivos (más de 60 días)</li>
+                            <li>Crea un script que exporte todos los usuarios a CSV con sus propiedades principales</li>
+                            <li>Busca todos los usuarios de un departamento específico</li>
+                            <li>Obtén el tamaño de cada grupo (número de miembros)</li>
+                            <li>Crea un reporte de cuentas deshabilitadas</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa filtros específicos:</strong> Evita obtener todos los objetos si no es necesario</li>
+                        <li><strong>Prueba con -WhatIf:</strong> Antes de eliminar o modificar objetos críticos</li>
+                        <li><strong>Exporta antes de modificar:</strong> Ten un backup de los datos originales</li>
+                        <li><strong>Usa transacciones:</strong> Para operaciones que deben completarse juntas</li>
+                        <li><strong>Documenta cambios:</strong> Mantén un log de modificaciones importantes</li>
+                        <li><strong>Usa grupos anidados:</strong> Para simplificar la administración</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="12-fechas.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Fechas
+                    </a>
+                    <a href="14-automatizacion.html" class="btn btn-ps">
+                        Siguiente: Automatización <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

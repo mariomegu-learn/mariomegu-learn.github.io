@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 09: Pipeline y Filtrado - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="08-archivos.html">Módulo 08</a></li>
+                <li class="breadcrumb-item active">Módulo 09: Pipeline</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html" class="active">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-intermedio mb-3 d-inline-block">Intermedio</span>
+                <h1 class="mb-4"><i class="bi bi-arrow-left-right me-2 text-orange"></i>Módulo 09: Pipeline y Filtrado</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-diagram-2 me-2"></i>¿Qué es el Pipeline?</h2>
+                    <p>El pipeline (tubería) es una de las características más poderosas de PowerShell. Permite pasar la salida de un comando como entrada al siguiente comando, encadenando múltiples operaciones.</p>
+
+                    <div class="code-block">
+                        <code># Pipeline básico
+Get-Process | Select-Object -First 5
+
+# Pipeline múltiple
+Get-Service | Where-Object {$_.Status -eq "Running"} | Sort-Object Name</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Diferencia clave:</strong> A diferencia de CMD que pasa texto, PowerShell pasa objetos .NET completos a través del pipeline.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-funnel me-2"></i>Where-Object (Filtrado)</h2>
+                    
+                    <p>Where-Object filtra objetos en el pipeline basándose en condiciones.</p>
+
+                    <h4>Sintaxis básica</h4>
+                    <div class="code-block">
+                        <code># Filtrar procesos por nombre
+Get-Process | Where-Object {$_.ProcessName -like "*chrome*"}
+
+# Filtrar servicios en estado específico
+Get-Service | Where-Object {$_.Status -eq "Stopped"}
+
+# Filtrar archivos por tamaño
+Get-ChildItem | Where-Object {$_.Length -gt 1MB}
+
+# Usando $_ para referenciar el objeto actual
+Get-Process | Where-Object {$_ CPU -gt 100}</code>
+                    </div>
+
+                    <h4>Operadores de filtrado</h4>
+                    <div class="code-block">
+                        <code># Igualdad
+Get-Service | Where-Object {$_.Status -eq "Running"}
+
+# Contiene
+Get-Process | Where-Object {$_.ProcessName -like "*word*"}
+
+# Comienza con
+Get-Process | Where-Object {$_.ProcessName -like "svch*"}
+
+# Termina con
+Get-ChildItem | Where-Object {$_.Name -like "*.txt"}
+
+# Mayor/Menor que
+Get-ChildItem | Where-Object {$_.Length -gt 500KB}
+Get-ChildItem | Where-Object {$_.Length -lt 100B}</code>
+                    </div>
+
+                    <h4>Filtrado abreviado</h4>
+                    <div class="code-block">
+                        <code># Sintaxis abreviada de Where-Object
+Get-Process | Where-Object CPU -gt 100
+
+# Múltiples condiciones
+Get-Service | Where-Object {$_.Status -eq "Running" -and $_.StartType -eq "Automatic"}
+
+# No igual
+Get-Process | Where-Object {$_.ProcessName -ne "explorer"}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-list-columns me-2"></i>Select-Object (Selección)</h2>
+                    
+                    <p>Select-Object selecciona propiedades específicas de los objetos.</p>
+
+                    <div class="code-block">
+                        <code># Seleccionar propiedades específicas
+Get-Process | Select-Object ProcessName, Id, CPU
+
+# Seleccionar primeros/últimos elementos
+Get-Process | Select-Object -First 10
+Get-Service | Select-Object -Last 5
+
+# Seleccionar elementos únicos
+Get-Process | Select-Object -Unique ProcessName
+
+# Crear propiedades calculadas
+Get-Process | Select-Object ProcessName, @{Name="MemoriaMB";Expression={[math]::Round($_.WorkingSet/1MB,2)}}
+
+# Excluir propiedades
+Get-Process | Select-Object * -ExcludeProperty HandleCount</code>
+                    </div>
+
+                    <h4>Propiedades calculadas</h4>
+                    <div class="code-block">
+                        <code># Propiedad calculada simple
+Get-ChildItem | Select-Object Name, @{Name="SizeMB";Expression={[math]::Round($_.Length/1MB,2)}}
+
+# Propiedad con expresión condicional
+Get-Service | Select-Object Name, Status, 
+    @{Name="Estado";Expression={
+        if ($_.Status -eq "Running") {"Activo"} 
+        else {"Inactivo"}
+    }}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-sort-alpha-down me-2"></i>Sort-Object (Ordenamiento)</h2>
+                    
+                    <div class="code-block">
+                        <code># Ordenar por una propiedad
+Get-Process | Sort-Object CPU
+
+# Ordenar descendente
+Get-Process | Sort-Object CPU -Descending
+
+# Ordenar por múltiples propiedades
+Get-Process | Sort-Object CPU -Descending, Name
+
+# Ordenar archivos por fecha
+Get-ChildItem | Sort-Object LastWriteTime -Descending
+
+# Ordenar sin distinguir mayúsculas
+Get-Process | Sort-Object ProcessName -CaseSensitive</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-dash-lg me-2"></i>Measure-Object</h2>
+                    
+                    <p>Measure-Object calcula medidas estadísticas de los objetos.</p>
+
+                    <div class="code-block">
+                        <code># Contar objetos
+Get-Process | Measure-Object
+(Get-Process | Measure-Object).Count
+
+# Sumar valores
+Get-ChildItem | Measure-Object -Property Length -Sum
+(Get-ChildItem | Measure-Object -Property Length).Sum
+
+# Estadísticas completas
+Get-ChildItem | Measure-Object -Property Length -Average -Sum -Maximum -Minimum
+
+# Contar líneas en archivos
+Get-ChildItem -Filter "*.ps1" | Measure-Object -Property LineCount -Sum</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-split me-2"></i>Group-Object</h2>
+                    
+                    <p>Group-Object agrupa objetos por una propiedad.</p>
+
+                    <div class="code-block">
+                        <code># Agrupar procesos por nombre
+Get-Process | Group-Object ProcessName
+
+# Agrupar archivos por extensión
+Get-ChildItem | Group-Object Extension
+
+# Contar elementos por grupo
+Get-Process | Group-Object ProcessName | Where-Object {$_.Count -gt 1}
+
+# Agrupar servicios por estado
+Get-Service | Group-Object Status
+
+# Mostrar solo nombre del grupo y cuenta
+Get-ChildItem | Group-Object Extension | Select-Object Name, Count</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrows-move me-2"></i>ForEach-Object</h2>
+                    
+                    <p>ForEach-Object ejecuta un script block para cada objeto en el pipeline.</p>
+
+                    <div class="code-block">
+                        <code># Procesar cada elemento
+1, 2, 3, 4, 5 | ForEach-Object { $_ * 2 }
+
+# Usando $_ para referenciar el objeto actual
+Get-Process | ForEach-Object { Write-Host "Proceso: $($_.ProcessName)" }
+
+# Usando el alias %
+Get-Service | Where-Object {$_.Status -eq "Running"} | % { $_.Name }
+
+# Múltiples comandos en el script block
+Get-ChildItem | ForEach-Object {
+    Write-Host "Archivo: $($_.Name)"
+    Write-Host "Tamaño: $($_.Length) bytes"
+    Write-Host "---"
+}</code>
+                    </div>
+
+                    <h4>ForEach-Object con begin, process, end</h4>
+                    <div class="code-block">
+                        <code>1..5 | ForEach-Object -Begin {
+    $contador = 0
+    Write-Host "Comenzando..."
+} -Process {
+    $contador++
+    Write-Host "Valor: $_, Iteración: $contador"
+} -End {
+    Write-Host "Total procesados: $contador"
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-grid me-2"></i>Realizaciones Prácticas</h2>
+                    
+                    <h4>Ejemplo 1: Reporte de procesos</h4>
+                    <div class="code-block">
+                        <code>Get-Process | 
+    Where-Object {$_.CPU -gt 100} | 
+    Sort-Object CPU -Descending | 
+    Select-Object -First 10 ProcessName, Id, CPU, WorkingSet</code>
+                    </div>
+
+                    <h4>Ejemplo 2: Archivos grandes</h4>
+                    <div class="code-block">
+                        <code>Get-ChildItem -Recurse -File | 
+    Where-Object {$_.Length -gt 100MB} | 
+    Sort-Object Length -Descending | 
+    Select-Object FullName, @{Name="SizeGB";Expression={[math]::Round($_.Length/1GB,2)}} | 
+    Select-Object -First 20</code>
+                    </div>
+
+                    <h4>Ejemplo 3: Servicios automáticos</h4>
+                    <div class="code-block">
+                        <code>Get-Service | 
+    Where-Object {$_.StartType -eq "Automatic" -and $_.Status -eq "Stopped"} | 
+    Select-Object Name, DisplayName | 
+    Sort-Object Name</code>
+                    </div>
+
+                    <h4>Ejemplo 4: Estadísticas de archivos</h4>
+                    <div class="code-block">
+                        <code>Get-ChildItem | 
+    Group-Object Extension | 
+    Select-Object Name, 
+        @{Name="TotalSize";Expression={[math]::Round(($_.Group | Measure-Object -Property Length -Sum).Sum/1MB,2)}},
+        Count | 
+    Sort-Object TotalSize -Descending</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Dominando el Pipeline</h5>
+                        <ol>
+                            <li>Obtén los 5 procesos que más CPU están usando</li>
+                            <li>Lista todos los archivos .txt en tu carpeta de documentos ordenados por tamaño</li>
+                            <li>Cuenta cuántos servicios están en estado "Stopped"</li>
+                            <li>Genera un reporte de archivos agrupados por extensión con su tamaño total</li>
+                            <li>Encuentra todos los procesos que comiencen con "svch" y muestra su memoria</li>
+                            <li>Usa Measure-Object para calcular el promedio de CPU de todos los procesos</li>
+                            <li>Lista los 10 archivos más grandes en tu sistema (requiere permisos)</li>
+                            <li>Crea un pipeline que filtre, ordene y seleccione propiedades de Get-Service</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Ordena los comandos eficientemente:</strong> Filtra primero, luego selecciona</li>
+                        <li><strong>Usa Where-Object antes de Select-Object:</strong> Reduce la cantidad de datos procesados</li>
+                        <li><strong>Aprovecha las abreviaturas:</strong> % para ForEach-Object, ? para Where-Object</li>
+                        <li><strong>Usa propiedades calculadas:</strong> Para mostrar datos formateados</li>
+                        <li><strong>Evita pipelines innecesarios:</strong> Si puedes usar parámetros, mejor</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="08-archivos.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Archivos
+                    </a>
+                    <a href="10-modulos.html" class="btn btn-ps">
+                        Siguiente: Módulos <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

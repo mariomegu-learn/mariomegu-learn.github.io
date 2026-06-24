@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia Rápida - PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="bi bi-terminal"></i> PowerShell Master</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="01-introduccion.html">Curso</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="00-referencias.html">Referencia</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1><i class="bi bi-bookmark-star me-2"></i>Referencia Rápida</h1>
+                    <p class="text-white-50 mb-0">Comandos esenciales de PowerShell para uso diario</p>
+                </div>
+                <button onclick="window.print()" class="print-btn"><i class="bi bi-printer me-2"></i>Imprimir</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h3 class="category-title"><i class="bi bi-rocket-takeoff me-2"></i>Fundamentos</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-info-circle"></i>Ayuda y Documentacion</h5>
+                        <div class="cmd-box"><span class="cmd">Get-Help <comando></span><div class="desc">Muestra ayuda sobre un cmdlet</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Help <comando> -Examples</span><div class="desc">Muestra ejemplos de uso</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Help <comando> -Detailed</span><div class="desc">Muestra ayuda detallada</div></div>
+                        <div class="cmd-box"><span class="cmd">Update-Help</span><div class="desc">Actualiza la ayuda local</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-search"></i>Descubrimiento de Comandos</h5>
+                        <div class="cmd-box"><span class="cmd">Get-Command</span><div class="desc">Lista todos los comandos disponibles</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Command -Verb <verbo></span><div class="desc">Filtra por verbo (Get, Set, New, Remove...)</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Command -Noun <sustantivo>*</span><div class="desc">Filtra por sustantivo (Process, Service, Item...)</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Alias</span><div class="desc">Lista todos los alias disponibles</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-folder2 me-2"></i>Sistema de Archivos</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-folder-plus"></i>Navegacion y Listado</h5>
+                        <div class="cmd-box"><span class="cmd">Get-ChildItem</span><div class="desc">Lista archivos y carpetas (equivalente a dir/ls)</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-ChildItem -Path C:\carpeta</span><div class="desc">Lista contenido de una ruta especifica</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-ChildItem -Recurse</span><div class="desc">Lista recursivamente incluyendo subcarpetas</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-ChildItem -Filter "*.txt"</span><div class="desc">Filtra por extension de archivo</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-ChildItem -Hidden</span><div class="desc">Muestra archivos ocultos</div></div>
+                        <div class="cmd-box"><span class="cmd">Set-Location C:\carpeta</span><div class="desc">Cambia de directorio (cd)</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Location</span><div class="desc">Muestra directorio actual (pwd)</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-file-earmark-plus"></i>Gestión de Archivos</h5>
+                        <div class="cmd-box"><span class="cmd">New-Item -ItemType File "archivo.txt"</span><div class="desc">Crea un nuevo archivo</div></div>
+                        <div class="cmd-box"><span class="cmd">New-Item -ItemType Directory "carpeta"</span><div class="desc">Crea una nueva carpeta (mkdir)</div></div>
+                        <div class="cmd-box"><span class="cmd">Copy-Item "origen" -Destination "destino"</span><div class="desc">Copia archivos o carpetas (cp)</div></div>
+                        <div class="cmd-box"><span class="cmd">Move-Item "origen" -Destination "destino"</span><div class="desc">Mueve archivos o carpetas (mv)</div></div>
+                        <div class="cmd-box"><span class="cmd">Remove-Item "archivo" -Force</span><div class="desc">Elimina archivos/carpetas (rm, -Recurse para carpetas)</div></div>
+                        <div class="cmd-box"><span class="cmd">Rename-Item "archivo" "nuevonombre"</span><div class="desc">Renombra archivos o carpetas (ren)</div></div>
+                        <div class="cmd-box"><span class="cmd">Test-Path "ruta"</span><div class="desc">Verifica si existe una ruta (True/False)</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-cpu me-2"></i>Procesos y Sistema</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-activity"></i>Gestion de Procesos</h5>
+                        <div class="cmd-box"><span class="cmd">Get-Process</span><div class="desc">Lista todos los procesos en ejecucion</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Process -Name "nombre"</span><div class="desc">Obtiene proceso especifico por nombre</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Process | Where-Object {$_.CPU -gt 10}</span><div class="desc">Procesos que usan mas de 10 seg de CPU</div></div>
+                        <div class="cmd-box"><span class="cmd">Stop-Process -Name "nombre"</span><div class="desc">Detiene un proceso por nombre</div></div>
+                        <div class="cmd-box"><span class="cmd">Stop-Process -Id 1234</span><div class="desc">Detiene proceso por ID</div></div>
+                        <div class="cmd-box"><span class="cmd">Start-Process "notepad.exe"</span><div class="desc">Inicia un proceso</div></div>
+                        <div class="cmd-box"><span class="cmd">Start-Process "archivo.txt" -Verb RunAs</span><div class="desc">Ejecuta como administrador</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-gear"></i>Gestion de Servicios</h5>
+                        <div class="cmd-box"><span class="cmd">Get-Service</span><div class="desc">Lista todos los servicios</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Service -Name "nombre"</span><div class="desc">Obtiene servicio especifico</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Service | Where-Object {$_.Status -eq 'Running'}</span><div class="desc">Solo servicios en ejecucion</div></div>
+                        <div class="cmd-box"><span class="cmd">Start-Service -Name "nombre"</span><div class="desc">Inicia un servicio</div></div>
+                        <div class="cmd-box"><span class="cmd">Stop-Service -Name "nombre"</span><div class="desc">Detiene un servicio</div></div>
+                        <div class="cmd-box"><span class="cmd">Restart-Service -Name "nombre"</span><div class="desc">Reinicia un servicio</div></div>
+                        <div class="cmd-box"><span class="cmd">Set-Service -Name "nombre" -StartupType Automatic</span><div class="desc">Cambia tipo de inicio (Automatic/Manual/Disabled)</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="category-title"><i class="bi bi-box me-2"></i>Variables y Objetos</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-braces"></i>Declaracion de Variables</h5>
+                        <div class="cmd-box"><span class="cmd">$variable = "valor"</span><div class="desc">Crea una variable (siempre con $)</div></div>
+                        <div class="cmd-box"><span class="cmd">$numero = 123</span><div class="desc">Variable numerica</div></div>
+                        <div class="cmd-box"><span class="cmd">$arreglo = @(1, 2, 3)</span><div class="desc">Crea un arreglo</div></div>
+                        <div class="cmd-box"><span class="cmd">$hash = @{clave = "valor"}</span><div class="desc">Crea una tabla hash</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Variable</span><div class="desc">Lista todas las variables</div></div>
+                        <div class="cmd-box"><span class="cmd">Remove-Variable -Name "variable"</span><div class="desc">Elimina una variable</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-info-square"></i>Inspeccion de Objetos</h5>
+                        <div class="cmd-box"><span class="cmd">$objeto | Get-Member</span><div class="desc">Muestra propiedades y metodos de un objeto</div></div>
+                        <div class="cmd-box"><span class="cmd">$objeto | Select-Object -Property *</span><div class="desc">Muestra todas las propiedades</div></div>
+                        <div class="cmd-box"><span class="cmd">$objeto.Propiedad</span><div class="desc">Accede a una propiedad especifica</div></div>
+                        <div class="cmd-box"><span class="cmd">$objeto.GetType()</span><div class="desc">Muestra el tipo de dato</div></div>
+                        <div class="cmd-box"><span class="cmd">$null -eq $variable</span><div class="desc">Verifica si una variable es null</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-arrow-left-right me-2"></i>Pipeline y Filtros</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-filter"></i>Filtrado y Seleccion</h5>
+                        <div class="cmd-box"><span class="cmd">Where-Object {$_.Propiedad -eq "valor"}</span><div class="desc">Filtra objetos por condicion (abreviatura: Where)</div></div>
+                        <div class="cmd-box"><span class="cmd">Select-Object -Property prop1, prop2</span><div class="desc">Selecciona propiedades especificas</div></div>
+                        <div class="cmd-box"><span class="cmd">Sort-Object -Property Nombre</span><div class="desc">Ordena por propiedad (ascendente)</div></div>
+                        <div class="cmd-box"><span class="cmd">Sort-Object -Property Valor -Descending</span><div class="desc">Ordena de forma descendente</div></div>
+                        <div class="cmd-box"><span class="cmd">Group-Object -Property Tipo</span><div class="desc">Agrupa objetos por propiedad</div></div>
+                        <div class="cmd-box"><span class="cmd">Measure-Object -Property Valor -Sum -Average</span><div class="desc">Calcula suma, promedio, etc.</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-collection"></i>Operaciones de Lista</h5>
+                        <div class="cmd-box"><span class="cmd">Select-Object -First 10</span><div class="desc">Toma los primeros 10 elementos</div></div>
+                        <div class="cmd-box"><span class="cmd">Select-Object -Last 5</span><div class="desc">Toma los ultimos 5 elementos</div></div>
+                        <div class="cmd-box"><span class="cmd">Select-Object -Unique</span><div class="desc">Elimina duplicados</div></div>
+                        <div class="cmd-box"><span class="cmd">ForEach-Object {$_.Propiedad}</span><div class="desc">Ejecuta para cada elemento (abreviatura: ForEach)</div></div>
+                        <div class="cmd-box"><span class="cmd">Where-Object -First 1</span><div class="desc">Toma el primer elemento que cumple la condicion</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-git me-2"></I>Red y Conectividad</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-wifi"></i>Redes</h5>
+                        <div class="cmd-box"><span class="cmd">Test-Connection -ComputerName "host"</span><div class="desc">Verifica conectividad (equivalente a ping)</div></div>
+                        <div class="cmd-box"><span class="cmd">Test-NetConnection -ComputerName "host"</span><div class="desc">Test de conectividad detallado (como ping + traceroute)</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-NetIPAddress</span><div class="desc">Muestra configuraciones de IP</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-NetAdapter</span><div class="desc">Lista adaptadores de red</div></div>
+                        <div class="cmd-box"><span class="cmd">Resolve-DnsName "dominio"</span><div class="desc">Resuelve DNS (equivalente a nslookup)</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-hdd-network"></i>Remoting</h5>
+                        <div class="cmd-box"><span class="cmd">Enter-PSSession -ComputerName "equipo"</span><div class="desc">Inicia sesion remota interactiva</div></div>
+                        <div class="cmd-box"><span class="cmd">Invoke-Command -ComputerName "equipo" -ScriptBlock {comando}</span><div class="desc">Ejecuta comando en equipo remoto</div></div>
+                        <div class="cmd-box"><span class="cmd">New-PSSession -ComputerName "equipo"</span><div class="desc">Crea una sesion persistente</div></div>
+                        <div class="cmd-box"><span class="cmd">Start-Job -ScriptBlock {comando}</span><div class="desc">Inicia trabajo en segundo plano</div></div>
+                        <div class="cmd-box"><span class="cmd">Get-Job | Receive-Job</span><div class="desc">Obtiene resultados de trabajos</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-code-slash me-2"></i>Scripting y Control</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-question-diamond"></i>Condicionales</h5>
+                        <div class="cmd-box"><span class="cmd">if ($condición) { codigo }</span><div class="desc">Condicion simple</div></div>
+                        <div class="cmd-box"><span class="cmd">if ($a -eq $b) { } else { }</span><div class="desc">Condicion con else</div></div>
+                        <div class="cmd-box"><span class="cmd">if ($a -gt 10 -and $b -lt 20) { }</span><div class="desc">AND logico</div></div>
+                        <div class="cmd-box"><span class="cmd">if ($a -eq "x" -or $a -eq "y") { }</span><div class="desc">OR logico</div></div>
+                        <div class="cmd-box"><span class="cmd">switch ($valor) { "x" { } "y" { } }</span><div class="desc">Estructura switch</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-arrow-repeat"></i>Bucles</h5>
+                        <div class="cmd-box"><span class="cmd">for ($i = 0; $i -lt 10; $i++) { }</span><div class="desc">Bucle for clasico</div></div>
+                        <div class="cmd-box"><span class="cmd">ForEach ($item in $coleccion) { }</span><div class="desc">Bucle foreach</div></div>
+                        <div class="cmd-box"><span class="cmd">while ($condicion) { }</span><div class="desc">Bucle while</div></div>
+                        <div class="cmd-box"><span class="cmd">do { } while ($condicion)</span><div class="desc">Bucle do-while</div></div>
+                        <div class="cmd-box"><span class="cmd">1..10 | ForEach-Object { $_ * 2 }</span><div class="desc">Rango con foreach</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title"><i class="bi bi-collection-play me-2"></i>Operadores Comparativos</h3>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-calculator"></i>Operadores Numericos</h5>
+                        <div class="cmd-box"><span class="cmd">-eq</span><div class="desc">Igual a (equals)</div></div>
+                        <div class="cmd-box"><span class="cmd">-ne</span><div class="desc">Diferente a (not equals)</div></div>
+                        <div class="cmd-box"><span class="cmd">-gt</span><div class="desc">Mayor que (greater than)</div></div>
+                        <div class="cmd-box"><span class="cmd">-ge</span><div class="desc">Mayor o igual que</div></div>
+                        <div class="cmd-box"><span class="cmd">-lt</span><div class="desc">Menor que (less than)</div></div>
+                        <div class="cmd-box"><span class="cmd">-le</span><div class="desc">Menor o igual que</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="reference-card">
+                        <h5><i class="bi bi-braces"></i>Operadores de Cadenas</h5>
+                        <div class="cmd-box"><span class="cmd">-like "*.txt"</span><div class="desc">Coincide con patron (wildcard)</div></div>
+                        <div class="cmd-box"><span class="cmd">-notlike "*patron*"</span><div class="desc">No coincide con patron</div></div>
+                        <div class="cmd-box"><span class="cmd">-match "^abc"</span><div class="desc">Coincide con expresion regular</div></div>
+                        <div class="cmd-box"><span class="cmd">-contains "valor"</span><div class="desc">Contiene valor (para colecciones)</div></div>
+                        <div class="cmd-box"><span class="cmd">-in (1,2,3)</span><div class="desc">El valor esta en la coleccion</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Practico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

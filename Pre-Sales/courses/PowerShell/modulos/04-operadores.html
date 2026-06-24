@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 04: Operadores y Expresiones - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="03-variables.html">Módulo 03</a></li>
+                <li class="breadcrumb-item active">Módulo 04: Operadores</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html" class="active">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-básico mb-3 d-inline-block">Básico</span>
+                <h1 class="mb-4"><i class="bi bi-calculator me-2 text-orange"></i>Módulo 04: Operadores y Expresiones</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-plus-circle me-2"></i>Operadores Aritméticos</h2>
+                    
+                    <p>Los operadores aritméticos se utilizan para realizar operaciones matemáticas básicas.</p>
+
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+</td>
+                                <td>Suma</td>
+                                <td><code>$a + $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Resta</td>
+                                <td><code>$a - $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>*</td>
+                                <td>Multiplicación</td>
+                                <td><code>$a * $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>/</td>
+                                <td>División</td>
+                                <td><code>$a / $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>%</td>
+                                <td>Módulo (resto)</td>
+                                <td><code>$a % $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>++</td>
+                                <td>Incremento</td>
+                                <td><code>$a++</code></td>
+                            </tr>
+                            <tr>
+                                <td>--</td>
+                                <td>Decremento</td>
+                                <td><code>$a--</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="code-block">
+                        <code># Ejemplos de operadores aritméticos
+$a = 10
+$b = 3
+
+Write-Host "Suma: $($a + $b)"           # 13
+Write-Host "Resta: $($a - $b)"          # 7
+Write-Host "Multiplicación: $($a * $b)" # 30
+Write-Host "División: $($a / $b)"       # 3.333...
+Write-Host "Módulo: $($a % $b)"         # 1
+
+# Incremento y decremento
+$c = 5
+$c++
+Write-Host "Incrementado: $c"  # 6
+
+$c--
+Write-Host "Decrementado: $c"  # 5</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-equal me-2"></i>Operadores de Comparación</h2>
+                    
+                    <p>Los operadores de comparación se utilizan para comparar valores. En PowerShell, los operadores de comparación comienzan con <code>-</code>.</p>
+
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-eq</td>
+                                <td>Equal (igual a)</td>
+                                <td><code>$a -eq $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-ne</td>
+                                <td>Not equal (no igual)</td>
+                                <td><code>$a -ne $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-gt</td>
+                                <td>Greater than (mayor que)</td>
+                                <td><code>$a -gt $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-lt</td>
+                                <td>Less than (menor que)</td>
+                                <td><code>$a -lt $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-ge</td>
+                                <td>Greater than or equal</td>
+                                <td><code>$a -ge $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-le</td>
+                                <td>Less than or equal</td>
+                                <td><code>$a -le $b</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="code-block">
+                        <code># Ejemplos de comparaciones
+$edad = 25
+
+Write-Host ($edad -eq 25)  # True
+Write-Host ($edad -gt 18)  # True
+Write-Host ($edad -lt 30)  # True
+Write-Host ($edad -ge 25)  # True
+Write-Host ($edad -ne 30)  # True
+
+# Comparación de strings
+$nombre = "Carlos"
+Write-Host ($nombre -eq "Carlos")  # True
+Write-Host ($nombre -ne "Ana")     # True
+
+# Comparación case-insensitive (por defecto)
+Write-Host ($nombre -eq "carlos")  # True</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Case-sensitive:</strong> Usa <code>-ceq</code>, <code>-cgt</code>, etc. para comparaciones sensibles a mayúsculas/minúsculas.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-boolean me-2"></i>Operadores Lógicos</h2>
+                    
+                    <p>Los operadores lógicos se utilizan para combinar expresiones booleanas.</p>
+
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-and</td>
+                                <td>AND lógico</td>
+                                <td><code>$a -and $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-or</td>
+                                <td>OR lógico</td>
+                                <td><code>$a -or $b</code></td>
+                            </tr>
+                            <tr>
+                                <td>-not</td>
+                                <td>NOT lógico</td>
+                                <td><code>-not $a</code></td>
+                            </tr>
+                            <tr>
+                                <td>!</td>
+                                <td>NOT lógico (alternativo)</td>
+                                <td><code>!$a</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="code-block">
+                        <code># Ejemplos de operadores lógicos
+$edad = 25
+$tieneLicencia = $true
+
+# AND - ambas condiciones deben ser verdaderas
+if ($edad -ge 18 -and $tieneLicencia) {
+    Write-Host "Puede conducir"
+}
+
+# OR - al menos una condición debe ser verdadera
+$esFestivo = $false
+if ($esFestivo -or $esSabado) {
+    Write-Host "Hoy no hay que trabajar"
+}
+
+# NOT - invierte el valor
+$activo = $true
+if (-not $activo) {
+    Write-Host "Usuario inactivo"
+} else {
+    Write-Host "Usuario activo"  # Este se ejecuta
+}</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-text-wrap me-2"></i>Operadores de Strings</h2>
+                    
+                    <h4>Concatenación</h4>
+                    <div class="code-block">
+                        <code># Concatenación con +
+$nombre = "Carlos"
+$apellido = "García"
+$nombreCompleto = $nombre + " " + $apellido
+Write-Host $nombreCompleto  # Carlos García
+
+# Interpolación de strings (recomendado)
+$nombreCompleto = "$nombre $apellido"
+Write-Host $nombreCompleto  # Carlos García
+
+# Interpolación con expresiones
+$edad = 25
+Write-Host "Tengo $edad años, en 5 años tendré $($edad + 5)"</code>
+                    </div>
+
+                    <h4>Operadores de comparación de strings</h4>
+                    <div class="code-block">
+                        <code>$texto = "PowerShell"
+
+# Contains
+Write-Host ($texto -like "*Shell*")    # True
+Write-Host ($texto -like "Power*")     # True
+Write-Host ($texto -like "*Shell")     # True
+
+# StartsWith / EndsWith
+Write-Host ($texto -like "Power*")     # True
+Write-Host ($texto -like "*Shell")     # True
+
+# Regex
+Write-Host ($texto -match "Shell")     # True
+Write-Host ($texto -match "python")    # False
+
+# Reemplazo
+$nuevo = $texto -replace "Power", "Microsoft"
+Write-Host $nuevo  # MicrosoftShell</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-list-check me-2"></i>Operadores de Asignación</h2>
+                    
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Descripción</th>
+                                <th>Equivalente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>=</td>
+                                <td>Asignación</td>
+                                <td><code>$a = 5</code></td>
+                            </tr>
+                            <tr>
+                                <td>+=</td>
+                                <td>Sumar y asignar</td>
+                                <td><code>$a += 3</code></td>
+                            </tr>
+                            <tr>
+                                <td>-=</td>
+                                <td>Restar y asignar</td>
+                                <td><code>$a -= 2</code></td>
+                            </tr>
+                            <tr>
+                                <td>*=</td>
+                                <td>Multiplicar y asignar</td>
+                                <td><code>$a *= 2</code></td>
+                            </tr>
+                            <tr>
+                                <td>/=</td>
+                                <td>Dividir y asignar</td>
+                                <td><code>$a /= 2</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="code-block">
+                        <code># Ejemplos de asignación
+$contador = 0
+$contador += 1  # 1
+$contador += 5  # 6
+$contador -= 2  # 4
+$contador *= 2  # 8
+$contador /= 2  # 4
+
+# Con strings
+$mensaje = "Hola"
+$mensaje += " Mundo"  # "Hola Mundo"
+
+# Con arrays
+$lista = 1, 2, 3
+$lista += 4  # 1, 2, 3, 4</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-diagram-3 me-2"></i>Operadores Especiales</h2>
+                    
+                    <h4>Operador -in (pertenece a)</h4>
+                    <div class="code-block">
+                        <code># Verificar si un valor está en una lista
+$color = "azul"
+$coloresPermitidos = "rojo", "verde", "azul"
+
+if ($color -in $coloresPermitidos) {
+    Write-Host "Color válido"
+}
+
+# También funciona inverso
+$coloresPermitidos -contains $color  # True</code>
+                    </div>
+
+                    <h4>Operador -join (unir)</h4>
+                    <div class="code-block">
+                        <code># Unir array en string
+$palabras = "Hola", "Mundo", "PowerShell"
+$resultado = $palabras -join " "
+Write-Host $resultado  # "Hola Mundo PowerShell"
+
+# Unir sin separador
+$numero = 1, 2, 3, 4, 5
+$id = $numero -join ""
+Write-Host $id  # "12345"</code>
+                    </div>
+
+                    <h4>Operador -split (dividir)</h4>
+                    <div class="code-block">
+                        <code># Dividir string en array
+$texto = "manzana,banana,naranja,uva"
+$frutas = $texto -split ","
+Write-Host $frutas[0]  # "manzana"
+
+# Dividir por espacio
+$oracion = "PowerShell es genial"
+$palabras = $oracion -split " "
+Write-Host $palabras.Count  # 3</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Usando Operadores</h5>
+                        <ol>
+                            <li>Calcula el área de un rectángulo: crea variables para base y altura, luego multiplica</li>
+                            <li>Crea un programa que verifique si un número es par usando el operador módulo (%)</li>
+                            <li>Usa operadores lógicos para verificar si una edad está entre 18 y 65</li>
+                            <li>Crea un string con tu nombre y apellido, luego usa -split para separarlos</li>
+                            <li>Usa -join para unir un array de palabras en una oración</li>
+                            <li>Verifica si un color está en una lista de colores permitidos usando -in</li>
+                            <li>Crea un contador que incremente de 0 a 10 usando +=</li>
+                            <li>Usa interpolación de strings para mostrar: "En 10 años tendré [edad + 10] años"</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa interpolación de strings:</strong> Es más legible que concatenar con +</li>
+                        <li><strong>Usa paréntesis para claridad:</strong> <code>($a + $b) * $c</code> en lugar de <code>$a + $b * $c</code></li>
+                        <li><strong>Recuerda la precedencia:</strong> * y / tienen prioridad sobre + y -</li>
+                        <li><strong>Usa operadores case-sensitive cuando sea necesario:</strong> Con la 'c' (eq, ne, gt, etc.)</li>
+                        <li><strong>Prueba tus comparaciones:</strong> Los strings se comportan diferente a los números</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="03-variables.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Variables
+                    </a>
+                    <a href="05-estructuras.html" class="btn btn-ps">
+                        Siguiente: Estructuras <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

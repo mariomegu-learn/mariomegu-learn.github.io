@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 06: Funciones y Procedimientos - Curso PowerShell Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-terminal"></i> PowerShell Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01-introduccion.html">Lecciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="00-referencias.html">Referencia Rápida</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="05-estructuras.html">Módulo 05</a></li>
+                <li class="breadcrumb-item active">Módulo 06: Funciones</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-3 order-lg-1">
+                <div class="module-nav">
+                    <h5><i class="bi bi-list-ul me-2"></i>Módulos</h5>
+                    <a href="01-introduccion.html">01. Introducción</a>
+                    <a href="02-entorno.html">02. El Entorno</a>
+                    <a href="03-variables.html">03. Variables</a>
+                    <a href="04-operadores.html">04. Operadores</a>
+                    <a href="05-estructuras.html">05. Estructuras</a>
+                    <a href="06-funciones.html" class="active">06. Funciones</a>
+                    <a href="07-errores.html">07. Manejo de Errores</a>
+                    <a href="08-archivos.html">08. Archivos</a>
+                    <a href="09-pipeline.html">09. Pipeline</a>
+                    <a href="10-modulos.html">10. Módulos</a>
+                    <a href="11-remoting.html">11. Remoting</a>
+                    <a href="12-fechas.html">12. Fechas</a>
+                    <a href="13-active-directory.html">13. Active Directory</a>
+                    <a href="14-automatizacion.html">14. Automatización</a>
+                    <a href="15-mejores-practicas.html">15. Mejores Prácticas</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9 order-lg-2">
+                <span class="level-badge level-intermedio mb-3 d-inline-block">Intermedio</span>
+                <h1 class="mb-4"><i class="bi bi-gear me-2 text-orange"></i>Módulo 06: Funciones y Procedimientos</h1>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-box-arrow-in-right me-2"></i>¿Qué son las Funciones?</h2>
+                    <p>Las funciones son bloques de código reutilizables que realizan una tarea específica. Permiten organizar el código, evitar duplicación y mejorar la legibilidad.</p>
+
+                    <div class="code-block">
+                        <code># Función básica
+function Saludar {
+    Write-Host "¡Hola! Bienvenido a PowerShell"
+}
+
+# Llamar a la función
+Saludar</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Consejo:</strong> Usa verbos estándar de PowerShell en los nombres: Get, Set, New, Remove, Start, Stop, Test, etc.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-input-cursor-text me-2"></i>Parámetros de Funciones</h2>
+                    
+                    <h4>Parámetros básicos</h4>
+                    <div class="code-block">
+                        <code>function SaludarUsuario {
+    param(
+        [string]$Nombre
+    )
+    Write-Host "¡Hola, $Nombre! Bienvenido"
+}
+
+# Llamar con parámetro
+SaludarUsuario -Nombre "Carlos"
+SaludarUsuario "Ana"  # Posicional</code>
+                    </div>
+
+                    <h4>Múltiples parámetros</h4>
+                    <div class="code-block">
+                        <code>function CalcularArea {
+    param(
+        [double]$Base,
+        [double]$Altura
+    )
+    $area = $Base * $Altura
+    Write-Host "El área es: $area"
+    return $area
+}
+
+# Llamar función
+$resultado = CalcularArea -Base 10 -Altura 5</code>
+                    </div>
+
+                    <h4>Parámetros requeridos</h4>
+                    <div class="code-block">
+                        <code>function CrearUsuario {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Nombre,
+        
+        [Parameter(Mandatory=$true)]
+        [string]$Email
+    )
+    Write-Host "Creando usuario: $Nombre"
+    Write-Host "Email: $Email"
+}
+
+# Esto generará error si no se proporciona Nombre
+CrearUsuario -Nombre "Carlos" -Email "carlos@email.com"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrow-return-right me-2"></i>Valores de Retorno</h2>
+                    
+                    <div class="code-block">
+                        <code># Retornar un valor
+function Sumar {
+    param(
+        [int]$a,
+        [int]$b
+    )
+    return $a + $b
+}
+
+$suma = Sumar -a 5 -b 3
+Write-Host "La suma es: $suma"  # 8
+
+# Retornar múltiples valores
+function Operaciones {
+    param([int]$Numero)
+    
+    $suma = $Numero + 10
+    $resta = $Numero - 5
+    $multiplicacion = $Numero * 2
+    
+    return $suma, $resta, $multiplicacion
+}
+
+$resultados = Operaciones 20
+Write-Host "Suma: $($resultados[0])"
+Write-Host "Resta: $($resultados[1])"
+Write-Host "Multiplicación: $($resultados[2])"</code>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Nota:</strong> En PowerShell, cualquier cosa que no se envíe a Write-Host se devuelve automáticamente.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hash me-2"></i>Valores por Defecto</h2>
+                    
+                    <div class="code-block">
+                        <code>function Saludar {
+    param(
+        [string]$Nombre = "Invitado",
+        [string]$Hora = "día"
+    )
+    Write-Host "¡Buenos $Hora, $Nombre!"
+}
+
+# Llamadas
+Saludar  # Buenos días, Invitado!
+Saludar -Nombre "Carlos"  # Buenos días, Carlos!
+Saludar -Nombre "Ana" -Hora "noche"  # Buenas noches, Ana!</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-type-bold me-2"></i>Validación de Parámetros</h2>
+                    
+                    <h4>Validación de rango</h4>
+                    <div class="code-block">
+                        <code>function EstablecerEdad {
+    param(
+        [ValidateRange(1, 150)]
+        [int]$Edad
+    )
+    Write-Host "Edad establecida: $Edad"
+}
+
+# Esto generará error si la edad está fuera de rango
+EstablecerEdad -Edad 25</code>
+                    </div>
+
+                    <h4>Validación de longitud</h4>
+                    <div class="code-block">
+                        <code>function EstablecerPassword {
+    param(
+        [ValidateLength(8, 20)]
+        [string]$Password
+    )
+    Write-Host "Password establecida"
+}
+
+# Password debe tener entre 8 y 20 caracteres
+EstablecerPassword -Password "miPassword123"</code>
+                    </div>
+
+                    <h4>Validación de conjunto</h4>
+                    <div class="code-block">
+                        <code>function EstablecerColor {
+    param(
+        [ValidateSet("Rojo", "Verde", "Azul")]
+        [string]$Color
+    )
+    Write-Host "Color: $Color"
+}
+
+# Solo acepta los valores especificados
+EstablecerColor -Color "Rojo"</code>
+                    </div>
+
+                    <h4>Validación con expresión</h4>
+                    <div class="code-block">
+                        <code>function EstablecerEmail {
+    param(
+        [ValidatePattern('\w+@\w+\.\w+')]
+        [string]$Email
+    )
+    Write-Host "Email: $Email"
+}
+
+EstablecerEmail -Email "usuario@correo.com"</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-layers me-2"></i>Ámbitos (Scopes)</h2>
+                    
+                    <p>PowerShell tiene diferentes ámbitos donde las variables y funciones existen.</p>
+
+                    <div class="code-block">
+                        <code># Ámbitos disponibles
+# Global - disponible en toda la sesión
+# Script - solo en el script actual
+# Local - ámbito actual
+# Private - solo en la función actual
+
+function FuncionExterna {
+    $variableLocal = "Soy local"
+    $global:variableGlobal = "Soy global"
+    
+    function FuncionInterna {
+        $private:privateVar = "Soy privada"
+        Write-Host $variableLocal  # Funciona
+        Write-Host $global:variableGlobal  # Funciona
+    }
+    
+    FuncionInterna
+}</code>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <strong>Precaución:</strong> Usa variables globales con moderación. Pueden causar conflictos y hacer el código difícil de mantener.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-arrow-repeat me-2"></i>Funciones Avanzadas</h2>
+                    
+                    <h4>Soporte para pipeline</h4>
+                    <div class="code-block">
+                        <code>function ProcesarNumeros {
+    param(
+        [Parameter(ValueFromPipeline=$true)]
+        [int]$Numero
+    )
+    
+    process {
+        $cuadrado = $Numero * $Numero
+        Write-Output $cuadrado
+    }
+}
+
+# Usar en pipeline
+1, 2, 3, 4, 5 | ProcesarNumeros
+# Salida: 1, 4, 9, 16, 25</code>
+                    </div>
+
+                    <h4>Función con begin, process, end</h4>
+                    <div class="code-block">
+                        <code>function ContarElementos {
+    param(
+        [Parameter(ValueFromPipeline=$true)]
+        [string]$Item
+    )
+    
+    begin {
+        $contador = 0
+        Write-Host "Comenzando a procesar..."
+    }
+    
+    process {
+        $contador++
+        Write-Host "Procesando: $Item"
+    }
+    
+    end {
+        Write-Host "Total de elementos: $contador"
+    }
+}
+
+"Manzana", "Banana", "Naranja" | ContarElementos</code>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-hammer me-2"></i>Ejercicio Práctico</h2>
+                    
+                    <div class="exercise-box">
+                        <h5><i class="bi bi-check-circle me-2"></i>Práctica: Creando Funciones</h5>
+                        <ol>
+                            <li>Crea una función <code>CalcularIMC</code> que reciba peso y altura, y retorne el IMC</li>
+                            <li>Crea una función <code>ConvertirTemperatura</code> que convierta de Celsius a Fahrenheit y viceversa</li>
+                            <li>Crea una función <code>GenerarPassword</code> con parámetros para longitud y si debe incluir caracteres especiales</li>
+                            <li>Crea una función <code>ValidarEmail</code> que use ValidatePattern para verificar emails</li>
+                            <li>Crea una función que reciba un array de números y retorne el promedio, máximo y mínimo</li>
+                            <li>Crea una función con parámetros obligatorios para crear un usuario (nombre, email, teléfono)</li>
+                            <li>Crea una función que use ValidateSet para seleccionar entre tipos de archivo (txt, pdf, docx)</li>
+                            <li>Modifica una función para que funcione en pipeline</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="bi bi-star me-2"></i>Mejores Prácticas</h2>
+                    
+                    <ul>
+                        <li><strong>Usa verbos estándar:</strong> Get, Set, New, Remove, Test, Start, Stop, Restart</li>
+                        <li><strong>Nombres descriptivos:</strong> <code>Get-UsuarioPorEmail</code> en lugar de <code>GetUser</code></li>
+                        <li><strong>Valida parámetros:</strong> Usa ValidateRange, ValidateSet, ValidatePattern</li>
+                        <li><strong>Documenta tus funciones:</strong> Agrega comentarios explicando qué hace y sus parámetros</li>
+                        <li><strong>Mantén funciones pequeñas:</strong> Cada función debe hacer una cosa bien</li>
+                        <li><strong>Usa parámetros obligatorios cuando sea necesario:</strong> Evita errores por falta de datos</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <a href="05-estructuras.html" class="btn btn-outline-ps">
+                        <i class="bi bi-arrow-left me-2"></i>Anterior: Estructuras
+                    </a>
+                    <a href="07-errores.html" class="btn btn-ps">
+                        Siguiente: Manejo de Errores <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p><i class="bi bi-terminal me-2"></i>PowerShell Master - Curso Práctico 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
