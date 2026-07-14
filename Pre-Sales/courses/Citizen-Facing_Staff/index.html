@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Digital en la Atención al Ciudadano</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo">
+            <i class="bi bi-shield-check"></i>
+            <span>Seguridad Digital</span>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <div class="sidebar-nav-title">Contenido</div>
+        <a class="nav-item active" data-slide="1"><span class="nav-number">1</span><span>Portada</span></a>
+        <a class="nav-item" data-slide="2"><span class="nav-number">2</span><span>La Historia de Dos Decisiones</span></a>
+        <a class="nav-item" data-slide="3"><span class="nav-number">3</span><span>La Confianza es el Servicio</span></a>
+        <a class="nav-item" data-slide="4"><span class="nav-number">4</span><span>Todos Somos Parte</span></a>
+        <a class="nav-item" data-slide="5"><span class="nav-number">5</span><span>El Riesgo Bajo Presión</span></a>
+        <a class="nav-item" data-slide="6"><span class="nav-number">6</span><span>Fórmula de la Manipulación</span></a>
+        <a class="nav-item" data-slide="7"><span class="nav-number">7</span><span>El Valor de los Datos</span></a>
+        <a class="nav-item" data-slide="8"><span class="nav-number">8</span><span>Impacto de Entrega Indebida</span></a>
+        <a class="nav-item" data-slide="9"><span class="nav-number">9</span><span>Analogía del Portero</span></a>
+        <a class="nav-item" data-slide="10"><span class="nav-number">10</span><span>Decisiones Cotidianas</span></a>
+        <a class="nav-item" data-slide="11"><span class="nav-number">11</span><span>Caso 1: Solicitud Urgente</span></a>
+        <a class="nav-item" data-slide="12"><span class="nav-number">12</span><span>Caso 2: El Falso Superior</span></a>
+        <a class="nav-item" data-slide="13"><span class="nav-number">13</span><span>La Inteligencia Artificial</span></a>
+        <a class="nav-item" data-slide="14"><span class="nav-number">14</span><span>Cuatro Preguntas</span></a>
+        <a class="nav-item" data-slide="15"><span class="nav-number">15</span><span>Qué Hacer si es Sospechoso</span></a>
+        <a class="nav-item" data-slide="16"><span class="nav-number">16</span><span>Regreso a la Historia</span></a>
+        <a class="nav-item" data-slide="17"><span class="nav-number">17</span><span>Mensaje Final</span></a>
+        <a class="nav-item" data-slide="18"><span class="nav-number">18</span><span>Llamado a la Acción</span></a>
+        <a class="nav-item" data-slide="19"><span class="nav-number">19</span><span>Frase de Cierre</span></a>
+    </nav>
+</aside>
+
+<main class="main-content" id="mainContent">
+    <header class="top-bar">
+        <div class="d-flex align-items-center gap-3">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="top-bar-title">
+                <i class="bi bi-shield-check"></i>
+                <span>Seguridad Digital</span>
+            </div>
+        </div>
+        <div class="top-bar-actions">
+            <div class="timer-display" id="timerDisplay">00:00</div>
+            <div class="slide-counter">
+                <span class="current" id="currentSlide">1</span> / <span id="totalSlides">19</span>
+            </div>
+            <button class="top-bar-btn" id="themeToggle" title="Cambiar tema" aria-label="Cambiar entre modo claro y oscuro">
+                <i class="bi bi-moon-fill" id="themeIcon"></i>
+            </button>
+            <button class="top-bar-btn" id="helpBtn" title="Ayuda" aria-label="Ver atajos de teclado">
+                <i class="bi bi-question-lg"></i>
+            </button>
+            <button class="top-bar-btn" id="fullscreenBtn" title="Pantalla completa" aria-label="Activar pantalla completa">
+                <i class="bi bi-arrows-fullscreen" id="fullscreenIcon"></i>
+            </button>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" aria-label="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="progress-bar-top">
+        <div class="progress-bar-top-fill" id="progressBar"></div>
+    </div>
+
+    <div class="slides-wrapper">
+        <section class="slide" id="slide-1" data-slide="1">
+            <div class="slide-inner title-slide">
+                <div class="title-icon">
+                    <i class="bi bi-shield-lock"></i>
+                </div>
+                <h1>Seguridad Digital en la Atención al Ciudadano</h1>
+                <p class="lead">Tu prudencia digital protege la confianza del ciudadano en nuestra institución.</p>
+                <div class="title-meta">
+                    <p class="name">Mario Raúl Mendoza Guzmán</p>
+                    <p>Ingeniero Preventa</p>
+                    <p class="mt-3 text-muted" style="font-size: 0.875rem;">Duración estimada: 45 minutos</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">1</div>
+        </section>
+
+        <section class="slide" id="slide-2" data-slide="2">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Son las 10:30 de la mañana...</h2>
+                    <p class="subtitle">Una escena cotidiana que puede convertirse en riesgo</p>
+                </div>
+                <div class="two-columns">
+                    <div class="section-card">
+                        <div class="card-icon primary"><i class="bi bi-clock"></i></div>
+                        <h4 class="card-title">Escena cotidiana</h4>
+                        <p class="card-text">Sala llena, personas esperando, teléfono sonando, varios sistemas abiertos al mismo tiempo.</p>
+                        <span class="badge-custom badge-danger mt-3"><i class="bi bi-exclamation-triangle"></i> Presión constante</span>
+                    </div>
+                    <div class="section-card">
+                        <h4 class="card-title"><i class="bi bi-envelope-exclamation text-warning me-2"></i>Correo urgente</h4>
+                        <div class="email-preview-box mt-3">
+                            <div class="email-header-field">
+                                <span class="email-label">Asunto</span>
+                                <div class="text-danger fw-bold">URGENTE</div>
+                            </div>
+                            <p class="mb-2">"Necesito validar inmediatamente información de un ciudadano. El despacho la requiere antes del mediodía."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h5 class="mb-3 fw-bold">Dos decisiones posibles:</h5>
+                    <div class="decision-card wrong">
+                        <i class="bi bi-x-circle-fill decision-icon"></i>
+                        <div>
+                            <h6>Responder inmediatamente</h6>
+                            <p class="text-muted mb-0">Influir por la urgencia aparente</p>
+                        </div>
+                    </div>
+                    <div class="decision-card right">
+                        <i class="bi bi-check-circle-fill decision-icon"></i>
+                        <div>
+                            <h6>Detenerse un minuto para verificar</h6>
+                            <p class="text-muted mb-0">Aplicar el procedimiento establecido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-lightbulb-fill text-warning"></i> La ciberseguridad rara vez consiste en saber más informática. Casi siempre consiste en <strong class="text-primary">decidir con calma cuando alguien intenta que actuemos con prisa</strong>.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">2</div>
+        </section>
+
+        <section class="slide" id="slide-3" data-slide="3">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Cuando un ciudadano entrega documentos, también entrega confianza</h2>
+                    <p class="subtitle">El ciudadano confía en que...</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div class="section-card text-center">
+                        <div class="card-icon success mx-auto"><i class="bi bi-person-check"></i></div>
+                        <h4 class="card-title mt-3">La confianza ciudadana</h4>
+                        <p class="card-text">Cada persona que llega a una entidad pública deposita algo valioso além de documentos: deposita esperanza, expectativas y principalmente <strong>confianza</strong>.</p>
+                    </div>
+                    <div class="section-card">
+                        <div class="trust-list">
+                            <div class="icon-item mb-3"><i class="bi bi-shield-check text-success"></i><span>Sus datos personales estarán protegidos</span></div>
+                            <div class="icon-item mb-3"><i class="bi bi-person-badge text-success"></i><span>Su identidad será respetada</span></div>
+                            <div class="icon-item mb-3"><i class="bi bi-eye-slash text-success"></i><span>Nadie consultará información sin autorización</span></div>
+                            <div class="icon-item"><i class="bi bi-folder-check text-success"></i><span>La entidad cuidará su información como cuida documentos físicos</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-exclamation-circle text-danger"></i> <strong>Importante:</strong> Un ciudadano puede recibir una respuesta amable, pero si sus datos terminan en manos equivocadas, la experiencia de servicio queda destruida.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">3</div>
+        </section>
+
+        <section class="slide" id="slide-4" data-slide="4">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>La seguridad no empieza en el servidor; empieza en la decisión</h2>
+                    <p class="subtitle">Cada funcionario es un punto de control</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="trust-chain-visual">
+                    <div class="chain-node primary"><i class="bi bi-person node-icon"></i><span class="node-label">Ciudadano</span></div>
+                    <i class="bi bi-arrow-right chain-arrow"></i>
+                    <div class="chain-node warning"><i class="bi bi-person-badge node-icon"></i><span class="node-label">Funcionario</span></div>
+                    <i class="bi bi-arrow-right chain-arrow"></i>
+                    <div class="chain-node secondary"><i class="bi bi-list-check node-icon"></i><span class="node-label">Procedimiento</span></div>
+                    <i class="bi bi-arrow-right chain-arrow"></i>
+                    <div class="chain-node secondary"><i class="bi bi-database node-icon"></i><span class="node-label">Sistema</span></div>
+                    <i class="bi bi-arrow-right chain-arrow"></i>
+                    <div class="chain-node dark"><i class="bi bi-building node-icon"></i><span class="node-label">Institución</span></div>
+                </div>
+                <div class="three-columns">
+                    <div class="section-card text-center">
+                        <i class="bi bi-envelope-open display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Abrir un correo</h5>
+                        <p class="card-text text-muted small">Cada correo abierto es una decisión de entrada</p>
+                    </div>
+                    <div class="section-card text-center">
+                        <i class="bi bi-search display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Consultar un dato</h5>
+                        <p class="card-text text-muted small">Cada consulta debe tener justificación legítima</p>
+                    </div>
+                    <div class="section-card text-center">
+                        <i class="bi bi-reply display-4 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Entregar una respuesta</h5>
+                        <p class="card-text text-muted small">Cada respuesta es una decisión de salida</p>
+                    </div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-shield-check text-success"></i> <strong>Cada funcionario es un punto de control.</strong> Las decisiones pequeñas tienen consecuencias grandes.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">4</div>
+        </section>
+
+        <section class="slide" id="slide-5" data-slide="5">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2 class="text-danger">El atacante no siempre rompe sistemas; muchas veces fabrica urgencia</h2>
+                    <p class="subtitle">La presión reduce la capacidad de verificar</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="section-card text-center py-4 mb-4" style="background: linear-gradient(135deg, rgba(220,38,38,0.05) 0%, rgba(220,38,38,0.1) 100%); border: 2px dashed var(--danger);">
+                    <i class="bi bi-exclamation-triangle display-1 text-danger mb-3"></i>
+                    <h3 class="text-danger fw-bold">URGENCIA</h3>
+                    <p class="text-muted mb-0">Herramienta #1 de manipulación digital</p>
+                </div>
+                <div class="four-columns">
+                    <div class="pressure-phrase">"Necesito esto en cinco minutos."</div>
+                    <div class="pressure-phrase">"El Director lo está esperando."</div>
+                    <div class="pressure-phrase">"El ciudadano está en línea."</div>
+                    <div class="pressure-phrase">"Si no responde ya, se vence el trámite."</div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-lightbulb-fill text-warning"></i> <strong>La presión reduce la verificación.</strong> Cuando existe presión, disminuye la capacidad de hacer preguntas básicas: <span class="text-primary">¿Quién lo solicita? ¿El canal es oficial? ¿La solicitud corresponde al procedimiento?</span></p>
+                </div>
+                <div class="mt-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-shield-exclamation text-warning me-2"></i>Señales de presión artificial en ataques reales:</h6>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start gap-2 p-2 bg-white rounded small">
+                                <i class="bi bi-phone text-danger mt-1"></i>
+                                <span><strong>Smishing:</strong> "Su paquete no pudo ser entregado. Actualice datos ahora."</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start gap-2 p-2 bg-white rounded small">
+                                <i class="bi bi-telephone text-danger mt-1"></i>
+                                <span><strong>Vishing:</strong> "Llame inmediatamente al banco o su cuenta será bloqueada."</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start gap-2 p-2 bg-white rounded small">
+                                <i class="bi bi-whatsapp text-success mt-1"></i>
+                                <span><strong>WhatsApp:</strong> "Papá, perdí el teléfono. Mándame dinero urgentemente."</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start gap-2 p-2 bg-white rounded small">
+                                <i class="bi bi-envelope text-primary mt-1"></i>
+                                <span><strong>Email:</strong> "Suscripción vencida. Actualice datos de pago en 24h o perderá acceso."</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number-badge">5</div>
+        </section>
+
+        <section class="slide" id="slide-6" data-slide="6">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Autoridad + Urgencia + Excepción = Riesgo</h2>
+                    <p class="subtitle">La Fórmula de la Manipulación</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="formula-visual">
+                    <div class="formula-item primary"><i class="bi bi-person-badge item-icon"></i><span class="item-label">Autoridad</span></div>
+                    <span class="formula-operator">+</span>
+                    <div class="formula-item warning"><i class="bi bi-clock item-icon"></i><span class="item-label">Urgencia</span></div>
+                    <span class="formula-operator">+</span>
+                    <div class="formula-item danger"><i class="bi bi-slash-circle item-icon"></i><span class="item-label">Excepción</span></div>
+                    <span class="formula-operator">=</span>
+                    <div class="formula-item dark"><i class="bi bi-exclamation-triangle item-icon"></i><span class="item-label">Riesgo</span></div>
+                </div>
+                <div class="three-columns">
+                    <div class="section-card">
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-question-circle-fill text-primary me-2"></i><h5 class="card-title mb-0">¿Quién lo solicita?</h5></div>
+                        <p class="card-text">Verificar identidad por canal oficial</p>
+                    </div>
+                    <div class="section-card">
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-question-circle-fill text-warning me-2"></i><h5 class="card-title mb-0">¿Por qué tanta prisa?</h5></div>
+                        <p class="card-text">La prisa puede ser manipulación</p>
+                    </div>
+                    <div class="section-card">
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-question-circle-fill text-danger me-2"></i><h5 class="card-title mb-0">¿Saltarme un procedimiento?</h5></div>
+                        <p class="card-text">Si la respuesta es sí, deténgase</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-info-circle text-primary"></i> <strong>Nota:</strong> Los procedimientos no existen para incomodar. Existen para proteger al ciudadano, al funcionario y a la institución.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">6</div>
+        </section>
+
+        <section class="slide" id="slide-7" data-slide="7">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>"Yo solo consulto información"... pero esa información vale mucho</h2>
+                    <p class="subtitle">El dato no es solo un registro: representa a una persona</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div class="section-card text-center" style="background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(37,99,235,0.1) 100%);">
+                        <i class="bi bi-database-lock display-1 text-primary mb-3"></i>
+                        <h4 class="card-title">Los datos se combinan</h4>
+                        <p class="card-text">Un dato + otro dato = contexto.<br>El contexto permite perfilar.<br>El perfil permite engañar con mayor precisión.</p>
+                    </div>
+                    <div>
+                        <div class="data-value-card mb-3"><i class="bi bi-person-vcard data-icon"></i><h6>Número de cédula / DPI / Pasaporte</h6><p>Suplantación de identidad directa</p></div>
+                        <div class="data-value-card mb-3"><i class="bi bi-house data-icon"></i><h6>Dirección y ubicación</h6><p>Suplantación postal, ingeniería social domicilia</p></div>
+                        <div class="data-value-card mb-3"><i class="bi bi-telephone data-icon"></i><h6>Teléfono y correo electrónico</h6><p>Fraudes multicanal, phishing dirigido</p></div>
+                        <div class="data-value-card mb-3"><i class="bi bi-credit-card data-icon"></i><h6>Datos financieros y tributarios</h6><p>Robo financiero, evasión fiscal, lavado</p></div>
+                        <div class="data-value-card"><i class="bi bi-heart-pulse data-icon"></i><h6>Datos de salud e historial médico</h6><p>Extorsión, discriminación, fraude a aseguradoras</p></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="section-card py-3 text-center">
+                                <i class="bi bi-shield-lock text-danger fs-3 mb-2"></i>
+                                <h6 class="fw-bold mb-1">Datos sensibles</h6>
+                                <p class="small text-muted mb-0">Salud, orientación sexual, creencias políticas, datos biométricos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="section-card py-3 text-center">
+                                <i class="bi bi-people text-warning fs-3 mb-2"></i>
+                                <h6 class="fw-bold mb-1">Datos de menores</h6>
+                                <p class="small text-muted mb-0">Protección especial. Divulgación puede constituir delito.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="section-card py-3 text-center">
+                                <i class="bi bi-building text-primary fs-3 mb-2"></i>
+                                <h6 class="fw-bold mb-1">Datos institucionales</h6>
+                                <p class="small text-muted mb-0">Procesos internos, decisiones, información estratégica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-diagram-3 text-success"></i> <strong>Datos combinados → Contexto → Perfil → Engaño preciso</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">7</div>
+        </section>
+
+        <section class="slide" id="slide-8" data-slide="8">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2 class="text-danger">El impacto de una entrega indebida no termina en el correo enviado</h2>
+                    <p class="subtitle">Una cadena de consecuencias</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="cascade-flow">
+                    <div class="cascade-node cascade-start"><i class="bi bi-file-earmark me-2"></i><strong>Dato entregado sin verificación</strong></div>
+                    <div class="cascade-consequences">
+                        <div class="cascade-consequence"><i class="bi bi-cash-stack"></i><span>Fraude financiero</span></div>
+                        <div class="cascade-consequence"><i class="bi bi-person-x"></i><span>Suplantación de identidad</span></div>
+                        <div class="cascade-consequence"><i class="bi bi-phone"></i><span>Extorsión a víctimas</span></div>
+                        <div class="cascade-consequence"><i class="bi bi-people"></i><span>Ataques mejorados</span></div>
+                        <div class="cascade-consequence"><i class="bi bi-cart-check"></i><span>Venta en mercado negro</span></div>
+                    </div>
+                    <div class="cascade-node cascade-end"><i class="bi bi-exclamation-octagon me-2"></i><strong>Afectación a personas reales y credibilidad institucional</strong></div>
+                </div>
+                <div class="row mt-4 g-3">
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-person-x me-2"></i>Consecuencias para el ciudadano</h6>
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Robo de identidad para créditos fraudulentos</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Extorsión basada en información personal</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Uso de datos para fraudes en línea</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Afectación a historial crediticio</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <h6 class="fw-bold text-warning mb-3"><i class="bi bi-building me-2"></i>Consecuencias para la institución</h6>
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Pérdida de confianza ciudadana</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Sanciones por incumplimiento legal</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Daño reputacional institucional</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Procesos disciplinarios y legales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box mt-4">
+                    <p class="fs-5 mb-0"><i class="bi bi-lightbulb-fill text-warning"></i> <strong>La prevención comienza antes de entregar la información</strong>, no después del incidente. Una vez el dato sale por un canal incorrecto, recuperarlo es extremadamente difícil.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">8</div>
+        </section>
+
+        <section class="slide" id="slide-9" data-slide="9">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>No todos somos vigilantes técnicos; muchos somos porteros digitales</h2>
+                    <p class="subtitle">El portero no configura la seguridad. Decide si abre la puerta.</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div class="building-analogy">
+                        <div class="building-icon"><i class="bi bi-building"></i></div>
+                        <h4 class="fw-bold text-center mb-3">El Edificio Institucional</h4>
+                        <div class="building-list">
+                            <div class="building-list-item"><i class="bi bi-camera-video"></i> Cámaras</div>
+                            <div class="building-list-item"><i class="bi bi-bell"></i> Alarmas</div>
+                            <div class="building-list-item"><i class="bi bi-door-open"></i> Puertas electrónicas</div>
+                            <div class="building-list-item"><i class="bi bi-shield"></i> Vigilante</div>
+                            <div class="building-list-item"><i class="bi bi-person"></i> Portero</div>
+                            <div class="building-list-item"><i class="bi bi-pc-display"></i> Recepción</div>
+                        </div>
+                    </div>
+                    <div class="analogy-card">
+                        <h5><i class="bi bi-arrow-left-right me-2"></i>Equivalencia Digital</h5>
+                        <div class="analogy-item"><strong>Cámaras / Alarmas / Puertas</strong><p>= Tecnología (servidores, redes, antivirus)</p></div>
+                        <div class="analogy-item"><strong>Portero / Recepción</strong><p>= Funcionario que verifica</p></div>
+                        <div style="background: var(--primary); color: white; padding: 16px; border-radius: 12px; margin-top: 16px; text-align: center;">
+                            <i class="bi bi-shield-check fs-4"></i>
+                            <p class="mb-0 mt-2 fw-bold">El portero no configura la seguridad. Decide si abre la puerta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="attacker-phrases">
+                    <h6><i class="bi bi-robot"></i> Lo que el atacante le diría al portero:</h6>
+                    <ul><li>"Soy proveedor", "Vengo autorizado", "Me envió el Director", "Solo necesito un minuto", "La información es urgente".</li></ul>
+                </div>
+            </div>
+            <div class="slide-number-badge">9</div>
+        </section>
+
+        <section class="slide" id="slide-10" data-slide="10">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Cada acción digital es una decisión de acceso</h2>
+                    <p class="subtitle">Seis acciones cotidianas con impacto en la seguridad</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="action-cards-grid">
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-envelope-open"></i></div>
+                        <h6>Abrir un correo</h6>
+                        <p class="small">Clic en enlace = infección o robo de credenciales</p>
+                    </div>
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-file-arrow-down"></i></div>
+                        <h6>Descargar archivo</h6>
+                        <p class="small">Malware puede cifrar datos o espiar equipo</p>
+                    </div>
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-send"></i></div>
+                        <h6>Responder solicitud</h6>
+                        <p class="small">Info entregada = suplantación posible</p>
+                    </div>
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-search"></i></div>
+                        <h6>Consultar un dato</h6>
+                        <p class="small">Sin autorización = acceso indebido</p>
+                    </div>
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-paperclip"></i></div>
+                        <h6>Enviar documento</h6>
+                        <p class="small">Canal wrong = dato comprometido</p>
+                    </div>
+                    <div class="action-card-item">
+                        <div class="action-icon"><i class="bi bi-person-check"></i></div>
+                        <h6>Confirmar identidad</h6>
+                        <p class="small">Sin verificar = suplantación facilitada</p>
+                    </div>
+                </div>
+                <div class="row mt-4 g-3">
+                    <div class="col-md-6">
+                        <div class="section-card py-3">
+                            <h6 class="fw-bold text-danger mb-2"><i class="bi bi-x-circle me-2"></i>Errores comunes</h6>
+                            <p class="small mb-0 text-muted">"Solo era una consulta rápida", "Confío en quien lo pidió", "Parece oficial", "Urgía resolver"</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-card py-3">
+                            <h6 class="fw-bold text-success mb-2"><i class="bi bi-check-circle me-2"></i>Decisión correcta</h6>
+                            <p class="small mb-0 text-muted">"Verifiqué canal, identidad y procedimiento antes de actuar"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-shield-check text-success"></i> <strong>Verificar no retrasa el servicio; lo fortalece.</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">10</div>
+        </section>
+
+        <section class="slide" id="slide-11" data-slide="11">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Caso práctico: "Necesito copia inmediata de mi expediente"</h2>
+                    <p class="subtitle">Caso 1: La Solicitud Urgente de un Ciudadano</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div class="section-card">
+                        <h5 class="card-title mb-3"><i class="bi bi-envelope text-warning me-2"></i>Correo recibido</h5>
+                        <div class="email-preview-box">
+                            <div class="email-header-field">
+                                <span class="email-label">Asunto</span>
+                                <div class="text-danger fw-bold">URGENTE - Necesito copia inmediata de mi expediente</div>
+                            </div>
+                            <p class="mb-2">Buenos días.</p>
+                            <p class="mb-2">Me encuentro fuera de la ciudad y necesito con urgencia una copia de mi expediente para una audiencia.</p>
+                            <p class="mb-2">Adjunto una autorización.</p>
+                            <p class="mb-2">Agradezco enviarla antes del mediodía.</p>
+                            <p class="mb-0">Atentamente,<br><strong>Juan Pérez</strong></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="section-card mb-3" style="background: rgba(217,119,6,0.05); border-color: var(--warning);">
+                            <h5 class="card-title text-warning mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Señales de alerta detectadas</h5>
+                            <div class="case-signal"><i class="bi bi-check-circle-fill"></i> Urgencia extrema sin justificación previa</div>
+                            <div class="case-signal"><i class="bi bi-check-circle-fill"></i> Solicitud de información sensible</div>
+                            <div class="case-signal"><i class="bi bi-check-circle-fill"></i> Archivo adjunto ("autorización")</div>
+                            <div class="case-signal"><i class="bi bi-check-circle-fill"></i> Fuera de canales oficiales</div>
+                            <div class="case-signal"><i class="bi bi-check-circle-fill"></i> Sin verificación de identidad</div>
+                        </div>
+                        <div class="section-card" style="background: rgba(5,150,105,0.05); border-color: var(--success);">
+                            <h5 class="card-title text-success mb-3"><i class="bi bi-check-circle me-2"></i>¿Qué hacer antes de responder?</h5>
+                            <div class="case-action"><i class="bi bi-1-circle"></i> Verificar identidad del solicitante</div>
+                            <div class="case-action"><i class="bi bi-2-circle"></i> Confirmar si la solicitud puede atenderse por ese canal</div>
+                            <div class="case-action"><i class="bi bi-3-circle"></i> Revisar si la autorización cumple requisitos</div>
+                            <div class="case-action"><i class="bi bi-4-circle"></i> Usar canales oficiales para entregar</div>
+                            <div class="case-action"><i class="bi bi-5-circle"></i> Si hay duda, escalar al supervisor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-lightbulb-fill text-warning"></i> <strong>La urgencia no demuestra autenticidad.</strong> Un mensaje puede ser urgente y legítimo, pero igual debe seguirse el procedimiento.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">11</div>
+        </section>
+
+        <section class="slide" id="slide-12" data-slide="12">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Caso práctico: "Es prioridad de Dirección"</h2>
+                    <p class="subtitle">Caso 2: El Falso Superior - Ingeniería social interna</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div>
+                        <div class="section-card mb-3">
+                            <h5 class="card-title mb-3"><i class="bi bi-envelope text-primary me-2"></i>Correo interno sospechoso</h5>
+                            <div class="email-preview-box">
+                                <div class="email-header-field"><span class="email-label">De:</span> <div>direccion@entidad-gobierno.com (similar al real)</div></div>
+                                <div class="email-header-field"><span class="email-label">Asunto:</span><div>Revisión inmediata</div></div>
+                                <p class="mb-2">Buenos días.</p>
+                                <p class="mb-2">Necesito confirmar la información del ciudadano relacionado en el archivo adjunto.</p>
+                                <p class="mb-2">Por favor responder antes de las 11:00 a.m.</p>
+                                <p class="mb-2 text-danger fw-bold">Es prioridad de Dirección.</p>
+                                <p class="mb-0">Gracias.</p>
+                            </div>
+                        </div>
+                        <div class="section-card" style="background: rgba(220,38,38,0.05); border-color: var(--danger);">
+                            <h5 class="card-title text-danger mb-2"><i class="bi bi-exclamation-triangle me-2"></i>Técnicas detectadas</h5>
+                            <ul class="small mb-0 text-muted">
+                                <li>Suplantación de dominio similar (typosquatting)</li>
+                                <li>Archivo adjunto malicioso (payload)</li>
+                                <li>Presión de tiempo (deadline artificial)</li>
+                                <li>Apelación a autoridad jerárquica</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="section-card mb-3" style="background: rgba(37,99,235,0.05);">
+                            <h5 class="card-title text-primary mb-3"><i class="bi bi-lightning me-2"></i>Recordemos la fórmula</h5>
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <span class="badge bg-primary p-2">Autoridad</span>
+                                <span class="badge bg-secondary p-2">+</span>
+                                <span class="badge bg-warning text-dark p-2">Urgencia</span>
+                                <span class="badge bg-secondary p-2">+</span>
+                                <span class="badge bg-danger p-2">Excepción</span>
+                                <span class="badge bg-secondary p-2">=</span>
+                                <span class="badge bg-dark p-2">Riesgo</span>
+                            </div>
+                        </div>
+                        <div class="section-card">
+                            <h5 class="card-title mb-3"><i class="bi bi-question-circle text-primary me-2"></i>Preguntas clave de verificación</h5>
+                            <div class="icon-item mb-2"><i class="bi bi-x-circle text-danger"></i> ¿Era esperado ese correo?</div>
+                            <div class="icon-item mb-2"><i class="bi bi-x-circle text-danger"></i> ¿Corresponde a mi función habitual?</div>
+                            <div class="icon-item mb-2"><i class="bi bi-x-circle text-danger"></i> ¿El archivo adjunto es necesario?</div>
+                            <div class="icon-item mb-2"><i class="bi bi-x-circle text-danger"></i> ¿El dominio es exactamente el oficial?</div>
+                            <div class="icon-item mb-2"><i class="bi bi-x-circle text-danger"></i> ¿Puedo confirmar por teléfono interno?</div>
+                            <div class="icon-item"><i class="bi bi-check text-success"></i> ¿Seguí el procedimiento oficial?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p><i class="bi bi-lightbulb-fill text-warning"></i> <strong>La apariencia profesional no prueba autenticidad.</strong> Hoy los mensajes maliciosos pueden estar perfectamente redactados, incluso imitando dominios oficiales.</p>
+                </div>
+            </div>
+            <div class="slide-number-badge">12</div>
+        </section>
+
+        <section class="slide" id="slide-13" data-slide="13">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Hoy el engaño puede verse impecable</h2>
+                    <p class="subtitle">La Inteligencia Artificial también se usa para atacar</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="two-columns">
+                    <div class="section-card text-center" style="background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(37,99,235,0.1) 100%);">
+                        <div class="card-icon primary mx-auto"><i class="bi bi-cpu"></i></div>
+                        <h4 class="card-title mt-3">Engaño mejorado por IA</h4>
+                        <p class="card-text">Las herramientas de IA pueden generar mensajes altamente convincentes en segundos, sin errores, con tono perfecto.</p>
+                    </div>
+                    <div class="ai-features-grid">
+                        <div class="ai-feature-item"><i class="bi bi-text-center"></i><span>Correos sin errores ortográficos</span></div>
+                        <div class="ai-feature-item"><i class="bi bi-image"></i><span>Logos institucionales perfectos</span></div>
+                        <div class="ai-feature-item"><i class="bi bi-chat-quote"></i><span>Tono institucional convincente</span></div>
+                        <div class="ai-feature-item"><i class="bi bi-person-badge"></i><span>Firmas de executives reales</span></div>
+                        <div class="ai-feature-item"><i class="bi bi-chat-dots"></i><span>Mensajes personalizados</span></div>
+                        <div class="ai-feature-item"><i class="bi bi-mic"></i><span>Voces clonadas para llamadas</span></div>
+                    </div>
+                </div>
+                <div class="row mt-4 g-3">
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-robot me-2"></i>Ataques generados por IA</h6>
+                            <ul class="small mb-0 text-muted">
+                                <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Deepfakes de audio: voz del jefe ordenando transferencia</li>
+                                <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Correos phishing personalizados a gran escala</li>
+                                <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Perfiles falsos ultrarealistas en redes sociales</li>
+                                <li><i class="bi bi-x text-danger me-2"></i>Chats automatizados que simulan personas reales</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <h6 class="fw-bold text-success mb-3"><i class="bi bi-shield-check me-2"></i>Cómo verificar ante IA</h6>
+                            <ul class="small mb-0 text-muted">
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Verificar por canal alternativo independiente</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>No confiar en solicitudes sole basée en voz o video</li>
+                                <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Confirmar identidades con preguntas control</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Aplicar siempre el procedimiento oficial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p class="text-center"><i class="bi bi-exclamation-circle text-warning"></i> <strong>Ya no podemos confiar únicamente en señales superficiales.</strong> La IA puede hacer que el engaño parezca más creíble, pero no cambia el procedimiento: <span class="text-primary">siempre verificar por canal oficial.</span></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">13</div>
+        </section>
+
+        <section class="slide" id="slide-14" data-slide="14">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>No memorice cien consejos: recuerde cuatro preguntas</h2>
+                    <p class="subtitle">Herramientas prácticas para actuar con prudencia bajo presión</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="question-list">
+                    <div class="question-item">
+                        <span class="question-number q1">1</span>
+                        <div class="question-content">
+                            <h5>¿Quién lo solicita?</h5>
+                            <p>Verifique identidad por canales oficiales. No basta con que el nombre aparezca en un correo.</p>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <span class="question-number q2">2</span>
+                        <div class="question-content">
+                            <h5>¿Por qué tanta urgencia?</h5>
+                            <p>La urgencia puede ser real, pero también es una herramienta frecuente de manipulación.</p>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <span class="question-number q3">3</span>
+                        <div class="question-content">
+                            <h5>¿Me piden saltarme un procedimiento?</h5>
+                            <p>Si la respuesta es sí, deténgase. Los procedimientos son barreras de protección.</p>
+                        </div>
+                    </div>
+                    <div class="question-item">
+                        <span class="question-number q4">4</span>
+                        <div class="question-content">
+                            <h5>¿Puedo confirmar por otro medio?</h5>
+                            <p>Una llamada, validación interna o consulta al canal oficial puede evitar un incidente.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="pause-verify-act"><span>Pausar</span><span class="separator">—</span><span>Verificar</span><span class="separator">—</span><span>Actuar</span></div>
+                </div>
+            </div>
+            <div class="slide-number-badge">14</div>
+        </section>
+
+        <section class="slide" id="slide-15" data-slide="15">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Actuar con calma también es responder correctamente</h2>
+                    <p class="subtitle">Qué hacer cuando algo parece sospechoso</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="action-flow-visual">
+                    <div class="flow-step step-1">
+                        <div class="flow-icon"><i class="bi bi-pause-fill"></i></div>
+                        <div class="flow-content"><h6>1. Pausar</h6><p>La pausa es una herramienta de seguridad, no es demora injustificada. Es control.</p></div>
+                    </div>
+                    <div class="flow-step step-2">
+                        <div class="flow-icon"><i class="bi bi-hand-thumbs-down-fill"></i></div>
+                        <div class="flow-content"><h6>2. No abrir / No descargar / No compartir</h6><p>No actúe en automático ante archivos adjuntos inesperados o solicitudes fuera de procedimiento.</p></div>
+                    </div>
+                    <div class="flow-step step-3">
+                        <div class="flow-icon"><i class="bi bi-search"></i></div>
+                        <div class="flow-content"><h6>3. Verificar canal e identidad</h6><p>Confirme por medios oficiales. No use datos de contacto del mensaje dudoso.</p></div>
+                    </div>
+                    <div class="flow-step step-4">
+                        <div class="flow-icon"><i class="bi bi-arrow-up-circle"></i></div>
+                        <div class="flow-content"><h6>4. Consultar o escalar</h6><p>Si no está seguro, pida apoyo. Escalar no es debilidad, es práctica responsable.</p></div>
+                    </div>
+                    <div class="flow-step step-5">
+                        <div class="flow-icon"><i class="bi bi-file-earmark-text"></i></div>
+                        <div class="flow-content"><h6>5. Registrar o reportar</h6><p>Un mensaje sospechoso puede afectar a varias personas. Reportar protege a otros.</p></div>
+                    </div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-lightbulb-fill text-success"></i> <strong>En seguridad digital, una respuesta tranquila puede ser más valiosa que una respuesta rápida.</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">15</div>
+        </section>
+
+        <section class="slide" id="slide-16" data-slide="16">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2 class="text-success">Un minuto puede proteger mucho más que un trámite</h2>
+                    <p class="subtitle">Regreso a la historia inicial</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="story-box">
+                    <div class="story-icon"><i class="bi bi-clock"></i></div>
+                    <h3 class="story-title">Son las 10:30 de la mañana</h3>
+                    <p class="story-text">El funcionario <span class="highlight">se detiene un minuto</span>. Verifica. Revisa el procedimiento. Confirma por canal confiable.</p>
+                    <div class="story-result"><p><i class="bi bi-shield-check"></i> Gracias a esa pausa, evita entregar información a quien no corresponde.</p></div>
+                </div>
+                <div class="protection-badges mt-5">
+                    <div class="protection-badge"><i class="bi bi-person-check"></i><span>Ciudadano</span></div>
+                    <div class="protection-badge"><i class="bi bi-building"></i><span>Institución</span></div>
+                    <div class="protection-badge"><i class="bi bi-people"></i><span>Compañeros</span></div>
+                    <div class="protection-badge"><i class="bi bi-briefcase"></i><span>Su trabajo</span></div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-4 mb-0"><i class="bi bi-heart-fill text-danger"></i> <strong>La calma también protege.</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">16</div>
+        </section>
+
+        <section class="slide" id="slide-17" data-slide="17">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>La tecnología protege sistemas; las personas protegen confianza</h2>
+                    <p class="subtitle">Dos dimensiones de la seguridad que se complementan</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-side tech">
+                        <h5><i class="bi bi-gear"></i> Lo que protege la tecnología</h5>
+                        <div class="comparison-item"><i class="bi bi-server"></i><span>Servidores</span></div>
+                        <div class="comparison-item"><i class="bi bi-wifi"></i><span>Redes</span></div>
+                        <div class="comparison-item"><i class="bi bi-shield-virus"></i><span>Antivirus</span></div>
+                        <div class="comparison-item"><i class="bi bi-sliders"></i><span>Controles técnicos</span></div>
+                    </div>
+                    <div class="comparison-side human">
+                        <h5><i class="bi bi-person"></i> Lo que protege cada persona</h5>
+                        <div class="comparison-item"><i class="bi bi-check-circle"></i><span>Verificar cuando hay presión</span></div>
+                        <div class="comparison-item"><i class="bi bi-check-circle"></i><span>Seguir procedimiento ante urgencia</span></div>
+                        <div class="comparison-item"><i class="bi bi-check-circle"></i><span>Confirmar correos profesionales</span></div>
+                        <div class="comparison-item"><i class="bi bi-check-circle"></i><span>Entender que un dato es una persona</span></div>
+                    </div>
+                </div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-shield-check text-success"></i> <strong>La decisión consciente de cada funcionario es una protección que ninguna herramienta reemplaza.</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">17</div>
+        </section>
+
+        <section class="slide" id="slide-18" data-slide="18">
+            <div class="slide-inner">
+                <div class="slide-header">
+                    <h2>Verificar antes de compartir fortalece el servicio</h2>
+                    <p class="subtitle">Llamado a la acción</p>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="three-columns mb-5">
+                    <div class="commitment-card"><i class="bi bi-pause-circle text-danger"></i><h5>Pauso</h5><p>ante la urgencia</p></div>
+                    <div class="commitment-card"><i class="bi bi-check-circle text-primary"></i><h5>Verifico</h5><p>identidad y procedimiento</p></div>
+                    <div class="commitment-card"><i class="bi bi-shield-check text-success"></i><h5>Protejo</h5><p>la confianza del ciudadano</p></div>
+                </div>
+                <div class="text-center"><p class="fs-3 fw-bold mb-4"><i class="bi bi-hand-index text-primary me-2"></i>Cada clic responsable cuenta</p></div>
+                <div class="highlight-box text-center">
+                    <p class="fs-5 mb-0"><i class="bi bi-lightbulb-fill text-warning"></i> <strong>Tu prudencia digital protege la confianza del ciudadano en nuestra institución.</strong></p>
+                </div>
+            </div>
+            <div class="slide-number-badge">18</div>
+        </section>
+
+        <section class="slide" id="slide-19" data-slide="19">
+            <div class="slide-inner closing-slide">
+                <blockquote class="closing-quote">"La primera barrera de la ciberseguridad no es un computador. Es una decisión tomada con calma."</blockquote>
+                <p class="closing-message">La seguridad digital no consiste en desconfiar de las personas.<br>Consiste en <strong class="text-primary">verificar antes de otorgar acceso</strong> a la información.</p>
+                <p class="fs-2 fw-bold text-primary mb-2">¡Gracias!</p>
+                <p class="text-muted mb-0">Espacio para preguntas</p>
+            </div>
+            <div class="slide-number-badge">19</div>
+        </section>
+    </div>
+
+    <div class="keyboard-hint">
+        <small>Usa <kbd>←</kbd> <kbd>→</kbd> o <kbd>Space</kbd> para navegar</small>
+    </div>
+</main>
+
+<button class="quick-ref-toggle">
+    <button class="btn-quick-ref" id="quickRefBtn" title="Guía de referencia rápida" aria-label="Mostrar guía de referencia rápida">
+        <i class="bi bi-card-text"></i>
+    </button>
+</button>
+
+<div class="quick-ref-panel" id="quickRefPanel">
+    <div class="quick-ref-header">
+        <h4><i class="bi bi-card-text me-2"></i>Guía de Referencia Rápida</h4>
+        <button class="quick-ref-close" id="quickRefClose" aria-label="Cerrar guía">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+    <div class="quick-ref-grid">
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-lightning"></i> Fórmula de la Manipulación</h6>
+            <ul>
+                <li><i class="bi bi-check2"></i> Autoridad + Urgencia + Excepción = Riesgo</li>
+                <li><i class="bi bi-check2"></i> Las tres juntas = Detenerse y verificar</li>
+            </ul>
+        </div>
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-question-circle"></i> Cuatro Preguntas Clave</h6>
+            <ul>
+                <li><i class="bi bi-1-circle"></i> ¿Quién lo solicita?</li>
+                <li><i class="bi bi-2-circle"></i> ¿Por qué tanta urgencia?</li>
+                <li><i class="bi bi-3-circle"></i> ¿Saltarme un procedimiento?</li>
+                <li><i class="bi bi-4-circle"></i> ¿Confirmar por otro medio?</li>
+            </ul>
+        </div>
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-list-check"></i> Pasos si es Sospechoso</h6>
+            <ul>
+                <li><i class="bi bi-pause"></i> Pausar</li>
+                <li><i class="bi bi-slash-circle"></i> No abrir/descargar/compartir</li>
+                <li><i class="bi bi-search"></i> Verificar canal e identidad</li>
+                <li><i class="bi bi-arrow-up-circle"></i> Consultar o escalar</li>
+                <li><i class="bi bi-file-earmark-text"></i> Registrar o reportar</li>
+            </ul>
+        </div>
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-shield-check"></i> Frases para Recordar</h6>
+            <ul>
+                <li><i class="bi bi-quote"></i> "La urgencia no demuestra autenticidad"</li>
+                <li><i class="bi bi-quote"></i> "La apariencia profesional no prueba nada"</li>
+                <li><i class="bi bi-quote"></i> "Verificar no retrasa el servicio; lo fortalece"</li>
+                <li><i class="bi bi-quote"></i> "La pausa es una herramienta de seguridad"</li>
+            </ul>
+        </div>
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-cpu"></i> IA en Fraudes</h6>
+            <ul>
+                <li><i class="bi bi-x"></i> Correos impecables (sin errores)</li>
+                <li><i class="bi bi-x"></i> Logos institucionales simulados</li>
+                <li><i class="bi bi-x"></i> Firmas similares a reales</li>
+                <li><i class="bi bi-x"></i> Mensajes personalizados</li>
+            </ul>
+        </div>
+        <div class="quick-ref-card">
+            <h6><i class="bi bi-person-check"></i> Valores a Proteger</h6>
+            <ul>
+                <li><i class="bi bi-heart"></i> Confianza del ciudadano</li>
+                <li><i class="bi bi-building"></i> Credibilidad institucional</li>
+                <li><i class="bi bi-people"></i> Seguridad de compañeros</li>
+                <li><i class="bi bi-briefcase"></i> Integridad del trabajo propio</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="help-modal" id="helpModal">
+    <div class="help-modal-content">
+        <div class="help-modal-header">
+            <h5><i class="bi bi-keyboard me-2"></i>Atajos de Teclado</h5>
+            <button class="help-modal-close" id="helpModalClose" aria-label="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="shortcut-list">
+            <div class="shortcut-item"><span>Siguiente diapositiva</span><kbd>→</kbd></div>
+            <div class="shortcut-item"><span>Anterior diapositiva</span><kbd>←</kbd></div>
+            <div class="shortcut-item"><span>Siguiente diapositiva</span><kbd>Espacio</kbd></div>
+            <div class="shortcut-item"><span>Ir al inicio</span><kbd>Home</kbd></div>
+            <div class="shortcut-item"><span>Ir al final</span><kbd>End</kbd></div>
+            <div class="shortcut-item"><span>Alternar tema oscuro</span><kbd>T</kbd></div>
+            <div class="shortcut-item"><span>Pantalla completa</span><kbd>F</kbd></div>
+            
+            <div class="shortcut-item"><span>Guía de referencia</span><kbd>G</kbd></div>
+            <div class="shortcut-item"><span>Cerrar panel/modal</span><kbd>Esc</kbd></div>
+            <div class="shortcut-item"><span>Abrir menú</span><kbd>M</kbd></div>
+        </div>
+    </div>
+</div>
+
+<div class="fullscreen-toast" id="fullscreenToast">Modo pantalla completa activado</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
