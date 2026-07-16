@@ -92,9 +92,9 @@
                 <h1 style="text-align: center;">Seguridad Digital en la Atención al Usuario</h1><br>
                 <p class="lead" style="text-align: center;">Tu prudencia digital protege la confianza del Usuario en nuestra institución.</p>
                 <div class="title-meta">
-                    <p class="name">Mario Raúl Mendoza Guzmán</p>
+                    <p class="name"><strong>Mario Raúl Mendoza Guzmán</strong></p>
                     <p>Ingeniero Preventa</p>
-                    <p class="prepared-for">Preparado para: Secretaria de Movilidad</p>
+                    <p class="prepared-for">Preparado para: <u>Secretaria de Movilidad</u></p><br><br>
                 </div>
             </div>
             <div class="slide-number-badge">1</div>
@@ -581,6 +581,7 @@
                                 <p class="mb-0">Gracias.</p>
                             </div>
                         </div>
+                        <!-- Técnicas detectadas 
                         <div class="section-card" style="background: rgba(220,38,38,0.05); border-color: var(--danger);">
                             <h5 class="card-title text-danger mb-2"><i class="bi bi-exclamation-triangle me-2"></i>Técnicas detectadas</h5>
                             <ul class="small mb-0 text-muted">
@@ -590,6 +591,14 @@
                                 <li>Apelación a autoridad jerárquica</li>
                             </ul>
                         </div>
+                        -->
+                        <div class="section-card" style="background: rgba(220,38,38,0.05); border-color: var(--danger);">
+                            <h5 class="card-title text-danger mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Técnicas detectadas</h5>
+                            <button class="btn-iframe-modal" data-url="https://mariomegu-learn.github.io/Ocio/examples-phishing/outlook-phishing/">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>Ver ejemplo de correo de phishing
+                            </button>
+                        </div>
+                        
                     </div>
                     <div>
                         <div class="section-card mb-3" style="background: rgba(37,99,235,0.05);">
@@ -942,6 +951,19 @@
 </div>
 
 <div class="fullscreen-toast" id="fullscreenToast">Modo pantalla completa activado</div>
+
+<div class="iframe-modal" id="iframeModal">
+    <div class="iframe-modal-backdrop"></div>
+    <div class="iframe-modal-container">
+        <div class="iframe-modal-header">
+            <span class="iframe-modal-title">Ejemplo de Phishing</span>
+            <button class="iframe-modal-close" id="iframeModalClose"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="iframe-modal-body">
+            <iframe id="iframeContent" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>

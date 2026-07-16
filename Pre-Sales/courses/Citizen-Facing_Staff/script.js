@@ -208,6 +208,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     quickRefOpen = false;
                     quickRefPanel.classList.remove('open');
                 }
+                if (iframeModal && iframeModal.classList.contains('open')) {
+                    closeIframeModal();
+                }
                 break;
             case 't':
             case 'T':
@@ -254,12 +257,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchEndY = 0;
     
     document.addEventListener('touchstart', (e) => {
-        if (e.target.closest('.sidebar') || e.target.closest('.help-modal') || e.target.closest('.quick-ref-panel')) return;
+        if (e.target.closest('.sidebar') || e.target.closest('.help-modal') || e.target.closest('.quick-ref-panel') || e.target.closest('.iframe-modal')) return;
         touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
-        if (e.target.closest('.sidebar') || e.target.closest('.help-modal') || e.target.closest('.quick-ref-panel')) return;
+        if (e.target.closest('.sidebar') || e.target.closest('.help-modal') || e.target.closest('.quick-ref-panel') || e.target.closest('.iframe-modal')) return;
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
     }, { passive: true });
@@ -271,6 +274,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    const iframeModal = document.getElementById('iframeModal');
+    const iframeContent = document.getElementById('iframeContent');
+    const iframeModalClose = document.getElementById('iframeModalClose');
+    
+    document.querySelectorAll('.btn-iframe-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-url');
+            iframeContent.src = url;
+            iframeModal.classList.add('open');
+        });
+    });
+    
+    function closeIframeModal() {
+        iframeModal.classList.remove('open');
+        iframeContent.src = '';
+    }
+    
+    iframeModalClose.addEventListener('click', closeIframeModal);
+    iframeModal.querySelector('.iframe-modal-backdrop').addEventListener('click', closeIframeModal);
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && iframeModal.classList.contains('open')) {
+            closeIframeModal();
+        }
+    });
+
     updateProgress();
     updateButtons();
     updateActiveNavItem();
