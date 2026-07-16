@@ -1201,29 +1201,36 @@ kbd {
 }
 
 .data-value-card {
-    background: var(--card-bg);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
     padding: 20px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 15px -3px rgba(0,0,0,0.08);
     border-left: 4px solid var(--primary);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     color: var(--text-primary);
 }
 
+[data-theme="dark"] .data-value-card {
+    background: rgba(30, 41, 59, 0.7);
+}
+
 .data-value-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateX(4px);
+    box-shadow: 0 10px 30px -10px var(--primary-glow);
+    transform: translateX(6px);
 }
 
 .data-value-card .data-icon {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--primary);
     margin-bottom: 12px;
+    display: block;
 }
 
 .data-value-card h6 {
     font-weight: 700;
     margin-bottom: 6px;
+    font-size: 0.9375rem;
 }
 
 .data-value-card p {
