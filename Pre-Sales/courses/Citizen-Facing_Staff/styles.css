@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --primary: #005cff;
-    --primary-dark: #00215e;
-    --primary-light: #818cf8;
-    --primary-glow: rgba(79, 70, 229, 0.4);
+    --primary: #005CFF;
+    --primary-dark: #00205C;
+    --primary-light: #5FFFE5;
+    --primary-glow: rgba(0, 92, 255, 0.4);
     --success: #059669;
     --success-light: #10b981;
     --success-glow: rgba(5, 150, 105, 0.4);
@@ -14,12 +14,12 @@
     --danger: #dc2626;
     --danger-light: #ef4444;
     --danger-glow: rgba(220, 38, 38, 0.4);
-    --dark: #0f172a;
+    --dark: #222222;
     --gray-900: #1e293b;
     --gray-800: #334155;
     --gray-700: #475569;
     --gray-600: #64748b;
-    --gray-500: #94a3b8;
+    --gray-500: #C8C8C8;
     --gray-400: #cbd5e1;
     --gray-300: #e2e8f0;
     --gray-200: #f1f5f9;
@@ -138,6 +138,11 @@ body {
     color: white;
     font-weight: 700;
     font-size: 1.1rem;
+}
+
+.sidebar-logo img {
+    height: 32px;
+    width: auto;
 }
 
 .sidebar-logo i {
