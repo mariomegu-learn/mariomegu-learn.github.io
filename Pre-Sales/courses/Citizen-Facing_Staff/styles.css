@@ -400,14 +400,14 @@ body {
 }
 
 .slides-wrapper {
-    padding-top: 112px;
+    padding-top: 130px;
     padding-bottom: 60px;
 }
 
 
 
 .slide {
-    min-height: calc(100vh - 112px);
+    min-height: calc(100vh - 130px);
     padding: 48px 24px;
     display: flex;
     align-items: center;
@@ -415,6 +415,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
+    scroll-margin-top: 90px;
 }
 
 .slide.visible {
