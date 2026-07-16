@@ -174,11 +174,29 @@ document.addEventListener('DOMContentLoaded', function() {
         quickRefPanel.classList.toggle('open', quickRefOpen);
     }
     
-    quickRefBtn.addEventListener('click', toggleQuickRef);
-    quickRefClose.addEventListener('click', () => {
-        quickRefOpen = false;
-        quickRefPanel.classList.remove('open');
+    const iframeModal = document.getElementById('iframeModal');
+    const iframeContent = document.getElementById('iframeContent');
+    const iframeModalClose = document.getElementById('iframeModalClose');
+    
+    document.querySelectorAll('.btn-iframe-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-url');
+            iframeContent.src = url;
+            iframeModal.classList.add('open');
+        });
     });
+    
+    function closeIframeModal() {
+        if (iframeModal) {
+            iframeModal.classList.remove('open');
+            iframeContent.src = '';
+        }
+    }
+    
+    if (iframeModalClose) {
+        iframeModalClose.addEventListener('click', closeIframeModal);
+        iframeModal.querySelector('.iframe-modal-backdrop').addEventListener('click', closeIframeModal);
+    }
     
     document.addEventListener('keydown', function(e) {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
