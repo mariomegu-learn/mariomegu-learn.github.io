@@ -453,6 +453,12 @@ body {
     width: 100%;
 }
 
+.slide-inner2 {
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .slide-number-badge {
     position: absolute;
     bottom: 24px;
