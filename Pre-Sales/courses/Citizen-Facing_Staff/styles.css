@@ -411,7 +411,7 @@ body {
 
 
 .slide {
-    min-height: calc(100vh - 130px);
+    min-height: calc(100vh - 100px);
     padding: 48px 24px;
     display: flex;
     align-items: center;
@@ -506,7 +506,7 @@ body {
 }
 
 .title-slide {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-dark) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -590,7 +590,7 @@ body {
 
 .title-meta {
     padding-top: 48px;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(11, 210, 224, 0.2);
     text-align: center;
 }
 
