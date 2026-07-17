@@ -38,7 +38,7 @@
     --bg-tertiary: var(--gray-50);
     --text-primary: var(--gray-900);
     --text-secondary: var(--gray-700);
-    --text-muted: var(--gray-500);
+    --text-muted: var(--gray-700);
     --border-color: var(--gray-200);
     --card-bg: var(--white);
     --sidebar-bg: var(--dark);
@@ -411,7 +411,7 @@ body {
 
 
 .slide {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 130px);
     padding: 48px 24px;
     display: flex;
     align-items: center;
@@ -500,7 +500,7 @@ body {
 
 .slide-header .subtitle {
     font-size: 1.25rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-weight: 400;
     margin-top: 16px;
 }
@@ -590,7 +590,7 @@ body {
 
 .title-meta {
     padding-top: 48px;
-    border-top: 1px solid rgba(11, 210, 224, 0.2);
+    border-top: 1px solid rgba(2, 235, 252, 0.2);
     text-align: center;
 }
 
@@ -771,7 +771,7 @@ body {
 
 .email-label {
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--gray-50);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1059,7 +1059,7 @@ body {
 }
 
 .closing-slide {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--dark) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-dark) 100%);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -1239,7 +1239,7 @@ kbd {
 }
 
 .data-value-card p {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: 0.8125rem;
     margin-bottom: 0;
 }
