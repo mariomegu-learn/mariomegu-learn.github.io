@@ -110,6 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
     navItems.forEach((item, index) => {
         item.addEventListener('click', () => goToSlide(index));
     });
+
+    slides.forEach(slide => {
+        slide.addEventListener('click', (e) => {
+            // Solo avanzar si se hace clic directamente en el contenedor del slide (clic vacío)
+            if (e.target !== slide) return;
+            nextSlide();
+        });
+    });
     
     function toggleHelpModal() {
         helpModal.classList.toggle('open');
