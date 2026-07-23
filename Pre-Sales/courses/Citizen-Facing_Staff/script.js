@@ -305,6 +305,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (slides.length > 0) {
         setTimeout(() => slides[0].classList.add('visible'), 100);
     }
+
+    if (typeof SplashCursor !== 'undefined') {
+        new SplashCursor();
+    }
     
     const style = document.createElement('style');
     style.textContent = `
