@@ -50,7 +50,7 @@
     --bg-tertiary: #0f172a;
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-muted: #acacac;
     --border-color: #334155;
     --card-bg: #1e293b;
     --sidebar-bg: #111111;
@@ -1276,12 +1276,18 @@ kbd {
     border-color: rgba(5, 150, 105, 0.3);
 }
 
+.decision-card.info {
+    background: rgba(17, 137, 173, 0.05);
+    border-color: rgba(5, 56, 150, 0.3);
+}
+
 .decision-card .decision-icon {
     font-size: 2rem;
 }
 
 .decision-card.wrong .decision-icon { color: var(--danger); }
 .decision-card.right .decision-icon { color: var(--success); }
+.decision-card.info .decision-icon { color: var(--primary); }
 
 .decision-card h6 {
     font-weight: 700;
