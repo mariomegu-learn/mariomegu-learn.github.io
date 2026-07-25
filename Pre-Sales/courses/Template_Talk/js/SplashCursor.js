@@ -1,3 +1,29 @@
+/**
+ * ============================================================
+ * SplashCursor.js
+ * ============================================================
+ * Implementa un efecto visual de cursor con fluidos (fluid simulation)
+ * usando WebGL. Cuando el usuario mueve el mouse o hace swipe,
+ * se generan "manchas" de color que se comportan como fluidos.
+ * 
+ * CARACTERÍSTICAS:
+ * - Simulación de fluidos en tiempo real usando shaders GLSL
+ * - Soporte para WebGL2 (con fallback a WebGL1)
+ * - Colores aleatorios en modo arcoíris
+ * - Efectos de luz y sombreado
+ * - Responsive al devicePixelRatio
+ * - Funciona con mouse y touch
+ * 
+ * BASADO EN: Técnica de simulación de fluidos Euleriana con
+ * método de advección y presión de Jacobi.
+ * Ver: https://github.com/PavelDoGreat/WebGL-Fluid-Simulation
+ * ============================================================
+ */
+
+/**
+ * Clase principal que gestiona la simulación de fluidos.
+ * @param {Object} options - Configuración opcional
+ */
 class SplashCursor {
   constructor(options = {}) {
     this.config = {
@@ -37,42 +63,63 @@ class SplashCursor {
     this.init();
   }
 
-  init() {
-    const { gl, ext } = this.getWebGLContext(this.canvas);
-    this.gl = gl;
-    this.ext = ext;
+/**
+     * Inicializa la simulación.
+     * Configura WebGL, shaders, framebuffers y eventos.
+     */
+    init() {
+        // Obtiene el contexto WebGL con soporte para WebGL2/WebGL1
+        const { gl, ext } = this.getWebGLContext(this.canvas);
+        this.gl = gl;
+        this.ext = ext;
 
-    if (!ext.supportLinearFiltering) {
-      this.config.DYE_RESOLUTION = 256;
-      this.config.SHADING = false;
+        // Reduce la calidad si el hardware no soporta filtering lineal
+        if (!ext.supportLinearFiltering) {
+            this.config.DYE_RESOLUTION = 256;
+            this.config.SHADING = false;
+        }
+
+        // Array de pointers (mouse/touch) con estado de posición y color
+        this.pointers = [{
+            id: -1,
+            texcoordX: 0,
+            texcoordY: 0,
+            prevTexcoordX: 0,
+            prevTexcoordY: 0,
+            deltaX: 0,
+            deltaY: 0,
+            down: false,
+            moved: false,
+            color: [0, 0, 0]
+        }];
+
+        // Inicializa shaders GLSL para la simulación de fluidos
+        this.initShaders();
+        
+        // Crea texturas y framebuffers para renderizado
+        this.initFramebuffers();
+        
+        // Actualiza keywords de shaders según configuración
+        this.updateKeywords();
+        
+        this.lastUpdateTime = Date.now();
+        this.colorUpdateTimer = 0.0;
+        this.firstMouseMoveHandled = false;
+
+        // Vincula eventos de mouse/touch
+        this.bindEvents();
+        
+        // Inicia el loop de animación
+        this.updateFrame();
     }
 
-    this.pointers = [{
-      id: -1,
-      texcoordX: 0,
-      texcoordY: 0,
-      prevTexcoordX: 0,
-      prevTexcoordY: 0,
-      deltaX: 0,
-      deltaY: 0,
-      down: false,
-      moved: false,
-      color: [0, 0, 0]
-    }];
-
-    this.initShaders();
-    this.initFramebuffers();
-    this.updateKeywords();
-    
-    this.lastUpdateTime = Date.now();
-    this.colorUpdateTimer = 0.0;
-    this.firstMouseMoveHandled = false;
-
-    this.bindEvents();
-    this.updateFrame();
-  }
-
-  getWebGLContext(canvas) {
+  /**
+     * Obtiene el contexto WebGL y detecta capacidades del hardware.
+     * Intenta WebGL2 primero, luego WebGL1 como fallback.
+     * @param {HTMLCanvasElement} canvas - Canvas para WebGL
+     * @returns {Object} Contexto GL y extensiones soportadas
+     */
+    getWebGLContext(canvas) {
     const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
     let gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
@@ -125,7 +172,20 @@ class SplashCursor {
     return gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
   }
 
-  initShaders() {
+  /**
+     * Inicializa todos los shaders GLSL necesarios para la simulación.
+     * Cada shader выполняет una etapa específica del pipeline de fluidos:
+     * - copy: Copia texturas
+     * - clear: Limpia texturas con disipación
+     * - splat: Añade una "mancha" de fluido
+     * - advection: Mueve el fluido según su velocidad
+     * - divergence: Calcula la divergencia del campo de velocidad
+     * - curl: Calcula el rizo (vorticidad)
+     * - vorticity: Aplica la fuerza de vortacidad
+     * - pressure: Resuelve la presión (Jacobi iteration)
+     * - gradienSubtract: Resta el gradiente de presión
+     */
+    initShaders() {
     const gl = this.gl;
     const compileShader = (type, source, keywords) => {
       if (keywords) {
@@ -372,7 +432,19 @@ class SplashCursor {
     })();
   }
 
-  initFramebuffers() {
+  /**
+     * Crea los framebuffers (texturas + FBOs) para almacenar
+     * los datos de la simulación:
+     * - dye: Colores/ dye buffer
+     * - velocity: Campo de velocidades
+     * - divergence: Divergencia calculada
+     * - curl: Rizo calculado
+     * - pressure: Buffer de presión
+     * 
+     * Usa Double FBO (lectura/escritura) para implementar
+     * el pattern ping-pong de renderizado.
+     */
+    initFramebuffers() {
     const gl = this.gl;
     const createFBO = (w, h, internalFormat, format, type, param) => {
       gl.activeTexture(gl.TEXTURE0);
@@ -437,7 +509,11 @@ class SplashCursor {
     }
   }
 
-  bindEvents() {
+  /**
+     * Vincula los eventos de mouse y touch para detectar
+     * la interacción del usuario y generar manchas de fluido.
+     */
+    bindEvents() {
     const scale = (v) => v * (window.devicePixelRatio || 1);
     const updatePointerDown = (p, id, x, y) => {
       p.id = id; p.down = true; p.moved = false; p.texcoordX = x / this.canvas.width; p.texcoordY = 1 - y / this.canvas.height;
@@ -470,7 +546,13 @@ class SplashCursor {
     window.addEventListener('touchend', () => this.pointers[0].down = false);
   }
 
-  generateColor() {
+  /**
+     * Genera un color aleatorio o usa el color configurado.
+     * En modo arcoíris, usa el modelo HSV para generar colores
+     * con saturación y valor máximos.
+     * @returns {Object} Color con propiedades r, g, b
+     */
+    generateColor() {
     if (!this.config.RAINBOW_MODE) {
       let hex = this.config.COLOR.replace('#', '');
       if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
@@ -485,7 +567,16 @@ class SplashCursor {
     return { r: r * 0.15, g: g * 0.15, b: b * 0.15 };
   }
 
-  splat(x, y, dx, dy, color) {
+  /**
+     * Añade una "mancha" de fluido en la posición especificada.
+     * Genera tanto la velocidad del fluido como el color del dye.
+     * @param {number} x - Posición X normalizada (0-1)
+     * @param {number} y - Posición Y normalizada (0-1)
+     * @param {number} dx - Delta X de la velocidad
+     * @param {number} dy - Delta Y de la velocidad
+     * @param {Object} color - Color del dye {r, g, b}
+     */
+    splat(x, y, dx, dy, color) {
     const gl = this.gl;
     this.splatProgram.bind();
     gl.uniform1i(this.splatProgram.uniforms.uTarget, this.velocity.read.attach(0));
@@ -502,7 +593,22 @@ class SplashCursor {
     this.blit(this.dye.write); this.dye.swap();
   }
 
-  updateFrame() {
+  /**
+     * Loop principal de animación de la simulación de fluidos.
+     * Se ejecuta en cada frame (requestAnimationFrame).
+     * Pipeline de simulación:
+     * 1. Calcular delta de tiempo
+     * 2. Generar manchas de fluido por movimiento del mouse
+     * 3. Calcular rizo (curl)
+     * 4. Aplicar fuerza de vortacidad
+     * 5. Calcular divergencia
+     * 6. Limpiar buffer de presión
+     * 7. Resolver presión (múltiples iteraciones de Jacobi)
+     * 8. Restar gradiente de presión
+     * 9. Advectar velocidad y dye
+     * 10. Renderizar resultado final
+     */
+    updateFrame() {
     const gl = this.gl, dt = Math.min((Date.now() - this.lastUpdateTime) / 1000, 0.016666);
     this.lastUpdateTime = Date.now();
 

@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!--
+    ============================================================
+    GMS - Seguridad Digital para el Staff
+    ============================================================
+    Plantilla de presentación interactiva tipo diapositiva.
+    
+    FUNCIONALIDADES PRINCIPALES:
+    - Navegación entre 19 diapositivas (teclas, clicks, swipe)
+    - Sidebar de navegación lateral
+    - Cambio de tema claro/oscuro
+    - Temporizador de presentación
+    - Modo pantalla completa
+    - Panel de referencia rápida
+    - Modal de ayuda con atajos de teclado
+    - Efecto de cursor con fluidos (SplashCursor)
+    
+    DEPENDENCIAS:
+    - Bootstrap 5.3.3 (CSS grid y componentes base)
+    - Bootstrap Icons 1.11.3 (iconos)
+    - Google Fonts - Poppins (tipografía)
+    ============================================================
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMS - Seguridad Digital para el Staff</title>
@@ -10,8 +32,20 @@
 </head>
 <body>
 
+<!-- ============================================================
+     OVERLAY DEL SIDEBAR
+     Capa semitransparente que aparece cuando el sidebar
+     está abierto. Permite cerrar el sidebar al hacer click
+     fuera de él.
+     ============================================================ -->
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
+<!-- ============================================================
+     BARRA LATERAL DE NAVEGACIÓN (SIDEBAR)
+     Menú deslizante que muestra el índice de todas las
+     diapositivas. Se activa con el botón de menú o tecla 'M'.
+     Estilos: sidebar, sidebar-open en js/script.js
+     ============================================================ -->
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="sidebar-logo">
@@ -43,7 +77,25 @@
     </nav>
 </aside>
 
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+     Contiene la barra superior, barra de progreso y todas
+     las diapositivas de la presentación.
+     ============================================================ -->
 <main class="main-content" id="mainContent">
+    
+    <!-- ============================================================
+         BARRA SUPERIOR (TOP BAR)
+         Contiene:
+         - Botón de menú (abre sidebar)
+         - Logo y título de la empresa
+         - Timer de presentación
+         - Contador de diapositiva actual / total
+         - Botón de cambio de tema (claro/oscuro)
+         - Botón de ayuda (modal de atajos)
+         - Botón de pantalla completa
+         - Botones de navegación (anterior/siguiente)
+         ============================================================ -->
     <header class="top-bar">
         <div class="d-flex align-items-center gap-3">
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -79,11 +131,33 @@
         </div>
     </header>
 
+    <!-- ============================================================
+         BARRA DE PROGRESO SUPERIOR
+         Indica visualmente el progreso de la presentación
+         (diapositiva actual / total). Animación con gradiente.
+         ============================================================ -->
     <div class="progress-bar-top">
         <div class="progress-bar-top-fill" id="progressBar"></div>
     </div>
 
+    <!-- ============================================================
+         CONTENEDOR DE DIAPOSITIVAS
+         Contains all presentation slides. Each slide has:
+         - Unique ID (slide-1, slide-2, etc.)
+         - data-slide attribute for navigation
+         - class "slide" for JavaScript detection
+         - class "visible" added dynamically when in viewport
+         - class "title-slide" para la primera (portada)
+         - class "closing-slide" para la última (cierre)
+         ============================================================ -->
     <div class="slides-wrapper">
+        
+        <!-- ============================================================
+             DIAPOSITIVA 1: PORTADA
+             Slide de título con gradiente azul.
+             Incluye logo animado, título principal,
+             subtítulo y metadata del presentador.
+             ============================================================ -->
         <section class="slide" id="slide-1" data-slide="1">
             <div class="slide-inner2 title-slide"><br>
                 <div class="title-icon">
@@ -851,17 +925,40 @@
         </section>
     </div>
 
+    <!-- ============================================================
+         INDICADOR DE NÚMERO DE DIAPOSITIVA
+         Muestra el número de slide en la esquina inferior derecha.
+         Cada slide tiene su propio badge.
+         ============================================================ -->
     <div class="keyboard-hint">
         <small>Usa <kbd>←</kbd> <kbd>→</kbd> o <kbd>Space</kbd> para navegar</small>
     </div>
 </main>
 
+<!-- ============================================================
+     BOTÓN DE ACCESO RÁPIDO A LA GUÍA DE REFERENCIA
+     Botón flotante en la esquina inferior izquierda.
+     Abre el panel de referencia rápida con atajos y fórmulas clave.
+     ============================================================ -->
 <button class="quick-ref-toggle">
     <button class="btn-quick-ref" id="quickRefBtn" title="Guía de referencia rápida" aria-label="Mostrar guía de referencia rápida">
         <i class="bi bi-card-text"></i>
     </button>
 </button>
 
+<!-- ============================================================
+     PANEL DE REFERENCIA RÁPIDA
+     Se despliega desde la parte inferior al hacer clic
+     en el botón de la esquina izquierda.
+     Muestra:
+     - Fórmula de manipulación (Autoridad + Urgencia + Excepción)
+     - Cuatro preguntas clave para verificar
+     - Pasos si algo parece sospechoso
+     - Frases para recordar
+     - Riesgos de IA en fraudes
+     - Valores a proteger
+     Toggle con tecla 'G' o click en el botón flotante.
+     ============================================================ -->
 <div class="quick-ref-panel" id="quickRefPanel">
     <div class="quick-ref-header">
         <h4><i class="bi bi-card-text me-2"></i>Guía de Referencia Rápida</h4>
@@ -926,6 +1023,12 @@
     </div>
 </div>
 
+<!-- ============================================================
+     MODAL DE AYUDA
+     Muestra la lista de atajos de teclado disponibles.
+     Se abre con el botón de ayuda (?) en la barra superior
+     o la tecla 'Escape' cuando no hay modal activo.
+     ============================================================ -->
 <div class="help-modal" id="helpModal">
     <div class="help-modal-content">
         <div class="help-modal-header">
@@ -950,8 +1053,21 @@
     </div>
 </div>
 
+<!-- ============================================================
+     TOAST DE PANTALLA COMPLETA
+     Mensaje temporal que aparece al activar/desactivar
+     el modo pantalla completa.
+     ============================================================ -->
 <div class="fullscreen-toast" id="fullscreenToast">Modo pantalla completa activado</div>
 
+<!-- ============================================================
+     MODAL PARA IFRAMES
+     Permite mostrar páginas externas (ej: ejemplos de phishing)
+     en un modal overlay. Se abre con botones .btn-iframe-modal
+     que contienen data-url con la URL a cargar.
+     Estilos para .iframe-modal, .iframe-modal-container, etc.
+     en css/styles.css (líneas 2110-2217)
+     ============================================================ -->
 <div class="iframe-modal" id="iframeModal">
     <div class="iframe-modal-backdrop"></div>
     <div class="iframe-modal-container">

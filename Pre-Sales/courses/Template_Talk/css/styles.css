@@ -1,10 +1,46 @@
+/**
+ * ============================================================
+ * GMS Presentation - styles.css
+ * ============================================================
+ * Estilos principales de la presentación de diapositivas.
+ * 
+ * CONTENIDO:
+ * 1. Variables CSS (custom properties)
+ * 2. Reset y estilos base
+ * 3. Sidebar de navegación
+ * 4. Barra superior (top bar)
+ * 5. Barra de progreso
+ * 6. Estilos de slides
+ * 7. Slides especiales (título y cierre)
+ * 8. Componentes reutilizables (cards, badges, etc.)
+ * 9. Modales (ayuda, iframe)
+ * 10. Panel de referencia rápida
+ * 11. Media queries (responsive)
+ * 
+ * MODO OSCURO:
+ * Se activa con [data-theme="dark"] en el elemento <html>
+ * ============================================================
+ */
+
+/* ============================================================
+   1. IMPORTACIÓN DE FUENTES
+   Google Fonts - Poppins: tipografía principal del sitio
+   ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ============================================================
+   1. VARIABLES CSS (CUSTOM PROPERTIES)
+   Definen el tema de colores y espaciados reutilizables.
+   Se pueden modificar para cambiar el aspecto global.
+   ============================================================ */
 :root {
+    /* Colores primarios - Azul institucional */
     --primary: #005CFF;
     --primary-dark: #00205C;
     --primary-light: #5FFFE5;
     --primary-glow: rgba(0, 92, 255, 0.4);
+    
+    /* Colores de estado */
     --success: #059669;
     --success-light: #10b981;
     --success-glow: rgba(5, 150, 105, 0.4);
@@ -14,6 +50,8 @@
     --danger: #dc2626;
     --danger-light: #ef4444;
     --danger-glow: rgba(220, 38, 38, 0.4);
+    
+    /* Escala de grises */
     --dark: #222222;
     --gray-900: #1e293b;
     --gray-800: #334155;
@@ -26,6 +64,8 @@
     --gray-100: #f8fafc;
     --gray-50: #f8fafc;
     --white: #ffffff;
+    
+    /* Sombras predefinidas */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -33,6 +73,7 @@
     --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-glow: 0 0 40px var(--primary-glow);
     
+    /* Variables de tema (usadas en todo el sitio) */
     --bg-primary: var(--white);
     --bg-secondary: var(--gray-100);
     --bg-tertiary: var(--gray-50);
@@ -44,6 +85,11 @@
     --sidebar-bg: var(--dark);
 }
 
+/* ============================================================
+   TEMA OSCURO
+   Sobrescribe las variables para un aspecto oscuro.
+   Se activa con el atributo data-theme="dark" en <html>.
+   ============================================================ */
 [data-theme="dark"] {
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
@@ -65,6 +111,11 @@
     --danger-glow: rgba(220, 38, 38, 0.6);
 }
 
+/* ============================================================
+   2. RESET Y ESTILOS BASE
+   Normaliza comportamientos de navegador y establece
+   estilos fundamentales del sitio.
+   ============================================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -96,6 +147,12 @@ body {
     outline-offset: 2px;
 }
 
+/* ============================================================
+   3. SIDEBAR DE NAVEGACIÓN
+   Panel lateral que se desliza desde la izquierda.
+   Muestra el índice de todas las diapositivas.
+   Estados: hidden (translateX -100%), visible (translateX 0)
+   ============================================================ */
 .sidebar {
     position: fixed;
     left: 0;
@@ -203,6 +260,11 @@ body {
     background: var(--primary);
 }
 
+/* ============================================================
+   OVERLAY DEL SIDEBAR
+   Capa semitransparente que aparece detrás del sidebar
+   cuando está abierto. Permite cerrarlo al hacer clic.
+   ============================================================ */
 .sidebar-overlay {
     position: fixed;
     inset: 0;
@@ -218,6 +280,11 @@ body {
     visibility: visible;
 }
 
+/* ============================================================
+   4. BARRA SUPERIOR (TOP BAR)
+   Barra fija en la parte superior con controles de navegación,
+   logo, timer y botones de acción.
+   ============================================================ */
 .main-content {
     margin-left: 0;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -377,6 +444,11 @@ body {
     cursor: not-allowed;
 }
 
+/* ============================================================
+   5. BARRA DE PROGRESO
+   Indica visualmente el progreso de la presentación con
+   animación de gradiente animado.
+   ============================================================ */
 .progress-bar-top {
     position: fixed;
     top: 72px;
@@ -403,6 +475,13 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* ============================================================
+   6. ESTILOS DE SLIDES
+   Contenedores para cada diapositiva de la presentación.
+   Cada slide tiene animación de entrada (fade + slide).
+   La clase .visible se añade dinámicamente cuando el slide
+   está en el viewport.
+   ============================================================ */
 .slides-wrapper {
     padding-top: 130px;
     padding-bottom: 60px;
@@ -459,6 +538,11 @@ body {
     width: 100%;
 }
 
+/* ============================================================
+   BADGE DE NÚMERO DE SLIDE
+   Muestra el número de diapositiva en la esquina inferior
+   derecha de cada slide.
+   ============================================================ */
 .slide-number-badge {
     position: absolute;
     bottom: 24px;
@@ -511,6 +595,12 @@ body {
     margin-top: 16px;
 }
 
+/* ============================================================
+   7. SLIDES ESPECIALES
+   ============================================================ */
+
+/* --- Slide de Título (Portada) --- */
+/* Primer slide con gradiente azul, logo animado y meta-info */
 .title-slide {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-dark) 100%);
     position: relative;
@@ -616,6 +706,12 @@ body {
     border: 1px solid rgba(255,255,255,0.15);
 }
 
+/* ============================================================
+   8. COMPONENTES REUTILIZABLES
+   ============================================================ */
+
+/* --- Cards de Sección --- */
+/* Tarjetas con efecto glassmorphism, hover animado */
 .section-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
@@ -665,6 +761,7 @@ body {
     box-shadow: 0 10px 30px -5px var(--danger-glow);
 }
 
+/* Efecto de rotación al hover en el icono de la card */
 .section-card:hover .card-icon {
     transform: scale(1.1) rotate(5deg);
 }
@@ -752,6 +849,12 @@ body {
     margin-right: 10px;
 }
 
+/* ============================================================
+   COMPONENTES ESPECÍFICOS DE LA PRESENTACIÓN
+   ============================================================ */
+
+/* --- Preview de correo electrónico --- */
+/* Simula el aspecto de un cliente de correo */
 .email-preview-box {
     background: linear-gradient(135deg, var(--dark) 0%, #111111 100%);
     border-radius: 20px;
@@ -1140,6 +1243,10 @@ kbd {
     color: var(--text-muted);
 }
 
+/* ============================================================
+   LAYOUTS DE GRID
+   Sistemas de columnas reutilizables para organizar contenido.
+   ============================================================ */
 .section-divider {
     height: 5px;
     width: 80px;
@@ -1746,6 +1853,11 @@ kbd {
     margin-right: 8px;
 }
 
+/* ============================================================
+   9. MODALES Y PANELES
+   ============================================================ */
+
+/* --- Modal de Ayuda (atajos de teclado) --- */
 .help-modal {
     position: fixed;
     inset: 0;
@@ -1841,6 +1953,8 @@ kbd {
     color: var(--text-primary);
 }
 
+/* --- Toast de Pantalla Completa --- */
+/* Mensaje temporal que aparece/desaparece con animación */
 .fullscreen-toast {
     position: fixed;
     top: 80px;
@@ -1866,6 +1980,11 @@ kbd {
     border: 1px solid var(--border-color);
 }
 
+/* ============================================================
+   10. PANEL DE REFERENCIA RÁPIDA
+   Panel que se despliega desde abajo con resumen de puntos clave.
+   Toggle con botón flotante o tecla 'G'.
+   ============================================================ */
 .quick-ref-toggle {
     position: fixed;
     bottom: 70px;
@@ -1993,6 +2112,11 @@ kbd {
     margin-top: 2px;
 }
 
+/* ============================================================
+   11. MEDIA QUERIES (RESPONSIVE)
+   ============================================================ */
+
+/* Tablets - Pantallas entre 768px y 1024px */
 @media (max-width: 1024px) {
     .two-columns,
     .comparison-grid {
@@ -2080,6 +2204,11 @@ kbd {
     }
 }
 
+/* ============================================================
+   ESTILOS DE IMPRESIÓN
+   Optimiza la presentación para impresión/pdf.
+   Oculta elementos de navegación, muestra todos los slides.
+   ============================================================ */
 @media print {
     .sidebar,
     .top-bar,
@@ -2107,6 +2236,10 @@ kbd {
     }
 }
 
+/* ============================================================
+   BOTÓN PARA MODAL DE IFRAME
+   Abre ejemplos externos (como phishing) en un modal.
+   ============================================================ */
 .btn-iframe-modal {
     display: inline-flex;
     align-items: center;
@@ -2128,6 +2261,11 @@ kbd {
     box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
 }
 
+/* ============================================================
+   MODAL DE IFRAME
+   Contenedor para mostrar páginas externas (ej: ejemplos).
+   Se abre con botones .btn-iframe-modal
+   ============================================================ */
 .iframe-modal {
     position: fixed;
     inset: 0;
