@@ -41,6 +41,8 @@ const presentationTimer = document.getElementById(
     "presentationTimer"
 );
 
+const progressBar = document.getElementById("progressBar");
+
 /* ==========================================================
    ESTADO DE LA APLICACIÓN
    ========================================================== */
@@ -95,6 +97,7 @@ function showSlide(index) {
 
     updateNavigationControls();
     updateThumbnailSelection();
+    updateProgressBar();
 }
 
 function nextSlide() {
@@ -130,6 +133,11 @@ function updateNavigationControls() {
 
     nextButton.disabled =
         currentSlideIndex === slides.length - 1;
+}
+
+function updateProgressBar() {
+    const progress = ((currentSlideIndex + 1) / slides.length) * 100;
+    progressBar.style.width = progress + '%';
 }
 
 previousButton.addEventListener("click", previousSlide);
