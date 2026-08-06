@@ -29,10 +29,11 @@ class SplashCursor {
       position: 'fixed',
       top: 0,
       left: 0,
-      zIndex: 50,
+      zIndex: 99999,
       pointerEvents: 'none'
     });
-    document.body.appendChild(this.canvas);
+    const container = document.getElementById('presentationApp') || document.body;
+    container.appendChild(this.canvas);
 
     this.init();
   }
