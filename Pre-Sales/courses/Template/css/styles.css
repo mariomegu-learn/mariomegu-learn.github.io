@@ -1,0 +1,334 @@
+/* ==========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================================
+   BOTONES DE LA BARRA DE HERRAMIENTAS
+   ========================================================== */
+
+.toolbar-button {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(226 232 240);
+    border-radius: 0.625rem;
+    background-color: rgb(248 250 252);
+    color: rgb(71 85 105);
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        color 160ms ease,
+        transform 160ms ease,
+        opacity 160ms ease;
+}
+
+.toolbar-button:hover {
+    border-color: rgb(203 213 225);
+    background-color: rgb(241 245 249);
+    color: rgb(15 23 42);
+}
+
+.toolbar-button:active {
+    transform: scale(0.94);
+}
+
+.toolbar-button:focus-visible {
+    outline: 3px solid rgb(56 189 248 / 35%);
+    outline-offset: 2px;
+}
+
+.toolbar-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+.dark .toolbar-button {
+    border-color: rgb(51 65 85);
+    background-color: rgb(30 41 59);
+    color: rgb(203 213 225);
+}
+
+.dark .toolbar-button:hover {
+    border-color: rgb(71 85 105);
+    background-color: rgb(51 65 85);
+    color: white;
+}
+
+/* ==========================================================
+   DIAPOSITIVAS
+   ========================================================== */
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide.active-slide {
+    display: block;
+    animation: slideFadeIn 300ms ease;
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================
+   TARJETAS DE LA DIAPOSITIVA AGENDA
+   ========================================================== */
+
+.agenda-card {
+    display: flex;
+    min-height: 300px;
+    align-items: flex-start;
+    gap: 2rem;
+    border: 1px solid rgb(226 232 240);
+    border-radius: 1.5rem;
+    background-color: white;
+    padding: 3rem;
+    box-shadow:
+        0 20px 25px -5px rgb(15 23 42 / 8%),
+        0 8px 10px -6px rgb(15 23 42 / 8%);
+}
+
+.agenda-number {
+    display: flex;
+    width: 6rem;
+    height: 6rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.25rem;
+    background-color: rgb(15 23 42);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.agenda-title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.agenda-description {
+    margin-top: 1.25rem;
+    font-size: 1.75rem;
+    line-height: 1.55;
+    color: rgb(71 85 105);
+}
+
+/* ==========================================================
+   MINIATURAS DEL MENÚ LATERAL
+   ========================================================== */
+
+.thumbnail-button {
+    display: block;
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 0.875rem;
+    background-color: transparent;
+    padding: 0.5rem;
+    text-align: left;
+    transition:
+        border-color 160ms ease,
+        background-color 160ms ease,
+        transform 160ms ease;
+}
+
+.thumbnail-button:hover {
+    background-color: rgb(241 245 249);
+}
+
+.dark .thumbnail-button:hover {
+    background-color: rgb(30 41 59);
+}
+
+.thumbnail-button.active-thumbnail {
+    border-color: rgb(37 99 235);
+    background-color: rgb(239 246 255);
+}
+
+.dark .thumbnail-button.active-thumbnail {
+    border-color: rgb(56 189 248);
+    background-color: rgb(8 47 73 / 45%);
+}
+
+.thumbnail-preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(203 213 225);
+    background:
+        linear-gradient(
+            135deg,
+            rgb(29 78 216),
+            rgb(15 23 42)
+        );
+}
+
+.dark .thumbnail-preview {
+    border-color: rgb(71 85 105);
+}
+
+.thumbnail-preview-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+}
+
+.thumbnail-preview-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.thumbnail-preview-number {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    background-color: rgb(255 255 255 / 85%);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgb(15 23 42);
+}
+
+.thumbnail-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0.25rem 0.25rem;
+    font-size: 0.8rem;
+}
+
+.thumbnail-title {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.thumbnail-index {
+    flex-shrink: 0;
+    color: rgb(100 116 139);
+}
+
+/* ==========================================================
+   TECLAS Y MODAL DE AYUDA
+   ========================================================== */
+
+.keyboard-key {
+    display: inline-flex;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(203 213 225);
+    border-bottom-width: 2px;
+    border-radius: 0.375rem;
+    background-color: rgb(248 250 252);
+    padding: 0 0.5rem;
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgb(71 85 105);
+    box-shadow: 0 1px 2px rgb(15 23 42 / 8%);
+}
+
+.dark .keyboard-key {
+    border-color: rgb(71 85 105);
+    background-color: rgb(30 41 59);
+    color: rgb(226 232 240);
+}
+
+.help-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgb(248 250 252);
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+}
+
+.dark .help-row {
+    background-color: rgb(30 41 59);
+}
+
+/* ==========================================================
+   MODO PRESENTACIÓN
+   Oculta barras al activar pantalla completa.
+   ========================================================== */
+
+.presentation-mode #topBar,
+.presentation-mode #bottomBar {
+    display: none;
+}
+
+.presentation-mode #slidesSidebar {
+    top: 0;
+}
+
+.presentation-mode #viewer {
+    padding: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 768px) {
+    #presentationTimer {
+        display: none;
+    }
+
+    #slideCounter {
+        min-width: 3.25rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
