@@ -61,27 +61,11 @@ let sidebarIsOpen = false;
 function initializePresentation() {
     createThumbnails();
     restoreTheme();
-    
-    // Restaurar slide desde URL si existe
-    const hash = window.location.hash;
-    const initialSlide = hash.startsWith("#slide-") 
-        ? parseInt(hash.replace("#slide-", ""), 10) - 1 
-        : 0;
-
-    showSlide(initialSlide);
+    showSlide(0);
     resizeSlideStage();
     startPresentationTimer();
 
     window.addEventListener("resize", resizeSlideStage);
-    
-    // Escuchar cambios en el hash
-    window.addEventListener("hashchange", () => {
-        const newHash = window.location.hash;
-        if (newHash.startsWith("#slide-")) {
-            const index = parseInt(newHash.replace("#slide-", ""), 10) - 1;
-            if (index !== currentSlideIndex) showSlide(index);
-        }
-    });
 }
 
 document.addEventListener(
@@ -110,9 +94,6 @@ function showSlide(index) {
             String(!isActive)
         );
     });
-
-    // Actualizar URL sin recargar
-    history.replaceState(null, null, `#slide-${currentSlideIndex + 1}`);
 
     updateNavigationControls();
     updateThumbnailSelection();

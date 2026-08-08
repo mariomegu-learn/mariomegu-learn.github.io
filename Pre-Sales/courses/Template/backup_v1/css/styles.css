@@ -74,44 +74,34 @@ a {
 }
 
 /* ==========================================================
-   DIAPOSITIVAS Y ANIMACIONES
+   DIAPOSITIVAS
    ========================================================== */
 
 .slide {
     position: absolute;
     inset: 0;
-    opacity: 0;
-    pointer-events: none;
+    display: none;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
-    transform: scale(0.98);
 }
 
 .slide.active-slide {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-    z-index: 10;
+    display: block;
+    animation: slideFadeIn 300ms ease;
 }
 
-/* Clases de utilidad para animar elementos internos */
-.animate-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
-}
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
 
-.active-slide .animate-item {
-    opacity: 1;
-    transform: translateY(0);
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
-
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-500 { transition-delay: 500ms; }
 
 /* ==========================================================
    TARJETAS DE LA DIAPOSITIVA AGENDA
