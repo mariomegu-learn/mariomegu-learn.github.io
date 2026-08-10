@@ -5,7 +5,7 @@
   --blue: #F6A6BB; /* Reemplazo principal: Rosa */
   --cyan: #fdcf50; /* Reemplazo secundario: Verde suave */
   --orange: #f5a96c; /* Reemplazo de acento: Naranja */
-  --paper: #fcf4eb; /* Ajuste para mayor calidez */
+  --paper: #e4e1ce; /* Ajuste para mayor calidez */
   --muted: #717d91;
   --line: #F6A6BB; /* Ajuste para armonizar con el verde */
 }
@@ -272,23 +272,23 @@ body {
 }
 
 .orbit::after {
-  content: "✈"; 
+  content: "🛩️"; 
   position: absolute;
   top: -12px;
   left: 50%;
   font-size: 20px;
   color: #495057;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(90deg);
 }
 
 .orbit-two::after {
-  content: "✈"; 
+  content: "🛩️"; 
   position: absolute;
   top: -12px;
   left: 50%;
   font-size: 20px;
   color: #495057;
-  transform: translateX(-50%) rotate(180deg);
+  transform: translateX(-50%) rotate(-90deg);
 }
 
 .orbit-one {
