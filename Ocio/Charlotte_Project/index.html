@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Presentación interactiva del proyecto escolar Avión eléctrico de madera." />
+  <title>Avión eléctrico de madera</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sky-grid" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#slide-1" aria-label="Ir al inicio">
+      <span class="brand-mark"><i class="fa-solid fa-plane"></i></span>
+      <span><strong>AeroLab</strong><small>Proyecto escolar</small></span>
+    </a>
+    <div class="top-actions">
+      <span id="slideCounter" class="counter">01 / 06</span>
+      <button id="soundButton" class="icon-button" aria-label="Activar o desactivar sonidos" title="Sonidos">
+        <i class="fa-solid fa-volume-high"></i>
+      </button>
+      <button id="fullscreenButton" class="icon-button" aria-label="Ver en pantalla completa" title="Pantalla completa">
+        <i class="fa-solid fa-expand"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="deck" class="deck" aria-live="polite">
+    <section id="slide-1" class="slide active hero-slide" data-title="Portada">
+      <div class="slide-inner hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Ciencia · Tecnología · Creatividad</span>
+          <h1>Avión eléctrico<br><span>de madera</span></h1>
+          <p class="hero-lead">Descubrimos cómo la electricidad puede convertirse en movimiento.</p>
+          <div class="student-card">
+            <div><small>Presentado por</small><strong contenteditable="true">Nombre del estudiante</strong></div>
+            <div><small>Curso</small><strong contenteditable="true">Grado 5°</strong></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <span class="floating-tag tag-top"><i class="fa-solid fa-gears"></i> Ingeniería</span>
+          <span class="floating-tag tag-bottom"><i class="fa-solid fa-lightbulb"></i> Aprender haciendo</span>
+          <div class="image-frame hero-image"><img src="assets/avion-terminado.jpg" alt="Maqueta terminada del avión eléctrico de madera" /></div>
+        </div>
+      </div>
+      <span class="slide-number">01</span>
+    </section>
+
+    <section id="slide-2" class="slide" data-title="El proyecto">
+      <div class="slide-inner two-column">
+        <div class="image-stack">
+          <div class="image-frame main-photo"><img src="assets/ensamble.jpg" alt="Avión de madera durante el ensamble" /></div>
+          <div class="photo-label"><i class="fa-solid fa-camera"></i> Nuestro proyecto real</div>
+        </div>
+        <div class="content-block">
+          <span class="section-kicker">01 · El reto</span>
+          <h2>¿De qué se trata?</h2>
+          <p class="big-copy">Construimos una <strong>maqueta educativa</strong> con madera, motores, hélices y pilas.</p>
+          <div class="goal-card">
+            <span class="goal-icon"><i class="fa-solid fa-bullseye"></i></span>
+            <div><small>Nuestro objetivo</small><p>Descubrir cómo la energía eléctrica se transforma en movimiento.</p></div>
+          </div>
+          <div class="note"><i class="fa-solid fa-circle-info"></i><span>Es una maqueta para aprender. No está diseñada para volar.</span></div>
+        </div>
+      </div>
+      <span class="slide-number">02</span>
+    </section>
+
+    <section id="slide-3" class="slide" data-title="Materiales">
+      <div class="slide-inner materials-layout">
+        <div class="slide-heading"><span class="section-kicker">02 · Preparación</span><h2>Materiales y partes</h2><p>Dos grupos trabajan juntos para darle forma y movimiento al avión.</p></div>
+        <div class="materials-grid">
+          <article class="material-card structure-card">
+            <div class="card-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+            <span class="card-index">A</span><h3>La estructura</h3>
+            <ul><li><i class="fa-solid fa-check"></i> Piezas de madera</li><li><i class="fa-solid fa-check"></i> Alas, fuselaje y cola</li><li><i class="fa-solid fa-check"></i> Ruedas, ejes y hélices</li></ul>
+          </article>
+          <div class="image-frame materials-photo"><img src="assets/materiales.jpg" alt="Piezas de madera y componentes antes del ensamble" /></div>
+          <article class="material-card circuit-card">
+            <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+            <span class="card-index">B</span><h3>El circuito</h3>
+            <ul><li><i class="fa-solid fa-check"></i> Dos motores</li><li><i class="fa-solid fa-check"></i> Dos pilas y portapilas</li><li><i class="fa-solid fa-check"></i> Interruptor y cables</li></ul>
+          </article>
+        </div>
+      </div>
+      <span class="slide-number">03</span>
+    </section>
+
+    <section id="slide-4" class="slide circuit-slide" data-title="Circuito">
+      <div class="slide-inner">
+        <div class="slide-heading compact"><span class="section-kicker">03 · Energía</span><h2>¿Cómo funciona el circuito?</h2><p>La electricidad recorre un camino cerrado.</p></div>
+        <div class="circuit-board" id="circuitBoard">
+          <div class="energy-line" aria-hidden="true"><span></span></div>
+          <div class="circuit-node"><span><i class="fa-solid fa-battery-full"></i></span><strong>Pilas</strong><small>Dan energía</small></div>
+          <i class="fa-solid fa-chevron-right flow-arrow"></i>
+          <div class="circuit-node"><span><i class="fa-solid fa-toggle-on"></i></span><strong>Interruptor</strong><small>Abre o cierra</small></div>
+          <i class="fa-solid fa-chevron-right flow-arrow"></i>
+          <div class="circuit-node"><span><i class="fa-solid fa-gears"></i></span><strong>Motores</strong><small>Crean movimiento</small></div>
+          <i class="fa-solid fa-chevron-right flow-arrow"></i>
+          <div class="circuit-node propeller-node"><span><i class="fa-solid fa-fan"></i></span><strong>Hélices</strong><small>Mueven el aire</small></div>
+        </div>
+        <div class="switch-demo">
+          <div><small>Prueba interactiva</small><strong id="switchStatus">Fase 0 · Circuito apagado</strong></div>
+          <button id="circuitSwitch" class="power-switch" role="switch" aria-checked="false"><span></span><b>ENCENDER</b></button>
+        </div>
+        <div class="photo-strip"><img src="assets/circuito.jpg" alt="Circuito instalado en la parte inferior del avión" /><p><i class="fa-solid fa-arrow-left-long"></i> En la fotografía vemos las pilas, los cables y el interruptor instalados.</p></div>
+      </div>
+      <span class="slide-number">04</span>
+    </section>
+
+    <section id="slide-5" class="slide" data-title="Ensamble">
+      <div class="slide-inner assembly-layout">
+        <div class="slide-heading compact"><span class="section-kicker">04 · Construcción</span><h2>Fases del ensamble</h2><p>Seguimos cada paso con orden y cuidado.</p></div>
+        <div class="assembly-content">
+          <div class="steps-grid">
+            <div class="step"><b>01</b><i class="fa-solid fa-shapes"></i><span>Organizar las piezas</span></div>
+            <div class="step"><b>02</b><i class="fa-solid fa-plane-up"></i><span>Armar el fuselaje</span></div>
+            <div class="step"><b>03</b><i class="fa-solid fa-arrows-left-right"></i><span>Instalar alas y cola</span></div>
+            <div class="step"><b>04</b><i class="fa-solid fa-gear"></i><span>Colocar motores y ruedas</span></div>
+            <div class="step"><b>05</b><i class="fa-solid fa-plug"></i><span>Conectar el circuito</span></div>
+            <div class="step"><b>06</b><i class="fa-solid fa-fan"></i><span>Instalar hélices y probar</span></div>
+          </div>
+          <div class="assembly-photo-wrap"><div class="image-frame"><img src="assets/motor.jpg" alt="Instalación de un motor y una hélice en el ala" /></div><div class="safety-card"><i class="fa-solid fa-shield-halved"></i><p><strong>¡Primero la seguridad!</strong>Conectamos sin pilas y con ayuda de un adulto.</p></div></div>
+        </div>
+      </div>
+      <span class="slide-number">05</span>
+    </section>
+
+    <section id="slide-6" class="slide finale-slide" data-title="Conclusión">
+      <div class="slide-inner finale-layout">
+        <div class="finale-copy">
+          <span class="section-kicker light">05 · Resultado</span><h2>De la electricidad<br><span>al movimiento</span></h2>
+          <div class="energy-sequence"><span><i class="fa-solid fa-battery-full"></i>Pilas</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-bolt"></i>Electricidad</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-gears"></i>Motores</span><i class="fa-solid fa-arrow-right"></i><span><i class="fa-solid fa-fan"></i>Movimiento</span></div>
+          <blockquote>“Con este avión aprendimos que la electricidad puede convertirse en movimiento.”</blockquote>
+          <div class="thanks"><span>Gracias por su atención</span><i class="fa-solid fa-plane-departure"></i></div>
+        </div>
+        <div class="finale-visual"><div class="image-frame"><img src="assets/prueba-final.jpg" alt="Prueba final del avión con las hélices en movimiento" /></div><div class="success-badge"><i class="fa-solid fa-circle-check"></i><span>¡Misión cumplida!</span></div></div>
+      </div>
+      <span class="slide-number">06</span>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="Controles de la presentación">
+    <button id="prevButton" class="nav-button" aria-label="Diapositiva anterior"><i class="fa-solid fa-arrow-left"></i></button>
+    <div id="dots" class="dots" aria-label="Seleccionar diapositiva"></div>
+    <button id="nextButton" class="nav-button primary" aria-label="Diapositiva siguiente"><span>Siguiente</span><i class="fa-solid fa-arrow-right"></i></button>
+  </nav>
+  <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
