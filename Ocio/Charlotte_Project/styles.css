@@ -266,19 +266,51 @@ body {
 
 .orbit {
   position: absolute;
-  border: 1px dashed rgba(17, 103, 216, .28);
+  border: 2px dashed var(--cyan);
   border-radius: 50%;
+  background-clip: padding-box;
+}
+
+.orbit::after {
+  content: "✈"; 
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  font-size: 20px;
+  color: #495057;
+  transform: translateX(-50%);
+}
+
+.orbit-two::after {
+  content: "✈"; 
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  font-size: 20px;
+  color: #495057;
+  transform: translateX(-50%) rotate(180deg);
 }
 
 .orbit-one {
   width: 112%;
   aspect-ratio: 1;
+  animation: rotateCW 20s linear infinite;
 }
 
 .orbit-two {
   width: 128%;
   aspect-ratio: 1;
-  transform: rotate(30deg);
+  animation: rotateCCW 20s linear infinite;
+}
+
+@keyframes rotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCCW {
+  from { transform: rotate(30deg); }
+  to { transform: rotate(-330deg); }
 }
 
 .floating-tag,
