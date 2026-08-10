@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --navy: #071b35;
-  --blue: #1167d8;
-  --cyan: #37c4ff;
-  --orange: #ff8a34;
-  --paper: #f7fbff;
-  --muted: #62748b;
-  --line: #dce8f2;
+  --navy: #3d5a80; /* Complemento oscurecido de la nueva paleta */
+  --blue: #F6A6BB; /* Reemplazo principal: Rosa */
+  --cyan: #fdcf50; /* Reemplazo secundario: Verde suave */
+  --orange: #f5a96c; /* Reemplazo de acento: Naranja */
+  --paper: #fcf4eb; /* Ajuste para mayor calidez */
+  --muted: #717d91;
+  --line: #F6A6BB; /* Ajuste para armonizar con el verde */
 }
 
 * {
