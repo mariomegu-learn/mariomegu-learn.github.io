@@ -40,6 +40,83 @@ function update(){
 prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>current===slides.length-1?show(0):show(current+1));document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});
 document.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});document.addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-startX;if(Math.abs(distance)>60)show(current+(distance<0?1:-1))},{passive:true});
 document.querySelector('#fullscreenButton').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});document.querySelector('#soundButton').addEventListener('click',e=>{sound=!sound;e.currentTarget.innerHTML=`<i class="fa-solid fa-volume-${sound?'high':'xmark'}"></i>`;e.currentTarget.setAttribute('aria-label',sound?'Desactivar sonidos':'Activar sonidos')});
+
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const plane = document.createElement('div');
+  const smokeColors = ['#F6A6BB', '#F4A261', '#FDCF50'];
+  let targetX = 0;
+  let targetY = 0;
+  let planeX = 0;
+  let planeY = 0;
+  let angle = 0;
+  let lastSmoke = 0;
+  let isPointerReady = false;
+
+  plane.className = 'cursor-plane';
+  plane.textContent = '🛩️';
+  document.body.appendChild(plane);
+
+  const createSmoke = (x, y) => {
+    const smoke = document.createElement('span');
+    const size = 10 + Math.random() * 16;
+    const driftX = -18 + Math.random() * 36;
+    const driftY = -18 + Math.random() * 36;
+    smoke.className = 'cursor-smoke';
+    smoke.style.left = `${x - size / 2}px`;
+    smoke.style.top = `${y - size / 2}px`;
+    smoke.style.width = `${size}px`;
+    smoke.style.height = `${size}px`;
+    smoke.style.background = smokeColors[Math.floor(Math.random() * smokeColors.length)];
+    smoke.animate([
+      { opacity: .7, transform: 'scale(.45)' },
+      { opacity: 0, transform: `translate(${driftX}px, ${driftY}px) scale(2.6)` }
+    ], { duration: 700, easing: 'ease-out' }).finished.then(() => smoke.remove());
+    document.body.appendChild(smoke);
+  };
+
+  const animatePlane = () => {
+    const deltaX = targetX - planeX;
+    const deltaY = targetY - planeY;
+    const distance = Math.hypot(deltaX, deltaY);
+
+    planeX += deltaX * .18;
+    planeY += deltaY * .18;
+
+    if (distance > .5) {
+      const targetAngle = Math.atan2(deltaY, deltaX) * 180 / Math.PI + 90;
+      const rotationDelta = ((targetAngle - angle + 540) % 360) - 180;
+      angle += rotationDelta * .14;
+    }
+
+    plane.style.left = `${planeX - 17}px`;
+    plane.style.top = `${planeY - 17}px`;
+    plane.style.transform = `rotate(${angle}deg)`;
+    requestAnimationFrame(animatePlane);
+  };
+
+  window.addEventListener('pointermove', (event) => {
+    const now = performance.now();
+
+    if (!isPointerReady) {
+      planeX = targetX = event.clientX;
+      planeY = targetY = event.clientY;
+      isPointerReady = true;
+      plane.classList.add('is-visible');
+    }
+
+    const distance = Math.hypot(event.clientX - targetX, event.clientY - targetY);
+    targetX = event.clientX;
+    targetY = event.clientY;
+
+    if (distance > 4 && now - lastSmoke > 42) {
+      createSmoke(planeX, planeY);
+      lastSmoke = now;
+    }
+  });
+
+  window.addEventListener('pointerleave', () => plane.classList.remove('is-visible'));
+  requestAnimationFrame(animatePlane);
+}
 const circuitSwitch=document.querySelector('#circuitSwitch');circuitSwitch.addEventListener('click',()=>{const on=!circuitSwitch.classList.contains('on');circuitSwitch.classList.toggle('on',on);document.querySelector('#circuitBoard').classList.toggle('on',on);circuitSwitch.setAttribute('aria-checked',String(on));circuitSwitch.querySelector('b').textContent=on?'APAGAR':'ENCENDER';document.querySelector('#switchStatus').textContent=on?'Fase 1 · Circuito encendido':'Fase 0 · Circuito apagado';beep()});
 document.querySelector('.brand').addEventListener('click', (e) => { e.preventDefault(); show(0); });
 const hashIndex=Number(location.hash.replace('#slide-',''))-1;

@@ -35,6 +35,45 @@ body {
   pointer-events: none;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  body,
+  body * {
+    cursor: none;
+  }
+}
+
+.cursor-plane,
+.cursor-smoke {
+  position: fixed;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.cursor-plane {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #495057;
+  font-size: 27px;
+  filter: drop-shadow(0 3px 2px rgba(61, 90, 128, .25));
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity .15s ease;
+}
+
+.cursor-plane.is-visible {
+  opacity: 1;
+}
+
+.cursor-smoke {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  filter: blur(2px);
+  mix-blend-mode: multiply;
+}
+
 .topbar {
   height: 76px;
   position: fixed;
