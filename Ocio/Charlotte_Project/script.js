@@ -1,8 +1,42 @@
 const slides=[...document.querySelectorAll('.slide')];const counter=document.querySelector('#slideCounter');const progress=document.querySelector('#progressBar');const dots=document.querySelector('#dots');const prev=document.querySelector('#prevButton');const next=document.querySelector('#nextButton');let current=0;let sound=true;let startX=0;
 slides.forEach((_,i)=>{const dot=document.createElement('button');dot.className='dot';dot.setAttribute('aria-label',`Ir a la diapositiva ${i+1}`);dot.addEventListener('click',()=>show(i));dots.appendChild(dot)});
 function beep(){if(!sound)return;try{const audio=new(window.AudioContext||window.webkitAudioContext)();const oscillator=audio.createOscillator();const gain=audio.createGain();oscillator.frequency.value=520;gain.gain.value=.025;oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+.045)}catch{}}
-function show(index){if(index<0||index>=slides.length||index===current)return;slides[current].classList.add('leaving');slides[current].classList.remove('active');current=index;slides[current].classList.remove('leaving');slides[current].classList.add('active');update();beep();location.hash=`slide-${current+1}`}
-function update(){counter.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;progress.style.width=`${((current+1)/slides.length)*100}%`;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current));prev.disabled=current===0;next.innerHTML=current===slides.length-1?'<span>Inicio</span><i class="fa-solid fa-rotate-right"></i>':'<span>Siguiente</span><i class="fa-solid fa-arrow-right"></i>'}
+const video = document.querySelector('video');
+
+function show(index) {
+  if (index < 0 || index >= slides.length || index === current) return;
+  slides[current].classList.add('leaving');
+  slides[current].classList.remove('active');
+  current = index;
+  slides[current].classList.remove('leaving');
+  slides[current].classList.add('active');
+  const video = document.querySelector('video');
+  if(video) {
+    if(slides[current].id === 'slide-6') video.play();
+    else video.pause();
+  }
+  update();
+  beep();
+  location.hash = `slide-${current + 1}`;
+  if (current === slides.length - 1) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+function update(){
+  counter.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+  progress.style.width=`${((current+1)/slides.length)*100}%`;
+  [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current));
+  prev.disabled=current===0;
+  next.innerHTML=current===slides.length-1?'<span>Inicio</span><i class="fa-solid fa-rotate-right"></i>':'<span>Siguiente</span><i class="fa-solid fa-arrow-right"></i>';
+  
+  const video = document.querySelector('video');
+  if(video) {
+    if(slides[current].id === 'slide-6') video.play();
+    else video.pause();
+  }
+}
 prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>current===slides.length-1?show(0):show(current+1));document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});
 document.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});document.addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-startX;if(Math.abs(distance)>60)show(current+(distance<0?1:-1))},{passive:true});
 document.querySelector('#fullscreenButton').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});document.querySelector('#soundButton').addEventListener('click',e=>{sound=!sound;e.currentTarget.innerHTML=`<i class="fa-solid fa-volume-${sound?'high':'xmark'}"></i>`;e.currentTarget.setAttribute('aria-label',sound?'Desactivar sonidos':'Activar sonidos')});

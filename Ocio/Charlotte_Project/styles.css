@@ -777,6 +777,8 @@ body {
 .finale-slide {
   background: radial-gradient(circle at 80% 10%, #154f82 0, transparent 35%), var(--navy);
   color: white;
+  inset-bottom: 0;
+  height: calc(100vh - 76px);
 }
 
 .finale-slide:before {
@@ -857,7 +859,25 @@ body {
   background: #20b87a;
 }
 
-.success-badge i {
+.video-badge {
+  position: absolute;
+  z-index: 4;
+  top: -10px;
+  left: -10px;
+  background: var(--blue);
+  color: white;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.success-badge i,
+.video-badge i {
   margin-right: 7px;
 }
 
