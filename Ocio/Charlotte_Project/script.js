@@ -8,4 +8,22 @@ document.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{pa
 document.querySelector('#fullscreenButton').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});document.querySelector('#soundButton').addEventListener('click',e=>{sound=!sound;e.currentTarget.innerHTML=`<i class="fa-solid fa-volume-${sound?'high':'xmark'}"></i>`;e.currentTarget.setAttribute('aria-label',sound?'Desactivar sonidos':'Activar sonidos')});
 const circuitSwitch=document.querySelector('#circuitSwitch');circuitSwitch.addEventListener('click',()=>{const on=!circuitSwitch.classList.contains('on');circuitSwitch.classList.toggle('on',on);document.querySelector('#circuitBoard').classList.toggle('on',on);circuitSwitch.setAttribute('aria-checked',String(on));circuitSwitch.querySelector('b').textContent=on?'APAGAR':'ENCENDER';document.querySelector('#switchStatus').textContent=on?'Fase 1 · Circuito encendido':'Fase 0 · Circuito apagado';beep()});
 document.querySelector('.brand').addEventListener('click', (e) => { e.preventDefault(); show(0); });
-const hashIndex=Number(location.hash.replace('#slide-',''))-1;if(hashIndex>0&&hashIndex<slides.length){slides[0].classList.remove('active');current=hashIndex;slides[current].classList.add('active')}update();
+const hashIndex=Number(location.hash.replace('#slide-',''))-1;
+
+const modal = document.querySelector('#imageModal');
+const modalImg = document.querySelector('#modalImg');
+const modalClose = document.querySelector('.modal-close');
+
+document.querySelector('.photo-strip img').addEventListener('click', (e) => {
+    modalImg.src = e.target.src;
+    modal.classList.add('active');
+});
+
+const closeModal = () => {
+    modal.classList.remove('active');
+};
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});if(hashIndex>0&&hashIndex<slides.length){slides[0].classList.remove('active');current=hashIndex;slides[current].classList.add('active')}update();
