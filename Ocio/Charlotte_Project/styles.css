@@ -995,6 +995,57 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
+.modal-card {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--blue);
+  color: white;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+}
+
+.modal-card h3 {
+  font-family: Space Grotesk;
+  font-size: 28px;
+  margin: 0 0 16px;
+  color: var(--navy);
+}
+
+.modal-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.circuit-node {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.circuit-node:hover {
+  transform: translateY(-5px);
+}
+
 .modal-close {
   position: absolute;
   top: 30px;

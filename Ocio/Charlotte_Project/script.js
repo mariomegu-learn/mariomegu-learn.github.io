@@ -12,18 +12,56 @@ const hashIndex=Number(location.hash.replace('#slide-',''))-1;
 
 const modal = document.querySelector('#imageModal');
 const modalImg = document.querySelector('#modalImg');
-const modalClose = document.querySelector('.modal-close');
+const infoModal = document.querySelector('#infoModal');
+const modalCloseBtns = document.querySelectorAll('.modal-close');
+
+const nodeData = {
+    'Pilas': {
+        icon: '<i class="fa-solid fa-battery-full"></i>',
+        title: 'Baterías',
+        desc: 'Las pilas almacenan energía química y la liberan como electricidad. En nuestro avión, usamos 2 pilas AA para darle fuerza a los motores.'
+    },
+    'Interruptor': {
+        icon: '<i class="fa-solid fa-toggle-on"></i>',
+        title: 'Interruptor',
+        desc: 'Es como una puerta para los electrones. Cuando está "cerrado" (ON), el camino está completo y la electricidad fluye. Cuando está "abierto" (OFF), el camino se rompe y el avión se detiene.'
+    },
+    'Motores': {
+        icon: '<i class="fa-solid fa-gears"></i>',
+        title: 'Motores Dinamo 12V',
+        desc: 'Estos motores de corriente continua usan electroimanes para girar cuando reciben electricidad. Son pequeños pero muy potentes para mover las hélices de nuestro avión.'
+    },
+    'Hélices': {
+        icon: '<i class="fa-solid fa-fan"></i>',
+        title: 'De electricidad a movimiento',
+        desc: 'Al girar rápidamente, las hélices empujan el aire hacia atrás. Según las leyes de la física (acción y reacción), esto genera el empuje necesario para el avión.'
+    }
+};
+
+document.querySelectorAll('.circuit-node').forEach(node => {
+    node.addEventListener('click', () => {
+        const key = node.querySelector('strong').textContent;
+        const data = nodeData[key];
+        if (data) {
+            document.querySelector('#modalIcon').innerHTML = data.icon;
+            document.querySelector('#modalTitle').textContent = data.title;
+            document.querySelector('#modalDesc').textContent = data.desc;
+            infoModal.classList.add('active');
+        }
+    });
+});
 
 document.querySelector('.photo-strip img').addEventListener('click', (e) => {
     modalImg.src = e.target.src;
     modal.classList.add('active');
 });
 
-const closeModal = () => {
+modalCloseBtns.forEach(btn => btn.addEventListener('click', () => {
     modal.classList.remove('active');
-};
+    infoModal.classList.remove('active');
+}));
 
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
+window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+    if (e.target === infoModal) infoModal.classList.remove('active');
 });if(hashIndex>0&&hashIndex<slides.length){slides[0].classList.remove('active');current=hashIndex;slides[current].classList.add('active')}update();
