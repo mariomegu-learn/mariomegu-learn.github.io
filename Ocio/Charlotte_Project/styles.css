@@ -825,6 +825,69 @@ body {
   margin-bottom: 3px;
 }
 
+/* Diapositiva de aprendizajes y tarjetas de resumen. */
+.learnings-layout {
+  gap: 28px;
+}
+
+.learnings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.learning-card {
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 16px 35px rgba(7, 27, 53, .08);
+}
+
+.learning-card i {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  background: var(--blue);
+  color: white;
+  font-size: 22px;
+}
+
+.learning-card h3 {
+  margin: 0 0 8px;
+  font: 700 22px Space Grotesk;
+}
+
+.learning-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.learning-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(246, 166, 187, .25), rgba(253, 207, 80, .25));
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.learning-quote p {
+  margin: 0;
+}
+
+.learning-quote i {
+  color: var(--orange);
+  font-size: 22px;
+}
+
 /* Diapositiva final, video y etiquetas de resultado. */
 .finale-slide {
   background: radial-gradient(circle at 80% 10%, #154f82 0, transparent 35%), var(--navy);
@@ -1223,6 +1286,10 @@ body {
   }
 
   .assembly-content {
+    grid-template-columns: 1fr;
+  }
+
+  .learnings-grid {
     grid-template-columns: 1fr;
   }
 

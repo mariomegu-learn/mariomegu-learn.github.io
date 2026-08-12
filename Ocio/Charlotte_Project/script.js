@@ -17,7 +17,7 @@ function show(index) {
   slides[current].classList.add('active');
   const video = document.querySelector('video');
   if(video) {
-    if(slides[current].id === 'slide-6') video.play();
+    if(slides[current].id === 'slide-7') video.play();
     else video.pause();
   }
   update();
@@ -39,7 +39,7 @@ function update(){
   
   const video = document.querySelector('video');
   if(video) {
-    if(slides[current].id === 'slide-6') video.play();
+    if(slides[current].id === 'slide-7') video.play();
     else video.pause();
   }
 }
@@ -51,7 +51,7 @@ document.querySelector('#fullscreenButton').addEventListener('click',()=>{if(!do
 
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   const plane = document.createElement('div');
-  const smokeColors = ['#F6A6BB', '#F4A261', '#FDCF50'];
+  const smokeColors = ['#e0e1dd'];
   let targetX = 0;
   let targetY = 0;
   let planeX = 0;
