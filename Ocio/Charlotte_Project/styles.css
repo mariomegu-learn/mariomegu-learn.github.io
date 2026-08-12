@@ -1,3 +1,4 @@
+/* Fuentes, variables de color y ajustes globales. */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
@@ -26,6 +27,7 @@ body {
   font-family: Manrope, sans-serif;
 }
 
+/* Fondo decorativo y cursor de avión para equipos con mouse. */
 .sky-grid {
   position: fixed;
   inset: 0;
@@ -74,6 +76,7 @@ body {
   mix-blend-mode: multiply;
 }
 
+/* Barra superior, identidad del proyecto y acciones globales. */
 .topbar {
   height: 76px;
   position: fixed;
@@ -153,6 +156,7 @@ body {
   box-shadow: 0 5px 18px rgba(7, 27, 53, .08);
 }
 
+/* Estructura, transición y tipografía de las diapositivas. */
 .deck {
   height: 100vh;
 }
@@ -274,6 +278,7 @@ body {
   min-width: 120px;
 }
 
+/* Portada: imagen principal, órbitas animadas y etiquetas flotantes. */
 .hero-visual {
   position: relative;
   display: grid;
@@ -478,6 +483,7 @@ body {
   margin: 10px;
 }
 
+/* Tarjetas de materiales y contenido visual de las secciones. */
 .materials-grid {
   display: grid;
   grid-template-columns: 1fr .85fr 1fr;
@@ -555,6 +561,7 @@ body {
   min-height: 340px;
 }
 
+/* Circuito interactivo, flujo de energía y estado del interruptor. */
 .circuit-board {
   position: relative;
   display: grid;
@@ -818,6 +825,7 @@ body {
   margin-bottom: 3px;
 }
 
+/* Diapositiva final, video y etiquetas de resultado. */
 .finale-slide {
   background: radial-gradient(circle at 80% 10%, #154f82 0, transparent 35%), var(--navy);
   color: white;
@@ -929,6 +937,7 @@ body {
   color: rgba(255, 255, 255, .06);
 }
 
+/* Controles fijos, indicadores y barra de progreso. */
 .controls {
   position: fixed;
   z-index: 60;
@@ -1005,6 +1014,7 @@ body {
   transition: width .45s ease;
 }
 
+/* Animaciones reutilizadas por el circuito y los elementos decorativos. */
 @keyframes flow {
   from {
     transform: translateX(-100%)
@@ -1021,6 +1031,7 @@ body {
   }
 }
 
+/* Modales para ampliar imágenes y explicar componentes del circuito. */
 .modal {
   position: fixed;
   inset: 0;
@@ -1131,6 +1142,7 @@ body {
   cursor: zoom-in;
 }
 
+/* Adaptación del diseño para tabletas y teléfonos. */
 @media(max-width: 850px) {
   body {
     overflow: auto;
@@ -1292,6 +1304,7 @@ body {
   }
 }
 
+/* Respeta la preferencia del usuario por reducir animaciones. */
 @media(prefers-reduced-motion: reduce) {
 
   *,

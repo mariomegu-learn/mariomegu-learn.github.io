@@ -11,7 +11,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Fondo decorativo fijo para toda la presentación. -->
   <div class="sky-grid" aria-hidden="true"></div>
+
+  <!-- Barra de navegación principal, siempre visible. -->
   <header class="topbar">
     <a class="brand" href="#slide-1" aria-label="Ir al inicio">
       <span class="brand-mark"><i class="fa-solid fa-plane"></i></span>
@@ -28,8 +31,10 @@
     </div>
   </header>
 
-  <main id="deck" class="deck" aria-live="polite">
-    <section id="slide-1" class="slide active hero-slide" data-title="Portada">
+    <!-- Contenedor de las diapositivas; JavaScript administra cuál está activa. -->
+    <main id="deck" class="deck" aria-live="polite">
+      <!-- Diapositiva 1: portada y presentación del proyecto. -->
+      <section id="slide-1" class="slide active hero-slide" data-title="Portada">
       <div class="slide-inner hero-layout">
         <div class="hero-copy">
           <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Ciencia · Tecnología · Creatividad</span>
@@ -51,7 +56,8 @@
       <span class="slide-number">01</span>
     </section>
 
-    <section id="slide-2" class="slide" data-title="El proyecto">
+      <!-- Diapositiva 2: objetivo educativo de la maqueta. -->
+      <section id="slide-2" class="slide" data-title="El proyecto">
       <div class="slide-inner two-column">
         <div class="image-stack">
           <div class="image-frame main-photo"><img src="assets/ensamble.jpg" alt="Avión de madera durante el ensamble" /></div>
@@ -71,7 +77,8 @@
       <span class="slide-number">02</span>
     </section>
 
-    <section id="slide-3" class="slide" data-title="Materiales">
+      <!-- Diapositiva 3: materiales y componentes del proyecto. -->
+      <section id="slide-3" class="slide" data-title="Materiales">
       <div class="slide-inner materials-layout">
         <div class="slide-heading"><span class="section-kicker">02 · Preparación</span><h2>Materiales y partes</h2><p>Dos grupos trabajan juntos para darle forma y movimiento al avión.</p></div>
         <div class="materials-grid">
@@ -91,7 +98,8 @@
       <span class="slide-number">03</span>
     </section>
 
-    <section id="slide-4" class="slide circuit-slide" data-title="Circuito">
+      <!-- Diapositiva 4: circuito interactivo; cada nodo abre una explicación. -->
+      <section id="slide-4" class="slide circuit-slide" data-title="Circuito">
       <div class="slide-inner">
         <div class="slide-heading compact"><span class="section-kicker">03 · Energía</span><h2>¿Cómo funciona el circuito?</h2><p>La electricidad recorre un camino cerrado.</p></div>
         <div class="circuit-board" id="circuitBoard">
@@ -113,7 +121,8 @@
       <span class="slide-number">04</span>
     </section>
 
-    <section id="slide-5" class="slide" data-title="Ensamble">
+      <!-- Diapositiva 5: etapas de construcción de la maqueta. -->
+      <section id="slide-5" class="slide" data-title="Ensamble">
       <div class="slide-inner assembly-layout">
         <div class="slide-heading compact"><span class="section-kicker">04 · Construcción</span><h2>Fases del ensamble</h2><p>Seguimos cada paso con orden y cuidado.</p></div>
         <div class="assembly-content">
@@ -131,7 +140,8 @@
       <span class="slide-number">05</span>
     </section>
 
-    <section id="slide-6" class="slide finale-slide" data-title="Conclusión">
+      <!-- Diapositiva 6: conclusión y video de la prueba final. -->
+      <section id="slide-6" class="slide finale-slide" data-title="Conclusión">
       <div class="slide-inner finale-layout">
         <div class="finale-copy">
           <span class="section-kicker light">05 · Resultado</span><h2>De la electricidad<br><span>al movimiento</span></h2>
@@ -149,6 +159,7 @@
     </section>
   </main>
 
+  <!-- Navegación entre diapositivas y progreso de la presentación. -->
   <nav class="controls" aria-label="Controles de la presentación">
     <button id="prevButton" class="nav-button" aria-label="Diapositiva anterior"><i class="fa-solid fa-arrow-left"></i></button>
     <div id="dots" class="dots" aria-label="Seleccionar diapositiva"></div>

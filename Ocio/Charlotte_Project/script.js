@@ -1,8 +1,13 @@
+// Estado, elementos principales y navegación de las diapositivas.
 const slides=[...document.querySelectorAll('.slide')];const counter=document.querySelector('#slideCounter');const progress=document.querySelector('#progressBar');const dots=document.querySelector('#dots');const prev=document.querySelector('#prevButton');const next=document.querySelector('#nextButton');let current=0;let sound=true;let startX=0;
+// Genera los puntos de navegación según el total de diapositivas.
 slides.forEach((_,i)=>{const dot=document.createElement('button');dot.className='dot';dot.setAttribute('aria-label',`Ir a la diapositiva ${i+1}`);dot.addEventListener('click',()=>show(i));dots.appendChild(dot)});
+// Reproduce un sonido breve al navegar cuando el sonido está habilitado.
 function beep(){if(!sound)return;try{const audio=new(window.AudioContext||window.webkitAudioContext)();const oscillator=audio.createOscillator();const gain=audio.createGain();oscillator.frequency.value=520;gain.gain.value=.025;oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+.045)}catch{}}
+// Controla el video final para que solo se reproduzca en su diapositiva.
 const video = document.querySelector('video');
 
+// Muestra una diapositiva, actualiza la URL y sincroniza el video.
 function show(index) {
   if (index < 0 || index >= slides.length || index === current) return;
   slides[current].classList.add('leaving');
@@ -24,6 +29,7 @@ function show(index) {
     video.pause();
   }
 }
+// Refresca contador, progreso, botones y reproducción de video.
 function update(){
   counter.textContent=`${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
   progress.style.width=`${((current+1)/slides.length)*100}%`;
@@ -37,8 +43,10 @@ function update(){
     else video.pause();
   }
 }
+// Permite navegación mediante botones, teclado y gestos táctiles.
 prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>current===slides.length-1?show(0):show(current+1));document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1)});
 document.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});document.addEventListener('touchend',e=>{const distance=e.changedTouches[0].screenX-startX;if(Math.abs(distance)>60)show(current+(distance<0?1:-1))},{passive:true});
+// Gestiona pantalla completa, sonido y el cursor personalizado de avión.
 document.querySelector('#fullscreenButton').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});document.querySelector('#soundButton').addEventListener('click',e=>{sound=!sound;e.currentTarget.innerHTML=`<i class="fa-solid fa-volume-${sound?'high':'xmark'}"></i>`;e.currentTarget.setAttribute('aria-label',sound?'Desactivar sonidos':'Activar sonidos')});
 
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -117,15 +125,18 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   window.addEventListener('pointerleave', () => plane.classList.remove('is-visible'));
   requestAnimationFrame(animatePlane);
 }
+// Activa o apaga la simulación visual del circuito eléctrico.
 const circuitSwitch=document.querySelector('#circuitSwitch');circuitSwitch.addEventListener('click',()=>{const on=!circuitSwitch.classList.contains('on');circuitSwitch.classList.toggle('on',on);document.querySelector('#circuitBoard').classList.toggle('on',on);circuitSwitch.setAttribute('aria-checked',String(on));circuitSwitch.querySelector('b').textContent=on?'APAGAR':'ENCENDER';document.querySelector('#switchStatus').textContent=on?'Fase 1 · Circuito encendido':'Fase 0 · Circuito apagado';beep()});
 document.querySelector('.brand').addEventListener('click', (e) => { e.preventDefault(); show(0); });
 const hashIndex=Number(location.hash.replace('#slide-',''))-1;
 
+// Configuración de modales para imágenes y explicaciones del circuito.
 const modal = document.querySelector('#imageModal');
 const modalImg = document.querySelector('#modalImg');
 const infoModal = document.querySelector('#infoModal');
 const modalCloseBtns = document.querySelectorAll('.modal-close');
 
+// Contenido educativo mostrado al seleccionar cada componente del circuito.
 const nodeData = {
     'Pilas': {
         icon: '<i class="fa-solid fa-battery-full"></i>',
@@ -149,6 +160,7 @@ const nodeData = {
     }
 };
 
+// Abre la explicación correspondiente al hacer clic en un nodo.
 document.querySelectorAll('.circuit-node').forEach(node => {
     node.addEventListener('click', () => {
         const key = node.querySelector('strong').textContent;
