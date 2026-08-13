@@ -21,7 +21,6 @@ function show(index) {
     else video.pause();
   }
   update();
-  beep();
   location.hash = `slide-${current + 1}`;
   if (current === slides.length - 1) {
     video.play();
