@@ -1,4 +1,5 @@
 // Estado, elementos principales y navegación de las diapositivas.
+// Estado, elementos principales y navegación de las diapositivas.
 const slides=[...document.querySelectorAll('.slide')];const counter=document.querySelector('#slideCounter');const progress=document.querySelector('#progressBar');const dots=document.querySelector('#dots');const prev=document.querySelector('#prevButton');const next=document.querySelector('#nextButton');let current=0;let sound=true;let startX=0;
 // Genera los puntos de navegación según el total de diapositivas.
 slides.forEach((_,i)=>{const dot=document.createElement('button');dot.className='dot';dot.setAttribute('aria-label',`Ir a la diapositiva ${i+1}`);dot.addEventListener('click',()=>show(i));dots.appendChild(dot)});
