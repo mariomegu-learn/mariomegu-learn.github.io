@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Juego arcade de cocina infantil.">
+  <title>Pizza Rush!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="arcade">
+    <header class="topbar">
+      <a class="game-logo" href="#inicio"><span>🍕</span>Pizza Rush!</a>
+      <div class="top-stats">
+        <div><small>NIVEL</small><strong id="level">1</strong></div>
+        <div><small>MONEDAS</small><strong><span id="coins">0</span> 🪙</strong></div>
+      </div>
+    </header>
+
+    <section class="start-screen screen active" id="inicio">
+      <div class="start-card">
+        <div class="pizza-logo" aria-hidden="true">🍕</div>
+        <p class="kicker">¡EL JUEGO MÁS RICO!</p>
+        <h1>Pizza<br><span>Rush!</span></h1>
+        <p>¡Prepara pizzas veloces, sirve clientes felices y consigue la mayor puntuación!</p>
+        <button class="play-button" id="start-game" type="button">JUGAR AHORA <span>▶</span></button>
+        <div class="how-to"><span>1</span> Elige ingredientes <span>2</span> Haz la pizza <span>3</span> ¡Sírvela!</div>
+      </div>
+      <div class="start-art" aria-hidden="true"><span class="float tomato">🍅</span><span class="float cheese">🧀</span><span class="float mushroom">🍄</span><div class="chef">👨🍳</div></div>
+    </section>
+
+    <section class="game-screen screen" id="game">
+      <div class="game-hud">
+        <div class="customer-box"><span id="customer-avatar">🧒</span><div><small>CLIENTE</small><strong id="customer-name">Luna</strong></div></div>
+        <div class="order-box"><small>PREPARA ESTA PIZZA</small><div id="order-items"></div></div>
+        <div class="time-box"><small>TIEMPO</small><strong id="time">30</strong><span>SEG</span></div>
+      </div>
+
+      <div class="game-board">
+        <section class="ingredient-shelf">
+          <p class="step-title"><b>1</b> ELIGE INGREDIENTES</p>
+          <div class="ingredient-list" id="ingredient-buttons"></div>
+          <button class="clear-button" id="clear-pizza" type="button">↻ Limpiar pizza</button>
+        </section>
+        <section class="counter">
+          <p class="step-title"><b>2</b> PREPARA LA PIZZA</p>
+          <div class="pizza-shadow"></div>
+          <div class="pizza" id="pizza"><span class="pizza-hint">¡Haz clic en los ingredientes!</span></div>
+          <p class="progress" id="pizza-status">0 ingredientes elegidos</p>
+          <button class="serve-button" id="serve-pizza" type="button" disabled>¡SERVIR! <span>🍕</span></button>
+        </section>
+      </div>
+    </section>
+
+    <section class="result-screen screen" id="result">
+      <div class="result-card">
+        <div class="result-burst" id="result-icon">⭐</div>
+        <p class="kicker" id="result-kicker">¡PERFECTO!</p>
+        <h2 id="result-title">¡Pizza genial!</h2>
+        <p id="result-text"></p>
+        <div class="reward">+<strong id="earned-coins">20</strong> 🪙</div>
+        <button class="play-button" id="next-level" type="button">SIGUIENTE NIVEL <span>▶</span></button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
