@@ -9,6 +9,7 @@ const overview = document.querySelector('#overview');
 const navigation = document.querySelector('#slide-nav');
 const imageModal = document.querySelector('#image-modal');
 const modalImage = document.querySelector('#modal-image');
+const modalCaption = document.querySelector('#modal-caption');
 const imageModalClose = document.querySelector('.image-modal-close');
 const zoomableImages = [...document.querySelectorAll('.slide img:not(.cover-scene img)')];
 let current = 0;
@@ -93,6 +94,7 @@ zoomableImages.forEach((image) => {
   const openImageModal = () => {
     modalImage.src = image.currentSrc || image.src;
     modalImage.alt = image.alt;
+    modalCaption.textContent = image.alt;
     imageModal.showModal();
   };
 
