@@ -7,6 +7,10 @@ const next = document.querySelector('#next');
 const overviewButton = document.querySelector('#overview-button');
 const overview = document.querySelector('#overview');
 const navigation = document.querySelector('#slide-nav');
+const imageModal = document.querySelector('#image-modal');
+const modalImage = document.querySelector('#modal-image');
+const imageModalClose = document.querySelector('.image-modal-close');
+const zoomableImages = [...document.querySelectorAll('.slide img:not(.cover-scene img)')];
 let current = 0;
 let hasCelebratedFinalSlide = false;
 
@@ -79,6 +83,32 @@ next.addEventListener('click', () => showSlide(current + 1));
 overviewButton.addEventListener('click', () => overview.showModal());
 
 document.querySelector('.dialog-close').addEventListener('click', () => overview.close());
+
+zoomableImages.forEach((image) => {
+  image.classList.add('zoomable-image');
+  image.tabIndex = 0;
+  image.setAttribute('role', 'button');
+  image.setAttribute('aria-label', `Ampliar imagen: ${image.alt}`);
+
+  const openImageModal = () => {
+    modalImage.src = image.currentSrc || image.src;
+    modalImage.alt = image.alt;
+    imageModal.showModal();
+  };
+
+  image.addEventListener('click', openImageModal);
+  image.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openImageModal();
+    }
+  });
+});
+
+imageModalClose.addEventListener('click', () => imageModal.close());
+imageModal.addEventListener('click', (event) => {
+  if (event.target === imageModal) imageModal.close();
+});
 
 window.addEventListener('keydown', (event) => {
   if (overview.open) {
