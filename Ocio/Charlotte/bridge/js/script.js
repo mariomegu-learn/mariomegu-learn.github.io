@@ -13,6 +13,7 @@ const modalCaption = document.querySelector('#modal-caption');
 const imageModalClose = document.querySelector('.image-modal-close');
 const zoomableImages = [...document.querySelectorAll('.slide img:not(.cover-scene img)')];
 let current = 0;
+let activeImageIndex = 0;
 let hasCelebratedFinalSlide = false;
 
 function launchConfetti() {
@@ -85,24 +86,38 @@ overviewButton.addEventListener('click', () => overview.showModal());
 
 document.querySelector('.dialog-close').addEventListener('click', () => overview.close());
 
+function getSlideImages() {
+  return zoomableImages.filter((image) => image.closest('.slide') === slides[current]);
+}
+
+function updateImageModal() {
+  const slideImages = getSlideImages();
+  const image = slideImages[activeImageIndex];
+
+  modalImage.src = image.currentSrc || image.src;
+  modalImage.alt = image.alt;
+  modalCaption.textContent = slideImages.length > 1
+    ? `${image.alt} · ${activeImageIndex + 1} de ${slideImages.length}`
+    : image.alt;
+}
+
+function openImageModal(image) {
+  const slideImages = getSlideImages();
+  activeImageIndex = slideImages.indexOf(image);
+  updateImageModal();
+  imageModal.showModal();
+}
+
 zoomableImages.forEach((image) => {
   image.classList.add('zoomable-image');
   image.tabIndex = 0;
   image.setAttribute('role', 'button');
   image.setAttribute('aria-label', `Ampliar imagen: ${image.alt}`);
-
-  const openImageModal = () => {
-    modalImage.src = image.currentSrc || image.src;
-    modalImage.alt = image.alt;
-    modalCaption.textContent = image.alt;
-    imageModal.showModal();
-  };
-
-  image.addEventListener('click', openImageModal);
+  image.addEventListener('click', () => openImageModal(image));
   image.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      openImageModal();
+      openImageModal(image);
     }
   });
 });
@@ -115,6 +130,24 @@ imageModal.addEventListener('click', (event) => {
 window.addEventListener('keydown', (event) => {
   if (overview.open) {
     if (event.key === 'Escape') overview.close();
+    return;
+  }
+
+  if (imageModal.open) {
+    const slideImages = getSlideImages();
+
+    if (event.key === 'ArrowRight' && slideImages.length > 1) {
+      event.preventDefault();
+      activeImageIndex = (activeImageIndex + 1) % slideImages.length;
+      updateImageModal();
+    }
+
+    if (event.key === 'ArrowLeft' && slideImages.length > 1) {
+      event.preventDefault();
+      activeImageIndex = (activeImageIndex - 1 + slideImages.length) % slideImages.length;
+      updateImageModal();
+    }
+
     return;
   }
 
