@@ -9,12 +9,14 @@
 </head>
 <body>
   <div class="app">
+    <!-- Encabezado fijo con identidad y acceso al índice. -->
     <header class="header">
       <a href="#portada" class="logo">PUENTES<br><strong>LEVADIZOS</strong></a>
       <div class="slide-count" aria-live="polite"><span id="slide-number">1</span> / <span id="slide-total">8</span></div>
       <button type="button" class="menu-button" id="overview-button" aria-label="Ver índice">ÍNDICE</button>
     </header>
 
+    <!-- Contenedor principal de las ocho diapositivas. -->
     <main class="slides">
       <section class="slide is-active cover" id="portada" data-name="Portada">
         <div class="cover-scene" aria-hidden="true">
@@ -91,6 +93,7 @@
       </section>
     </main>
 
+    <!-- Controles para avanzar o retroceder entre diapositivas. -->
     <footer class="footer">
       <button type="button" id="previous">← <span>ANTERIOR</span></button>
       <div class="progress"><span id="progress"></span></div>
@@ -98,6 +101,7 @@
     </footer>
   </div>
 
+  <!-- Modal del índice y modal reutilizable para ampliar imágenes. -->
   <dialog id="overview"><button type="button" class="dialog-close" aria-label="Cerrar índice">×</button><p class="kicker">NAVEGACIÓN</p><h2>Índice</h2><nav id="slide-nav"></nav></dialog>
   <dialog id="image-modal" class="image-modal"><button type="button" class="image-modal-close" aria-label="Cerrar imagen ampliada">×</button><figure><img id="modal-image" src="" alt=""><figcaption id="modal-caption"></figcaption></figure></dialog>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>

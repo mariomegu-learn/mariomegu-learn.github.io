@@ -1,3 +1,4 @@
+// Referencias a los elementos principales de la presentación.
 const slides = [...document.querySelectorAll('.slide')];
 const slideNumber = document.querySelector('#slide-number');
 const slideTotal = document.querySelector('#slide-total');
@@ -16,6 +17,7 @@ let current = 0;
 let activeImageIndex = 0;
 let hasCelebratedFinalSlide = false;
 
+// Lanza el confeti de celebración al llegar a la diapositiva final.
 function launchConfetti() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.confetti) return;
 
@@ -30,6 +32,7 @@ function launchConfetti() {
   }, 180);
 }
 
+// Muestra el total y crea los botones del índice automáticamente.
 slideTotal.textContent = slides.length;
 
 slides.forEach((slide, index) => {
@@ -43,6 +46,7 @@ slides.forEach((slide, index) => {
   navigation.append(button);
 });
 
+// Cambia la diapositiva, actualiza controles y ejecuta la transición de salida.
 function showSlide(index) {
   const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
   const outgoingSlide = slides[current];
@@ -80,16 +84,19 @@ function showSlide(index) {
   if (current !== slides.length - 1) hasCelebratedFinalSlide = false;
 }
 
+// Controles de navegación mediante botones e índice.
 previous.addEventListener('click', () => showSlide(current - 1));
 next.addEventListener('click', () => showSlide(current + 1));
 overviewButton.addEventListener('click', () => overview.showModal());
 
 document.querySelector('.dialog-close').addEventListener('click', () => overview.close());
 
+// Devuelve las imágenes ampliables de la diapositiva visible.
 function getSlideImages() {
   return zoomableImages.filter((image) => image.closest('.slide') === slides[current]);
 }
 
+// Actualiza la imagen y el pie de foto dentro del modal de zoom.
 function updateImageModal() {
   const slideImages = getSlideImages();
   const image = slideImages[activeImageIndex];
@@ -108,6 +115,7 @@ function openImageModal(image) {
   imageModal.showModal();
 }
 
+// Hace que las imágenes de contenido se puedan abrir con mouse o teclado.
 zoomableImages.forEach((image) => {
   image.classList.add('zoomable-image');
   image.tabIndex = 0;
@@ -127,6 +135,7 @@ imageModal.addEventListener('click', (event) => {
   if (event.target === imageModal) imageModal.close();
 });
 
+// Gestiona teclado: modal, índice y navegación general de diapositivas.
 window.addEventListener('keydown', (event) => {
   if (overview.open) {
     if (event.key === 'Escape') overview.close();
