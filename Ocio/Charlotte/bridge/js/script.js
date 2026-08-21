@@ -5,6 +5,7 @@ const slideTotal = document.querySelector('#slide-total');
 const progress = document.querySelector('#progress');
 const previous = document.querySelector('#previous');
 const next = document.querySelector('#next');
+const logo = document.querySelector('.logo');
 const overviewButton = document.querySelector('#overview-button');
 const overview = document.querySelector('#overview');
 const navigation = document.querySelector('#slide-nav');
@@ -85,6 +86,11 @@ function showSlide(index) {
 }
 
 // Controles de navegación mediante botones e índice.
+logo.addEventListener('click', (event) => {
+  event.preventDefault();
+  showSlide(0);
+});
+
 previous.addEventListener('click', () => showSlide(current - 1));
 next.addEventListener('click', () => showSlide(current + 1));
 overviewButton.addEventListener('click', () => overview.showModal());
