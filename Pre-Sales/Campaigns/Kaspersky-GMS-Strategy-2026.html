@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia Kaspersky - GMS 2026</title>
+    <!-- Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gms: {
+                            dark: '#1e293b',
+                            blue: '#0ea5e9',
+                            cyan: '#06b6d4',
+                            accent: '#10b981'
+                        },
+                        kaspersky: {
+                            green: '#00a887',
+                            dark: '#00262b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for enhancements */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <main class="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden sm:rounded-2xl sm:my-8">
+        
+        <!-- HEADER / HERO SECTION (Based on Slides 1, 2, and 3) -->
+        <header class="relative bg-slate-900 text-white overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 z-0 opacity-20">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-gms-blue rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                <div class="absolute top-24 -left-24 w-72 h-72 bg-kaspersky-green rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            </div>
+
+            <div class="relative z-10 px-8 py-10 sm:px-12 sm:py-16">
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-12 space-y-6 sm:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <!-- GMS Logo Placeholder -->
+                        <img src="assets/LOGO_BLANCO.png" alt="GMS" class="h-20 w-auto">
+                    </div>
+                    <div class="text-right border-l border-slate-700 pl-6">
+                        <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-1">Estrategia 2026</p>
+                        <h2 class="text-xl font-bold text-kaspersky-green">Kaspersky & GMS</h2>
+                    </div>
+                </div>
+
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
+                        Habilitamos un mundo <br/>
+                        <span class="bg-gradient-to-r from-gms-blue to-kaspersky-green gradient-text">digital más seguro.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                        Equipo: Con el objetivo de seguir consolidando nuestro liderazgo, les presento el ecosistema de soluciones de Kaspersky y cómo estas se integran de manera clave en nuestra visión estratégica.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-16 px-8 sm:px-12 bg-kaspersky-dark text-white relative">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-kaspersky-green uppercase mb-3">Estrategia Kaspersky</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold mb-6">Verticales <span class="text-gms-cyan">Tier 1</span></h3>
+                <p class="text-slate-300">
+                    Portafolio principal estructurado para brindar seguridad integral a través de seis pilares fundamentales de protección tecnológica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Endpoint -->
+                <div class="glass-card rounded-2xl p-6 hover:border-kaspersky-green transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-kaspersky-green">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Endpoint</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-kaspersky-green mr-2">▪</span> Kaspersky Next EDR / XDR Optimum & Expert</li>
+                        <li class="flex items-start"><span class="text-kaspersky-green mr-2">▪</span> Kaspersky Hybrid Cloud Security</li>
+                        <li class="flex items-start"><span class="text-kaspersky-green mr-2">▪</span> Kaspersky Mobile</li>
+                        <li class="flex items-start"><span class="text-kaspersky-green mr-2">▪</span> Embedded Systems Security for Windows</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Plataforma de Visibilidad -->
+                <div class="glass-card rounded-2xl p-6 hover:border-gms-cyan transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-gms-cyan">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Plataforma de Visibilidad</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-gms-cyan mr-2">▪</span> KUMA (Unified Monitoring and Analysis)</li>
+                        <li class="flex items-start"><span class="text-gms-cyan mr-2">▪</span> Kaspersky Next XDR Core & Expert</li>
+                        <li class="flex items-start"><span class="text-gms-cyan mr-2">▪</span> Anti Targeted Attack Platform</li>
+                        <li class="flex items-start"><span class="text-gms-cyan mr-2">▪</span> Industrial CyberSecurity for Networks</li>
+                        <li class="flex items-start"><span class="text-gms-cyan mr-2">▪</span> Threat Intelligence Portal</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Seguridad Perimetral -->
+                <div class="glass-card rounded-2xl p-6 hover:border-gms-blue transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-gms-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Seguridad Perimetral</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-gms-blue mr-2">▪</span> Anti Targeted Attack Platform</li>
+                        <li class="flex items-start"><span class="text-gms-blue mr-2">▪</span> Security for Mail Server / Internet Gateway</li>
+                        <li class="flex items-start"><span class="text-gms-blue mr-2">▪</span> Web Traffic Security</li>
+                        <li class="flex items-start"><span class="text-gms-blue mr-2">▪</span> DDoS Protection</li>
+                        <li class="flex items-start"><span class="text-gms-blue mr-2">▪</span> Data Feeds para integración con NGFW</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Seguridad en aplicaciones y datos -->
+                <div class="glass-card rounded-2xl p-6 hover:border-purple-400 transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-purple-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Aplicaciones y Datos</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">▪</span> Kaspersky Scan Engine</li>
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">▪</span> Security for Microsoft Office 365</li>
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">▪</span> Security for Storage</li>
+                        <li class="flex items-start"><span class="text-purple-400 mr-2">▪</span> Container Security</li>
+                    </ul>
+                </div>
+
+                <!-- 5. SOC -->
+                <div class="glass-card rounded-2xl p-6 hover:border-red-400 transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-red-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">SOC</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-red-400 mr-2">▪</span> KUMA / MDR</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">▪</span> Threat Intelligence Portal & Data Feeds</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">▪</span> Anti Targeted Attack Platform</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">▪</span> Kaspersky Next XDR Expert</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">▪</span> Kaspersky Sandbox</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Seguridad en nube -->
+                <div class="glass-card rounded-2xl p-6 hover:border-blue-300 transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center mb-5 text-blue-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Seguridad en Nube</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start"><span class="text-blue-300 mr-2">▪</span> Cloud Workload Security</li>
+                        <li class="flex items-start"><span class="text-blue-300 mr-2">▪</span> Hybrid Cloud Security</li>
+                        <li class="flex items-start"><span class="text-blue-300 mr-2">▪</span> Container Security</li>
+                        <li class="flex items-start"><span class="text-blue-300 mr-2">▪</span> Security for Microsoft Office 365</li>
+                        <li class="flex items-start"><span class="text-blue-300 mr-2">▪</span> Security Center Cloud Console</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-8 sm:px-12 bg-white">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="inline-flex items-center justify-center p-3 bg-gms-blue/10 rounded-xl text-gms-blue mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-4">Verticales <span class="text-gms-blue">Tier 2</span></h3>
+                    <p class="text-slate-600 mb-6">
+                        Complementamos la estrategia principal gestionando riesgos proactivamente, asegurando el desarrollo y protegiendo las identidades corporativas.
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-kaspersky-green mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <div>
+                                <strong class="text-slate-900 block mb-1">Gestión del Riesgo (Vulnerabilidades)</strong>
+                                <ul class="text-sm text-slate-500 space-y-1">
+                                    <li>&bull; Vulnerability Assessment & Patch Management</li>
+                                    <li>&bull; Kaspersky Vulnerability Data Feed</li>
+                                    <li>&bull; Industrial CyberSecurity for Networks (OT risk assessment)</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-gms-blue mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            <div>
+                                <strong class="text-slate-900 block mb-1">Análisis de Código</strong>
+                                <span class="text-sm text-slate-500 block">&bull; Kaspersky Application Security Assessment</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-gms-cyan mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                            <div>
+                                <strong class="text-slate-900 block mb-1">Identidades</strong>
+                                <ul class="text-sm text-slate-500 space-y-1">
+                                    <li>&bull; Digital Footprint Intelligence (Contraseñas Expuestas)</li>
+                                    <li>&bull; Brand Monitoring</li>
+                                    <li>&bull; Kaspersky Password Manager Business (PAM)</li>
+                                    <li>&bull; Kaspersky Next XDR Optimum (Respuesta sobre AD)</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="md:w-1/2 w-full mt-8 md:mt-0">
+                    <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 shadow-inner relative overflow-hidden h-full min-h-[350px] flex items-center justify-center">
+                         <div class="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] bg-[length:20px_20px]"></div>
+                         
+                         <!-- Abstract representation of Slide 10 graphic -->
+                         <div class="relative z-10 w-56 h-56 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-kaspersky-green/20 group hover:border-gms-blue/30 transition-all duration-500">
+                             
+                            <!-- Inner circles -->
+                            <div class="absolute w-36 h-36 border-2 border-dashed border-slate-200 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute w-24 h-24 border-2 border-gms-cyan/30 rounded-full"></div>
+                            
+                            <!-- Arrow pointers -->
+                            <div class="absolute inset-0 m-auto w-full h-full animate-[spin_20s_linear_infinite]">
+                                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 text-kaspersky-green group-hover:text-gms-blue transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" style="transform: rotate(180deg); transform-origin: center;"/></svg></div>
+                                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2 text-kaspersky-green group-hover:text-gms-blue transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+                                <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 text-kaspersky-green group-hover:text-gms-blue transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" style="transform: rotate(90deg); transform-origin: center;"/></svg></div>
+                                <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 text-kaspersky-green group-hover:text-gms-blue transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" style="transform: rotate(-90deg); transform-origin: center;"/></svg></div>
+                            </div>
+
+                            <!-- Core Center -->
+                            <div class="relative bg-gradient-to-br from-kaspersky-green to-gms-cyan text-white p-4 rounded-full shadow-lg">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                                </svg>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 text-center py-20 px-8 relative overflow-hidden">
+             <!-- Top Border Gradient -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gms-blue via-gms-cyan to-kaspersky-green"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500 mb-8 tracking-tight">
+                    ¡GRACIAS!
+                </h2>
+                
+                <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">
+                    Gracias por confiar en nuestra estrategia conjunta para proteger lo que más importa. Construyamos juntos un entorno digital más fuerte.
+                </p>
+                
+                <a href="https://wa.me/+573185599414" target="_blank" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-900 bg-white rounded-full hover:bg-gms-cyan hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(6,182,212,0.3)] hover:shadow-[0_0_60px_rgba(6,182,212,0.5)] transform hover:-translate-y-1">
+                    Más información
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-slate-800 text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center px-4 max-w-4xl mx-auto">
+                <p>&copy; 2026 GMS Seguridad. Todos los derechos reservados.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <span class="hover:text-slate-300 cursor-pointer transition-colors">Bogotá</span>
+                    <span>&bull;</span>
+                    <span class="hover:text-slate-300 cursor-pointer transition-colors">Quito</span>
+                    <span>&bull;</span>
+                    <span class="hover:text-slate-300 cursor-pointer transition-colors">Lima</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>
