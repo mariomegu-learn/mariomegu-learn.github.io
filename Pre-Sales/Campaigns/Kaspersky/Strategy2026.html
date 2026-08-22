@@ -3,28 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
     <title>Estrategia Kaspersky &amp; GMS 2026</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        supported-color-schemes: light dark;
+      }
+      /* MOBILE RESPONSIVE RULES */
+      @media only screen and (max-width: 600px) {
+        .wrapper-padding {
+          padding: 15px 10px !important;
+        }
+        .container-main {
+          width: 90% !important;
+          max-width: 90% !important;
+          margin: 0 auto !important;
+          border-radius: 8px !important;
+        }
+        .section-padding {
+          padding: 20px 14px !important;
+        }
+        .col-mobile {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-bottom: 12px !important;
+        }
+        .col-mobile-last {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-bottom: 0 !important;
+        }
+        .gap-mobile {
+          display: none !important;
+        }
+        .stack-header-left {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+          margin-bottom: 12px !important;
+        }
+        .stack-header-right {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+          border-left: none !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+          padding-left: 0 !important;
+          padding-top: 12px !important;
+        }
+        .hero-title {
+          font-size: 24px !important;
+          line-height: 32px !important;
+        }
+      }
+    </style>
   </head>
   <body
+    bgcolor="#f1f5f9"
     style="
       margin: 0;
       padding: 0;
-      background-color: #f4f6f9;
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f1f5f9;
+      font-family:
+        &quot;Century Gothic&quot;, CenturyGothic, AppleGothic, sans-serif;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     "
   >
+    <!-- Wrapper Table -->
     <table
       role="presentation"
       width="100%"
       border="0"
       cellspacing="0"
       cellpadding="0"
-      style="background-color: #f4f6f9; width: 100%"
+      bgcolor="#f1f5f9"
+      style="background-color: #f1f5f9; table-layout: fixed"
     >
       <tr>
-        <td align="center" style="padding: 20px 10px">
+        <td
+          align="center"
+          class="wrapper-padding"
+          bgcolor="#f1f5f9"
+          style="padding: 20px 10px; background-color: #f1f5f9"
+        >
           <!-- Main Container -->
           <table
             role="presentation"
@@ -32,26 +98,22 @@
             border="0"
             cellspacing="0"
             cellpadding="0"
+            class="container-main"
+            bgcolor="#ffffff"
             style="
-              max-width: 700px;
+              max-width: 650px;
               background-color: #ffffff;
               border-radius: 12px;
               overflow: hidden;
-              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             "
           >
-            <!-- HEADER SECTION -->
+            <!-- HEADER SECTION (Kaspersky Emerald Green #008f72) -->
             <tr>
               <td
-                style="
-                  background-color: #0f172a;
-                  padding: 35px 30px 40px;
-                  background-image: linear-gradient(
-                    135deg,
-                    #0f172a 0%,
-                    #00262b 100%
-                  );
-                "
+                class="section-padding"
+                bgcolor="#008f72"
+                style="background-color: #008f72; padding: 35px 30px 40px 30px"
               >
                 <table
                   role="presentation"
@@ -114,14 +176,18 @@
                     <td
                       align="right"
                       valign="middle"
-                      style="border-left: 1px solid #334155; padding-left: 15px"
+                      class="stack-header-right"
+                      style="
+                        border-left: 1px solid rgba(255, 255, 255, 0.3);
+                        padding-left: 15px;
+                      "
                     >
                       <div
                         style="
-                          font-size: 10px;
+                          font-size: 11px;
                           text-transform: uppercase;
                           letter-spacing: 1px;
-                          color: #94a3b8;
+                          color: #e6f7f4;
                           font-weight: bold;
                           margin-bottom: 2px;
                         "
@@ -130,9 +196,9 @@
                       </div>
                       <div
                         style="
-                          font-size: 16px;
+                          font-size: 17px;
                           font-weight: bold;
-                          color: #00a887;
+                          color: #ffffff;
                         "
                       >
                         Kaspersky &amp; GMS
@@ -141,6 +207,7 @@
                   </tr>
                 </table>
 
+                <!-- Hero Content -->
                 <table
                   role="presentation"
                   width="100%"
@@ -152,30 +219,37 @@
                   <tr>
                     <td>
                       <h1
+                        class="hero-title"
                         style="
                           margin: 0 0 15px 0;
-                          font-size: 28px;
-                          line-height: 36px;
+                          font-size: 32px;
+                          line-height: 40px;
                           font-weight: 800;
                           color: #ffffff;
                         "
                       >
                         Habilitamos un mundo <br />
-                        <span style="color: #0ea5e9">digital más seguro.</span>
+                        <span
+                          style="
+                            color: #ffffff;
+                            text-decoration: underline;
+                            text-decoration-color: #0284c7;
+                          "
+                          >digital más seguro.</span
+                        >
                       </h1>
                       <p
                         style="
                           margin: 0;
-                          font-size: 14px;
-                          line-height: 22px;
-                          color: #cbd5e1;
+                          font-size: 15px;
+                          line-height: 24px;
+                          color: #e6f7f4;
                         "
                       >
-                        Estimado equipo: Con el objetivo de seguir consolidando
-                        nuestro liderazgo, les presento el ecosistema de
-                        soluciones de Kaspersky y cómo estas se integran de
-                        manera clave en nuestra visión estratégica para este
-                        2026.
+                        Equipo: Con el objetivo de seguir consolidando nuestro
+                        liderazgo, les presento el ecosistema de soluciones de
+                        Kaspersky y cómo estas se integran de manera clave en
+                        nuestra visión estratégica.
                       </p>
                     </td>
                   </tr>
@@ -183,9 +257,14 @@
               </td>
             </tr>
 
-            <!-- TIER 1 SECTION -->
+            <!-- TIER 1 SECTION (Light Neutral Container #f8fafc) -->
             <tr>
-              <td style="background-color: #00262b; padding: 40px 30px">
+              <td
+                class="section-padding"
+                bgcolor="#f8fafc"
+                style="background-color: #f8fafc; padding: 40px 30px"
+              >
+                <!-- Tier 1 Header -->
                 <table
                   role="presentation"
                   width="100%"
@@ -197,10 +276,10 @@
                     <td align="center" style="padding-bottom: 30px">
                       <div
                         style="
-                          font-size: 11px;
+                          font-size: 12px;
                           font-weight: bold;
                           letter-spacing: 2px;
-                          color: #00a887;
+                          color: #008f72;
                           text-transform: uppercase;
                           margin-bottom: 6px;
                         "
@@ -210,19 +289,19 @@
                       <h2
                         style="
                           margin: 0 0 10px 0;
-                          font-size: 24px;
+                          font-size: 26px;
                           font-weight: bold;
-                          color: #ffffff;
+                          color: #0f172a;
                         "
                       >
-                        Verticales <span style="color: #06b6d4">Tier 1</span>
+                        Verticales <span style="color: #0284c7">Tier 1</span>
                       </h2>
                       <p
                         style="
                           margin: 0;
-                          font-size: 13px;
-                          line-height: 20px;
-                          color: #94a3b8;
+                          font-size: 14px;
+                          line-height: 22px;
+                          color: #64748b;
                           max-width: 500px;
                         "
                       >
@@ -234,7 +313,7 @@
                   </tr>
                 </table>
 
-                <!-- CARDS IN BLOCKS OF 2 -->
+                <!-- CARDS GRID IN BLOCKS OF 2 (#ffffff with colored line under title & icon) -->
                 <table
                   role="presentation"
                   width="100%"
@@ -242,169 +321,185 @@
                   cellspacing="0"
                   cellpadding="0"
                 >
-                  <!-- ROW 1: Endpoint + Visibilidad -->
+                  <!-- Row 1: Endpoint (#008f72) & Visibilidad (#0891b2) -->
                   <tr>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #00a887;
+                          border-bottom: 2px solid #008f72;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/00a887/monitor.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono Endpoint"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            Endpoint
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/008f72/monitor.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono Endpoint"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              Endpoint
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #00a887; font-weight: bold"
+                          <span style="color: #008f72; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Next EDR / XDR Optimum &amp; Expert
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #00a887; font-weight: bold"
+                          <span style="color: #008f72; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Hybrid Cloud Security
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #00a887; font-weight: bold"
+                          <span style="color: #008f72; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Mobile
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #00a887; font-weight: bold"
+                          <span style="color: #008f72; font-weight: bold"
                             >▪</span
                           >
                           Embedded Systems Security for Windows
                         </li>
                       </ul>
                     </td>
-                    <td width="4%">&nbsp;</td>
+                    <td
+                      width="4%"
+                      class="gap-mobile"
+                      style="font-size: 0; line-height: 0"
+                    >
+                      &nbsp;
+                    </td>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile-last"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #06b6d4;
+                          border-bottom: 2px solid #0891b2;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/06b6d4/visible.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono Visibilidad"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            Plataforma de Visibilidad
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/0891b2/visible.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono Visibilidad"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              Plataforma de Visibilidad
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #06b6d4; font-weight: bold"
+                          <span style="color: #0891b2; font-weight: bold"
                             >▪</span
                           >
                           KUMA (Unified Monitoring and Analysis)
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #06b6d4; font-weight: bold"
+                          <span style="color: #0891b2; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Next XDR Core &amp; Expert
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #06b6d4; font-weight: bold"
+                          <span style="color: #0891b2; font-weight: bold"
                             >▪</span
                           >
                           Anti Targeted Attack Platform
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #06b6d4; font-weight: bold"
+                          <span style="color: #0891b2; font-weight: bold"
                             >▪</span
                           >
                           Industrial CyberSecurity for Networks
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #06b6d4; font-weight: bold"
+                          <span style="color: #0891b2; font-weight: bold"
                             >▪</span
                           >
                           Threat Intelligence Portal
@@ -412,174 +507,195 @@
                       </ul>
                     </td>
                   </tr>
-
                   <tr>
-                    <td colspan="3" height="15"></td>
+                    <td
+                      colspan="3"
+                      height="15"
+                      class="gap-mobile"
+                      style="font-size: 0; line-height: 0"
+                    >
+                      &nbsp;
+                    </td>
                   </tr>
-
-                  <!-- ROW 2: Perimetral + Aplicaciones y Datos -->
+                  <!-- Row 2: Perimetral (#0284c7) & Aplicaciones (#7c3aed) -->
                   <tr>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #0ea5e9;
+                          border-bottom: 2px solid #0284c7;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/0ea5e9/firewall.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono Seguridad Perimetral"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            Seguridad Perimetral
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/0284c7/firewall.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono Perimetral"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              Seguridad Perimetral
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #0ea5e9; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Anti Targeted Attack Platform
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #0ea5e9; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Security for Mail Server / Internet Gateway
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #0ea5e9; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Web Traffic Security
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #0ea5e9; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           DDoS Protection
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #0ea5e9; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Data Feeds para integración con NGFW
                         </li>
                       </ul>
                     </td>
-                    <td width="4%">&nbsp;</td>
+                    <td
+                      width="4%"
+                      class="gap-mobile"
+                      style="font-size: 0; line-height: 0"
+                    >
+                      &nbsp;
+                    </td>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile-last"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #c084fc;
+                          border-bottom: 2px solid #7c3aed;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/c084fc/database.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono Aplicaciones y Datos"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            Aplicaciones y Datos
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/7c3aed/database.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono Aplicaciones y Datos"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              Aplicaciones y Datos
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #c084fc; font-weight: bold"
+                          <span style="color: #7c3aed; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Scan Engine
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #c084fc; font-weight: bold"
+                          <span style="color: #7c3aed; font-weight: bold"
                             >▪</span
                           >
                           Security for Microsoft Office 365
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #c084fc; font-weight: bold"
+                          <span style="color: #7c3aed; font-weight: bold"
                             >▪</span
                           >
                           Security for Storage
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #c084fc; font-weight: bold"
+                          <span style="color: #7c3aed; font-weight: bold"
                             >▪</span
                           >
                           Container Security
@@ -587,180 +703,201 @@
                       </ul>
                     </td>
                   </tr>
-
                   <tr>
-                    <td colspan="3" height="15"></td>
+                    <td
+                      colspan="3"
+                      height="15"
+                      class="gap-mobile"
+                      style="font-size: 0; line-height: 0"
+                    >
+                      &nbsp;
+                    </td>
                   </tr>
-
-                  <!-- ROW 3: SOC + Nube -->
+                  <!-- Row 3: SOC (#dc2626) & Nube (#0284c7) -->
                   <tr>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #f87171;
+                          border-bottom: 2px solid #dc2626;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/f87171/radar.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono SOC"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            SOC
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/dc2626/radar.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono SOC"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              SOC
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #f87171; font-weight: bold"
+                          <span style="color: #dc2626; font-weight: bold"
                             >▪</span
                           >
                           KUMA / MDR
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #f87171; font-weight: bold"
+                          <span style="color: #dc2626; font-weight: bold"
                             >▪</span
                           >
                           Threat Intelligence Portal &amp; Data Feeds
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #f87171; font-weight: bold"
+                          <span style="color: #dc2626; font-weight: bold"
                             >▪</span
                           >
                           Anti Targeted Attack Platform
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #f87171; font-weight: bold"
+                          <span style="color: #dc2626; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Next XDR Expert
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #f87171; font-weight: bold"
+                          <span style="color: #dc2626; font-weight: bold"
                             >▪</span
                           >
                           Kaspersky Sandbox
                         </li>
                       </ul>
                     </td>
-                    <td width="4%">&nbsp;</td>
+                    <td
+                      width="4%"
+                      class="gap-mobile"
+                      style="font-size: 0; line-height: 0"
+                    >
+                      &nbsp;
+                    </td>
                     <td
                       width="48%"
                       valign="top"
+                      class="col-mobile-last"
+                      bgcolor="#ffffff"
                       style="
-                        background-color: #06343a;
-                        border: 1px solid #005a60;
+                        background-color: #ffffff;
+                        border: 1px solid #e2e8f0;
                         border-radius: 8px;
                         padding: 20px;
                       "
                     >
-                      <table
-                        role="presentation"
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="100%"
+                      <div
                         style="
                           margin-bottom: 12px;
-                          border-bottom: 2px solid #93c5fd;
+                          border-bottom: 2px solid #0284c7;
                           padding-bottom: 6px;
                         "
                       >
-                        <tr>
-                          <td valign="middle" width="28">
-                            <img
-                              src="https://img.icons8.com/ios-filled/50/93c5fd/cloud.png"
-                              width="20"
-                              height="20"
-                              style="display: block; border: 0"
-                              alt="Ícono Seguridad en Nube"
-                            />
-                          </td>
-                          <td
-                            valign="middle"
-                            style="
-                              font-size: 16px;
-                              font-weight: bold;
-                              color: #ffffff;
-                            "
-                          >
-                            Seguridad en Nube
-                          </td>
-                        </tr>
-                      </table>
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellspacing="0"
+                          cellpadding="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td valign="middle" width="28">
+                              <img
+                                src="https://img.icons8.com/ios-filled/50/0284c7/cloud.png"
+                                width="20"
+                                height="20"
+                                style="display: block; border: 0"
+                                alt="Ícono Seguridad en Nube"
+                              />
+                            </td>
+                            <td
+                              valign="middle"
+                              style="
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #0f172a;
+                              "
+                            >
+                              Seguridad en Nube
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                       <ul
                         style="
                           margin: 0;
                           padding: 0;
                           list-style-type: none;
-                          font-size: 12px;
-                          line-height: 18px;
-                          color: #cbd5e1;
+                          font-size: 13px;
+                          line-height: 22px;
+                          color: #334155;
                         "
                       >
                         <li style="margin-bottom: 6px">
-                          <span style="color: #93c5fd; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Cloud Workload Security
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #93c5fd; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Hybrid Cloud Security
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #93c5fd; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Container Security
                         </li>
                         <li style="margin-bottom: 6px">
-                          <span style="color: #93c5fd; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Security for Microsoft Office 365
                         </li>
                         <li style="margin-bottom: 0">
-                          <span style="color: #93c5fd; font-weight: bold"
+                          <span style="color: #0284c7; font-weight: bold"
                             >▪</span
                           >
                           Security Center Cloud Console
@@ -772,9 +909,13 @@
               </td>
             </tr>
 
-            <!-- TIER 2 SECTION -->
+            <!-- TIER 2 SECTION (Main Background #ffffff) -->
             <tr>
-              <td style="background-color: #ffffff; padding: 40px 30px">
+              <td
+                class="section-padding"
+                bgcolor="#ffffff"
+                style="background-color: #ffffff; padding: 40px 30px"
+              >
                 <table
                   role="presentation"
                   width="100%"
@@ -783,23 +924,23 @@
                   cellpadding="0"
                 >
                   <tr>
-                    <td style="padding-bottom: 20px">
+                    <td>
                       <h3
                         style="
                           margin: 0 0 10px 0;
-                          font-size: 22px;
+                          font-size: 24px;
                           font-weight: bold;
                           color: #0f172a;
                         "
                       >
-                        Verticales <span style="color: #0ea5e9">Tier 2</span>
+                        Verticales <span style="color: #0284c7">Tier 2</span>
                       </h3>
                       <p
                         style="
                           margin: 0 0 25px 0;
-                          font-size: 14px;
-                          line-height: 22px;
-                          color: #475569;
+                          font-size: 15px;
+                          line-height: 24px;
+                          color: #334155;
                         "
                       >
                         Complementamos la estrategia principal gestionando
@@ -810,7 +951,6 @@
                   </tr>
                 </table>
 
-                <!-- TIER 2 BLOCKS -->
                 <table
                   role="presentation"
                   width="100%"
@@ -819,12 +959,15 @@
                   cellpadding="0"
                 >
                   <tr>
-                    <td valign="top" style="padding-right: 0">
+                    <td valign="top" style="padding-right: 0px">
+                      <!-- Category 1 (Gestión del Riesgo: #008f72) -->
                       <div
                         style="
                           margin-bottom: 20px;
                           background-color: #f8fafc;
-                          border-left: 4px solid #00a887;
+                          border-style: solid;
+                          border-width: 1px 1px 1px 4px;
+                          border-color: #e2e8f0 #e2e8f0 #e2e8f0 #008f72;
                           padding: 15px;
                           border-radius: 0 8px 8px 0;
                         "
@@ -840,7 +983,7 @@
                           <tr>
                             <td valign="middle" width="28">
                               <img
-                                src="https://img.icons8.com/ios-filled/50/00a887/shield.png"
+                                src="https://img.icons8.com/ios-filled/50/008f72/shield.png"
                                 width="20"
                                 height="20"
                                 style="display: block; border: 0"
@@ -850,7 +993,7 @@
                             <td
                               valign="middle"
                               style="
-                                font-size: 15px;
+                                font-size: 16px;
                                 font-weight: bold;
                                 color: #0f172a;
                               "
@@ -861,23 +1004,27 @@
                         </table>
                         <div
                           style="
-                            font-size: 13px;
-                            line-height: 20px;
+                            font-size: 14px;
+                            line-height: 22px;
                             color: #64748b;
                           "
                         >
-                          • Vulnerability Assessment &amp; Patch Management<br />
-                          • Kaspersky Vulnerability Data Feed<br />
-                          • Industrial CyberSecurity for Networks (OT risk
+                          &bull; Vulnerability Assessment &amp; Patch
+                          Management<br />
+                          &bull; Kaspersky Vulnerability Data Feed<br />
+                          &bull; Industrial CyberSecurity for Networks (OT risk
                           assessment)
                         </div>
                       </div>
 
+                      <!-- Category 2 (Análisis de Código: #0284c7) -->
                       <div
                         style="
                           margin-bottom: 20px;
                           background-color: #f8fafc;
-                          border-left: 4px solid #0ea5e9;
+                          border-style: solid;
+                          border-width: 1px 1px 1px 4px;
+                          border-color: #e2e8f0 #e2e8f0 #e2e8f0 #0284c7;
                           padding: 15px;
                           border-radius: 0 8px 8px 0;
                         "
@@ -893,7 +1040,7 @@
                           <tr>
                             <td valign="middle" width="28">
                               <img
-                                src="https://img.icons8.com/ios-filled/50/0ea5e9/code.png"
+                                src="https://img.icons8.com/ios-filled/50/0284c7/code.png"
                                 width="20"
                                 height="20"
                                 style="display: block; border: 0"
@@ -903,7 +1050,7 @@
                             <td
                               valign="middle"
                               style="
-                                font-size: 15px;
+                                font-size: 16px;
                                 font-weight: bold;
                                 color: #0f172a;
                               "
@@ -914,19 +1061,22 @@
                         </table>
                         <div
                           style="
-                            font-size: 13px;
-                            line-height: 20px;
+                            font-size: 14px;
+                            line-height: 22px;
                             color: #64748b;
                           "
                         >
-                          • Kaspersky Application Security Assessment
+                          &bull; Kaspersky Application Security Assessment
                         </div>
                       </div>
 
+                      <!-- Category 3 (Identidades: #0891b2) -->
                       <div
                         style="
                           background-color: #f8fafc;
-                          border-left: 4px solid #06b6d4;
+                          border-style: solid;
+                          border-width: 1px 1px 1px 4px;
+                          border-color: #e2e8f0 #e2e8f0 #e2e8f0 #0891b2;
                           padding: 15px;
                           border-radius: 0 8px 8px 0;
                         "
@@ -942,7 +1092,7 @@
                           <tr>
                             <td valign="middle" width="28">
                               <img
-                                src="https://img.icons8.com/ios-filled/50/06b6d4/fingerprint.png"
+                                src="https://img.icons8.com/ios-filled/50/0891b2/fingerprint.png"
                                 width="20"
                                 height="20"
                                 style="display: block; border: 0"
@@ -952,7 +1102,7 @@
                             <td
                               valign="middle"
                               style="
-                                font-size: 15px;
+                                font-size: 16px;
                                 font-weight: bold;
                                 color: #0f172a;
                               "
@@ -963,16 +1113,17 @@
                         </table>
                         <div
                           style="
-                            font-size: 13px;
-                            line-height: 20px;
+                            font-size: 14px;
+                            line-height: 22px;
                             color: #64748b;
                           "
                         >
-                          • Digital Footprint Intelligence (Contraseñas
+                          &bull; Digital Footprint Intelligence (Contraseñas
                           Expuestas)<br />
-                          • Brand Monitoring<br />
-                          • Kaspersky Password Manager Business (PAM)<br />
-                          • Kaspersky Next XDR Optimum (Respuesta sobre AD)
+                          &bull; Brand Monitoring<br />
+                          &bull; Kaspersky Password Manager Business (PAM)
+                          <b>Q4 2026</b><br />
+                          &bull; Kaspersky Next XDR Optimum (Respuesta sobre AD)
                         </div>
                       </div>
                     </td>
@@ -981,21 +1132,22 @@
               </td>
             </tr>
 
-            <!-- ACCENT LINE -->
+            <!-- FOOTER SECTION (Kaspersky Emerald Green #008f72) -->
             <tr>
               <td
                 height="4"
-                style="background-color: #0ea5e9; font-size: 0; line-height: 0"
+                bgcolor="#0284c7"
+                style="background-color: #0284c7; font-size: 0; line-height: 0"
               >
                 &nbsp;
               </td>
             </tr>
-
-            <!-- FOOTER SECTION -->
             <tr>
               <td
+                class="section-padding"
+                bgcolor="#008f72"
                 style="
-                  background-color: #0f172a;
+                  background-color: #008f72;
                   padding: 40px 30px;
                   text-align: center;
                 "
@@ -1012,7 +1164,7 @@
                       <h2
                         style="
                           margin: 0 0 15px 0;
-                          font-size: 36px;
+                          font-size: 38px;
                           font-weight: 900;
                           color: #ffffff;
                           letter-spacing: 2px;
@@ -1023,9 +1175,9 @@
                       <p
                         style="
                           margin: 0 0 25px 0;
-                          font-size: 14px;
-                          line-height: 22px;
-                          color: #94a3b8;
+                          font-size: 15px;
+                          line-height: 24px;
+                          color: #e6f7f4;
                           max-width: 480px;
                         "
                       >
@@ -1033,19 +1185,50 @@
                         proteger lo que más importa. Construyamos juntos un
                         entorno digital más fuerte.
                       </p>
+                      <!-- Call to Action Button (White button with Green text) -->
                       <div>
+                        <!--[if mso]>
+                          <v:roundrect
+                            xmlns:v="urn:schemas-microsoft-microsoft-com:vml"
+                            xmlns:w="urn:schemas-microsoft-microsoft-com:office:word"
+                            href="https://wa.me/+573185599414"
+                            style="
+                              height: 48px;
+                              v-text-anchor: middle;
+                              width: 200px;
+                            "
+                            arcsize="50%"
+                            stroke="f"
+                            fillcolor="#ffffff"
+                          >
+                            <w:anchorlock />
+                            <center
+                              style="
+                                color: #008f72;
+                                font-family:
+                                  &quot;Century Gothic&quot;, CenturyGothic,
+                                  sans-serif;
+                                font-size: 16px;
+                                font-weight: bold;
+                              "
+                            >
+                              Más información
+                            </center>
+                          </v:roundrect>
+                        <![endif]-->
                         <a
                           href="https://wa.me/+573185599414"
                           target="_blank"
                           style="
-                            background-color: #00a887;
-                            color: #ffffff;
+                            background-color: #ffffff;
+                            color: #008f72;
                             text-decoration: none;
                             padding: 14px 28px;
-                            font-size: 15px;
+                            font-size: 16px;
                             font-weight: bold;
                             border-radius: 30px;
                             display: inline-block;
+                            mso-hide: all;
                           "
                         >
                           Más información &rarr;
@@ -1054,6 +1237,8 @@
                     </td>
                   </tr>
                 </table>
+
+                <!-- Copyright & Locations -->
                 <table
                   role="presentation"
                   width="100%"
@@ -1062,17 +1247,17 @@
                   cellpadding="0"
                   style="
                     margin-top: 35px;
-                    border-top: 1px solid #1e293b;
+                    border-top: 1px solid rgba(255, 255, 255, 0.3);
                     padding-top: 20px;
                   "
                 >
                   <tr>
-                    <td align="center" style="font-size: 12px; color: #64748b">
+                    <td align="center" style="font-size: 13px; color: #e6f7f4">
                       <p style="margin: 0 0 8px 0">
                         &copy; 2026 GMS Seguridad. Todos los derechos
                         reservados.
                       </p>
-                      <p style="margin: 0; color: #94a3b8">
+                      <p style="margin: 0; color: #ffffff">
                         Bogotá &bull; Quito &bull; Lima
                       </p>
                     </td>
