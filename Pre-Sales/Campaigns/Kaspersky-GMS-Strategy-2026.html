@@ -3,20 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
     <title>Estrategia Kaspersky - GMS 2026</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
+
+        /* BASE LIGHT STYLES */
+        body, .bg-body { background-color: #f4f6f9; color: #0f172a; }
+        .bg-main { background-color: #ffffff; }
+        .bg-header { background-color: #0f172a; }
+        .bg-tier1 { background-color: #00262b; }
+        .bg-tier1-card { background-color: #06343a; }
+        .bg-tier2 { background-color: #ffffff; }
+        .bg-tier2-card { background-color: #f8fafc; }
+        .text-main-title { color: #0f172a; }
+        .text-main-body { color: #475569; }
+        .text-muted { color: #64748b; }
+        .text-white { color: #ffffff; }
+
+        /* DARK MODE MEDIA QUERY FOR BROWSER & CLIENTS */
+        @media (prefers-color-scheme: dark) {
+            body, .bg-body { background-color: #0b0f19 !important; }
+            .bg-main { background-color: #1e293b !important; }
+            .bg-header { background-color: #0f172a !important; }
+            .bg-tier1 { background-color: #00262b !important; }
+            .bg-tier1-card { background-color: #06343a !important; }
+            .bg-tier2 { background-color: #1e293b !important; }
+            .bg-tier2-card { background-color: #0f172a !important; }
+            .text-main-title { color: #ffffff !important; }
+            .text-main-body { color: #cbd5e1 !important; }
+            .text-muted { color: #94a3b8 !important; }
+        }
+
+        /* OUTLOOK DARK MODE SPECIFIC OVERRIDES */
+        [data-ogsc] body, [data-ogsc] .bg-body, [data-ogsb] .bg-body { background-color: #0b0f19 !important; }
+        [data-ogsc] .bg-main, [data-ogsb] .bg-main { background-color: #1e293b !important; }
+        [data-ogsc] .bg-tier2, [data-ogsb] .bg-tier2 { background-color: #1e293b !important; }
+        [data-ogsc] .bg-tier2-card, [data-ogsb] .bg-tier2-card { background-color: #0f172a !important; }
+        [data-ogsc] .text-main-title, [data-ogsb] .text-main-title { color: #ffffff !important; }
+        [data-ogsc] .text-main-body, [data-ogsb] .text-main-body { color: #cbd5e1 !important; }
+        [data-ogsc] .text-muted, [data-ogsb] .text-muted { color: #94a3b8 !important; }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f4f6f9; font-family: Arial, Helvetica, sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+<body class="bg-body" bgcolor="#f4f6f9" style="margin: 0; padding: 0; background-color: #f4f6f9; font-family: Arial, Helvetica, sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
     <!-- Wrapper Table -->
-    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f4f6f9; table-layout: fixed;">
+    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="bg-body" bgcolor="#f4f6f9" style="background-color: #f4f6f9; table-layout: fixed;">
         <tr>
-            <td align="center" style="padding: 20px 10px;">
+            <td align="center" class="bg-body" bgcolor="#f4f6f9" style="padding: 20px 10px; background-color: #f4f6f9;">
                 
                 <!-- Main Container -->
-                <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 800px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" class="bg-main" bgcolor="#ffffff" style="max-width: 800px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                     
                     <!-- HEADER SECTION -->
                     <tr>
-                        <td style="background-color: #0f172a; padding: 1px 30px 40px 30px; background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                        <td class="bg-header" bgcolor="#0f172a" style="background-color: #0f172a; padding: 35px 30px 40px 30px; background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
                             <!-- Logo and Strategy Badge -->
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -28,7 +72,7 @@
                                                 </td>
                                                 <td valign="middle" style="padding: 0 12px; color: #475569; font-size: 16px; font-weight: bold;">+</td>
                                                 <td valign="middle">
-                                                    <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/Kaspersky_logotype_white.png" alt="Kaspersky" width="180" style="display: block; max-width: 180px; height: auto; border: 0;">
+                                                    <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/Kaspersky_logotype_white.svg" alt="Kaspersky" width="180" style="display: block; max-width: 180px; height: auto; border: 0;">
                                                 </td>
                                             </tr>
                                         </table>
@@ -59,7 +103,7 @@
 
                     <!-- TIER 1 SECTION -->
                     <tr>
-                        <td style="background-color: #00262b; padding: 40px 30px;">
+                        <td class="bg-tier1" bgcolor="#00262b" style="background-color: #00262b; padding: 40px 30px;">
                             <!-- Tier 1 Header -->
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -73,11 +117,11 @@
                                 </tr>
                             </table>
 
-                            <!-- Tier 1 Cards Grid (2 columns layout for compatibility) -->
+                            <!-- Tier 1 Cards Grid -->
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <!-- Row 1: Endpoint & Visibilidad -->
                                 <tr>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #00a887; padding-bottom: 6px;">
                                             Endpoint
                                         </div>
@@ -89,7 +133,7 @@
                                         </ul>
                                     </td>
                                     <td width="4%">&nbsp;</td>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #06b6d4; padding-bottom: 6px;">
                                             Plataforma de Visibilidad
                                         </div>
@@ -105,7 +149,7 @@
                                 <tr><td colspan="3" height="15"></td></tr>
                                 <!-- Row 2: Perimetral & Aplicaciones -->
                                 <tr>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #0ea5e9; padding-bottom: 6px;">
                                             Seguridad Perimetral
                                         </div>
@@ -118,7 +162,7 @@
                                         </ul>
                                     </td>
                                     <td width="4%">&nbsp;</td>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #c084fc; padding-bottom: 6px;">
                                             Aplicaciones y Datos
                                         </div>
@@ -133,7 +177,7 @@
                                 <tr><td colspan="3" height="15"></td></tr>
                                 <!-- Row 3: SOC & Nube -->
                                 <tr>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #f87171; padding-bottom: 6px;">
                                             SOC
                                         </div>
@@ -146,7 +190,7 @@
                                         </ul>
                                     </td>
                                     <td width="4%">&nbsp;</td>
-                                    <td width="48%" valign="top" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
+                                    <td width="48%" valign="top" class="bg-tier1-card" bgcolor="#06343a" style="background-color: #06343a; border: 1px solid #005a60; border-radius: 8px; padding: 20px;">
                                         <div style="font-size: 16px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 2px solid #93c5fd; padding-bottom: 6px;">
                                             Seguridad en Nube
                                         </div>
@@ -165,14 +209,14 @@
 
                     <!-- TIER 2 SECTION -->
                     <tr>
-                        <td style="background-color: #ffffff; padding: 40px 30px;">
+                        <td class="bg-tier2" bgcolor="#ffffff" style="background-color: #ffffff; padding: 40px 30px;">
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td>
-                                        <h3 style="margin: 0 0 10px 0; font-size: 22px; font-weight: bold; color: #0f172a;">
+                                        <h3 class="text-main-title" style="margin: 0 0 10px 0; font-size: 22px; font-weight: bold; color: #0f172a;">
                                             Verticales <span style="color: #0ea5e9;">Tier 2</span>
                                         </h3>
-                                        <p style="margin: 0 0 25px 0; font-size: 14px; line-height: 22px; color: #475569;">
+                                        <p class="text-main-body" style="margin: 0 0 25px 0; font-size: 14px; line-height: 22px; color: #475569;">
                                             Complementamos la estrategia principal gestionando riesgos proactivamente, asegurando el desarrollo y protegiendo las identidades corporativas.
                                         </p>
                                     </td>
@@ -182,13 +226,13 @@
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <!-- Left Column: Categories -->
-                                    <td valign="top" style="padding-right: 15px;">
+                                    <td valign="top" style="padding-right: 0px;">
                                         <!-- Category 1 -->
-                                        <div style="margin-bottom: 20px; background-color: #f8fafc; border-left: 4px solid #00a887; padding: 15px; border-radius: 0 8px 8px 0;">
-                                            <div style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
+                                        <div class="bg-tier2-card" style="margin-bottom: 20px; background-color: #f8fafc; border-left: 4px solid #00a887; padding: 15px; border-radius: 0 8px 8px 0;">
+                                            <div class="text-main-title" style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
                                                 Gestión del Riesgo (Vulnerabilidades)
                                             </div>
-                                            <div style="font-size: 13px; line-height: 20px; color: #64748b;">
+                                            <div class="text-muted" style="font-size: 13px; line-height: 20px; color: #64748b;">
                                                 &bull; Vulnerability Assessment &amp; Patch Management<br>
                                                 &bull; Kaspersky Vulnerability Data Feed<br>
                                                 &bull; Industrial CyberSecurity for Networks (OT risk assessment)
@@ -196,21 +240,21 @@
                                         </div>
 
                                         <!-- Category 2 -->
-                                        <div style="margin-bottom: 20px; background-color: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px; border-radius: 0 8px 8px 0;">
-                                            <div style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
+                                        <div class="bg-tier2-card" style="margin-bottom: 20px; background-color: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px; border-radius: 0 8px 8px 0;">
+                                            <div class="text-main-title" style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
                                                 Análisis de Código
                                             </div>
-                                            <div style="font-size: 13px; line-height: 20px; color: #64748b;">
+                                            <div class="text-muted" style="font-size: 13px; line-height: 20px; color: #64748b;">
                                                 &bull; Kaspersky Application Security Assessment
                                             </div>
                                         </div>
 
                                         <!-- Category 3 -->
-                                        <div style="background-color: #f8fafc; border-left: 4px solid #06b6d4; padding: 15px; border-radius: 0 8px 8px 0;">
-                                            <div style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
+                                        <div class="bg-tier2-card" style="background-color: #f8fafc; border-left: 4px solid #06b6d4; padding: 15px; border-radius: 0 8px 8px 0;">
+                                            <div class="text-main-title" style="font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">
                                                 Identidades
                                             </div>
-                                            <div style="font-size: 13px; line-height: 20px; color: #64748b;">
+                                            <div class="text-muted" style="font-size: 13px; line-height: 20px; color: #64748b;">
                                                 &bull; Digital Footprint Intelligence (Contraseñas Expuestas)<br>
                                                 &bull; Brand Monitoring<br>
                                                 &bull; Kaspersky Password Manager Business (PAM)<br>
@@ -225,10 +269,10 @@
 
                     <!-- FOOTER SECTION -->
                     <tr>
-                        <td height="4" style="background-color: #0ea5e9; background-image: linear-gradient(to right, #0ea5e9, #06b6d4, #00a887); font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td height="4" bgcolor="#0ea5e9" style="background-color: #0ea5e9; background-image: linear-gradient(to right, #0ea5e9, #06b6d4, #00a887); font-size: 0; line-height: 0;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td style="background-color: #0f172a; padding: 40px 30px; text-align: center;">
+                        <td class="bg-header" bgcolor="#0f172a" style="background-color: #0f172a; padding: 40px 30px; text-align: center;">
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td align="center">
