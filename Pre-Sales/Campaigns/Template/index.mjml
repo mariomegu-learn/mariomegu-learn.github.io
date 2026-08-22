@@ -1,0 +1,78 @@
+<mjml>
+  <mj-head>
+    <mj-title>Plantilla de Email</mj-title>
+    <mj-preview>Resumen o texto de previsualización del correo electrónico aquí.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Arial, sans-serif" />
+      <mj-text color="#222222" font-size="16px" line-height="1.5" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#F8F9FA">
+    
+    <!-- Link version web -->
+    <mj-section padding="10px 20px" background-color="#F8F9FA">
+      <mj-column>
+        <mj-text align="right" font-size="12px" color="#222222">
+          ¿No ves correctamente este correo? <a href="#" style="color: #005CFF; text-decoration: underline;">Ver en el navegador</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Content Card Wrapper -->
+    <mj-wrapper padding="0" background-color="#FFFFFF" border-radius="8px">
+      
+      <!-- Header -->
+      <mj-section background-color="#005CFF" padding="30px 20px">
+        <mj-column>
+          <mj-text align="center" color="#FFFFFF" font-size="24px" font-weight="bold">
+            Encabezado del Correo
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Hero Image -->
+      <mj-section padding="0">
+        <mj-column>
+          <mj-image src="https://via.placeholder.com/600x200/00205C/FFFFFF?text=Imagen+Promocional" alt="Imagen promocional" padding="0" />
+        </mj-column>
+      </mj-section>
+
+      <!-- Body Content -->
+      <mj-section padding="30px 20px" background-color="#FFFFFF">
+        <mj-column>
+          <mj-text font-size="20px" font-weight="bold" color="#00205C">
+            Título del Contenido
+          </mj-text>
+          <mj-text color="#222222">
+            Este es el cuerpo principal del correo electrónico. Puedes personalizar este contenido para promociones, boletines o anuncios según tus necesidades.
+          </mj-text>
+          <mj-button background-color="#5FFFE5" color="#00205C" font-size="16px" font-weight="bold" border-radius="5px" align="left" href="#">
+            Llamada a la Acción
+          </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <!-- Footer -->
+      <mj-section background-color="#C8C8C8" padding="20px">
+        <mj-column>
+          <mj-text align="center" font-size="14px" font-weight="bold" color="#222222">
+            Síguenos en nuestras redes
+          </mj-text>
+          <mj-text align="center" font-size="14px" color="#00205C">
+            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">Facebook</a> |
+            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">Twitter</a> |
+            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">LinkedIn</a>
+          </mj-text>
+          <mj-text align="center" font-size="12px" color="#222222">
+            Calle Principal 123, Ciudad, País<br/>
+            © 2026 Tu Empresa. Todos los derechos reservados.
+          </mj-text>
+          <mj-text align="center" font-size="12px" color="#00205C">
+            Recibiste este correo porque estás suscrito a nuestra lista. <a href="#" style="color: #00205C; text-decoration: underline;">Cancelar suscripción</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    </mj-wrapper>
+  </mj-body>
+</mjml>
