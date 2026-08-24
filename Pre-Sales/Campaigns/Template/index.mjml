@@ -1,78 +1,327 @@
 <mjml>
   <mj-head>
-    <mj-title>Plantilla de Email</mj-title>
-    <mj-preview>Resumen o texto de previsualización del correo electrónico aquí.</mj-preview>
+    <mj-title>Estrategia 2026 Kaspersky & GMS</mj-title>
+    <mj-preview>Estrategia 2026 Kaspersky & GMS - Habilitamos un mundo digital más seguro.</mj-preview>
     <mj-attributes>
-      <mj-all font-family="Arial, sans-serif" />
-      <mj-text color="#222222" font-size="16px" line-height="1.5" />
+      <mj-all font-family="Arial, Helvetica, sans-serif" />
+      <mj-text color="#222222" font-size="14px" line-height="1.5" />
     </mj-attributes>
+    <mj-style inline="inline">
+      .badge-new {
+        background-color: #00A88E;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-left: 4px;
+      }
+      .card-box {
+        background-color: #ffffff;
+        border: 1px solid #e4e9ee;
+        border-radius: 12px;
+        padding: 24px;
+      }
+      .module-box {
+        background-color: #f3f8ff;
+        border-left: 5px solid #005CFF;
+        border-radius: 8px;
+        padding: 20px;
+      }
+    </mj-style>
   </mj-head>
-  <mj-body background-color="#F8F9FA">
-    
-    <!-- Link version web -->
-    <mj-section padding="10px 20px" background-color="#F8F9FA">
+  <mj-body background-color="#f3f5f7">
+
+    <!-- Pre-header / Web version link -->
+    <mj-section padding="12px 20px" background-color="#f3f5f7">
       <mj-column>
-        <mj-text align="right" font-size="12px" color="#222222">
+        <mj-text align="right" font-size="12px" color="#606970">
           ¿No ves correctamente este correo? <a href="#" style="color: #005CFF; text-decoration: underline;">Ver en el navegador</a>
         </mj-text>
       </mj-column>
     </mj-section>
 
-    <!-- Content Card Wrapper -->
-    <mj-wrapper padding="0" background-color="#FFFFFF" border-radius="8px">
-      
-      <!-- Header -->
-      <mj-section background-color="#005CFF" padding="30px 20px">
-        <mj-column>
-          <mj-text align="center" color="#FFFFFF" font-size="24px" font-weight="bold">
-            Encabezado del Correo
+    <!-- Main Wrapper Card -->
+    <mj-wrapper padding="0" background-color="#FFFFFF" border-radius="0px">
+
+      <!-- Header Logos & Tag -->
+      <mj-section background-color="#062351" padding="28px 25px 24px 25px">
+        <mj-column width="60%" vertical-align="middle">
+          <mj-text align="left" color="#FFFFFF" font-size="20px" font-weight="bold" padding="0">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td style="vertical-align: middle;">
+                  <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/LOGO_BLANCO.png" alt="GMS" height="30" style="display: block; height: 30px; width: auto;" />
+                </td>
+                <td style="vertical-align: middle; padding: 0 15px; font-size: 20px; color: #5FFFE5;">|</td>
+                <td style="vertical-align: middle;">
+                  <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/Kaspersky_logotype_white.png" alt="Kaspersky" height="30" style="display: block; height: 30px; width: auto;" />
+                </td>
+              </tr>
+            </table>
+          </mj-text>
+        </mj-column>
+        <mj-column width="40%" vertical-align="middle">
+          <mj-text align="right" color="#5FFFE5" font-size="12px" font-weight="bold" letter-spacing="1.2px" padding="0">
+            ESTRATEGIA 2026
           </mj-text>
         </mj-column>
       </mj-section>
 
-      <!-- Hero Image -->
-      <mj-section padding="0">
-        <mj-column>
-          <mj-image src="https://via.placeholder.com/600x200/00205C/FFFFFF?text=Imagen+Promocional" alt="Imagen promocional" padding="0" />
+      <!-- Accent Divider Line -->
+      <mj-section background-color="#005CFF" padding="0px" style="height: 4px;">
+        <mj-column width="100%" padding="0">
+          <mj-text padding="0" font-size="1px" line-height="1px">&nbsp;</mj-text>
         </mj-column>
       </mj-section>
 
-      <!-- Body Content -->
-      <mj-section padding="30px 20px" background-color="#FFFFFF">
+      <!-- Hero Section -->
+      <mj-section background-color="#062351" padding="45px 30px">
         <mj-column>
-          <mj-text font-size="20px" font-weight="bold" color="#00205C">
-            Título del Contenido
+          <mj-text color="#5FFFE5" font-size="14px" font-weight="bold" text-transform="uppercase" letter-spacing="1.2px" padding-bottom="15px">
+            Estrategia 2026 Kaspersky &amp; GMS
           </mj-text>
-          <mj-text color="#222222">
-            Este es el cuerpo principal del correo electrónico. Puedes personalizar este contenido para promociones, boletines o anuncios según tus necesidades.
+          <mj-text color="#FFFFFF" font-size="36px" font-weight="700" line-height="1.3" padding-bottom="20px">
+            Habilitamos un mundo digital más seguro.
           </mj-text>
-          <mj-button background-color="#5FFFE5" color="#00205C" font-size="16px" font-weight="bold" border-radius="5px" align="left" href="#">
-            Llamada a la Acción
+          <mj-text color="#dbe6f4" font-size="17px" line-height="1.6" padding-bottom="25px">
+            <strong>Equipo:</strong> Con el objetivo de seguir consolidando nuestro conocimiento en la marca, les presento el ecosistema de soluciones de Kaspersky y cómo estas se integran de manera clave en nuestra visión estratégica.
+          </mj-text>
+          <mj-text color="#5FFFE5" font-size="15px" font-weight="bold" padding-bottom="10px">
+            Les comparto la presentación completa:
+          </mj-text>
+          <mj-button background-color="#00A88E" color="#ffffff" font-size="15px" font-weight="bold" border-radius="7px" align="left" padding-top="10px" href="#">
+            <img src="https://img.icons8.com/color/48/powerpoint.png" alt="PPTX Icon" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Descargar Estrategia Kaspersky - GMS - 2026.pptx
           </mj-button>
         </mj-column>
       </mj-section>
 
-      <!-- Footer -->
-      <mj-section background-color="#C8C8C8" padding="20px">
+      <!-- SECCIÓN PRINCIPAL: Verticales Tier 1 -->
+      <mj-section background-color="#FFFFFF" padding="40px 30px 15px 30px">
         <mj-column>
-          <mj-text align="center" font-size="14px" font-weight="bold" color="#222222">
-            Síguenos en nuestras redes
+          <mj-text color="#005CFF" font-size="13px" font-weight="bold" letter-spacing="1px" text-transform="uppercase" padding-bottom="8px">
+            Seguridad empresarial
           </mj-text>
-          <mj-text align="center" font-size="14px" color="#00205C">
-            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">Facebook</a> |
-            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">Twitter</a> |
-            <a href="#" style="color: #00205C; text-decoration: none; margin: 0 5px;">LinkedIn</a>
+          <mj-text color="#062351" font-size="28px" font-weight="bold" line-height="1.3" padding-bottom="12px">
+            <img src="https://img.icons8.com/color/48/shield.png" alt="Shield" width="26" height="26" style="vertical-align: middle; margin-right: 8px;" /> Verticales Tier 1
           </mj-text>
-          <mj-text align="center" font-size="12px" color="#222222">
-            Calle Principal 123, Ciudad, País<br/>
-            © 2026 Tu Empresa. Todos los derechos reservados.
+          <mj-text color="#606970" font-size="16px" line-height="1.6" padding-bottom="15px">
+            Portafolio principal estructurado para brindar seguridad integral a través de seis pilares fundamentales de protección tecnológica.
           </mj-text>
-          <mj-text align="center" font-size="12px" color="#00205C">
-            Recibiste este correo porque estás suscrito a nuestra lista. <a href="#" style="color: #00205C; text-decoration: underline;">Cancelar suscripción</a>
+        </mj-column>
+      </mj-section>
+
+      <!-- Tier 1: Row 1 (Cards 1 & 2) -->
+      <mj-section background-color="#FFFFFF" padding="0px 20px 15px 20px">
+        <!-- Card 1 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/computer.png" alt="Endpoint" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Endpoint
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>Kaspersky Next EDR / XDR Optimum &amp; Expert</li>
+                <li>Kaspersky Hybrid Cloud Security</li>
+                <li>Kaspersky Mobile</li>
+                <li>Embedded Systems Security for Windows</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+        <!-- Card 2 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/eye.png" alt="Visibilidad" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Visibilidad
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>KUMA (Unified Monitoring &amp; Analysis)</li>
+                <li>Kaspersky Next XDR Core &amp; Expert</li>
+                <li>Anti Targeted Attack Platform</li>
+                <li>Industrial CyberSecurity for Networks</li>
+                <li>Threat Intelligence Portal</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Tier 1: Row 2 (Cards 3 & 4) -->
+      <mj-section background-color="#FFFFFF" padding="0px 20px 15px 20px">
+        <!-- Card 3 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/shield.png" alt="Perimetral" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Seguridad Perimetral
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>Anti Targeted Attack Platform</li>
+                <li>Security for Mail Server / Internet Gateway</li>
+                <li>Web Traffic Security</li>
+                <li>DDoS Protection</li>
+                <li>Data Feeds para integración con NGFW</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+        <!-- Card 4 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/database.png" alt="Apps y Datos" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Aplicaciones y Datos
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>Kaspersky Scan Engine</li>
+                <li>Security for Microsoft Office 365</li>
+                <li>Security for Storage</li>
+                <li>Container Security</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Tier 1: Row 3 (Cards 5 & 6) -->
+      <mj-section background-color="#FFFFFF" padding="0px 20px 25px 20px">
+        <!-- Card 5 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/siren.png" alt="SOC" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> SOC
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>KUMA / MDR</li>
+                <li>Threat Intelligence Portal &amp; Data Feeds</li>
+                <li>Anti Targeted Attack Platform</li>
+                <li>Kaspersky Next XDR Expert</li>
+                <li>Kaspersky Sandbox</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+        <!-- Card 6 -->
+        <mj-column width="50%" padding="10px">
+          <mj-text padding="0">
+            <div class="card-box">
+              <div style="font-size: 18px; font-weight: bold; color: #062351; margin-bottom: 10px;">
+                <img src="https://img.icons8.com/color/48/cloud.png" alt="Nube" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Seguridad en Nube
+              </div>
+              <ul style="margin: 0; padding-left: 18px; color: #606970; font-size: 14px; line-height: 1.6;">
+                <li>Cloud Workload Security</li>
+                <li>Hybrid Cloud Security</li>
+                <li>Container Security</li>
+                <li>Security for Microsoft Office 365</li>
+                <li>Security Center Cloud Console</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Divider -->
+      <mj-section background-color="#FFFFFF" padding="0 30px">
+        <mj-column>
+          <mj-divider border-width="1px" border-style="solid" border-color="#e4e9ee" padding="0" />
+        </mj-column>
+      </mj-section>
+
+      <!-- SECCIÓN SECUNDARIA: Verticales Tier 2 -->
+      <mj-section background-color="#FFFFFF" padding="35px 30px 15px 30px">
+        <mj-column>
+          <mj-text color="#005CFF" font-size="13px" font-weight="bold" letter-spacing="1px" text-transform="uppercase" padding-bottom="8px">
+            Estrategia Complementaria
+          </mj-text>
+          <mj-text color="#062351" font-size="28px" font-weight="bold" line-height="1.3" padding-bottom="12px">
+            <img src="https://img.icons8.com/color/48/flash-auto.png" alt="Tier 2" width="26" height="26" style="vertical-align: middle; margin-right: 8px;" /> Verticales Tier 2
+          </mj-text>
+          <mj-text color="#606970" font-size="16px" line-height="1.6" padding-bottom="15px">
+            Complementamos la estrategia principal gestionando riesgos proactivamente, asegurando el desarrollo y protegiendo las identidades corporativas.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Tier 2 Modules -->
+      <mj-section background-color="#FFFFFF" padding="0px 20px 35px 20px">
+        <!-- Module A -->
+        <mj-column width="33.33%" padding="8px">
+          <mj-text padding="0">
+            <div class="module-box">
+              <div style="font-size: 15px; font-weight: bold; color: #062351; margin-bottom: 8px;">
+                <img src="https://img.icons8.com/color/48/scales.png" alt="Riesgo" width="18" height="18" style="vertical-align: middle; margin-right: 4px;" /> Gestión del Riesgo
+              </div>
+              <ul style="margin: 0; padding-left: 15px; color: #606970; font-size: 13px; line-height: 1.5;">
+                <li>Vulnerability Assessment &amp; Patch Management</li>
+                <li>Kaspersky Vulnerability Data Feed</li>
+                <li>Industrial CyberSecurity for Networks (OT risk assessment)</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+
+        <!-- Module B -->
+        <mj-column width="33.33%" padding="8px">
+          <mj-text padding="0">
+            <div class="module-box">
+              <div style="font-size: 15px; font-weight: bold; color: #062351; margin-bottom: 8px;">
+                <img src="https://img.icons8.com/color/48/source-code.png" alt="Código" width="18" height="18" style="vertical-align: middle; margin-right: 4px;" /> Análisis de Código
+              </div>
+              <ul style="margin: 0; padding-left: 15px; color: #606970; font-size: 13px; line-height: 1.5;">
+                <li>Kaspersky Application Security Assessment</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+
+        <!-- Module C -->
+        <mj-column width="33.33%" padding="8px">
+          <mj-text padding="0">
+            <div class="module-box">
+              <div style="font-size: 15px; font-weight: bold; color: #062351; margin-bottom: 8px;">
+                <img src="https://img.icons8.com/color/48/fingerprint.png" alt="Identidades" width="18" height="18" style="vertical-align: middle; margin-right: 4px;" /> Identidades
+              </div>
+              <ul style="margin: 0; padding-left: 15px; color: #606970; font-size: 13px; line-height: 1.5;">
+                <li>Digital Footprint Intelligence (Contraseñas Expuestas)</li>
+                <li>Brand Monitoring</li>
+                <li>Kaspersky Password Manager Business <span class="badge-new">Nuevo en Q4 2026</span></li>
+                <li>Kaspersky Next XDR Optimum (Respuesta sobre AD)</li>
+              </ul>
+            </div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Footer Section / Gracias -->
+      <mj-section background-color="#062351" padding="40px 30px">
+        <mj-column>
+          <mj-text align="center" color="#5FFFE5" font-size="28px" font-weight="bold" padding-bottom="12px">
+            ¡GRACIAS!
+          </mj-text>
+          <mj-text align="center" color="#dbe6f4" font-size="16px" line-height="1.6" padding-bottom="24px">
+            Quedo a su disposición para resolver dudas técnicas, acompañarlos en sus oportunidades comerciales o profundizar en cualquiera de las soluciones. ¡Hablemos!
+          </mj-text>
+          <mj-button background-color="#005CFF" color="#ffffff" font-size="16px" font-weight="bold" border-radius="7px" align="center" href="https://wa.me/">
+            <img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="20" height="20" style="vertical-align: middle; margin-right: 6px;" /> Más información &rarr;
+          </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <!-- Sub-Footer -->
+      <mj-section background-color="#222222" padding="35px 30px">
+        <mj-column>
+          <mj-text align="center" font-size="13px" line-height="22px" color="#b9c1c8">
+            © 2026 GMS Seguridad. Todos los derechos reservados.<br />
+            Bogotá • Quito • Lima
           </mj-text>
         </mj-column>
       </mj-section>
 
     </mj-wrapper>
+
   </mj-body>
 </mjml>
