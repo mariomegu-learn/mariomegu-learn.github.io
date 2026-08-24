@@ -49,6 +49,41 @@
       padding-right: 40px;
     }
 
+    .feature-row {
+      display: flex;
+    }
+
+    .feature-card {
+      display: flex !important;
+      flex: 1 1 50%;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .feature-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e4e9ee;
+      border-radius: 12px !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .feature-card-inner > tbody,
+    .feature-card-inner > tbody > tr,
+    .feature-card-inner > tbody > tr > td {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     @media only screen and (max-width: 620px) {
       .mobile-padding {
         padding-left: 22px !important;
@@ -69,9 +104,25 @@
         line-height: 38px !important;
       }
 
+      .feature-row {
+        display: block !important;
+      }
+
       .feature-card {
         display: block !important;
         width: 100% !important;
+        height: auto !important;
+      }
+
+      .feature-card-inner {
+        display: block !important;
+        height: auto !important;
+      }
+
+      .feature-card-inner > tbody,
+      .feature-card-inner > tbody > tr,
+      .feature-card-inner > tbody > tr > td {
+        display: block !important;
       }
     }
   </style>
@@ -144,7 +195,9 @@
             class="mobile-padding"
             style="
               padding-top:52px;
+              padding-right:40px;
               padding-bottom:52px;
+              padding-left:40px;
               background-color:#062351;
             ">
 
@@ -293,27 +346,32 @@
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
 
               <!-- ROW 1 -->
-              <tr>
+              <tr class="feature-row">
 
                 <!-- CARD -->
                 <td
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -363,20 +421,25 @@
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -425,26 +488,31 @@
               </tr>
 
               <!-- ROW 2 -->
-              <tr>
+              <tr class="feature-row">
 
                 <td
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -493,20 +561,25 @@
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -553,26 +626,31 @@
               </tr>
 
               <!-- ROW 3 -->
-              <tr>
+              <tr class="feature-row">
 
                 <td
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -621,20 +699,25 @@
                   class="feature-card"
                   width="50%"
                   valign="top"
+                  height="100%"
                   style="padding:10px;">
 
                   <table
                     role="presentation"
+                    class="feature-card-inner"
                     width="100%"
+                    height="100%"
                     cellpadding="0"
                     cellspacing="0"
                     style="
                       border:1px solid #e4e9ee;
                       border-radius:12px;
+                      height:100%;
+                      box-sizing:border-box;
                     ">
 
                     <tr>
-                      <td style="padding:24px;">
+                      <td valign="top" style="padding:24px;">
 
                         <div
                           style="
@@ -679,6 +762,251 @@
 
                 </td>
 
+              </tr>
+
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- TIER 2 INTRO -->
+        <tr>
+          <td
+            class="mobile-padding"
+            style="
+              padding-top:44px;
+              padding-bottom:20px;
+              text-align:center;
+            ">
+
+            <div
+              style="
+                color:#005CFF;
+                font-size:13px;
+                line-height:20px;
+                font-weight:bold;
+                letter-spacing:1px;
+                text-transform:uppercase;
+                padding-bottom:8px;
+              ">
+              Estrategia Kaspersky
+            </div>
+
+            <div
+              style="
+                font-size:29px;
+                line-height:37px;
+                font-weight:bold;
+                color:#222222;
+                padding-bottom:15px;
+              ">
+              Verticales Tier 2
+            </div>
+
+            <div
+              style="
+                font-size:16px;
+                line-height:26px;
+                color:#606970;
+              ">
+              Complementamos la estrategia principal gestionando riesgos proactivamente, asegurando el desarrollo y protegiendo las identidades corporativas.
+            </div>
+
+          </td>
+        </tr>
+
+        <!-- TIER 2 FEATURES -->
+        <tr>
+          <td class="mobile-padding" style="padding-top:20px; padding-bottom:15px;">
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+
+              <tr>
+                <td valign="top" style="padding:10px;">
+
+                  <table
+                    role="presentation"
+                    class="feature-card-inner"
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="
+                      border:1px solid #e4e9ee;
+                      border-radius:12px;
+                      border-collapse:separate;
+                      border-spacing:0;
+                      box-sizing:border-box;
+                      overflow:hidden;
+                    ">
+
+                    <tr>
+                      <td valign="top" style="padding:24px;">
+
+                        <div
+                          style="
+                            color:#00A88E;
+                            font-size:25px;
+                            padding-bottom:10px;
+                          ">
+                          ◉
+                        </div>
+
+                        <div
+                          style="
+                            font-size:18px;
+                            line-height:24px;
+                            font-weight:bold;
+                            color:#062351;
+                            padding-bottom:9px;
+                          ">
+                          Gestión del Riesgo (Vulnerabilidades)
+                        </div>
+
+                        <div
+                          style="
+                            font-size:14px;
+                            line-height:22px;
+                            color:#606970;
+                          ">
+                          Identifica, prioriza y corrige vulnerabilidades para reducir proactivamente la exposición al riesgo.
+                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                            <li>Vulnerability Assessment &amp; Patch Management</li>
+                            <li>Kaspersky Vulnerability Data Feed</li>
+                            <li>Industrial CyberSecurity for Networks (OT risk assessment)</li>
+                          </ul>
+                        </div>
+
+                      </td>
+                    </tr>
+
+                  </table>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td valign="top" style="padding:10px;">
+
+                  <table
+                    role="presentation"
+                    class="feature-card-inner"
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="
+                      border:1px solid #e4e9ee;
+                      border-radius:12px;
+                      border-collapse:separate;
+                      border-spacing:0;
+                      box-sizing:border-box;
+                      overflow:hidden;
+                    ">
+
+                    <tr>
+                      <td valign="top" style="padding:24px;">
+
+                        <div
+                          style="
+                            color:#00A88E;
+                            font-size:25px;
+                            padding-bottom:10px;
+                          ">
+                          ◈
+                        </div>
+
+                        <div
+                          style="
+                            font-size:18px;
+                            line-height:24px;
+                            font-weight:bold;
+                            color:#062351;
+                            padding-bottom:9px;
+                          ">
+                          Análisis de Código
+                        </div>
+
+                        <div
+                          style="
+                            font-size:14px;
+                            line-height:22px;
+                            color:#606970;
+                          ">
+                          Evalúa la seguridad de las aplicaciones para detectar riesgos antes de su puesta en producción.
+                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                            <li>Kaspersky Application Security Assessment</li>
+                          </ul>
+                        </div>
+
+                      </td>
+                    </tr>
+
+                  </table>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td valign="top" style="padding:10px;">
+
+                  <table
+                    role="presentation"
+                    class="feature-card-inner"
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="
+                      border:1px solid #e4e9ee;
+                      border-radius:12px;
+                      border-collapse:separate;
+                      border-spacing:0;
+                      box-sizing:border-box;
+                      overflow:hidden;
+                    ">
+
+                    <tr>
+                      <td valign="top" style="padding:24px;">
+
+                        <div
+                          style="
+                            color:#00A88E;
+                            font-size:25px;
+                            padding-bottom:10px;
+                          ">
+                          ❖
+                        </div>
+
+                        <div
+                          style="
+                            font-size:18px;
+                            line-height:24px;
+                            font-weight:bold;
+                            color:#062351;
+                            padding-bottom:9px;
+                          ">
+                          Identidades
+                        </div>
+
+                        <div
+                          style="
+                            font-size:14px;
+                            line-height:22px;
+                            color:#606970;
+                          ">
+                          Protege las identidades corporativas y anticipa la exposición de credenciales y marca.
+                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                            <li>Digital Footprint Intelligence (Contraseñas Expuestas)</li>
+                            <li>Brand Monitoring</li>
+                            <li>Nuevo en Q4 2026: Kaspersky Password Manager Business</li>
+                            <li>Kaspersky Next XDR Optimum (Respuesta sobre AD)</li>
+                          </ul>
+                        </div>
+
+                      </td>
+                    </tr>
+
+                  </table>
+
+                </td>
               </tr>
 
             </table>
@@ -758,7 +1086,7 @@
                 color:#222222;
                 padding-bottom:12px;
               ">
-              Conversemos sobre tu estrategia de ciberseguridad
+              ¡GRACIAS!
             </div>
 
             <div
@@ -768,8 +1096,7 @@
                 color:#606970;
                 padding-bottom:24px;
               ">
-              Nuestro equipo puede ayudarte a evaluar oportunidades y definir
-              el siguiente paso.
+              Quedo a su disposición para resolver dudas técnicas, acompañarlos en sus oportunidades comerciales o profundizar en cualquiera de las soluciones. ¡Hablemos!
             </div>
 
             <table role="presentation" cellpadding="0" cellspacing="0">
@@ -789,7 +1116,7 @@
                       color:#ffffff;
                       font-weight:bold;
                     ">
-                    Hablar con un especialista
+                    Más información →
                   </a>
 
                 </td>
@@ -816,7 +1143,7 @@
                 <td align="center">
 
                   <img
-                    src="{{GMS_LOGO_WHITE_URL}}"
+                    src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/LOGO_BLANCO.png"
                     width="110"
                     alt="GMS"
                     style="
@@ -839,26 +1166,6 @@
                   © 2026 GMS Seguridad. Todos los derechos reservados.
                   <br>
                   Bogotá • Quito • Lima
-                </td>
-              </tr>
-
-              <tr>
-                <td
-                  align="center"
-                  style="
-                    padding-top:20px;
-                    font-size:12px;
-                    line-height:19px;
-                    color:#89939b;
-                  ">
-                  Recibiste este mensaje porque formas parte de nuestra comunidad
-                  empresarial.
-                  <br>
-                  <a
-                    href="{{UNSUBSCRIBE_URL}}"
-                    style="color:#5FFFE5;">
-                    Cancelar suscripción
-                  </a>
                 </td>
               </tr>
 
