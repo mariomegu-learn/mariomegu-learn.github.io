@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,22 +49,18 @@
       padding-right: 40px;
     }
 
-    .feature-row {
-      display: flex;
+    .feature-grid {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
     }
 
-    .feature-card {
-      display: flex !important;
-      flex: 1 1 50%;
-      width: 50%;
-      box-sizing: border-box;
+    .feature-grid .mobile-full {
+      border-radius: 12px !important;
+      overflow: hidden;
     }
 
     .feature-card-inner {
       width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
       border: 1px solid #e4e9ee;
       border-radius: 12px !important;
       border-collapse: separate !important;
@@ -72,16 +68,7 @@
       background-color: #ffffff;
       box-sizing: border-box;
       overflow: hidden;
-    }
-
-    .feature-card-inner > tbody,
-    .feature-card-inner > tbody > tr,
-    .feature-card-inner > tbody > tr > td {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      width: 100%;
-      box-sizing: border-box;
+      mso-border-alt: none !important;
     }
 
     @media only screen and (max-width: 620px) {
@@ -93,6 +80,12 @@
       .mobile-full {
         width: 100% !important;
         display: block !important;
+        box-sizing: border-box !important;
+        margin-bottom: 20px !important;
+      }
+
+      .mobile-hide {
+        display: none !important;
       }
 
       .mobile-center {
@@ -102,27 +95,6 @@
       .hero-title {
         font-size: 31px !important;
         line-height: 38px !important;
-      }
-
-      .feature-row {
-        display: block !important;
-      }
-
-      .feature-card {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-      }
-
-      .feature-card-inner {
-        display: block !important;
-        height: auto !important;
-      }
-
-      .feature-card-inner > tbody,
-      .feature-card-inner > tbody > tr,
-      .feature-card-inner > tbody > tr > td {
-        display: block !important;
       }
     }
   </style>
@@ -343,422 +315,397 @@
         <tr>
           <td class="mobile-padding" style="padding-top:20px; padding-bottom:15px;">
 
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <table role="presentation" class="feature-grid" width="100%" cellpadding="0" cellspacing="0">
 
               <!-- ROW 1 -->
-              <tr class="feature-row">
+              <tr>
 
-                <!-- CARD -->
+                <!-- CARD 1 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ◉
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    Protección de endpoints
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ◉
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          Protección de endpoints
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Fortalece equipos y dispositivos frente a amenazas,
-                          ataques avanzados y comportamientos sospechosos.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>Kaspersky Next EDR / XDR Optimum &amp; Expert</li>
-                            <li>Kaspersky Hybrid Cloud Security</li>
-                            <li>Kaspersky Mobile</li>
-                            <li>Embedded Systems Security for Windows</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Fortalece equipos y dispositivos frente a amenazas,
+                    ataques avanzados y comportamientos sospechosos.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>Kaspersky Next EDR / XDR Optimum &amp; Expert</li>
+                      <li>Kaspersky Hybrid Cloud Security</li>
+                      <li>Kaspersky Mobile</li>
+                      <li>Embedded Systems Security for Windows</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
-                <!-- CARD -->
+                <!-- SPACER TD -->
+                <td class="mobile-hide" width="4%" style="font-size:0; line-height:0;">&nbsp;</td>
+
+                <!-- CARD 2 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ◎
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    Plataforma de Visibilidad
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ◎
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          Plataforma de Visibilidad
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Obtén mayor contexto de seguridad y facilita la
-                          identificación de amenazas dentro de tu entorno.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>KUMA (Unified Monitoring and Analysis)</li>
-                            <li>Kaspersky Next XDR Core &amp; Expert</li>
-                            <li>Anti Targeted Attack Platform</li>
-                            <li>Industrial CyberSecurity for Networks</li>
-                            <li>Threat Intelligence Portal</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Obtén mayor contexto de seguridad y facilita la
+                    identificación de amenazas dentro de tu entorno.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>KUMA (Unified Monitoring and Analysis)</li>
+                      <li>Kaspersky Next XDR Core &amp; Expert</li>
+                      <li>Anti Targeted Attack Platform</li>
+                      <li>Industrial CyberSecurity for Networks</li>
+                      <li>Threat Intelligence Portal</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
+              </tr>
+
+              <!-- SPACER ROW 1-2 -->
+              <tr>
+                <td colspan="3" style="height:20px; font-size:0; line-height:0;">&nbsp;</td>
               </tr>
 
               <!-- ROW 2 -->
-              <tr class="feature-row">
+              <tr>
 
+                <!-- CARD 3 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ◈
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    Seguridad Perimetral
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ◈
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          Seguridad Perimetral
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Protege el perímetro de red y los canales de comunicación clave contra ataques externos.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>Anti Targeted Attack Platform</li>
-                            <li>Security for Mail Server / Internet Gateway</li>
-                            <li>Web Traffic Security</li>
-                            <li>DDoS Protection</li>
-                            <li>Data Feeds para integración con NGFW</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Protege el perímetro de red y los canales de comunicación clave contra ataques externos.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>Anti Targeted Attack Platform</li>
+                      <li>Security for Mail Server / Internet Gateway</li>
+                      <li>Web Traffic Security</li>
+                      <li>DDoS Protection</li>
+                      <li>Data Feeds para integración con NGFW</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
+                <!-- SPACER TD -->
+                <td class="mobile-hide" width="4%" style="font-size:0; line-height:0;">&nbsp;</td>
+
+                <!-- CARD 4 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ◇
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    Aplicaciones y Datos
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ◇
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          Aplicaciones y Datos
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Salvaguarda aplicaciones críticas y contenedores de datos frente a vulnerabilidades y malware.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>Kaspersky Scan Engine</li>
-                            <li>Security for Microsoft Office 365</li>
-                            <li>Security for Storage</li>
-                            <li>Container Security</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Salvaguarda aplicaciones críticas y contenedores de datos frente a vulnerabilidades y malware.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>Kaspersky Scan Engine</li>
+                      <li>Security for Microsoft Office 365</li>
+                      <li>Security for Storage</li>
+                      <li>Container Security</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
               </tr>
 
+              <!-- SPACER ROW 2-3 -->
+              <tr>
+                <td colspan="3" style="height:20px; font-size:0; line-height:0;">&nbsp;</td>
+              </tr>
+
               <!-- ROW 3 -->
-              <tr class="feature-row">
+              <tr>
 
+                <!-- CARD 5 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ❖
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    SOC
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ❖
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          SOC
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Potencia el Centro de Operaciones de Seguridad con detección avanzada y respuesta centralizada.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>KUMA / MDR</li>
-                            <li>Threat Intelligence Portal &amp; Data Feeds</li>
-                            <li>Anti Targeted Attack Platform</li>
-                            <li>Kaspersky Next XDR Expert</li>
-                            <li>Kaspersky Sandbox</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Potencia el Centro de Operaciones de Seguridad con detección avanzada y respuesta centralizada.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>KUMA / MDR</li>
+                      <li>Threat Intelligence Portal &amp; Data Feeds</li>
+                      <li>Anti Targeted Attack Platform</li>
+                      <li>Kaspersky Next XDR Expert</li>
+                      <li>Kaspersky Sandbox</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
+                <!-- SPACER TD -->
+                <td class="mobile-hide" width="4%" style="font-size:0; line-height:0;">&nbsp;</td>
+
+                <!-- CARD 6 -->
                 <td
-                  class="feature-card"
-                  width="50%"
+                  class="mobile-full"
+                  width="48%"
                   valign="top"
-                  height="100%"
-                  style="padding:10px;">
+                  style="
+                    border:1px solid #e4e9ee;
+                    border-radius:12px;
+                    padding:24px;
+                    background-color:#ffffff;
+                    mso-border-alt:none;
+                    mso-padding-alt:0;
+                  ">
 
-                  <table
-                    role="presentation"
-                    class="feature-card-inner"
-                    width="100%"
-                    height="100%"
-                    cellpadding="0"
-                    cellspacing="0"
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                  <v:textbox inset="24px,24px,24px,24px">
+                  <![endif]-->
+                  <div
                     style="
-                      border:1px solid #e4e9ee;
-                      border-radius:12px;
-                      height:100%;
-                      box-sizing:border-box;
+                      color:#00A88E;
+                      font-size:25px;
+                      padding-bottom:10px;
                     ">
+                    ⬖
+                  </div>
 
-                    <tr>
-                      <td valign="top" style="padding:24px;">
+                  <div
+                    style="
+                      font-size:18px;
+                      line-height:24px;
+                      font-weight:bold;
+                      color:#062351;
+                      padding-bottom:9px;
+                    ">
+                    Seguridad en Nube
+                  </div>
 
-                        <div
-                          style="
-                            color:#00A88E;
-                            font-size:25px;
-                            padding-bottom:10px;
-                          ">
-                          ⬖
-                        </div>
-
-                        <div
-                          style="
-                            font-size:18px;
-                            line-height:24px;
-                            font-weight:bold;
-                            color:#062351;
-                            padding-bottom:9px;
-                          ">
-                          Seguridad en Nube
-                        </div>
-
-                        <div
-                          style="
-                            font-size:14px;
-                            line-height:22px;
-                            color:#606970;
-                          ">
-                          Extiende la protección a cargas de trabajo, infraestructura híbrida y servicios cloud.
-                          <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
-                            <li>Cloud Workload Security</li>
-                            <li>Hybrid Cloud Security</li>
-                            <li>Container Security</li>
-                            <li>Security for Microsoft Office 365</li>
-                            <li>Security Center Cloud Console</li>
-                          </ul>
-                        </div>
-
-                      </td>
-                    </tr>
-
-                  </table>
+                  <div
+                    style="
+                      font-size:14px;
+                      line-height:22px;
+                      color:#606970;
+                    ">
+                    Extiende la protección a cargas de trabajo, infraestructura híbrida y servicios cloud.
+                    <ul style="margin-top:10px; margin-bottom:0; padding-left:20px;">
+                      <li>Cloud Workload Security</li>
+                      <li>Hybrid Cloud Security</li>
+                      <li>Container Security</li>
+                      <li>Security for Microsoft Office 365</li>
+                      <li>Security Center Cloud Console</li>
+                    </ul>
+                  </div>
+                  <!--[if mso]>
+                  </v:textbox>
+                  </v:roundrect>
+                  <![endif]-->
 
                 </td>
 
@@ -837,11 +784,16 @@
                       border-spacing:0;
                       box-sizing:border-box;
                       overflow:hidden;
+                      mso-border-alt:none;
                     ">
 
                     <tr>
-                      <td valign="top" style="padding:24px;">
+                      <td valign="top" style="padding:24px; mso-padding-alt:0;">
 
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                        <v:textbox inset="24px,24px,24px,24px">
+                        <![endif]-->
                         <div
                           style="
                             color:#00A88E;
@@ -875,6 +827,10 @@
                             <li>Industrial CyberSecurity for Networks (OT risk assessment)</li>
                           </ul>
                         </div>
+                        <!--[if mso]>
+                        </v:textbox>
+                        </v:roundrect>
+                        <![endif]-->
 
                       </td>
                     </tr>
@@ -900,11 +856,16 @@
                       border-spacing:0;
                       box-sizing:border-box;
                       overflow:hidden;
+                      mso-border-alt:none;
                     ">
 
                     <tr>
-                      <td valign="top" style="padding:24px;">
+                      <td valign="top" style="padding:24px; mso-padding-alt:0;">
 
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                        <v:textbox inset="24px,24px,24px,24px">
+                        <![endif]-->
                         <div
                           style="
                             color:#00A88E;
@@ -936,6 +897,10 @@
                             <li>Kaspersky Application Security Assessment</li>
                           </ul>
                         </div>
+                        <!--[if mso]>
+                        </v:textbox>
+                        </v:roundrect>
+                        <![endif]-->
 
                       </td>
                     </tr>
@@ -961,11 +926,16 @@
                       border-spacing:0;
                       box-sizing:border-box;
                       overflow:hidden;
+                      mso-border-alt:none;
                     ">
 
                     <tr>
-                      <td valign="top" style="padding:24px;">
+                      <td valign="top" style="padding:24px; mso-padding-alt:0;">
 
+                        <!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
+                        <v:textbox inset="24px,24px,24px,24px">
+                        <![endif]-->
                         <div
                           style="
                             color:#00A88E;
@@ -1000,6 +970,10 @@
                             <li>Kaspersky Next XDR Optimum (Respuesta sobre AD)</li>
                           </ul>
                         </div>
+                        <!--[if mso]>
+                        </v:textbox>
+                        </v:roundrect>
+                        <![endif]-->
 
                       </td>
                     </tr>
