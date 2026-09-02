@@ -610,68 +610,62 @@
                                 <p class="text-[11px] text-slate-500">La capacitación se divide por módulos para optimizar el tiempo del cliente.</p>
                             </div>
                             
-                            <!-- Botones de Acción de Capacitación -->
+                            <!-- Checkbox Master Habilitar/Deseleccionar Capacitación -->
                             <div class="flex items-center gap-2">
-                                <button @click="toggleTraining(false)" 
-                                        :class="!config.training.enabled ? 'bg-rose-600 text-white font-bold' : 'bg-slate-200 text-slate-700 hover:bg-slate-300'"
-                                        class="px-2.5 py-1 text-xs rounded-lg transition flex items-center gap-1">
-                                    <i data-lucide="x-circle" class="w-3.5 h-3.5"></i> Deseleccionar Todo (0 hrs)
-                                </button>
-                                <button @click="toggleTraining(true)" 
-                                        :class="config.training.enabled ? 'bg-gms-blue text-white font-bold' : 'bg-slate-200 text-slate-700 hover:bg-slate-300'"
-                                        class="px-2.5 py-1 text-xs rounded-lg transition flex items-center gap-1">
-                                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Incluir Capacitación
-                                </button>
+                                <label class="text-xs font-bold text-gms-dark flex items-center gap-2 cursor-pointer bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-200 transition">
+                                    <input type="checkbox" 
+                                           :checked="isAllTrainingChecked()" 
+                                           @change="toggleTraining($event.target.checked)" 
+                                           class="rounded text-gms-blue focus:ring-gms-blue w-4 h-4">
+                                    Seleccionar Todo
+                                </label>
                             </div>
                         </div>
 
-                        <!-- Resumen y Selección de Módulos de Capacitación -->
+                        <!-- Resumen y Lista Siempre Visible de Módulos de Capacitación -->
                         <div class="space-y-2.5 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
                             <div class="flex items-center justify-between pb-2 border-b border-slate-200">
                                 <span class="font-bold text-gms-dark">Total Horas de Capacitación:</span>
                                 <span class="text-sm font-extrabold text-gms-blue" x-text="calcTrainingHours() + ' hrs'">0 hrs</span>
                             </div>
 
-                            <div x-show="config.training.enabled" x-cloak class="space-y-2 pt-1">
+                            <!-- Lista Visible de Capacitaciones (No desaparece, sólo se deselecciona) -->
+                            <div class="space-y-2 pt-1">
                                 <div class="flex justify-between items-center py-1 border-b border-slate-200/80">
                                     <label class="text-slate-700 flex items-center gap-2 cursor-pointer font-medium">
                                         <input type="checkbox" x-model="config.training.core" class="rounded text-gms-blue">
                                         Módulo Core (VMDR & AssetView)
                                     </label>
-                                    <span class="font-bold text-gms-dark">8.0 hrs</span>
+                                    <span class="font-bold text-gms-dark" :class="config.training.core ? 'text-gms-dark' : 'text-slate-400'">8.0 hrs</span>
                                 </div>
                                 <div class="flex justify-between items-center py-1 border-b border-slate-200/80" x-show="config.pm.enabled">
                                     <label class="text-slate-700 flex items-center gap-2 cursor-pointer font-medium">
                                         <input type="checkbox" x-model="config.training.pm" class="rounded text-gms-blue">
                                         Módulo Patch Management (PM)
                                     </label>
-                                    <span class="font-bold text-gms-dark">+2.0 hrs</span>
+                                    <span class="font-bold text-gms-dark" :class="config.training.pm ? 'text-gms-dark' : 'text-slate-400'">+2.0 hrs</span>
                                 </div>
                                 <div class="flex justify-between items-center py-1 border-b border-slate-200/80" x-show="config.was.enabled">
                                     <label class="text-slate-700 flex items-center gap-2 cursor-pointer font-medium">
                                         <input type="checkbox" x-model="config.training.was" class="rounded text-gms-blue">
                                         Módulo Web App Scanning (WAS)
                                     </label>
-                                    <span class="font-bold text-gms-dark">+3.0 hrs</span>
+                                    <span class="font-bold text-gms-dark" :class="config.training.was ? 'text-gms-dark' : 'text-slate-400'">+3.0 hrs</span>
                                 </div>
                                 <div class="flex justify-between items-center py-1 border-b border-slate-200/80" x-show="config.pa.enabled">
                                     <label class="text-slate-700 flex items-center gap-2 cursor-pointer font-medium">
                                         <input type="checkbox" x-model="config.training.pa" class="rounded text-gms-blue">
                                         Módulo Policy Compliance (PC)
                                     </label>
-                                    <span class="font-bold text-gms-dark">+3.0 hrs</span>
+                                    <span class="font-bold text-gms-dark" :class="config.training.pa ? 'text-gms-dark' : 'text-slate-400'">+3.0 hrs</span>
                                 </div>
                                 <div class="flex justify-between items-center py-1" x-show="config.cs.enabled || config.fim.enabled || config.edr.enabled">
                                     <label class="text-slate-700 flex items-center gap-2 cursor-pointer font-medium">
                                         <input type="checkbox" x-model="config.training.sensors" class="rounded text-gms-blue">
                                         Otros Módulos Sensores (CS / FIM / EDR)
                                     </label>
-                                    <span class="font-bold text-gms-dark" x-text="'+' + ( (config.cs.enabled?2:0) + (config.fim.enabled?2:0) + (config.edr.enabled?2:0) ) + '.0 hrs'">+0 hrs</span>
+                                    <span class="font-bold text-gms-dark" :class="config.training.sensors ? 'text-gms-dark' : 'text-slate-400'" x-text="'+' + ( (config.cs.enabled?2:0) + (config.fim.enabled?2:0) + (config.edr.enabled?2:0) ) + '.0 hrs'">+0 hrs</span>
                                 </div>
-                            </div>
-
-                            <div x-show="!config.training.enabled" x-cloak class="p-2 text-center text-slate-500 italic text-xs">
-                                Capacitación técnica deshabilitada. El proyecto no incluirá horas de capacitación (0.0 hrs).
                             </div>
                         </div>
                     </div>
@@ -786,7 +780,7 @@
             return {
                 viewMode: 'all', // 'all' para visibilidad simultánea completa, 'tabs' para pestañas
                 activeCategory: 'platform',
-                currentPreset: 'basic',
+                currentPreset: 'enterprise',
                 categories: [
                     { id: 'platform', name: 'Plataforma & Sensores', icon: 'server' },
                     { id: 'risk_infra', name: 'Riesgo e Infraestructura', icon: 'shield-alert' },
@@ -821,6 +815,7 @@
                 chartInstance: null,
 
                 initApp() {
+                    this.applyPreset('enterprise');
                     this.$nextTick(() => {
                         if (window.lucide) {
                             lucide.createIcons();
@@ -887,19 +882,23 @@
                     return (this.config.car.scriptsCount || 0) * 2;
                 },
 
+                isAllTrainingChecked() {
+                    return this.config.training.core && 
+                           (!this.config.pm.enabled || this.config.training.pm) &&
+                           (!this.config.was.enabled || this.config.training.was) &&
+                           (!this.config.pa.enabled || this.config.training.pa) &&
+                           (!(this.config.cs.enabled || this.config.fim.enabled || this.config.edr.enabled) || this.config.training.sensors);
+                },
+
                 toggleTraining(state) {
-                    this.config.training.enabled = state;
-                    if (state) {
-                        this.config.training.core = true;
-                        this.config.training.pm = true;
-                        this.config.training.was = true;
-                        this.config.training.pa = true;
-                        this.config.training.sensors = true;
-                    }
+                    this.config.training.core = state;
+                    this.config.training.pm = state;
+                    this.config.training.was = state;
+                    this.config.training.pa = state;
+                    this.config.training.sensors = state;
                 },
 
                 calcTrainingHours() {
-                    if (!this.config.training.enabled) return 0;
                     let hrs = 0;
                     if (this.config.training.core) hrs += 8;
                     if (this.config.pm.enabled && this.config.training.pm) hrs += 2;
