@@ -1,0 +1,136 @@
+- generic [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - generic [ref=f1e4]:
+        - generic [ref=f1e5]: Q
+        - generic [ref=f1e6]:
+          - heading "Calculadora de Servicios Qualys" [level=1] [ref=f1e7]
+          - paragraph [ref=f1e8]: Dimensionamiento de Esfuerzo e Implementación
+      - generic [ref=f1e9]:
+        - generic [ref=f1e10]: "Escenario:"
+        - button "Básico" [ref=f1e11] [cursor=pointer]
+        - button "Estándar" [ref=f1e12] [cursor=pointer]
+        - button "Enterprise" [active] [ref=f1e13] [cursor=pointer]
+        - button "Reiniciar" [ref=f1e14] [cursor=pointer]
+      - generic [ref=f1e18]:
+        - generic [ref=f1e19]:
+          - generic [ref=f1e20]: Total Estimado
+          - text: 134.5 hrs
+        - generic [ref=f1e22]:
+          - generic [ref=f1e23]: Días Hábles
+          - text: 16.8 días
+        - button "Exportar PDF" [ref=f1e25] [cursor=pointer]
+  - main [ref=f1e29]:
+    - generic [ref=f1e30]:
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]:
+          - button "Plataforma & Sensores 15h" [ref=f1e190] [cursor=pointer]:
+            - generic [ref=f1e37]: Plataforma & Sensores
+            - generic [ref=f1e38]: 15h
+          - button "Riesgo e Infraestructura 26h" [ref=f1e191] [cursor=pointer]:
+            - generic [ref=f1e42]: Riesgo e Infraestructura
+            - generic [ref=f1e43]: 26h
+          - button "Cloud & Contenedores 28h" [ref=f1e192] [cursor=pointer]:
+            - generic [ref=f1e47]: Cloud & Contenedores
+            - generic [ref=f1e48]: 28h
+          - button "Seguridad App & WAS 12h" [ref=f1e193] [cursor=pointer]:
+            - generic [ref=f1e54]: Seguridad App & WAS
+            - generic [ref=f1e55]: 12h
+          - button "Cumplimiento & Auditoría 5h" [ref=f1e194] [cursor=pointer]:
+            - generic [ref=f1e61]: Cumplimiento & Auditoría
+            - generic [ref=f1e62]: 5h
+          - button "Remediación & Scripts 8.5h" [ref=f1e195] [cursor=pointer]:
+            - generic [ref=f1e66]: Remediación & Scripts
+            - generic [ref=f1e67]: 8.5h
+          - button "Capacitación & Integración 40h" [ref=f1e196] [cursor=pointer]:
+            - generic [ref=f1e72]: Capacitación & Integración
+            - generic [ref=f1e73]: 40h
+        - generic [ref=f1e74]:
+          - generic [ref=f1e75]:
+            - heading "Platform & Sensor Management (La Base)" [level=2] [ref=f1e76]
+            - paragraph [ref=f1e80]: Componentes transversales requeridos para cualquier arquitectura de despliegue.
+          - generic [ref=f1e81]:
+            - generic [ref=f1e83]:
+              - generic [ref=f1e84]:
+                - generic [ref=f1e85]:
+                  - checkbox "ADMIN (Administration)" [checked] [ref=f1e86]
+                  - text: ADMIN (Administration)
+                - paragraph [ref=f1e87]: Setup de Tenant, RBAC, Políticas de contraseñas y Branding.
+              - generic [ref=f1e88]: 3 hrs
+            - generic [ref=f1e90]:
+              - generic [ref=f1e91]:
+                - generic [ref=f1e92]:
+                  - checkbox "Unified Dashboard (UD)" [checked] [ref=f1e93]
+                  - text: Unified Dashboard (UD)
+                - paragraph [ref=f1e94]: Templates, JSONs de importación y widgets ejecutivos.
+              - generic [ref=f1e95]: 3 hrs
+            - generic [ref=f1e97]:
+              - generic [ref=f1e98]:
+                - generic [ref=f1e99]:
+                  - checkbox "Qualys Gateway Service (QGS)" [checked] [ref=f1e100]
+                  - text: Qualys Gateway Service (QGS)
+                - paragraph [ref=f1e101]: Configuración de caché de actualizaciones y proxy de agentes.
+              - generic [ref=f1e102]: 3 hrs
+            - generic [ref=f1e103]:
+              - generic [ref=f1e104]:
+                - generic [ref=f1e105]:
+                  - text: Virtual Scanner Appliance (vSA)
+                  - paragraph [ref=f1e106]: Despliegue y vinculación (1 hr por cada vSA).
+                - generic [ref=f1e107]: 4 hrs
+              - generic [ref=f1e108]:
+                - generic [ref=f1e109]: "Cant. vSA:"
+                - spinbutton [ref=f1e110]: "4"
+            - generic [ref=f1e111]:
+              - generic [ref=f1e112]:
+                - generic [ref=f1e113]:
+                  - generic [ref=f1e114]:
+                    - checkbox "Cloud Agent (CA)" [checked] [ref=f1e115]
+                    - text: Cloud Agent (CA)
+                  - paragraph [ref=f1e116]: Creación de llaves, perfiles y scripts base (2 hrs base).
+                - generic [ref=f1e117]: 2 hrs
+              - generic [ref=f1e119]:
+                - checkbox "Instalación Operativa Manual (8 min/dispositivo)" [ref=f1e120]
+                - generic [ref=f1e121]: Instalación Operativa Manual (8 min/dispositivo)
+      - generic [ref=f1e122]:
+        - generic [ref=f1e123]:
+          - heading "Resumen de Esfuerzo" [level=3] [ref=f1e124]
+          - generic [ref=f1e130]:
+            - generic [ref=f1e131]:
+              - generic [ref=f1e132]: Base Platform & Sensor
+              - generic [ref=f1e134]: 15 hrs
+            - generic [ref=f1e135]:
+              - generic [ref=f1e136]: Risk & Infrastructure
+              - generic [ref=f1e138]: 26 hrs
+            - generic [ref=f1e139]:
+              - generic [ref=f1e140]: Cloud & Containers
+              - generic [ref=f1e142]: 28 hrs
+            - generic [ref=f1e143]:
+              - generic [ref=f1e144]: App Security & WAS
+              - generic [ref=f1e146]: 12 hrs
+            - generic [ref=f1e147]:
+              - generic [ref=f1e148]: Audit & Compliance
+              - generic [ref=f1e150]: 5 hrs
+            - generic [ref=f1e151]:
+              - generic [ref=f1e152]: Remediation & Scripts
+              - generic [ref=f1e154]: 8.5 hrs
+            - generic [ref=f1e155]:
+              - generic [ref=f1e156]: Capacitación e Integración
+              - generic [ref=f1e158]: 40 hrs
+          - generic [ref=f1e159]:
+            - generic [ref=f1e160]:
+              - generic [ref=f1e161]: Total General
+              - text: Jornada 8h/día
+            - generic [ref=f1e162]:
+              - text: 134.5 hrs
+              - generic [ref=f1e163]: ≈ 16.8 días laborables
+        - generic [ref=f1e164]:
+          - heading "Entregables Incluidos" [level=3] [ref=f1e165]
+          - list [ref=f1e169]:
+            - listitem [ref=f1e170]:
+              - generic [ref=f1e174]: Diagrama de Arquitectura de Scanners y Agentes.
+            - listitem [ref=f1e175]:
+              - generic [ref=f1e179]: Documento de Requisitos Previos y Whitelisting.
+            - listitem [ref=f1e180]:
+              - generic [ref=f1e184]: Memoria Técnica de Configuración Final.
+            - listitem [ref=f1e185]:
+              - generic [ref=f1e189]: Guías de Despliegue en Windows/Linux.

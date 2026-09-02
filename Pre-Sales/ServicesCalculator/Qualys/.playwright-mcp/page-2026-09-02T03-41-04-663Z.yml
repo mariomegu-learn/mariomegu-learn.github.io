@@ -1,0 +1,117 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: Q
+        - generic [ref=e6]:
+          - heading "Calculadora de Servicios Qualys" [level=1] [ref=e7]
+          - paragraph [ref=e8]: Dimensionamiento de Esfuerzo e Implementación
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: Total Estimado
+          - text: 42 hrs
+        - generic [ref=e13]:
+          - generic [ref=e14]: Días Hábles
+          - text: 5.3 días
+        - button "Exportar PDF" [ref=e16] [cursor=pointer]
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - button "Plataforma & Sensores 9h" [ref=e24] [cursor=pointer]:
+            - generic [ref=e28]: Plataforma & Sensores
+            - generic [ref=e29]: 9h
+          - button "Riesgo e Infraestructura 15h" [ref=e30] [cursor=pointer]:
+            - generic [ref=e33]: Riesgo e Infraestructura
+            - generic [ref=e34]: 15h
+          - button "Cloud & Contenedores 0h" [ref=e35] [cursor=pointer]:
+            - generic [ref=e38]: Cloud & Contenedores
+            - generic [ref=e39]: 0h
+          - button "Seguridad App & WAS 7h" [ref=e218] [cursor=pointer]:
+            - generic [ref=e45]: Seguridad App & WAS
+            - generic [ref=e46]: 7h
+          - button "Cumplimiento & Auditoría 0h" [ref=e47] [cursor=pointer]:
+            - generic [ref=e52]: Cumplimiento & Auditoría
+            - generic [ref=e53]: 0h
+          - button "Remediación & Scripts 0h" [ref=e54] [cursor=pointer]:
+            - generic [ref=e57]: Remediación & Scripts
+            - generic [ref=e58]: 0h
+          - button "Capacitación & Integración 11h" [ref=e204] [cursor=pointer]:
+            - generic [ref=e63]: Capacitación & Integración
+            - generic [ref=e64]: 11h
+        - generic [ref=e181]:
+          - generic [ref=e182]:
+            - heading "Application Security (WAS & AI)" [level=2] [ref=e183]
+            - paragraph [ref=e188]: Escaneo de vulnerabilidades en aplicaciones web y APIs.
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - generic [ref=e192]:
+                  - generic [ref=e193]:
+                    - checkbox "Web Application Scanning (WAS)" [checked] [ref=e194]
+                    - text: Web Application Scanning (WAS)
+                  - paragraph [ref=e195]: Configuración global (2 hrs base) + esfuerzo por tipo de App/API.
+                - generic [ref=e196]: 7 hrs
+              - generic [ref=e205]:
+                - generic [ref=e206]:
+                  - generic [ref=e207]: "Apps Simples (0.5h c/u):"
+                  - spinbutton [ref=e208]: "0"
+                - generic [ref=e209]:
+                  - generic [ref=e210]: "Apps con Login (1.0h c/u):"
+                  - spinbutton [active] [ref=e211]: "5"
+                - generic [ref=e212]:
+                  - generic [ref=e213]: "APIs Individuales (1.5h c/u):"
+                  - spinbutton [ref=e214]: "0"
+                - generic [ref=e215]:
+                  - generic [ref=e216]: "APIs Multi-endpoint (3.5h c/u):"
+                  - spinbutton [ref=e217]: "0"
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - generic [ref=e199]:
+                  - checkbox "TotalAI (AI Security)" [ref=e200]
+                  - text: TotalAI (AI Security)
+                - paragraph [ref=e201]: Descubrimiento de modelos LLM y evaluación de riesgos IA.
+              - generic [ref=e202]: 4 hrs
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - heading "Resumen de Esfuerzo" [level=3] [ref=e115]
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: Base Platform & Sensor
+              - generic [ref=e125]: 9 hrs
+            - generic [ref=e126]:
+              - generic [ref=e127]: Risk & Infrastructure
+              - generic [ref=e129]: 15 hrs
+            - generic [ref=e130]:
+              - generic [ref=e131]: Cloud & Containers
+              - generic [ref=e133]: 0 hrs
+            - generic [ref=e134]:
+              - generic [ref=e135]: App Security & WAS
+              - generic [ref=e137]: 7 hrs
+            - generic [ref=e138]:
+              - generic [ref=e139]: Audit & Compliance
+              - generic [ref=e141]: 0 hrs
+            - generic [ref=e142]:
+              - generic [ref=e143]: Remediation & Scripts
+              - generic [ref=e145]: 0 hrs
+            - generic [ref=e146]:
+              - generic [ref=e147]: Capacitación e Integración
+              - generic [ref=e149]: 11 hrs
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - generic [ref=e152]: Total General
+              - text: Jornada 8h/día
+            - generic [ref=e153]:
+              - text: 42 hrs
+              - generic [ref=e154]: ≈ 5.3 días laborables
+        - generic [ref=e155]:
+          - heading "Entregables Incluidos" [level=3] [ref=e156]
+          - list [ref=e160]:
+            - listitem [ref=e161]:
+              - generic [ref=e165]: Diagrama de Arquitectura de Scanners y Agentes.
+            - listitem [ref=e166]:
+              - generic [ref=e170]: Documento de Requisitos Previos y Whitelisting.
+            - listitem [ref=e171]:
+              - generic [ref=e175]: Memoria Técnica de Configuración Final.
+            - listitem [ref=e176]:
+              - generic [ref=e180]: Guías de Despliegue en Windows/Linux.

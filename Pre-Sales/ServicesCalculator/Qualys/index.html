@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Esfuerzo de Servicios - Qualys</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        qualys: {
+                            blue: '#0052CC',
+                            dark: '#0A192F',
+                            light: '#F4F6F9',
+                            accent: '#FF5630',
+                            green: '#36B37E'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen" x-data="calculatorApp()" x-init="initApp()">
+
+    <!-- Header Principal -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl tracking-wider text-white shadow">
+                    Q
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">Calculadora de Servicios Qualys</h1>
+                    <p class="text-xs text-slate-400">Dimensionamiento de Esfuerzo e Implementación</p>
+                </div>
+            </div>
+
+            <!-- Escenarios predefinidos y acciones -->
+            <div class="flex items-center space-x-2 bg-slate-800 p-1.5 rounded-xl border border-slate-700">
+                <span class="text-xs text-slate-400 font-semibold px-2">Escenario:</span>
+                <button @click="applyPreset('basic')" class="px-2.5 py-1 text-xs rounded-lg font-medium transition hover:bg-slate-700 text-slate-200">Básico</button>
+                <button @click="applyPreset('standard')" class="px-2.5 py-1 text-xs rounded-lg font-medium transition hover:bg-slate-700 text-slate-200">Estándar</button>
+                <button @click="applyPreset('enterprise')" class="px-2.5 py-1 text-xs rounded-lg font-medium transition hover:bg-slate-700 text-slate-200">Enterprise</button>
+                <button @click="resetConfig()" class="p-1 text-slate-400 hover:text-rose-400 transition" title="Reiniciar">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Contador Resumen Superior -->
+            <div class="flex items-center space-x-4 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700">
+                <div class="text-right">
+                    <span class="text-xs text-slate-400 block uppercase tracking-wider font-semibold">Total Estimado</span>
+                    <span class="text-2xl font-extrabold text-emerald-400" x-text="totalHours + ' hrs'">0 hrs</span>
+                </div>
+                <div class="h-8 w-px bg-slate-700"></div>
+                <div class="text-right">
+                    <span class="text-xs text-slate-400 block uppercase tracking-wider font-semibold">Días Hábles</span>
+                    <span class="text-lg font-bold text-blue-400" x-text="estimatedDays + ' días'">0 días</span>
+                </div>
+                <div class="flex items-center pl-2">
+                    <button @click="exportPDF()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-3 py-2 rounded-lg transition flex items-center gap-1 shadow">
+                        <i data-lucide="download" class="w-4 h-4"></i> Exportar PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layout Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="report-content">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Panel Izquierdo: Formularios por Categoría (8 Cols) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- Tabs de Navegación de Categorías -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-2 flex space-x-1 overflow-x-auto custom-scrollbar">
+                    <template x-for="cat in categories" :key="cat.id">
+                        <button @click="activeCategory = cat.id" 
+                                :class="activeCategory === cat.id ? 'bg-blue-50 text-blue-700 font-semibold border-blue-200' : 'text-slate-600 hover:bg-slate-50 border-transparent'"
+                                class="px-4 py-2.5 rounded-lg text-xs sm:text-sm whitespace-nowrap border transition flex items-center gap-2">
+                            <i :data-lucide="cat.icon" class="w-4 h-4"></i>
+                            <span x-text="cat.name"></span>
+                            <span class="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-slate-100 font-medium"
+                                  :class="activeCategory === cat.id ? 'bg-blue-100 text-blue-800' : 'text-slate-500'"
+                                  x-text="getCategoryHours(cat.id) + 'h'"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <!-- Categoría A: Platform & Sensor Management -->
+                <div x-show="activeCategory === 'platform'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="server" class="w-5 h-5 text-blue-600"></i> Platform & Sensor Management (La Base)
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Componentes transversales requeridos para cualquier arquitectura de despliegue.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- ADMIN -->
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-slate-300 transition bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.admin.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        ADMIN (Administration)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Setup de Tenant, RBAC, Políticas de contraseñas y Branding.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">3 hrs</span>
+                            </div>
+                        </div>
+
+                        <!-- UD (Unified Dashboard) -->
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-slate-300 transition bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.ud.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        Unified Dashboard (UD)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Templates, JSONs de importación y widgets ejecutivos.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">3 hrs</span>
+                            </div>
+                        </div>
+
+                        <!-- QGS -->
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-slate-300 transition bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.qgs.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        Qualys Gateway Service (QGS)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Configuración de caché de actualizaciones y proxy de agentes.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">3 hrs</span>
+                            </div>
+                        </div>
+
+                        <!-- vSA Appliance -->
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-slate-300 transition bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800">Virtual Scanner Appliance (vSA)</label>
+                                    <p class="text-xs text-slate-500 mt-1">Despliegue y vinculación (1 hr por cada vSA).</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcVsaHours() + ' hrs'">0 hrs</span>
+                            </div>
+                            <div class="mt-3 flex items-center gap-2">
+                                <span class="text-xs text-slate-600">Cant. vSA:</span>
+                                <input type="number" min="0" x-model.number="config.vsa.count" class="w-20 px-2 py-1 text-xs border rounded-md focus:ring-blue-500">
+                            </div>
+                        </div>
+
+                        <!-- Cloud Agent Deployment -->
+                        <div class="p-4 rounded-xl border border-slate-200 hover:border-slate-300 transition bg-slate-50/50 md:col-span-2">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.ca.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        Cloud Agent (CA)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Creación de llaves, perfiles y scripts base (2 hrs base).</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcCaHours() + ' hrs'">2 hrs</span>
+                            </div>
+
+                            <div class="mt-3 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-4" x-show="config.ca.enabled">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" id="ca_manual" x-model="config.ca.manualDeploy" class="rounded text-blue-600">
+                                    <label for="ca_manual" class="text-xs text-slate-700 font-medium">Instalación Operativa Manual (8 min/dispositivo)</label>
+                                </div>
+                                <div class="flex items-center gap-2" x-show="config.ca.manualDeploy">
+                                    <span class="text-xs text-slate-600">Dispositivos:</span>
+                                    <input type="number" min="0" x-model.number="config.ca.manualDevices" class="w-24 px-2 py-1 text-xs border rounded-md focus:ring-blue-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría B: Risk Management & Infrastructure -->
+                <div x-show="activeCategory === 'risk_infra'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="shield-alert" class="w-5 h-5 text-blue-600"></i> Risk Management & Infrastructure (El Core)
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Gestión integral de vulnerabilidades, activos y trurisks.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- CSAM -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.csam.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        CSAM (CyberSecurity Asset Mgmt)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Software no autorizado/EoL, activos críticos y enriquecimiento.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">6 hrs</span>
+                            </div>
+                        </div>
+
+                        <!-- VMDR -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.vmdr.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        VMDR (Vuln. Mgmt & Response)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Option Profiles, Search Lists y Scan Schedules.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcVmdrHours() + ' hrs'">8 hrs</span>
+                            </div>
+                            <div class="mt-3 flex items-center justify-between text-xs text-slate-600">
+                                <span>Esfuerzo Base Configurable:</span>
+                                <input type="number" min="5" max="10" x-model.number="config.vmdr.baseHours" class="w-16 px-2 py-1 border rounded text-xs">
+                            </div>
+                        </div>
+
+                        <!-- ETM -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.etm.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        ETM (Enterprise TruRisk Mgmt)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Factores de riesgo de negocio y algoritmo TruRisk.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">8 hrs</span>
+                            </div>
+                        </div>
+
+                        <!-- EDR -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.edr.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        EDR (Endpoint Detection & Response)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Perfiles de prevención y reglas de respuesta automática.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">4 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría C: Cloud & Container Security -->
+                <div x-show="activeCategory === 'cloud_container'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="cloud" class="w-5 h-5 text-blue-600"></i> Cloud & Container Security
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Seguridad en infraestructuras multicloud y orquestadores.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- TotalCloud -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.tc.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        TotalCloud / CSPM
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Postura de seguridad en nube (6h base + 4h por cuenta).</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcTcHours() + ' hrs'">6 hrs</span>
+                            </div>
+                            <div class="mt-3 flex items-center gap-2" x-show="config.tc.enabled">
+                                <span class="text-xs text-slate-600">N° Cuentas Cloud:</span>
+                                <input type="number" min="0" x-model.number="config.tc.accounts" class="w-20 px-2 py-1 text-xs border rounded-md">
+                            </div>
+                        </div>
+
+                        <!-- Container Security -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.cs.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        Container Security (CS)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Sensores en nodos K8s/Docker (6h base + 4h por cluster).</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcCsHours() + ' hrs'">6 hrs</span>
+                            </div>
+                            <div class="mt-3 flex items-center gap-2" x-show="config.cs.enabled">
+                                <span class="text-xs text-slate-600">N° Clusters K8s:</span>
+                                <input type="number" min="0" x-model.number="config.cs.clusters" class="w-20 px-2 py-1 text-xs border rounded-md">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría D: Application Security -->
+                <div x-show="activeCategory === 'app_sec'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="code-2" class="w-5 h-5 text-blue-600"></i> Application Security (WAS & AI)
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Escaneo de vulnerabilidades en aplicaciones web y APIs.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- WAS Panel Complejo -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.was.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        Web Application Scanning (WAS)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Configuración global (2 hrs base) + esfuerzo por tipo de App/API.</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcWasHours() + ' hrs'">2 hrs</span>
+                            </div>
+
+                            <div class="mt-4 pt-4 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-4" x-show="config.was.enabled">
+                                <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+                                    <span class="text-xs text-slate-700">Apps Simples (0.5h c/u):</span>
+                                    <input type="number" min="0" x-model.number="config.was.simpleApps" class="w-16 px-2 py-1 border rounded text-xs">
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+                                    <span class="text-xs text-slate-700">Apps con Login (1.0h c/u):</span>
+                                    <input type="number" min="0" x-model.number="config.was.loginApps" class="w-16 px-2 py-1 border rounded text-xs">
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+                                    <span class="text-xs text-slate-700">APIs Individuales (1.5h c/u):</span>
+                                    <input type="number" min="0" x-model.number="config.was.singleApis" class="w-16 px-2 py-1 border rounded text-xs">
+                                </div>
+                                <div class="flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200">
+                                    <span class="text-xs text-slate-700">APIs Multi-endpoint (3.5h c/u):</span>
+                                    <input type="number" min="0" x-model.number="config.was.multiApis" class="w-16 px-2 py-1 border rounded text-xs">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TotalAI -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex items-start justify-between">
+                            <div>
+                                <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.totalai.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                    TotalAI (AI Security)
+                                </label>
+                                <p class="text-xs text-slate-500 mt-1">Descubrimiento de modelos LLM y evaluación de riesgos IA.</p>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded">4 hrs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría E: Audit & Compliance -->
+                <div x-show="activeCategory === 'compliance'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="file-check" class="w-5 h-5 text-blue-600"></i> Audit & Compliance Management
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Cumplimiento normativo, CIS Benchmarks y auditoría de integridad.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- PA / SCA -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div>
+                                <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.pa.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                    Policy Compliance (PA)
+                                </label>
+                                <p class="text-xs text-slate-500 mt-1">Políticas CIS y controles UDC.</p>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded mt-3 self-start">5 hrs</span>
+                        </div>
+
+                        <!-- PCI Compliance -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div>
+                                <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.pci.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                    PCI Compliance
+                                </label>
+                                <p class="text-xs text-slate-500 mt-1">Escaneos ASV y disputas.</p>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded mt-3 self-start">3 hrs</span>
+                        </div>
+
+                        <!-- FIM -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div>
+                                <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.fim.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                    File Integrity (FIM)
+                                </label>
+                                <p class="text-xs text-slate-500 mt-1">Perfiles de monitoreo de archivos.</p>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded mt-3 self-start">8 hrs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría F: Risk Remediation -->
+                <div x-show="activeCategory === 'remediation'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="wrench" class="w-5 h-5 text-blue-600"></i> Risk Remediation & Custom Assessment
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Acciones correctivas automáticas y scripting a medida.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Patch Management -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+                            <div>
+                                <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.pm.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                    Patch Management (PM)
+                                </label>
+                                <p class="text-xs text-slate-500 mt-1">Deployment Jobs y ventanas de mantenimiento.</p>
+                            </div>
+                            <span class="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-800 rounded mt-3 self-start">4.5 hrs</span>
+                        </div>
+
+                        <!-- CAR Custom Scripts -->
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <label class="font-semibold text-sm text-slate-800 flex items-center gap-2">
+                                        <input type="checkbox" x-model="config.car.enabled" class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                        CAR (Custom Scripts)
+                                    </label>
+                                    <p class="text-xs text-slate-500 mt-1">Scripts PowerShell/Python (2 hrs por script).</p>
+                                </div>
+                                <span class="text-xs font-semibold px-2 py-1 bg-emerald-100 text-emerald-800 rounded" x-text="calcCarHours() + ' hrs'">0 hrs</span>
+                            </div>
+                            <div class="mt-3 flex items-center gap-2" x-show="config.car.enabled">
+                                <span class="text-xs text-slate-600">N° Scripts Personalizados:</span>
+                                <input type="number" min="0" x-model.number="config.car.scriptsCount" class="w-20 px-2 py-1 text-xs border rounded-md">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría G: Integraciones & Capacitación -->
+                <div x-show="activeCategory === 'integrations'" x-cloak class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-blue-600"></i> Integraciones y Capacitación Técnica
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Syllabus de transferencia de conocimiento y conectores enterprise.</p>
+                    </div>
+
+                    <!-- Integraciones -->
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Integraciones Adicionales</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-3 rounded-lg border border-slate-200 flex items-center justify-between bg-slate-50">
+                                <label class="text-xs font-medium text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.integrations.servicenow" class="rounded text-blue-600">
+                                    ServiceNow CMDB / VR Sync
+                                </label>
+                                <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-800 rounded">12 hrs</span>
+                            </div>
+                            <div class="p-3 rounded-lg border border-slate-200 flex items-center justify-between bg-slate-50">
+                                <label class="text-xs font-medium text-slate-800 flex items-center gap-2">
+                                    <input type="checkbox" x-model="config.integrations.jira" class="rounded text-blue-600">
+                                    Jira Ticketing Bidireccional
+                                </label>
+                                <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-800 rounded">10 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capacitación Auto-Calculada -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Capacitación Técnica Desglosada</h3>
+                            <span class="text-xs font-bold text-emerald-600" x-text="calcTrainingHours() + ' hrs totales'">0 hrs</span>
+                        </div>
+                        <div class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+                            <div class="flex justify-between py-1 border-b border-slate-200">
+                                <span class="text-slate-700">Módulo Core (VMDR & AssetView):</span>
+                                <span class="font-semibold text-slate-900">8.0 hrs</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-200" x-show="config.pm.enabled">
+                                <span class="text-slate-700">Módulo Patch Management (PM):</span>
+                                <span class="font-semibold text-slate-900">+2.0 hrs</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-200" x-show="config.was.enabled">
+                                <span class="text-slate-700">Módulo Web App Scanning (WAS):</span>
+                                <span class="font-semibold text-slate-900">+3.0 hrs</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-slate-200" x-show="config.pa.enabled">
+                                <span class="text-slate-700">Módulo Policy Compliance (PC):</span>
+                                <span class="font-semibold text-slate-900">+3.0 hrs</span>
+                            </div>
+                            <div class="flex justify-between py-1" x-show="config.cs.enabled || config.fim.enabled || config.edr.enabled">
+                                <span class="text-slate-700">Otros Módulos Sensores (CS / FIM / EDR):</span>
+                                <span class="font-semibold text-slate-900" x-text="'+' + ( (config.cs.enabled?2:0) + (config.fim.enabled?2:0) + (config.edr.enabled?2:0) ) + '.0 hrs'">+0 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Panel Derecho: Resumen, Gráfico y Desglose (4 Cols) -->
+            <div class="lg:col-span-4 space-y-6">
+
+                <!-- Card de Resumen de Horas -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-4">
+                    <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="pie-chart" class="w-5 h-5 text-blue-600"></i> Resumen de Esfuerzo
+                    </h3>
+
+                    <div class="relative h-48 flex items-center justify-center">
+                        <canvas id="hoursChart"></canvas>
+                    </div>
+
+                    <div class="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span> Base Platform & Sensor</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('platform') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span> Risk & Infrastructure</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('risk_infra') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> Cloud & Containers</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('cloud_container') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> App Security & WAS</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('app_sec') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span> Audit & Compliance</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('compliance') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Remediation & Scripts</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('remediation') + ' hrs'">0 hrs</span>
+                        </div>
+                        <div class="flex justify-between items-center py-1">
+                            <span class="text-slate-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-violet-500 inline-block"></span> Capacitación e Integración</span>
+                            <span class="font-bold text-slate-800" x-text="getCategoryHours('integrations') + ' hrs'">0 hrs</span>
+                        </div>
+                    </div>
+
+                    <!-- Total destacado -->
+                    <div class="bg-slate-900 text-white rounded-xl p-4 mt-4 flex items-center justify-between shadow">
+                        <div>
+                            <span class="text-xs text-slate-400 block font-semibold uppercase">Total General</span>
+                            <span class="text-xs text-slate-300">Jornada 8h/día</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-emerald-400" x-text="totalHours + ' hrs'">0 hrs</span>
+                            <span class="text-xs block text-slate-300" x-text="'≈ ' + estimatedDays + ' días laborables'"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entregables Incluidos -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-3">
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Entregables Incluidos
+                    </h3>
+                    <ul class="text-xs text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-500 mt-0.5"></i>
+                            <span>Diagrama de Arquitectura de Scanners y Agentes.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-500 mt-0.5"></i>
+                            <span>Documento de Requisitos Previos y Whitelisting.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-500 mt-0.5"></i>
+                            <span>Memoria Técnica de Configuración Final.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-500 mt-0.5"></i>
+                            <span>Guías de Despliegue en Windows/Linux.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script de la Aplicación (Alpine.js Data & Logic) -->
+    <script>
+        function calculatorApp() {
+            return {
+                activeCategory: 'platform',
+                categories: [
+                    { id: 'platform', name: 'Plataforma & Sensores', icon: 'server' },
+                    { id: 'risk_infra', name: 'Riesgo e Infraestructura', icon: 'shield-alert' },
+                    { id: 'cloud_container', name: 'Cloud & Contenedores', icon: 'cloud' },
+                    { id: 'app_sec', name: 'Seguridad App & WAS', icon: 'code-2' },
+                    { id: 'compliance', name: 'Cumplimiento & Auditoría', icon: 'file-check' },
+                    { id: 'remediation', name: 'Remediación & Scripts', icon: 'wrench' },
+                    { id: 'integrations', name: 'Capacitación & Integración', icon: 'graduation-cap' }
+                ],
+                config: {
+                    admin: { enabled: true },
+                    ud: { enabled: true },
+                    qgs: { enabled: false },
+                    vsa: { count: 1 },
+                    ca: { enabled: true, manualDeploy: false, manualDevices: 0 },
+                    csam: { enabled: true },
+                    vmdr: { enabled: true, baseHours: 8 },
+                    etm: { enabled: false },
+                    edr: { enabled: false },
+                    tc: { enabled: false, accounts: 1 },
+                    cs: { enabled: false, clusters: 1 },
+                    was: { enabled: false, simpleApps: 0, loginApps: 0, singleApis: 0, multiApis: 0 },
+                    totalai: { enabled: false },
+                    pa: { enabled: false },
+                    pci: { enabled: false },
+                    fim: { enabled: false },
+                    pm: { enabled: false },
+                    car: { enabled: false, scriptsCount: 0 },
+                    integrations: { servicenow: false, jira: false }
+                },
+                chartInstance: null,
+
+                initApp() {
+                    this.$nextTick(() => {
+                        if (window.lucide) {
+                            lucide.createIcons();
+                        }
+                        this.initChart();
+                    });
+
+                    // Reactividad para actualización del gráfico
+                    this.$watch('config', () => {
+                        this.updateChart();
+                    }, { deep: true });
+                },
+
+                // Cálculos Específicos
+                calcVsaHours() {
+                    return (this.config.vsa.count || 0) * 1;
+                },
+
+                calcCaHours() {
+                    if (!this.config.ca.enabled) return 0;
+                    let hrs = 2; // base
+                    if (this.config.ca.manualDeploy) {
+                        hrs += (this.config.ca.manualDevices || 0) * (8 / 60);
+                    }
+                    return Math.round(hrs * 10) / 10;
+                },
+
+                calcVmdrHours() {
+                    if (!this.config.vmdr.enabled) return 0;
+                    return (this.config.vmdr.baseHours || 8) + (this.calcVsaHours());
+                },
+
+                calcTcHours() {
+                    if (!this.config.tc.enabled) return 0;
+                    return 6 + ((this.config.tc.accounts || 0) * 4);
+                },
+
+                calcCsHours() {
+                    if (!this.config.cs.enabled) return 0;
+                    return 6 + ((this.config.cs.clusters || 0) * 4);
+                },
+
+                calcWasHours() {
+                    if (!this.config.was.enabled) return 0;
+                    let hrs = 2; // global base
+                    hrs += (this.config.was.simpleApps || 0) * 0.5;
+                    hrs += (this.config.was.loginApps || 0) * 1.0;
+                    hrs += (this.config.was.singleApis || 0) * 1.5;
+                    hrs += (this.config.was.multiApis || 0) * 3.5;
+                    return Math.round(hrs * 10) / 10;
+                },
+
+                calcCarHours() {
+                    if (!this.config.car.enabled) return 0;
+                    return (this.config.car.scriptsCount || 0) * 2;
+                },
+
+                calcTrainingHours() {
+                    let hrs = 8; // Core syllabus (VMDR/AssetView)
+                    if (this.config.pm.enabled) hrs += 2;
+                    if (this.config.was.enabled) hrs += 3;
+                    if (this.config.pa.enabled) hrs += 3;
+                    if (this.config.cs.enabled) hrs += 2;
+                    if (this.config.fim.enabled) hrs += 2;
+                    if (this.config.edr.enabled) hrs += 2;
+                    return hrs;
+                },
+
+                getCategoryHours(catId) {
+                    let total = 0;
+                    if (catId === 'platform') {
+                        if (this.config.admin.enabled) total += 3;
+                        if (this.config.ud.enabled) total += 3;
+                        if (this.config.qgs.enabled) total += 3;
+                        total += this.calcVsaHours();
+                        total += this.calcCaHours();
+                    } else if (catId === 'risk_infra') {
+                        if (this.config.csam.enabled) total += 6;
+                        total += this.calcVmdrHours();
+                        if (this.config.etm.enabled) total += 8;
+                        if (this.config.edr.enabled) total += 4;
+                    } else if (catId === 'cloud_container') {
+                        total += this.calcTcHours();
+                        total += this.calcCsHours();
+                    } else if (catId === 'app_sec') {
+                        total += this.calcWasHours();
+                        if (this.config.totalai.enabled) total += 4;
+                    } else if (catId === 'compliance') {
+                        if (this.config.pa.enabled) total += 5;
+                        if (this.config.pci.enabled) total += 3;
+                        if (this.config.fim.enabled) total += 8;
+                    } else if (catId === 'remediation') {
+                        if (this.config.pm.enabled) total += 4.5;
+                        total += this.calcCarHours();
+                    } else if (catId === 'integrations') {
+                        total += this.calcTrainingHours();
+                        if (this.config.integrations.servicenow) total += 12;
+                        if (this.config.integrations.jira) total += 10;
+                    }
+                    return Math.round(total * 10) / 10;
+                },
+
+                get totalHours() {
+                    return Math.round(
+                        (this.getCategoryHours('platform') +
+                        this.getCategoryHours('risk_infra') +
+                        this.getCategoryHours('cloud_container') +
+                        this.getCategoryHours('app_sec') +
+                        this.getCategoryHours('compliance') +
+                        this.getCategoryHours('remediation') +
+                        this.getCategoryHours('integrations')) * 10
+                    ) / 10;
+                },
+
+                get estimatedDays() {
+                    return Math.round((this.totalHours / 8) * 10) / 10;
+                },
+
+                // Inicialización y Actualización de Chart.js
+                initChart() {
+                    const ctx = document.getElementById('hoursChart');
+                    if (!ctx) return;
+
+                    this.chartInstance = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Plataforma', 'Riesgo/Infra', 'Cloud', 'AppSec', 'Cumplimiento', 'Remediación', 'Capacitación'],
+                            datasets: [{
+                                data: this.getChartData(),
+                                backgroundColor: [
+                                    '#3B82F6', '#6366F1', '#0EA5E9', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'
+                                ],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false }
+                            },
+                            cutout: '70%'
+                        }
+                    });
+                },
+
+                getChartData() {
+                    return [
+                        this.getCategoryHours('platform'),
+                        this.getCategoryHours('risk_infra'),
+                        this.getCategoryHours('cloud_container'),
+                        this.getCategoryHours('app_sec'),
+                        this.getCategoryHours('compliance'),
+                        this.getCategoryHours('remediation'),
+                        this.getCategoryHours('integrations')
+                    ];
+                },
+
+                updateChart() {
+                    if (this.chartInstance) {
+                        this.chartInstance.data.datasets[0].data = this.getChartData();
+                        this.chartInstance.update();
+                    }
+                },
+
+                // Exportación a PDF
+                exportPDF() {
+                    const element = document.getElementById('report-content');
+                    const opt = {
+                        margin:       0.5,
+                        filename:     'Estimacion_Servicios_Qualys.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2 },
+                        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+                    html2pdf().set(opt).from(element).save();
+                },
+
+                // Presets y Reset
+                resetConfig() {
+                    this.config = {
+                        admin: { enabled: true },
+                        ud: { enabled: true },
+                        qgs: { enabled: false },
+                        vsa: { count: 0 },
+                        ca: { enabled: true, manualDeploy: false, manualDevices: 0 },
+                        csam: { enabled: true },
+                        vmdr: { enabled: true, baseHours: 8 },
+                        etm: { enabled: false },
+                        edr: { enabled: false },
+                        tc: { enabled: false, accounts: 0 },
+                        cs: { enabled: false, clusters: 0 },
+                        was: { enabled: false, simpleApps: 0, loginApps: 0, singleApis: 0, multiApis: 0 },
+                        totalai: { enabled: false },
+                        pa: { enabled: false },
+                        pci: { enabled: false },
+                        fim: { enabled: false },
+                        pm: { enabled: false },
+                        car: { enabled: false, scriptsCount: 0 },
+                        integrations: { servicenow: false, jira: false }
+                    };
+                },
+
+                applyPreset(type) {
+                    this.resetConfig();
+                    if (type === 'basic') {
+                        this.config.vsa.count = 1;
+                    } else if (type === 'standard') {
+                        this.config.vsa.count = 2;
+                        this.config.etm.enabled = true;
+                        this.config.pm.enabled = true;
+                        this.config.pa.enabled = true;
+                    } else if (type === 'enterprise') {
+                        this.config.qgs.enabled = true;
+                        this.config.vsa.count = 4;
+                        this.config.etm.enabled = true;
+                        this.config.tc.enabled = true;
+                        this.config.tc.accounts = 2;
+                        this.config.cs.enabled = true;
+                        this.config.cs.clusters = 2;
+                        this.config.was.enabled = true;
+                        this.config.was.loginApps = 3;
+                        this.config.was.multiApis = 2;
+                        this.config.pa.enabled = true;
+                        this.config.pm.enabled = true;
+                        this.config.car.enabled = true;
+                        this.config.car.scriptsCount = 2;
+                        this.config.integrations.servicenow = true;
+                        this.config.integrations.jira = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+- document "Message body" [ref=f2e4]:
+  - article [ref=f2e8]:
+    - generic [ref=f2e10]:
+      - button "Show original size" [ref=f2e12]:
+        - generic [ref=f2e13]: î„“
+      - generic [ref=f2e14]:
+        - button "Show original size" [ref=f2e16]:
+          - generic [ref=f2e17]: î„“
+        - img "Webinar tÃ©cnico Kaspersky Security Awareness" [ref=f2e18]
+        - paragraph [ref=f2e19]: Estimado(a) Mario,
+        - paragraph [ref=f2e21]: Lo invitamos a participar en nuestro webinar tÃ©cnico el prÃ³ximo 20 de agosto a las 12:30 pm (GMT-3), donde profundizaremos en la arquitectura, capacidades y consideraciones tÃ©cnicas de Kaspersky Security Awareness.
+        - paragraph [ref=f2e23]: Durante la sesiÃ³n, nuestro especialista Victor Chisava revisarÃ¡ los aspectos clave para implementar, configurar y operar estas soluciones en entornos reales.
+        - paragraph [ref=f2e25]: "En esta sesiÃ³n usted conocerÃ¡:"
+        - generic [ref=f2e27]: âœ“
+        - text: Arquitectura de la plataforma y modelo de implementaciÃ³nCÃ³mo funciona la plataforma Security Awareness basada en la nube, los requisitos de despliegue y las opciones para administrar programas de capacitaciÃ³n en organizaciones de distintos tamaÃ±os.
+        - generic [ref=f2e28]: âœ“
+        - text: SimulaciÃ³n de ataques de phishing y evaluaciÃ³n de usuariosCÃ³mo diseÃ±ar campaÃ±as de phishing simulation, evaluar la respuesta de los usuarios y utilizar los resultados para identificar Ã¡reas de mejora en la seguridad organizacional.
+        - generic [ref=f2e29]: âœ“
+        - text: GestiÃ³n de programas de capacitaciÃ³n en ciberseguridadCÃ³mo configurar rutas de aprendizaje, mÃ³dulos interactivos y programas progresivos para desarrollar una cultura de seguridad sostenible en la organizaciÃ³n.
+        - generic [ref=f2e30]: âœ“
+        - text: Reportes, mÃ©tricas y anÃ¡lisis de riesgo humanoCÃ³mo utilizar dashboards y reportes para medir el nivel de madurez en seguridad de los usuarios, identificar comportamientos de riesgo y monitorear la evoluciÃ³n del programa de concientizaciÃ³n.
+        - paragraph [ref=f2e32]: Esta serÃ¡ una oportunidad para fortalecer su conocimiento tÃ©cnico y prepararse para apoyar proyectos mÃ¡s complejos con sus clientes.
+        - link "RegÃstrese ahora" [ref=f2e34] [cursor=pointer]:
+          - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6ImJiNTIxMjM1IiwidG9VUkwiOiJodHRwczovL3d3dy5icmlnaHR0YWxrLmNvbS93ZWJjYXN0LzIxMTEzLzY2MzUyMz91dG1fc291cmNlPUthc3BlcnNreSZ1dG1fbWVkaXVtPWJyaWdodHRhbGsmdXRtX2NhbXBhaWduPTY2MzUyMyJ9
+        - paragraph [ref=f2e38]: Â¿No puede asistir en vivo? RegÃstrese igual y reciba la grabaciÃ³n en su correo.
+        - paragraph [ref=f2e40]: Atentamente,
+        - paragraph [ref=f2e41]: Kaspersky
+        - generic [ref=f2e42]:
+          - link "https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6ImM4MWQ0NTZkIiwidG9VUkwiOiJodHRwczovL2xhdGFtLmthc3BlcnNreS5jb20ifQ%3D%3D" [ref=f2e43] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6ImM4MWQ0NTZkIiwidG9VUkwiOiJodHRwczovL2xhdGFtLmthc3BlcnNreS5jb20ifQ%3D%3D
+          - paragraph [ref=f2e46]:
+            - link "latam.kaspersky.com" [ref=f2e47] [cursor=pointer]:
+              - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6ImEyYjk5YWI0IiwidG9VUkwiOiJodHRwczovL2xhdGFtLmthc3BlcnNreS5jb20ifQ%3D%3D
+        - generic [ref=f2e49]:
+          - link [ref=f2e50] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6ImFlODVjZGVjIiwidG9VUkwiOiJodHRwczovL3d3dy5mYWNlYm9vay5jb20vS2FzcGVyc2t5In0%3D
+            - img "facebook" [ref=f2e52]
+          - link [ref=f2e53] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6Ijg5MzIzNDQzIiwidG9VUkwiOiJodHRwczovL3R3aXR0ZXIuY29tL2thc3BlcnNreSJ9
+            - img "twitter" [ref=f2e55]
+          - link [ref=f2e56] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6Ijk1ZWQ2NzdiIiwidG9VUkwiOiJodHRwczovL2xpbmtlZGluLmNvbS9jb21wYW55L2thc3BlcnNreSJ9
+            - img "linkedin" [ref=f2e58]
+          - link [ref=f2e59] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6IjcwOTliY2MyIiwidG9VUkwiOiJodHRwczovL3d3dy55b3V0dWJlLmNvbS91c2VyL0thc3BlcnNreSJ9
+            - img "youtube" [ref=f2e61]
+          - link [ref=f2e62] [cursor=pointer]:
+            - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6IjdjNjYwMTBhIiwidG9VUkwiOiJodHRwczovL2luc3RhZ3JhbS5jb20va2FzcGVyc2t5bGFiIn0%3D
+            - img "instagram" [ref=f2e64]
+          - paragraph [ref=f2e65]:
+            - text: Â© 2026 AO Kaspersky Lab
+            - link "PolÃtica de privacidad" [ref=f2e67] [cursor=pointer]:
+              - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6In43MTZjMTA2NyIsInRvVVJMIjoiaHR0cHM6Ly9sYXRhbS5rYXNwZXJza3kuY29tL3dlYi1wcml2YWN5LXBvbGljeSJ9
+            - text: "|"
+            - link "ContÃ¡ctenos" [ref=f2e69] [cursor=pointer]:
+              - /url: https://c.in.webengage.com/lw/g1.jpg?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF9jbGljayIsImN0YSI6In42NGEwY2MyZSIsInRvVVJMIjoiaHR0cHM6Ly93d3cua2FzcGVyc2t5LmNvbS9hYm91dC9jb250YWN0In0%3D
+        - paragraph [ref=f2e71]:
+          - text: Para asegurarse de recibir los correos de Kaspersky en su bandeja de entrada, agregue
+          - link "noâ€‘reply@Kaspersky.com" [ref=f2e72] [cursor=pointer]:
+            - /url: mailto:no-reply@kaspersky.com
+          - text: a su libreta de direcciones o lista de remitentes seguros. Para modificar sus datos de contacto para futuras comunicaciones,
+          - link "haga clic aquÃ" [ref=f2e73] [cursor=pointer]:
+            - /url: https://in.webengage.com/users/emails/unsubscribe.html?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF91bnN1YnNjcmliZSIsImN0YSI6In43ZDM4NDNhMCJ9
+          - text: . Este correo se ha enviado a
+          - link "mario.mendoza@gmsseguridad.com" [ref=f2e74] [cursor=pointer]:
+            - /url: mailto:mario.mendoza@gmsseguridad.com
+          - text: . Ha recibido este correo porque estÃ¡ suscrito a las comunicaciones corporativas de Kaspersky. Si no desea volver a recibir este correo,
+          - link "haga clic aquÃ" [ref=f2e75] [cursor=pointer]:
+            - /url: https://in.webengage.com/users/emails/unsubscribe.html?p=eyJsYyI6Imlufn45OTE5OTJjYyIsImwiOiIyMjc5ZWRhNGI5YzA4NzRmZTMxNWEwMGZlMjkxYTJhOSIsImMiOiJtYXJpby5tZW5kb3phQGdtc3NlZ3VyaWRhZC5jb20iLCJlbSI6Im1hcmlvLm1lbmRvemFAZ21zc2VndXJpZGFkLmNvbSIsImUiOiJ%2BanFhazc4IiwidiI6In4yNjhsaGY3IiwicyI6ImUyODFhMmM2LTc4MDctNDE4NS1iYjJjLTg3ZTJhNDc2YmM5YyIsImoiOiJ%2BaGhqNDVrIiwiZXZlbnQiOiJlbWFpbF91bnN1YnNjcmliZSIsImN0YSI6In45NmMwYWEyMSJ9
+          - text: .
