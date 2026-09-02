@@ -1,0 +1,329 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: GMS
+        - generic [ref=e6]:
+          - generic [ref=e7]:
+            - heading "Calculadora de Servicios Qualys" [level=1] [ref=e8]
+            - generic [ref=e9]: GMS Security
+          - paragraph [ref=e10]: Dimensionamiento de Esfuerzo e Implementación Técnica
+      - generic [ref=e11]:
+        - generic [ref=e12]: "Escenario:"
+        - generic [ref=e13]:
+          - button "Básico" [ref=e14] [cursor=pointer]
+          - button "Estándar" [ref=e15] [cursor=pointer]
+          - button "Enterprise" [ref=e16] [cursor=pointer]
+        - generic [ref=e18]:
+          - button "Deseleccionar Todo (0h)" [ref=e19] [cursor=pointer]
+          - button "Reiniciar a Configuración Inicial" [ref=e24] [cursor=pointer]
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: Total Estimado
+          - text: 32 hrs
+        - generic [ref=e32]:
+          - generic [ref=e33]: Jornadas (8h)
+          - text: 4 días
+        - button "PDF" [ref=e35] [cursor=pointer]
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Selección de Categorías de Servicio
+            - generic [ref=e49]:
+              - button "Vista Completa (Todos)" [ref=e50] [cursor=pointer]
+              - button "Por Pestañas" [ref=e54] [cursor=pointer]
+          - generic [ref=e60]:
+            - button "Plataforma & Sensores 9h" [ref=e61] [cursor=pointer]:
+              - generic [ref=e65]: Plataforma & Sensores
+              - generic [ref=e66]: 9h
+            - button "Riesgo e Infraestructura 15h" [ref=e67] [cursor=pointer]:
+              - generic [ref=e70]: Riesgo e Infraestructura
+              - generic [ref=e71]: 15h
+            - button "Cloud & Contenedores 0h" [ref=e72] [cursor=pointer]:
+              - generic [ref=e75]: Cloud & Contenedores
+              - generic [ref=e76]: 0h
+            - button "Seguridad App & WAS 0h" [ref=e77] [cursor=pointer]:
+              - generic [ref=e82]: Seguridad App & WAS
+              - generic [ref=e83]: 0h
+            - button "Cumplimiento & Auditoría 0h" [ref=e84] [cursor=pointer]:
+              - generic [ref=e89]: Cumplimiento & Auditoría
+              - generic [ref=e90]: 0h
+            - button "Remediación & Scripts 0h" [ref=e91] [cursor=pointer]:
+              - generic [ref=e94]: Remediación & Scripts
+              - generic [ref=e95]: 0h
+            - button "Capacitación & Integración 8h" [ref=e96] [cursor=pointer]:
+              - generic [ref=e100]: Capacitación & Integración
+              - generic [ref=e101]: 8h
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - heading "Platform & Sensor Management (La Base)" [level=2] [ref=e105]
+              - paragraph [ref=e109]: Componentes transversales requeridos para cualquier arquitectura de despliegue.
+            - generic [ref=e110]:
+              - button "Limpiar" [ref=e111] [cursor=pointer]
+              - generic [ref=e114]: 9 hrs totales
+          - generic [ref=e115]:
+            - generic [ref=e117]:
+              - generic [ref=e118]:
+                - generic [ref=e119] [cursor=pointer]:
+                  - checkbox "ADMIN (Administration)" [checked] [ref=e120]
+                  - text: ADMIN (Administration)
+                - paragraph [ref=e121]: Setup de Tenant, RBAC, Políticas de contraseñas y Branding.
+              - generic [ref=e122]: 3 hrs
+            - generic [ref=e124]:
+              - generic [ref=e125]:
+                - generic [ref=e126] [cursor=pointer]:
+                  - checkbox "Unified Dashboard (UD)" [checked] [ref=e127]
+                  - text: Unified Dashboard (UD)
+                - paragraph [ref=e128]: Templates, JSONs de importación y widgets ejecutivos.
+              - generic [ref=e129]: 3 hrs
+            - generic [ref=e131]:
+              - generic [ref=e132]:
+                - generic [ref=e133] [cursor=pointer]:
+                  - checkbox "Qualys Gateway Service (QGS)" [ref=e134]
+                  - text: Qualys Gateway Service (QGS)
+                - paragraph [ref=e135]: Configuración de caché de actualizaciones y proxy de agentes.
+              - generic [ref=e136]: 3 hrs
+            - generic [ref=e137]:
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - text: Virtual Scanner Appliance (vSA)
+                  - paragraph [ref=e140]: Despliegue y vinculación (1 hr por cada vSA).
+                - generic [ref=e141]: 1 hrs
+              - generic [ref=e142]:
+                - generic [ref=e143]: "Cant. vSA:"
+                - spinbutton [ref=e144]: "1"
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - generic [ref=e147]:
+                  - generic [ref=e148] [cursor=pointer]:
+                    - checkbox "Cloud Agent (CA)" [checked] [ref=e149]
+                    - text: Cloud Agent (CA)
+                  - paragraph [ref=e150]: Creación de llaves, perfiles y scripts base (2 hrs base).
+                - generic [ref=e151]: 2 hrs
+              - generic [ref=e153]:
+                - checkbox "Instalación Operativa Manual (8 min/dispositivo)" [ref=e154]
+                - generic [ref=e155] [cursor=pointer]: Instalación Operativa Manual (8 min/dispositivo)
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - heading "Risk Management & Infrastructure (El Core)" [level=2] [ref=e159]
+              - paragraph [ref=e162]: Gestión integral de vulnerabilidades, activos y trurisks.
+            - generic [ref=e163]:
+              - button "Limpiar" [ref=e164] [cursor=pointer]
+              - generic [ref=e167]: 15 hrs totales
+          - generic [ref=e168]:
+            - generic [ref=e170]:
+              - generic [ref=e171]:
+                - generic [ref=e172] [cursor=pointer]:
+                  - checkbox "CSAM (CyberSecurity Asset Mgmt)" [checked] [ref=e173]
+                  - text: CSAM (CyberSecurity Asset Mgmt)
+                - paragraph [ref=e174]: Software no autorizado/EoL, activos críticos y enriquecimiento.
+              - generic [ref=e175]: 6 hrs
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]:
+                  - generic [ref=e179] [cursor=pointer]:
+                    - checkbox "VMDR (Vuln. Mgmt & Response)" [checked] [ref=e180]
+                    - text: VMDR (Vuln. Mgmt & Response)
+                  - paragraph [ref=e181]: Option Profiles, Search Lists y Scan Schedules.
+                - generic [ref=e182]: 9 hrs
+              - generic [ref=e183]:
+                - generic [ref=e184]: "Esfuerzo Base Configurable:"
+                - spinbutton [ref=e185]: "8"
+            - generic [ref=e187]:
+              - generic [ref=e188]:
+                - generic [ref=e189] [cursor=pointer]:
+                  - checkbox "ETM (Enterprise TruRisk Mgmt)" [ref=e190]
+                  - text: ETM (Enterprise TruRisk Mgmt)
+                - paragraph [ref=e191]: Factores de riesgo de negocio y algoritmo TruRisk.
+              - generic [ref=e192]: 8 hrs
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - generic [ref=e196] [cursor=pointer]:
+                  - checkbox "EDR (Endpoint Detection & Response)" [ref=e197]
+                  - text: EDR (Endpoint Detection & Response)
+                - paragraph [ref=e198]: Perfiles de prevención y reglas de respuesta automática.
+              - generic [ref=e199]: 4 hrs
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - heading "Cloud & Container Security" [level=2] [ref=e203]
+              - paragraph [ref=e206]: Seguridad en infraestructuras multicloud y orquestadores.
+            - generic [ref=e207]:
+              - button "Limpiar" [ref=e208] [cursor=pointer]
+              - generic [ref=e211]: 0 hrs totales
+          - generic [ref=e212]:
+            - generic [ref=e214]:
+              - generic [ref=e215]:
+                - generic [ref=e216] [cursor=pointer]:
+                  - checkbox "TotalCloud / CSPM" [ref=e217]
+                  - text: TotalCloud / CSPM
+                - paragraph [ref=e218]: Postura de seguridad en nube (6h base + 4h por cuenta).
+              - generic [ref=e219]: 0 hrs
+            - generic [ref=e221]:
+              - generic [ref=e222]:
+                - generic [ref=e223] [cursor=pointer]:
+                  - checkbox "Container Security (CS)" [ref=e224]
+                  - text: Container Security (CS)
+                - paragraph [ref=e225]: Sensores en nodos K8s/Docker (6h base + 4h por cluster).
+              - generic [ref=e226]: 0 hrs
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - heading "Application Security (WAS & AI)" [level=2] [ref=e230]
+              - paragraph [ref=e235]: Escaneo de vulnerabilidades en aplicaciones web y APIs.
+            - generic [ref=e236]:
+              - button "Limpiar" [ref=e237] [cursor=pointer]
+              - generic [ref=e240]: 0 hrs totales
+          - generic [ref=e241]:
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - generic [ref=e245] [cursor=pointer]:
+                  - checkbox "Web Application Scanning (WAS)" [ref=e246]
+                  - text: Web Application Scanning (WAS)
+                - paragraph [ref=e247]: Configuración global (2 hrs base) + esfuerzo por tipo de App/API.
+              - generic [ref=e248]: 0 hrs
+            - generic [ref=e249]:
+              - generic [ref=e250]:
+                - generic [ref=e251] [cursor=pointer]:
+                  - checkbox "TotalAI (AI Security)" [ref=e252]
+                  - text: TotalAI (AI Security)
+                - paragraph [ref=e253]: Descubrimiento de modelos LLM y evaluación de riesgos IA.
+              - generic [ref=e254]: 4 hrs
+        - generic [ref=e255]:
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - heading "Audit & Compliance Management" [level=2] [ref=e258]
+              - paragraph [ref=e263]: Cumplimiento normativo, CIS Benchmarks y auditoría de integridad.
+            - generic [ref=e264]:
+              - button "Limpiar" [ref=e265] [cursor=pointer]
+              - generic [ref=e268]: 0 hrs totales
+          - generic [ref=e269]:
+            - generic [ref=e270]:
+              - generic [ref=e271]:
+                - generic [ref=e272] [cursor=pointer]:
+                  - checkbox "Policy Compliance (PA)" [ref=e273]
+                  - text: Policy Compliance (PA)
+                - paragraph [ref=e274]: Políticas CIS y controles UDC.
+              - generic [ref=e275]: 5 hrs
+            - generic [ref=e276]:
+              - generic [ref=e277]:
+                - generic [ref=e278] [cursor=pointer]:
+                  - checkbox "PCI Compliance" [ref=e279]
+                  - text: PCI Compliance
+                - paragraph [ref=e280]: Escaneos ASV y disputas.
+              - generic [ref=e281]: 3 hrs
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - generic [ref=e284] [cursor=pointer]:
+                  - checkbox "File Integrity (FIM)" [ref=e285]
+                  - text: File Integrity (FIM)
+                - paragraph [ref=e286]: Perfiles de monitoreo de archivos.
+              - generic [ref=e287]: 8 hrs
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - heading "Risk Remediation & Custom Assessment" [level=2] [ref=e291]
+              - paragraph [ref=e294]: Acciones correctivas automáticas y scripting a medida.
+            - generic [ref=e295]:
+              - button "Limpiar" [ref=e296] [cursor=pointer]
+              - generic [ref=e299]: 0 hrs totales
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - generic [ref=e302]:
+                - generic [ref=e303] [cursor=pointer]:
+                  - checkbox "Patch Management (PM)" [ref=e304]
+                  - text: Patch Management (PM)
+                - paragraph [ref=e305]: Deployment Jobs y ventanas de mantenimiento.
+              - generic [ref=e306]: 4.5 hrs
+            - generic [ref=e308]:
+              - generic [ref=e309]:
+                - generic [ref=e310] [cursor=pointer]:
+                  - checkbox "CAR (Custom Scripts)" [ref=e311]
+                  - text: CAR (Custom Scripts)
+                - paragraph [ref=e312]: Scripts PowerShell/Python (2 hrs por script).
+              - generic [ref=e313]: 0 hrs
+        - generic [ref=e314]:
+          - generic [ref=e315]:
+            - generic [ref=e316]:
+              - heading "Integraciones y Capacitación Técnica" [level=2] [ref=e317]
+              - paragraph [ref=e321]: Syllabus de transferencia de conocimiento y conectores enterprise.
+            - generic [ref=e322]:
+              - button "Limpiar" [ref=e323] [cursor=pointer]
+              - generic [ref=e326]: 8 hrs totales
+          - generic [ref=e327]:
+            - heading "Integraciones Adicionales" [level=3] [ref=e328]
+            - generic [ref=e329]:
+              - generic [ref=e330]:
+                - generic [ref=e331] [cursor=pointer]:
+                  - checkbox "ServiceNow CMDB / VR Sync" [ref=e332]
+                  - text: ServiceNow CMDB / VR Sync
+                - generic [ref=e333]: 12 hrs
+              - generic [ref=e334]:
+                - generic [ref=e335] [cursor=pointer]:
+                  - checkbox "Jira Ticketing Bidireccional" [ref=e336]
+                  - text: Jira Ticketing Bidireccional
+                - generic [ref=e337]: 10 hrs
+          - generic [ref=e338]:
+            - generic [ref=e339]:
+              - generic [ref=e340]:
+                - heading "Capacitación Técnica (Opcional)" [level=3] [ref=e341]
+                - paragraph [ref=e342]: La capacitación se divide por módulos para optimizar el tiempo del cliente.
+              - generic [ref=e343]:
+                - button "Deseleccionar Todo (0 hrs)" [ref=e344] [cursor=pointer]
+                - button "Incluir Capacitación" [ref=e349] [cursor=pointer]
+            - generic [ref=e353]:
+              - generic [ref=e354]:
+                - generic [ref=e355]: "Total Horas de Capacitación:"
+                - generic [ref=e356]: 8 hrs
+              - generic [ref=e358]:
+                - generic [ref=e359] [cursor=pointer]:
+                  - checkbox "Módulo Core (VMDR & AssetView)" [checked] [ref=e360]
+                  - text: Módulo Core (VMDR & AssetView)
+                - generic [ref=e361]: 8.0 hrs
+      - generic [ref=e363]:
+        - heading "Resumen de Esfuerzo" [level=3] [ref=e364]
+        - generic [ref=e370]:
+          - generic [ref=e371]:
+            - generic [ref=e372]: Plataforma & Sensores
+            - generic [ref=e374]: 9 hrs
+          - generic [ref=e375]:
+            - generic [ref=e376]: Riesgo e Infraestructura
+            - generic [ref=e378]: 15 hrs
+          - generic [ref=e379]:
+            - generic [ref=e380]: Cloud & Contenedores
+            - generic [ref=e382]: 0 hrs
+          - generic [ref=e383]:
+            - generic [ref=e384]: Seguridad App & WAS
+            - generic [ref=e386]: 0 hrs
+          - generic [ref=e387]:
+            - generic [ref=e388]: Cumplimiento & Auditoría
+            - generic [ref=e390]: 0 hrs
+          - generic [ref=e391]:
+            - generic [ref=e392]: Remediación & Scripts
+            - generic [ref=e394]: 0 hrs
+          - generic [ref=e395]:
+            - generic [ref=e396]: Capacitación e Integración
+            - generic [ref=e398]: 8 hrs
+        - generic [ref=e399]:
+          - generic [ref=e400]:
+            - generic [ref=e401]: Total Esfuerzo
+            - text: Jornada 8h/día
+          - generic [ref=e402]:
+            - text: 32 hrs
+            - generic [ref=e403]: ≈ 4 días laborables
+        - generic [ref=e404]:
+          - heading "Entregables de Especialista" [level=4] [ref=e405]
+          - list [ref=e409]:
+            - listitem [ref=e410]: Diagrama de Arquitectura
+            - listitem [ref=e413]: Requisitos y Whitelisting
+            - listitem [ref=e416]: Memoria Técnica Final
+            - listitem [ref=e419]: Guías Windows/Linux
+  - button "Deseleccionar Todo (0h)" [ref=e423] [cursor=pointer]
+  - contentinfo [ref=e428]:
+    - generic [ref=e429]:
+      - paragraph [ref=e430]: GMS Security Services © 2026 — Calculadora Técnica de Implementación Qualys
+      - paragraph [ref=e431]: Desarrollado bajo metodología de arquitectura modular de servicios.
