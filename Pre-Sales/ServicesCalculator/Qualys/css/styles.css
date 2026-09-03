@@ -1,7 +1,21 @@
+/**
+ * ============================================================================
+ * CALCULADORA DE SERVICIOS QUALYS | GMS SECURITY
+ * Hoja de Estilos Personalizados y Reglas de Maquetación
+ * ============================================================================
+ * 
+ * ARQUITECTURA DE ESTILOS:
+ * 1. Ocultamiento de Alpine.js ([x-cloak]): Evita destellos visuales (FOUC) antes de inicializar el JS.
+ * 2. Personalización de Scrollbars (.custom-scrollbar): Scrollbars delgados e integrados a la paleta GMS.
+ * 3. Desplazamiento Suave (scroll-behavior: smooth): Soporte nativo para navegación por anclas entre categorías.
+ */
+
+/* Prevención de destellos visuales durante la carga de Alpine.js */
 [x-cloak] {
     display: none !important;
 }
 
+/* Personalización de la barra de desplazamiento (WebKit: Chrome, Safari, Edge) */
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -16,6 +30,11 @@
     border-radius: 4px;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #005CFF;
+}
+
+/* Scroll suave para navegación entre categorías de servicio */
 html {
     scroll-behavior: smooth;
 }
