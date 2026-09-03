@@ -8,11 +8,17 @@
   const presentation = document.querySelector('.presentation-shell');
   const homeLink = document.querySelector('[data-home]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const presentationDate = document.querySelector('[data-presentation-date]');
   let activeIndex = 0;
   let touchStartX = 0;
   let touchStartY = 0;
 
   totalSlides.textContent = String(slides.length).padStart(2, '0');
+  presentationDate.textContent = new Intl.DateTimeFormat('es-CO', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date());
 
   const updateControls = () => {
     currentSlide.textContent = String(activeIndex + 1).padStart(2, '0');
