@@ -6,6 +6,7 @@
   const totalSlides = document.querySelector('[data-total-slides]');
   const progressBar = document.querySelector('.progress__bar');
   const presentation = document.querySelector('.presentation-shell');
+  const homeLink = document.querySelector('[data-home]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeIndex = 0;
   let touchStartX = 0;
@@ -50,6 +51,11 @@
 
   previousButton.addEventListener('click', () => showSlide(activeIndex - 1));
   nextButton.addEventListener('click', () => showSlide(activeIndex + 1));
+  homeLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    showSlide(0);
+    window.history.replaceState(null, '', window.location.pathname);
+  });
 
   document.addEventListener('keydown', (event) => {
     if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input, textarea, select, button')) return;
