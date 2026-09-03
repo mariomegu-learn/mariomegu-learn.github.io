@@ -1,0 +1,329 @@
+- main "Presentación GMS para Qualys" [ref=f25e2]:
+  - generic [ref=f25e3]:
+    - link "Ir a la portada" [ref=f25e4] [cursor=pointer]:
+      - /url: "#slide-1"
+      - img "GMS" [ref=f25e5]
+      - img "Qualys" [ref=f25e7]
+    - generic [ref=f25e8]: Enterprise Security Briefing
+  - generic [ref=f25e9]:
+    - region "Qualys Cloud Platform":
+      - article:
+        - paragraph: GMS · Enterprise Cybersecurity
+        - heading "Qualys Cloud Platform" [level=1]
+        - paragraph: Marco ejecutivo para visibilidad continua, gestión de exposición y remediación priorizada.
+        - generic:
+          - generic: Fecha
+          - generic: •Presentador
+      - complementary "Resumen de propuesta de valor":
+        - generic: TruRisk
+        - strong: Contexto para decidir
+        - generic: Visibilidad · Riesgo · Acción
+    - region "Agenda":
+      - article:
+        - generic:
+          - paragraph: Ruta de la conversación
+          - heading "Agenda" [level=2]
+          - paragraph: Secuencia preparada para una narrativa técnico-ejecutiva de preventa.
+        - list "Agenda de la presentación":
+          - listitem:
+            - generic: "01"
+            - strong: El fabricante Qualys
+          - listitem:
+            - generic: "02"
+            - strong: Contexto y exposición
+          - listitem:
+            - generic: "03"
+            - strong: Qualys Cloud Platform
+          - listitem:
+            - generic: "04"
+            - strong: VMDR y TruRisk
+          - listitem:
+            - generic: "05"
+            - strong: TotalAppSec y DevSecOps
+          - listitem:
+            - generic: "06"
+            - strong: Adopción y próximos pasos
+    - 'region "Qualys: seguridad cloud a escala global"':
+      - article:
+        - generic:
+          - paragraph: El fabricante
+          - 'heading "Qualys: seguridad cloud a escala global" [level=2]'
+          - paragraph: Pionero del modelo Security-as-a-Service desde 1999, con una plataforma unificada para descubrir, priorizar y reducir la exposición digital.
+        - generic "Indicadores principales de Qualys":
+          - article:
+            - strong: "+25"
+            - generic: Años de experiencia
+            - paragraph: Fundado en 1999, pionero de Security-as-a-Service.
+          - article:
+            - strong: "+130"
+            - generic: Países
+            - paragraph: Presencia global para organizaciones de todos los sectores.
+          - article:
+            - strong: "+10.000"
+            - generic: Clientes
+            - paragraph: Organizaciones protegidas con una plataforma cloud unificada.
+          - article:
+            - strong: 70%
+            - generic: Fortune Global 500
+            - paragraph: Confianza demostrada entre las empresas más relevantes del mundo.
+        - generic:
+          - text: Los clientes de Qualys reportan hasta
+          - strong: 60% menos tiempo de remediación
+          - text: "y"
+          - strong: 50% más cumplimiento normativo
+          - text: .
+    - region "Exposición sin contexto":
+      - article:
+        - generic:
+          - paragraph: Problema
+          - heading "Exposición sin contexto" [level=2]
+          - paragraph: Los equipos de seguridad suelen operar con inventarios incompletos, herramientas desconectadas y miles de hallazgos sin una priorización que refleje la exposición real al negocio.
+        - generic:
+          - article:
+            - text: Visibilidad
+            - strong: Activos desconocidos
+            - paragraph: Entornos cloud, endpoints, aplicaciones y APIs cambian constantemente; lo que no se descubre ni inventaría no puede protegerse.
+          - article:
+            - text: Exposición
+            - strong: Alertas sin contexto
+            - paragraph: La severidad técnica por sí sola no identifica qué vulnerabilidades representan mayor exposición, explotación probable o impacto operativo.
+          - article:
+            - text: Operación
+            - strong: Remediación fragmentada
+            - paragraph: Equipos y procesos aislados ralentizan la asignación, corrección y verificación, elevando el MTTR y la superficie de ataque.
+    - region "Una plataforma, decisiones accionables":
+      - article:
+        - generic:
+          - paragraph: Solución
+          - heading "Una plataforma, decisiones accionables" [level=2]
+          - paragraph: Qualys centraliza descubrimiento, inventario, evaluación, priorización y remediación en una única plataforma cloud. Así, seguridad, infraestructura y desarrollo trabajan sobre la misma visión del riesgo y pueden actuar con rapidez.
+        - generic:
+          - article:
+            - generic: "01"
+            - heading "Visibilidad continua" [level=3]
+            - paragraph: Descubre y clasifica activos, aplicaciones, APIs y cargas cloud para mantener un inventario confiable y una cobertura continua de la superficie de ataque.
+          - article:
+            - generic: "02"
+            - heading "Riesgo contextual" [level=3]
+            - paragraph: Correlaciona vulnerabilidades con criticidad del activo, amenazas, exposición y contexto de negocio para concentrar recursos en los hallazgos que más importan.
+          - article:
+            - generic: "03"
+            - heading "Acción automatizada" [level=3]
+            - paragraph: Orquesta asignación y remediación mediante flujos e integraciones, verifica cada corrección y proporciona métricas de progreso para reducir el MTTR de forma medible.
+    - region [ref=f25e119]:
+      - article [ref=f25e120]:
+        - generic [ref=f25e121]:
+          - paragraph [ref=f25e122]: Plataforma Qualys
+          - heading "Arquitectura Cloud Platform" [level=2] [ref=f25e123]
+          - paragraph [ref=f25e124]: Diagrama flexible para sensores, agentes, appliances, APIs, integraciones, dashboards y plataforma.
+        - list "Arquitectura Qualys Cloud Platform" [ref=f25e125]:
+          - listitem [ref=f25e126]:
+            - generic [ref=f25e127]: Sensores
+            - strong [ref=f25e128]: Cloud Agents
+          - listitem [ref=f25e130]:
+            - generic [ref=f25e131]: Captura
+            - strong [ref=f25e132]: Scanner Appliances
+          - listitem [ref=f25e134]:
+            - generic [ref=f25e135]: Correlación
+            - strong [ref=f25e136]: Qualys Platform
+          - listitem [ref=f25e138]:
+            - generic [ref=f25e139]: Acción
+            - strong [ref=f25e140]: APIs & Integraciones
+        - generic [ref=f25e141]:
+          - generic [ref=f25e142]: Dashboards
+          - generic [ref=f25e143]: Exposure Management
+          - generic [ref=f25e144]: Risk & Compliance
+          - generic [ref=f25e145]: Remediation
+    - region "Un ciclo continuo para reducir la exposición":
+      - article:
+        - generic:
+          - paragraph: Qualys VMDR
+          - heading "Un ciclo continuo para reducir la exposición" [level=2]
+          - paragraph: VMDR conecta la gestión de activos, vulnerabilidades, priorización y respuesta en un ciclo operacional continuo.
+        - figure "La automatización y Qualys TruRisk™ enriquecen cada etapa para convertir hallazgos en acciones verificables.":
+          - 'img "Ciclo VMDR: Asset Management, Vulnerability Management, Threat Detection and Prioritization y Response"':
+            - article:
+              - generic: "01"
+              - strong: AssetManagement
+            - article:
+              - generic: "02"
+              - strong: VulnerabilityManagement
+            - article:
+              - generic: "03"
+              - strong: Threat Detection& Prioritization
+            - article:
+              - generic: "04"
+              - strong: Response
+              - generic: Patch deployment
+            - generic: SecurityAutomation
+            - generic: QualysTruRisk™
+            - generic:
+              - generic: Qualys
+              - strong: VMDR
+              - generic: Discover · Prioritize · Act
+    - region "Del descubrimiento a la verificación":
+      - article:
+        - generic:
+          - paragraph: Qualys VMDR
+          - heading "Del descubrimiento a la verificación" [level=2]
+          - paragraph: Flujo horizontal para construir la narrativa de gestión de vulnerabilidades basada en riesgo.
+        - list "Flujo VMDR":
+          - listitem: Discovery
+          - listitem: Inventory
+          - listitem: Assessment
+          - listitem: Prioritization
+          - listitem: Remediation
+          - listitem: Verification
+        - region "Tarjetas KPI preparadas":
+          - article:
+            - generic: Vulnerabilidades críticas
+            - strong: —
+            - generic: Dato por incorporar
+          - article:
+            - generic: Riesgo total
+            - strong: —
+            - generic: Dato por incorporar
+          - article:
+            - generic: MTTR
+            - strong: —
+            - generic: Dato por incorporar
+          - article:
+            - generic: Assets inventariados
+            - strong: —
+            - generic: Dato por incorporar
+    - region "Seguridad integrada al ciclo de desarrollo":
+      - article:
+        - generic:
+          - paragraph: Qualys TotalAppSec
+          - heading "Seguridad integrada al ciclo de desarrollo" [level=2]
+          - paragraph: Diagrama DevSecOps para SAST, DAST, API Security, Container Security, SBOM y correlación.
+        - list "Flujo TotalAppSec":
+          - listitem: Developer
+          - listitem: Commit
+          - listitem: Build
+          - listitem: CI/CD
+          - listitem: Scan
+          - listitem: Findings
+          - listitem: Remediation
+          - listitem: Production
+        - generic "Capacidades TotalAppSec":
+          - generic: SAST
+          - generic: DAST
+          - generic: API Security
+          - generic: Container Security
+          - generic: SBOM
+          - generic: Vulnerability Correlation
+    - region "De herramientas aisladas a una operación conectada":
+      - article:
+        - generic:
+          - paragraph: Comparación
+          - heading "De herramientas aisladas a una operación conectada" [level=2]
+          - paragraph: Componentes para contrastar el enfoque tradicional frente a VMDR o TotalAppSec.
+        - generic:
+          - article:
+            - text: Tradicional
+            - heading "Operación fragmentada" [level=3]
+            - list:
+              - listitem: —Testing separado
+              - listitem: —Priorización manual
+              - listitem: —Contexto distribuido
+          - article:
+            - text: Qualys
+            - heading "VMDR / TotalAppSec" [level=3]
+            - list:
+              - listitem: —Visibilidad unificada
+              - listitem: —Riesgo contextual
+              - listitem: —Acción verificable
+    - region "Componentes para escenarios de seguridad":
+      - article:
+        - generic:
+          - paragraph: Casos de uso
+          - heading "Componentes para escenarios de seguridad" [level=2]
+          - paragraph: Cards reutilizables para equipos de CISO, infraestructura, cloud, desarrollo, DevSecOps y cumplimiento.
+        - generic:
+          - article:
+            - generic: "01"
+            - heading "Exposure Management" [level=3]
+            - paragraph: Superficie de ataque y hallazgos priorizados.
+          - article:
+            - generic: "02"
+            - heading "Cloud Security" [level=3]
+            - paragraph: Inventario, posture y contexto operativo.
+          - article:
+            - generic: "03"
+            - heading "DevSecOps" [level=3]
+            - paragraph: Seguridad integrada al delivery.
+    - region "Métricas para riesgo y retorno":
+      - article:
+        - generic:
+          - paragraph: Beneficios de negocio
+          - heading "Métricas para riesgo y retorno" [level=2]
+          - paragraph: Layout de indicadores ejecutivos para reducción de exposición, eficiencia y decisiones de inversión.
+        - generic "Risk score cards":
+          - article:
+            - generic: Critical
+            - strong: —
+            - generic: Prioridad máxima
+          - article:
+            - generic: High
+            - strong: —
+            - generic: Alta exposición
+          - article:
+            - generic: Medium
+            - strong: —
+            - generic: Seguimiento
+          - article:
+            - generic: Low
+            - strong: —
+            - generic: Controlado
+    - region "Adopción por etapas":
+      - article:
+        - generic:
+          - paragraph: Roadmap
+          - heading "Adopción por etapas" [level=2]
+          - paragraph: Timeline para fases, entregables, responsables y resultados esperados.
+        - list:
+          - listitem:
+            - generic: "01"
+            - generic:
+              - heading "Discover" [level=3]
+              - paragraph: Definir alcance y establecer visibilidad inicial.
+          - listitem:
+            - generic: "02"
+            - generic:
+              - heading "Prioritize" [level=3]
+              - paragraph: Correlacionar exposición y riesgo de negocio.
+          - listitem:
+            - generic: "03"
+            - generic:
+              - heading "Remediate" [level=3]
+              - paragraph: Orquestar acción y medir mejora.
+          - listitem:
+            - generic: "04"
+            - generic:
+              - heading "Optimize" [level=3]
+              - paragraph: Escalar automatización y gobierno.
+    - region "Convertir visibilidad en reducción de riesgo":
+      - article:
+        - generic:
+          - paragraph: Cierre
+          - heading "Convertir visibilidad en reducción de riesgo" [level=2]
+          - paragraph: Espacio ejecutivo para key takeaways, próximos pasos y contacto.
+        - generic:
+          - article:
+            - text: Key takeaways
+            - paragraph: Preparado para mensajes de cierre.
+          - article:
+            - text: Próximos pasos
+            - paragraph: Preparado para el plan de acción.
+          - article:
+            - text: Contacto
+            - paragraph: Preparado para datos del equipo GMS.
+  - navigation "Controles de presentación" [ref=f25e25]:
+    - button "Diapositiva anterior" [ref=f25e26] [cursor=pointer]:
+      - generic [aria-hidden] [ref=f25e27]: ←
+      - generic [ref=f25e28]: Anterior
+    - generic [ref=f25e29]: 06 / 14
+    - button "Diapositiva siguiente" [ref=f25e30] [cursor=pointer]:
+      - generic [ref=f25e31]: Siguiente
+      - generic [aria-hidden] [ref=f25e32]: →
