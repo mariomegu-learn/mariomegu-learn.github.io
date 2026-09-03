@@ -4,13 +4,13 @@ function calculatorApp() {
         activeCategory: 'platform',
         currentPreset: 'enterprise',
         categories: [
-            { id: 'platform', name: 'Plataforma & Sensores', icon: 'server' },
-            { id: 'risk_infra', name: 'Riesgo e Infraestructura', icon: 'shield-alert' },
-            { id: 'cloud_container', name: 'Cloud & Contenedores', icon: 'cloud' },
-            { id: 'app_sec', name: 'Seguridad App & WAS', icon: 'code-2' },
-            { id: 'compliance', name: 'Cumplimiento & Auditoría', icon: 'file-check' },
-            { id: 'remediation', name: 'Remediación & Scripts', icon: 'wrench' },
-            { id: 'integrations', name: 'Capacitación & Integración', icon: 'graduation-cap' }
+            { id: 'platform', name: 'Plataforma y Sensores', icon: 'server' },
+            { id: 'risk_infra', name: 'Riesgos e Infraestructura', icon: 'shield-alert' },
+            { id: 'cloud_container', name: 'Seguridad Nube y Contenedores', icon: 'cloud' },
+            { id: 'app_sec', name: 'Seguridad Web y Aplicaciones', icon: 'code-2' },
+            { id: 'compliance', name: 'Auditoría y Cumplimiento', icon: 'file-check' },
+            { id: 'remediation', name: 'Remediación y Scripts', icon: 'wrench' },
+            { id: 'integrations', name: 'Integraciones y Capacitación', icon: 'graduation-cap' }
         ],
         config: {
             admin: { enabled: true },
@@ -192,7 +192,7 @@ function calculatorApp() {
             this.chartInstance = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Plataforma', 'Riesgo/Infra', 'Cloud', 'AppSec', 'Cumplimiento', 'Remediación', 'Capacitación'],
+                    labels: ['Plataforma', 'Riesgos e Infraestructura', 'Seguridad Nube', 'Seguridad Web/Apps', 'Auditoría y Cumplimiento', 'Remediación', 'Capacitación'],
                     datasets: [{
                         data: this.getChartData(),
                         backgroundColor: [
