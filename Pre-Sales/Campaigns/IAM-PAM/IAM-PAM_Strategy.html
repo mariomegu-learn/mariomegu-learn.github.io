@@ -323,12 +323,13 @@
           </td>
         </tr>
 
+        <!-- DIAGRAMA DE ALCANCE IAM VS PAM (NESTED SCOPE DIAGRAM) -->
         <tr>
           <td
             class="mobile-padding"
             style="
-              padding-top:20px;
-              padding-bottom:10px;
+              padding-top:44px;
+              padding-bottom:15px;
               text-align:center;
             ">
 
@@ -342,221 +343,124 @@
                 text-transform:uppercase;
                 padding-bottom:8px;
               ">
-              Componentes Principales
+              Diagrama de Alcance
             </div>
 
             <div
               style="
-                font-size:26px;
-                line-height:34px;
+                font-size:28px;
+                line-height:36px;
                 font-weight:bold;
                 color:#222222;
+                padding-bottom:12px;
               ">
-              Los 2 Pilares Complementarios: IAM vs PAM
+              IAM vs. PAM — Alcance de Control de Acceso
+            </div>
+
+            <div
+              style="
+                font-size:15px;
+                line-height:24px;
+                color:#606970;
+                padding-bottom:20px;
+              ">
+              PAM opera como un subconjunto especializado de alta seguridad dentro del dominio general de gestión de identidades y accesos (IAM).
             </div>
 
           </td>
         </tr>
 
         <tr>
-          <td class="mobile-padding" style="padding-top:15px; padding-bottom:15px;">
+          <td class="mobile-padding" style="padding-top:0; padding-bottom:30px;">
 
-            <table role="presentation" class="feature-grid" width="100%" cellpadding="0" cellspacing="0">
-
+            <!-- IAM SCOPE CONTAINER -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e4e9ee; border-radius:12px; background-color:#f8fafc; border-collapse:separate; overflow:hidden; mso-border-alt:none;">
               <tr>
+                <td style="padding:24px;">
 
-                <td
-                  class="mobile-full"
-                  width="48%"
-                  valign="top"
-                  style="
-                    border:1px solid #e4e9ee;
-                    border-radius:12px;
-                    padding:24px;
-                    background-color:#ffffff;
-                    mso-border-alt:none;
-                    mso-padding-alt:0;
-                  ">
-
-                  <!--[if mso]>
-                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
-                  <v:textbox inset="24px,24px,24px,24px">
-                  <![endif]-->
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:18px;">
+                  <!-- IAM HEADER BADGE -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:16px;">
                     <tr>
-                      <td align="left" valign="middle">
-                        <img src="https://img.icons8.com/ios-filled/64/005CFF/user-credentials.png" width="32" height="32" alt="IAM" style="width:32px; height:32px; display:block;">
-                      </td>
-                      <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">IAM / AM / IGA</span>
+                      <td align="left">
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">
+                          ALCANCE GLOBAL IAM
+                        </span>
                       </td>
                     </tr>
                   </table>
 
-                  <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    IAM: Gestión de Identidad y Acceso
-                  </div>
-
-                  <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Acceso adecuado para todos los usuarios.
-                    <ul style="margin-top:8px; margin-bottom:0; padding-left:18px;">
-                      <li>Autenticación unificada (SSO &amp; MFA Adaptativo)</li>
-                      <li>Gobernanza de identidades (IGA &amp; Roles)</li>
-                      <li>Ciclo de vida (Joiners, Movers, Leavers)</li>
-                    </ul>
-                  </div>
-                  <!--[if mso]>
-                  </v:textbox>
-                  </v:roundrect>
-                  <![endif]-->
-
-                </td>
-
-                <td class="mobile-hide" width="4%" style="font-size:0; line-height:0;">&nbsp;</td>
-
-                <td
-                  class="mobile-full"
-                  width="48%"
-                  valign="top"
-                  style="
-                    border:1px solid #e4e9ee;
-                    border-radius:12px;
-                    padding:24px;
-                    background-color:#ffffff;
-                    mso-border-alt:none;
-                    mso-padding-alt:0;
-                  ">
-
-                  <!--[if mso]>
-                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
-                  <v:textbox inset="24px,24px,24px,24px">
-                  <![endif]-->
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:18px;">
+                  <!-- GRID CONTENT: IAM GENERAL (LEFT) + PAM NESTED SCOPE (RIGHT) -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="feature-grid">
                     <tr>
-                      <td align="left" valign="middle">
-                        <img src="https://img.icons8.com/ios-filled/64/005CFF/lock.png" width="32" height="32" alt="PAM" style="width:32px; height:32px; display:block;">
+
+                      <!-- LEFT COLUMN: IAM GENERAL FEATURES -->
+                      <td class="mobile-full" width="46%" valign="top" style="padding-right:12px; padding-bottom:16px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:10px;">
+                          <tr>
+                            <td align="left" valign="middle">
+                              <img src="https://img.icons8.com/ios-filled/64/005CFF/user-credentials.png" width="32" height="32" alt="IAM" style="width:32px; height:32px; display:block;">
+                            </td>
+                          </tr>
+                        </table>
+
+                        <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-bottom:8px;">
+                          IAM (Gestión de Identidades)
+                        </div>
+
+                        <ul style="margin:0; padding-left:18px; font-size:13px; line-height:22px; color:#606970;">
+                          <li style="padding-bottom:4px;">Cuentas generales de empleados</li>
+                          <li style="padding-bottom:4px;">Control de acceso a estaciones de trabajo</li>
+                          <li style="padding-bottom:4px;">Control de acceso a aplicaciones generales</li>
+                        </ul>
                       </td>
-                      <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PAM / BÓVEDA</span>
+
+                      <!-- RIGHT COLUMN: PAM NESTED SCOPE CONTAINER -->
+                      <td class="mobile-full" width="54%" valign="top">
+
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #005CFF; border-radius:12px; background-color:#ffffff; border-collapse:separate; overflow:hidden;">
+                          <tr>
+                            <td style="padding:20px;">
+
+                              <!-- PAM BADGE -->
+                              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:12px;">
+                                <tr>
+                                  <td align="left">
+                                    <span style="display:inline-block; padding:3px 8px; background-color:#062351; color:#5FFFE5; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">
+                                      ALCANCE PAM (SUBCONJUNTO CRÍTICO)
+                                    </span>
+                                  </td>
+                                </tr>
+                              </table>
+
+                              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:10px;">
+                                <tr>
+                                  <td align="left" valign="middle">
+                                    <img src="https://img.icons8.com/ios-filled/64/005CFF/lock.png" width="32" height="32" alt="PAM" style="width:32px; height:32px; display:block;">
+                                  </td>
+                                </tr>
+                              </table>
+
+                              <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-bottom:8px;">
+                                PAM (Accesos Privilegiados)
+                              </div>
+
+                              <ul style="margin:0; padding-left:18px; font-size:13px; line-height:21px; color:#606970;">
+                                <li style="padding-bottom:4px;">Cuentas de usuarios privilegiados y máquinas</li>
+                                <li style="padding-bottom:4px;">Control de acceso a servidores y equipos de red</li>
+                                <li style="padding-bottom:4px;">Control de acceso a aplicaciones privilegiadas</li>
+                              </ul>
+
+                            </td>
+                          </tr>
+                        </table>
+
                       </td>
+
                     </tr>
                   </table>
 
-                  <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    PAM: Privileged Access Management
-                  </div>
-
-                  <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Control y monitoreo de accesos de alto riesgo.
-                    <ul style="margin-top:8px; margin-bottom:0; padding-left:18px;">
-                      <li>Bóveda y rotación de contraseñas Root/Admin</li>
-                      <li>Acceso Just-In-Time (JIT) sin privilegios permanentes</li>
-                      <li>Grabación y auditoría de sesiones (PSM)</li>
-                    </ul>
-                  </div>
-                  <!--[if mso]>
-                  </v:textbox>
-                  </v:roundrect>
-                  <![endif]-->
-
                 </td>
-
               </tr>
-
-              <tr>
-                <td colspan="3" style="height:20px; font-size:0; line-height:0;">&nbsp;</td>
-              </tr>
-
-              <tr>
-
-                <td
-                  class="mobile-full"
-                  width="48%"
-                  valign="top"
-                  style="
-                    border:1px solid #e4e9ee;
-                    border-radius:12px;
-                    padding:24px;
-                    background-color:#ffffff;
-                    mso-border-alt:none;
-                    mso-padding-alt:0;
-                  ">
-
-                  <!--[if mso]>
-                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
-                  <v:textbox inset="24px,24px,24px,24px">
-                  <![endif]-->
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:18px;">
-                    <tr>
-                      <td align="left" valign="middle">
-                        <img src="https://img.icons8.com/ios-filled/64/005CFF/connected.png" width="32" height="32" alt="Identity Fabric" style="width:32px; height:32px; display:block;">
-                      </td>
-                      <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">IDENTITY FABRIC</span>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Identity Fabric &amp; Orquestación
-                  </div>
-
-                  <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Conexión unificada mediante APIs y SCIM con Active Directory, Microsoft Entra ID, HR/ERP y aplicaciones SaaS.
-                  </div>
-                  <!--[if mso]>
-                  </v:textbox>
-                  </v:roundrect>
-                  <![endif]-->
-
-                </td>
-
-                <td class="mobile-hide" width="4%" style="font-size:0; line-height:0;">&nbsp;</td>
-
-                <td
-                  class="mobile-full"
-                  width="48%"
-                  valign="top"
-                  style="
-                    border:1px solid #e4e9ee;
-                    border-radius:12px;
-                    padding:24px;
-                    background-color:#ffffff;
-                    mso-border-alt:none;
-                    mso-padding-alt:0;
-                  ">
-
-                  <!--[if mso]>
-                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" arcsize="10%" strokecolor="#e4e9ee" strokeweight="1px" fillcolor="#ffffff" style="v-text-anchor:top; mso-fit-shape-to-text:true;">
-                  <v:textbox inset="24px,24px,24px,24px">
-                  <![endif]-->
-                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:18px;">
-                    <tr>
-                      <td align="left" valign="middle">
-                        <img src="https://img.icons8.com/ios-filled/64/005CFF/combo-chart.png" width="32" height="32" alt="Telemetría" style="width:32px; height:32px; display:block;">
-                      </td>
-                      <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">MONITOREO ITDR</span>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Telemetría &amp; Integración SIEM/XDR
-                  </div>
-
-                  <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Detección de amenazas a identidades (ITDR) y respuesta automatizada ante comportamientos anómalos o sospechosos.
-                  </div>
-                  <!--[if mso]>
-                  </v:textbox>
-                  </v:roundrect>
-                  <![endif]-->
-
-                </td>
-
-              </tr>
-
             </table>
 
           </td>
