@@ -57,6 +57,7 @@
             <li><span>10</span><strong>MDR AI Analyst</strong></li>
             <li><span>11</span><strong>Tipos de telemetría</strong></li>
             <li><span>12</span><strong>Comparación de niveles MDR</strong></li>
+            <li><span>13</span><strong>SLA y Niveles de Prioridad</strong></li>
           </ol>
         </article>
       </section>
@@ -842,6 +843,69 @@
                 <li class="mdr-level-item mdr-level-item--featured">API para la descarga de datos <span class="tag-advanced">Expert</span></li>
               </ul>
             </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="slide-15" data-slide aria-labelledby="slide-15-title" hidden>
+        <article class="slide__content">
+          <header class="slide-heading slide-heading--compact">
+            <p class="eyebrow">Niveles de Prioridad y SLA</p>
+            <h2 id="slide-15-title">Managed Detection and Response</h2>
+          </header>
+          <div class="sla-container">
+            <!-- Main SLA Table -->
+            <div class="sla-table-card glass-panel">
+              <table class="sla-table" aria-label="Tabla de SLA y tiempos de reacción por nivel de prioridad">
+                <thead>
+                  <tr>
+                    <th>Nivel de prioridad</th>
+                    <th>Tiempo de reacción</th>
+                    <th>Valor objetivo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="sla-badge sla-badge--high">Alto</span>
+                      <small>ejemplo: ataque dirigido</small>
+                    </td>
+                    <td><strong>1 hora</strong></td>
+                    <td><strong>90 %</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="sla-badge sla-badge--medium">Medio</span>
+                      <small>ejemplo: malware común</small>
+                    </td>
+                    <td><strong>4 horas</strong></td>
+                    <td><strong>90 %</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="sla-badge sla-badge--low">Bajo</span>
+                      <small>por ejemplo: adware, riskware, etc.</small>
+                    </td>
+                    <td><strong>24 horas</strong></td>
+                    <td><strong>90 %</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Explanatory Definitions Grid -->
+            <div class="sla-definitions-grid">
+              <article class="sla-def-card glass-panel">
+                <h4>Tiempo de reacción</h4>
+                <p>Es el tiempo transcurrido desde la detección del incidente (hora de creación) hasta su publicación en el portal MDR (hora de actualización).</p>
+              </article>
+              <article class="sla-def-card glass-panel">
+                <h4>Valor objetivo</h4>
+                <p>Es el porcentaje del número de incidentes con tiempo de reacción y tiempo de respuesta alcanzado, finalidad del valor objetivo.</p>
+              </article>
+            </div>
+
+            <p class="sla-footnote">*Puede encontrar más información, incluidos los criterios del incidente, en los Términos y Condiciones.</p>
           </div>
         </article>
       </section>
