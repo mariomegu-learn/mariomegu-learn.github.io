@@ -40,14 +40,16 @@
     });
   }
 
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => console.log(err));
+    } else {
+      document.exitFullscreen().catch(err => console.log(err));
+    }
+  };
+
   if (fullscreenButton) {
-    fullscreenButton.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => console.log(err));
-      } else {
-        document.exitFullscreen().catch(err => console.log(err));
-      }
-    });
+    fullscreenButton.addEventListener('click', toggleFullscreen);
   }
 
   const getPresenterPayload = () => {
@@ -169,6 +171,16 @@
           document.getElementById('pBtn').onclick = () => bc.postMessage({ type: 'PREV' });
           document.getElementById('nBtn').onclick = () => bc.postMessage({ type: 'NEXT' });
 
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+              e.preventDefault();
+              bc.postMessage({ type: 'NEXT' });
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+              e.preventDefault();
+              bc.postMessage({ type: 'PREV' });
+            }
+          });
+
           bc.onmessage = (event) => {
             if (event.data.type === 'UPDATE_PRESENTER') {
               document.getElementById('slideIdx').textContent = String(event.data.index + 1).padStart(2, '0');
@@ -215,6 +227,7 @@
     if (event.key === 'ArrowRight') showSlide(activeIndex + 1);
     if (event.key === 'ArrowLeft') showSlide(activeIndex - 1);
     if (event.key === 'p' || event.key === 'P') openPresenterMode();
+    if (event.key === 'f' || event.key === 'F') toggleFullscreen();
   });
 
   presentation.addEventListener('touchstart', (event) => {
