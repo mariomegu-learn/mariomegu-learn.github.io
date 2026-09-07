@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Sistema de presentación ejecutivo GMS para Qualys">
   <title>GMS | Qualys Executive Presentation</title>
+  <link rel="icon" type="image/png" href="http://mariomegu-learn.github.io/Pre-Sales/Assets/ICONO_PRINCIPAL.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,11 +18,16 @@
 
     <header class="presentation-header glass-panel">
       <a class="brand" href="#slide-1" data-home aria-label="Ir a la portada">
-        <img class="brand__logo brand__logo--gms" src="assets/LOGO_GMS_PRINCIPAL_blanco.png" alt="GMS">
+        <img class="brand__logo brand__logo--gms" src="http://mariomegu-learn.github.io/Pre-Sales/Assets/LOGO_GMS_PRINCIPAL_blanco.png" alt="GMS">
         <span class="brand__divider" aria-hidden="true"></span>
         <img class="brand__logo brand__logo--qualys" src="assets/QualysLogo.svg" alt="Qualys">
       </a>
-      <span class="presentation-header__label">Riesgo visible, acción efectiva</span>
+      <div style="display:flex; align-items:center; gap: 0.8rem;">
+        <span class="presentation-header__label">Riesgo visible, acción efectiva</span>
+        <button type="button" id="helpModalBtn" aria-label="Ayuda y Atajos de Teclado" title="Ayuda y Atajos de Teclado (H / ?)">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5FFFE5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
+      </div>
     </header>
 
     <div class="slides-viewport">
@@ -231,6 +237,48 @@
       </nav>
     </footer>
   </main>
+  <!-- Help Modal Overlay -->
+  <div class="help-modal-overlay" id="helpModal" hidden>
+    <div class="help-modal-content glass-panel">
+      <div class="help-modal-header">
+        <h3>Atajos de Teclado y Funcionalidades</h3>
+        <button type="button" class="help-modal-close" id="closeHelpModal" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="help-modal-body">
+        <div class="help-shortcut-row">
+          <kbd>P</kbd>
+          <div>
+            <strong>Modo Presentador (Presenter Mode)</strong>
+            <span>Abre la ventana interactiva del orador con notas sincronizadas, reloj y vista previa.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>D</kbd>
+          <div>
+            <strong>Herramientas de Dibujo (Draw Mode)</strong>
+            <span>Activa la barra flotante con lápiz, borrador, formas geométricas, líneas, flechas y puntero láser.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>F</kbd>
+          <div>
+            <strong>Pantalla Completa (Fullscreen)</strong>
+            <span>Alterna entre la vista estándar y el modo pantalla completa.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>←</kbd> <kbd>→</kbd>
+          <div>
+            <strong>Navegación entre Diapositivas</strong>
+            <span>Navega libremente hacia adelante o atrás (compatible con gestos táctiles).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/presentation.js" defer></script>
+  <script src="js/presenter.js" defer></script>
+  <script src="js/drawing.js" defer></script>
 </body>
 </html>

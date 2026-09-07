@@ -9,6 +9,11 @@
   const homeLink = document.querySelector('[data-home]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const presentationDate = document.querySelector('[data-presentation-date]');
+  const slideSelect = document.querySelector('[data-slide-select]');
+  const fullscreenButton = document.querySelector('[data-fullscreen]');
+  const helpModal = document.getElementById('helpModal');
+  const helpModalBtn = document.getElementById('helpModalBtn');
+  const closeHelpModal = document.getElementById('closeHelpModal');
   let activeIndex = 0;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -20,11 +25,55 @@
     year: 'numeric'
   }).format(new Date());
 
+  if (slideSelect) {
+    slides.forEach((slide, index) => {
+      const titleEl = slide.querySelector('h1, h2');
+      const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Diapositiva ${index + 1}`;
+      const option = document.createElement('option');
+      option.value = index;
+      option.textContent = `${String(index + 1).padStart(2, '0')}. ${titleText}`;
+      slideSelect.appendChild(option);
+    });
+
+    slideSelect.addEventListener('change', (e) => {
+      showSlide(parseInt(e.target.value, 10));
+    });
+  }
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => console.log(err));
+    } else {
+      document.exitFullscreen().catch(err => console.log(err));
+    }
+  };
+
+  if (fullscreenButton) {
+    fullscreenButton.addEventListener('click', toggleFullscreen);
+  }
+
+  const toggleHelpModal = (show) => {
+    if (!helpModal) return;
+    const shouldShow = show !== undefined ? show : helpModal.hidden;
+    helpModal.hidden = !shouldShow;
+  };
+
+  if (helpModalBtn) helpModalBtn.addEventListener('click', () => toggleHelpModal(true));
+  if (closeHelpModal) closeHelpModal.addEventListener('click', () => toggleHelpModal(false));
+  if (helpModal) {
+    helpModal.addEventListener('click', (e) => {
+      if (e.target === helpModal) toggleHelpModal(false);
+    });
+  }
+
   const updateControls = () => {
     currentSlide.textContent = String(activeIndex + 1).padStart(2, '0');
     progressBar.style.width = `${((activeIndex + 1) / slides.length) * 100}%`;
     previousButton.disabled = activeIndex === 0;
     nextButton.disabled = activeIndex === slides.length - 1;
+    if (slideSelect) slideSelect.value = activeIndex;
+
+    window.dispatchEvent(new CustomEvent('slidechanged', { detail: { index: activeIndex } }));
   };
 
   const showSlide = (nextIndex) => {
@@ -64,9 +113,15 @@
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input, textarea, select, button')) return;
+    if (event.key === 'Escape') {
+      toggleHelpModal(false);
+      return;
+    }
+    if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input, textarea, select')) return;
     if (event.key === 'ArrowRight') showSlide(activeIndex + 1);
     if (event.key === 'ArrowLeft') showSlide(activeIndex - 1);
+    if (event.key === 'f' || event.key === 'F') toggleFullscreen();
+    if (event.key === '?' || event.key === 'h' || event.key === 'H') toggleHelpModal();
   });
 
   presentation.addEventListener('touchstart', (event) => {
@@ -82,6 +137,9 @@
     if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
     showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
   }, { passive: true });
+
+  window.getCurrentSlideIndex = () => activeIndex;
+  window.showSlideIndex = (idx) => showSlide(idx);
 
   updateControls();
 })();
