@@ -312,6 +312,109 @@
         </article>
       </section>
 
+      <section class="slide" id="slide-8" data-slide aria-labelledby="slide-8-title" hidden>
+        <article class="slide__content">
+          <header class="slide-heading slide-heading--compact">
+            <p class="eyebrow">Matriz de Capacidades y Alcance</p>
+            <h2 id="slide-8-title">El enfoque de Kaspersky para la detección e investigación de incidentes</h2>
+          </header>
+          <div class="threat-matrix-container">
+            <div class="scope-indicator-bar" role="region" aria-label="Alcance del servicio">
+              <div class="scope-tag scope-tag--mdr">Kaspersky Managed Detection and Response</div>
+              <div class="scope-tag scope-tag--ir">Kaspersky Incident Response</div>
+            </div>
+
+            <div class="threat-matrix-columns">
+              <article class="matrix-column glass-panel">
+                <span class="matrix-column__category matrix-column__category--known">Amenazas conocidas</span>
+                <div class="matrix-column__capability">Protección de endpoints</div>
+                <div class="matrix-column__response">Respuesta automatizada</div>
+              </article>
+
+              <article class="matrix-column glass-panel matrix-column--featured">
+                <span class="matrix-column__category matrix-column__category--unknown">Amenazas desconocidas</span>
+                <div class="matrix-column__capability">Búsqueda de amenazas</div>
+                <div class="matrix-column__response">Respuesta guiada</div>
+              </article>
+
+              <article class="matrix-column glass-panel">
+                <span class="matrix-column__category matrix-column__category--unknown">Amenazas desconocidas</span>
+                <div class="matrix-column__capability">Investigación</div>
+                <div class="matrix-column__response">Respuesta extendida, análisis forense digital y análisis de malware</div>
+              </article>
+            </div>
+
+            <div class="threat-complexity-bar">
+              <span>Nivel inicial de amenaza</span>
+              <div class="threat-complexity-bar__arrow">Complejidad de las amenazas</div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="slide-9" data-slide aria-labelledby="slide-9-title" hidden>
+        <article class="slide__content">
+          <header class="slide-heading slide-heading--compact">
+            <p class="eyebrow">Arquitectura de Alto Nivel</p>
+            <h2 id="slide-9-title">Arquitectura Kaspersky Managed Detection and Response</h2>
+          </header>
+          <div class="arch-flow-bar">
+            <span>Flow 1: Telemetría ← (Infraestructura a Nube)</span>
+            <span>Flow 2: KSN &amp; Threat Intel → (Nube a Infraestructura)</span>
+            <span>Flow 3: Respuesta &amp; Respuesta Guiada → (SOC a Portal MDR &amp; cliente)</span>
+          </div>
+          <div class="arch-grid">
+            <div class="arch-left-stack">
+              <article class="arch-cloud-card glass-panel">
+                <div>
+                  <h4>Nube en América Latina <span class="arch-flow-tag">← Telemetría</span></h4>
+                  <div class="arch-pipeline">
+                    <span class="arch-pipeline-item">Recopilación</span>
+                    <span class="arch-pipeline-item">Procesamiento</span>
+                    <span class="arch-pipeline-item">Almacenamiento</span>
+                  </div>
+                </div>
+                <div class="arch-ksn-badge">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <span>KSN →</span>
+                </div>
+              </article>
+
+              <article class="arch-soc-card glass-panel">
+                <h4>SOC de Kaspersky <span class="arch-flow-tag">↓ Respuesta</span></h4>
+                <div class="arch-soc-workflow">
+                  <div class="arch-soc-node">Monitoreo ↓</div>
+                  <div class="arch-soc-node">Búsqueda de amenazas ↓</div>
+                  <div class="arch-soc-node arch-soc-node--full">Evaluación, correlación y enriquecimiento ↓</div>
+                  <div class="arch-soc-node arch-soc-node--full">Investigación por parte de analistas de SOC →</div>
+                  <div class="arch-soc-node arch-soc-node--full">Incident Response Platform <span class="arch-flow-tag">Respuesta guiada →</span></div>
+                </div>
+              </article>
+            </div>
+
+            <article class="arch-center-card glass-panel">
+              <h3>Portal web de MDR</h3>
+              <span>Gestión centralizada · Consola de atención</span>
+              <span class="arch-flow-tag">← Acceda a</span>
+            </article>
+
+            <article class="arch-corp-card glass-panel">
+              <h4>Infraestructura corporativa</h4>
+              <div class="arch-corp-section">
+                <strong>Herramientas de detección externa</strong>
+                <span>• Solución Sandbox</span>
+                <span>• Detección de intrusiones (IDS)</span>
+              </div>
+              <div class="arch-corp-section">
+                <strong>Plataforma de protección</strong>
+                <span>• Endpoints corporativos <span class="arch-flow-tag">Telemetría →</span></span>
+              </div>
+              <p class="arch-footnote">*Las soluciones Kaspersky Sandbox e IDS se ofrecen por separado y no son necesarias para MDR.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
     </div>
 
     <footer class="presentation-controls">
