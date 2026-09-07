@@ -52,6 +52,7 @@
             <li><span>05</span><strong>¿Por qué elegir Kaspersky MDR?</strong></li>
             <li><span>06</span><strong>Enfoque y matriz de capacidades</strong></li>
             <li><span>07</span><strong>Arquitectura de alto nivel</strong></li>
+            <li><span>08</span><strong>Proceso de detección y respuesta</strong></li>
           </ol>
         </article>
       </section>
@@ -503,6 +504,116 @@
               <rect x="1225" y="425" width="100" height="30" rx="6" fill="#00205C" stroke="#005CFF" stroke-width="1.5"/>
               <text x="1275" y="445" fill="#5FFFE5" font-size="14" font-weight="700" text-anchor="middle">← Acceda a</text>
             </svg>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="slide-10" data-slide aria-labelledby="slide-10-title" hidden>
+        <article class="slide__content">
+          <header class="slide-heading slide-heading--compact">
+            <p class="eyebrow">Flujo Operativo</p>
+            <h2 id="slide-10-title">Proceso</h2>
+          </header>
+          <div class="mdr-process-pipeline">
+            <!-- Row 1: Steps 01 to 04 -->
+            <div class="mdr-process-row">
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">01</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="M12 7v4M12 15h.01"></path></svg>
+                  </div>
+                </div>
+                <h3>Actividad maliciosa</h3>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">02</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                </div>
+                <h3>Recolección de telemetría</h3>
+                <p>Por Kaspersky Endpoint Security</p>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">03</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  </div>
+                </div>
+                <h3>Procesamiento de telemetría</h3>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">04</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                  </div>
+                </div>
+                <h3>Almacenamiento de telemetría</h3>
+              </article>
+            </div>
+
+            <!-- Visual Connector Path from Step 4 to Step 5 -->
+            <div class="mdr-process-connector-line" aria-hidden="true">
+              <svg viewBox="0 0 1000 32" preserveAspectRatio="none">
+                <path d="M 875 0 L 875 16 L 125 16 L 125 32" stroke="#5FFFE5" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+                <polygon points="125,32 119,22 131,22" fill="#5FFFE5"/>
+              </svg>
+              
+            </div>
+
+            <!-- Row 2: Steps 05 to 08 -->
+            <div class="mdr-process-row">
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">05</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  </div>
+                </div>
+                <h3>Análisis</h3>
+                <p>Reglas de búsqueda de amenazas aplicadas</p>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">06</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </div>
+                </div>
+                <h3>Alertas</h3>
+                <p>Creado</p>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">07</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </div>
+                </div>
+                <h3>Analista de SOC</h3>
+                <p>Alertas analizadas</p>
+              </article>
+
+              <article class="mdr-process-step glass-panel">
+                <div class="mdr-process-step__header">
+                  <span class="mdr-process-step__num">08</span>
+                  <div class="mdr-process-step__icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15 8 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 8 12 2"></polygon></svg>
+                  </div>
+                </div>
+                <h3>Respuesta</h3>
+                <p>El incidente se publica y se entregan recomendaciones de respuesta</p>
+              </article>
+            </div>
           </div>
         </article>
       </section>
