@@ -116,6 +116,12 @@
     const currentNotes = slides[activeIndex].querySelector('.speaker-notes')?.innerHTML || 'Sin notas registradas para esta diapositiva.';
     const nextTitle = activeIndex < slides.length - 1 ? (slides[activeIndex + 1].querySelector('h1, h2')?.textContent || `Diapositiva ${activeIndex + 2}`) : 'Fin de la presentación';
 
+    const selectOptions = slides.map((slide, index) => {
+      const titleEl = slide.querySelector('h1, h2');
+      const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Diapositiva ${index + 1}`;
+      return `<option value="${index}">${String(index + 1).padStart(2, '0')}. ${titleText}</option>`;
+    }).join('');
+
     presenterWindow.document.write(`
       <!DOCTYPE html>
       <html lang="es">
@@ -126,6 +132,9 @@
           body { margin: 0; font-family: Inter, sans-serif; background: #00153D; color: #FFFFFF; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
           header { display: flex; justify-content: space-between; align-items: center; background: #00205C; padding: 1rem 1.5rem; border-bottom: 2px solid #5FFFE5; }
           header h1 { margin: 0; font-size: 1.2rem; color: #5FFFE5; }
+          .header-tools { display: flex; align-items: center; gap: 1rem; }
+          .p-slide-select { background: #00153D; color: #5FFFE5; border: 1px solid #5FFFE5; padding: 0.45rem 0.8rem; border-radius: 8px; font-weight: 600; outline: none; cursor: pointer; max-width: 250px; text-overflow: ellipsis; }
+          .p-slide-select option { background: #00205C; color: #FFFFFF; }
           .timer { font-size: 1.5rem; font-weight: 800; color: #5FFFE5; font-family: monospace; }
           .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; padding: 1.5rem; flex: 1; overflow: hidden; }
           .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(95,255,229,0.3); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; overflow: auto; }
@@ -141,7 +150,12 @@
       <body>
         <header>
           <h1>Modo Presentador | GMS - Kaspersky MDR</h1>
-          <div class="timer" id="clock">00:00:00</div>
+          <div class="header-tools">
+            <select class="p-slide-select" id="pSlideSelect" aria-label="Seleccionar diapositiva">
+              ${selectOptions}
+            </select>
+            <div class="timer" id="clock">00:00:00</div>
+          </div>
         </header>
         <div class="grid">
           <div class="card">
@@ -168,10 +182,17 @@
           }, 1000);
 
           const bc = new BroadcastChannel('html_ppt_presenter');
+          const pSelect = document.getElementById('pSlideSelect');
+          pSelect.value = ${activeIndex};
+          pSelect.onchange = (e) => {
+            bc.postMessage({ type: 'NAVIGATE', index: parseInt(e.target.value, 10) });
+          };
+
           document.getElementById('pBtn').onclick = () => bc.postMessage({ type: 'PREV' });
           document.getElementById('nBtn').onclick = () => bc.postMessage({ type: 'NEXT' });
 
           document.addEventListener('keydown', (e) => {
+            if (e.target.matches('select, input, textarea')) return;
             if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
               e.preventDefault();
               bc.postMessage({ type: 'NEXT' });
@@ -186,6 +207,7 @@
               document.getElementById('slideIdx').textContent = String(event.data.index + 1).padStart(2, '0');
               document.getElementById('notesBox').innerHTML = event.data.notes;
               document.getElementById('nextBox').textContent = event.data.nextTitle;
+              if (pSelect) pSelect.value = event.data.index;
             }
           };
 
