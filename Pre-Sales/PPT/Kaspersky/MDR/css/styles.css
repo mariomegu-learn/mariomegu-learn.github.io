@@ -91,7 +91,7 @@ p { color: var(--text-secondary); line-height: 1.65; }
 .timeline-year-col { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.5rem 0.4rem; min-width: 0; }
 .timeline-year-col__header { font-size: 0.9rem; font-weight: 800; color: var(--gms-aqua); border-bottom: 2px solid var(--gms-blue); padding-bottom: 0.15rem; text-align: center; letter-spacing: 0.05em; margin-bottom: 0.15rem; }
 .timeline-year-col__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.2rem; }
-.timeline-year-col__item { font-size: 0.65rem; color: var(--text-secondary); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 0.18rem 0.3rem; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: border-color var(--transition-fast), background var(--transition-fast); }
+.timeline-year-col__item { font-size: var(--text-xs); color: var(--text-secondary); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 0.22rem 0.35rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: border-color var(--transition-fast), background var(--transition-fast); }
 .timeline-year-col__item:hover { border-color: var(--gms-aqua); background: rgba(95, 255, 229, 0.12); color: var(--white); }
 .timeline-year-col__item small { display: block; color: var(--gms-aqua); font-size: 0.58rem; margin-top: 1px; }
 
@@ -200,10 +200,10 @@ p { color: var(--text-secondary); line-height: 1.65; }
 
 .anatomy-right { display: flex; flex-direction: column; gap: var(--space-3); }
 .anatomy-right h3 { font-size: var(--text-base); color: var(--gms-aqua); font-weight: 800; text-transform: uppercase; margin: 0 0 0.2rem; letter-spacing: 0.05em; }
-.action-pills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
-.action-pill { font-size: 0.72rem; color: var(--white); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); padding: 0.35rem 0.55rem; border-radius: 8px; font-weight: 600; display: flex; flex-direction: column; gap: 0.1rem; transition: border-color var(--transition-fast), background var(--transition-fast); }
+.action-pills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.action-pill { font-size: 0.85rem; color: var(--white); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); padding: 0.45rem 0.65rem; border-radius: 8px; font-weight: 600; display: flex; flex-direction: column; gap: 0.12rem; transition: border-color var(--transition-fast), background var(--transition-fast); }
 .action-pill:hover { border-color: var(--gms-aqua); background: rgba(95, 255, 229, 0.1); }
-.action-pill small { font-size: 0.62rem; color: var(--gms-aqua); font-weight: 400; }
+.action-pill small { font-size: 0.72rem; color: var(--gms-aqua); font-weight: 400; }
 
 .anatomy-value-callout { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid rgba(95, 255, 229, 0.4); background: linear-gradient(90deg, rgba(0, 92, 255, 0.3), rgba(0, 32, 92, 0.65)); display: flex; flex-direction: column; gap: 0.15rem; }
 .anatomy-value-callout h4 { font-size: var(--text-base); color: var(--gms-aqua); margin: 0; font-weight: 700; }
@@ -231,7 +231,7 @@ p { color: var(--text-secondary); line-height: 1.65; }
 .telemetry-example-col { display: flex; flex-direction: column; gap: var(--space-2); }
 .telemetry-example-col h3 { font-size: var(--text-base); color: var(--gms-aqua); font-weight: 800; text-transform: uppercase; margin: 0; letter-spacing: 0.05em; }
 .telemetry-example-col p { font-size: var(--text-sm); color: var(--text-secondary); margin: 0; }
-.telemetry-code-box { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid rgba(95, 255, 229, 0.35); background: #060D1A; font-family: Consolas, Monaco, monospace; font-size: 0.68rem; line-height: 1.45; color: var(--white); box-shadow: 0 8px 24px rgba(0, 32, 92, 0.5); overflow-x: auto; }
+.telemetry-code-box { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid rgba(95, 255, 229, 0.35); background: #060D1A; font-family: Consolas, Monaco, monospace; font-size: var(--text-sm); line-height: 1.5; color: var(--white); box-shadow: 0 8px 24px rgba(0, 32, 92, 0.5); overflow-x: auto; }
 .telemetry-code-box .key { color: var(--gms-aqua); font-weight: 600; }
 .telemetry-code-box .val { color: #88C0D0; }
 
