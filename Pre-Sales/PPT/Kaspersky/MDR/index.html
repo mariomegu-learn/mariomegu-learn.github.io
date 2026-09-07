@@ -47,9 +47,11 @@
           <ol class="agenda-timeline" aria-label="Agenda de la presentación">
             <li><span>01</span><strong>Acerca de Kaspersky</strong></li>
             <li><span>02</span><strong>Investigación de ataques dirigidos</strong></li>
-            <li><span>03</span><strong>Kaspersky MDR Platform</strong></li>
-            <li><span>04</span><strong>Monitoreo y respuesta 24/7</strong></li>
-            <li><span>05</span><strong>Casos de uso y adopción</strong></li>
+            <li><span>03</span><strong>Kaspersky MDR en pocas palabras</strong></li>
+            <li><span>04</span><strong>¿Cómo ayuda a las empresas?</strong></li>
+            <li><span>05</span><strong>¿Por qué elegir Kaspersky MDR?</strong></li>
+            <li><span>06</span><strong>Enfoque y matriz de capacidades</strong></li>
+            <li><span>07</span><strong>Arquitectura de alto nivel</strong></li>
           </ol>
         </article>
       </section>
@@ -358,59 +360,149 @@
             <p class="eyebrow">Arquitectura de Alto Nivel</p>
             <h2 id="slide-9-title">Arquitectura Kaspersky Managed Detection and Response</h2>
           </header>
-          <div class="arch-flow-bar">
-            <span>Flow 1: Telemetría ← (Infraestructura a Nube)</span>
-            <span>Flow 2: KSN &amp; Threat Intel → (Nube a Infraestructura)</span>
-            <span>Flow 3: Respuesta &amp; Respuesta Guiada → (SOC a Portal MDR &amp; cliente)</span>
-          </div>
-          <div class="arch-grid">
-            <div class="arch-left-stack">
-              <article class="arch-cloud-card glass-panel">
-                <div>
-                  <h4>Nube en América Latina <span class="arch-flow-tag">← Telemetría</span></h4>
-                  <div class="arch-pipeline">
-                    <span class="arch-pipeline-item">Recopilación</span>
-                    <span class="arch-pipeline-item">Procesamiento</span>
-                    <span class="arch-pipeline-item">Almacenamiento</span>
-                  </div>
-                </div>
-                <div class="arch-ksn-badge">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  <span>KSN →</span>
-                </div>
-              </article>
+          <div class="arch-svg-container">
+            <svg viewBox="0 0 1808 832" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrowLeft" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                  <path d="M 10 0 L 0 5 L 10 10 z" fill="#5FFFE5"/>
+                </marker>
+                <marker id="arrowRight" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#5FFFE5"/>
+                </marker>
+                <marker id="arrowDown" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="8" markerHeight="8" orient="auto">
+                  <path d="M 0 0 L 10 0 L 5 10 z" fill="#5FFFE5"/>
+                </marker>
+              </defs>
 
-              <article class="arch-soc-card glass-panel">
-                <h4>SOC de Kaspersky <span class="arch-flow-tag">↓ Respuesta</span></h4>
-                <div class="arch-soc-workflow">
-                  <div class="arch-soc-node">Monitoreo ↓</div>
-                  <div class="arch-soc-node">Búsqueda de amenazas ↓</div>
-                  <div class="arch-soc-node arch-soc-node--full">Evaluación, correlación y enriquecimiento ↓</div>
-                  <div class="arch-soc-node arch-soc-node--full">Investigación por parte de analistas de SOC →</div>
-                  <div class="arch-soc-node arch-soc-node--full">Incident Response Platform <span class="arch-flow-tag">Respuesta guiada →</span></div>
-                </div>
-              </article>
-            </div>
+              <!-- SECTION 1: Nube en América Latina -->
+              <rect x="31" y="63" width="782" height="244" rx="28" fill="rgba(255,255,255,0.05)" stroke="rgba(95,255,229,0.35)" stroke-width="2" stroke-dasharray="8 6"/>
+              <rect x="200" y="31" width="440" height="60" rx="20" fill="#00205C" stroke="#5FFFE5" stroke-width="3"/>
+              <text x="420" y="68" fill="#5FFFE5" font-size="24" font-weight="700" text-anchor="middle">Nube en América Latina</text>
 
-            <article class="arch-center-card glass-panel">
-              <h3>Portal web de MDR</h3>
-              <span>Gestión centralizada · Consola de atención</span>
-              <span class="arch-flow-tag">← Acceda a</span>
-            </article>
+              <!-- Telemetry Label & Pipeline -->
+              <text x="91" y="145" fill="rgba(255,255,255,0.72)" font-size="20" font-weight="700">Telemetría</text>
+              <g transform="translate(0, 5)">
+                <rect x="87" y="181" width="132" height="59" rx="17" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                <text x="153" y="216" fill="#FFFFFF" font-size="16" text-anchor="middle">Recopilación</text>
+                
+                <path d="M 219 210 L 229 210" stroke="#5FFFE5" stroke-width="2" marker-end="url(#arrowRight)"/>
 
-            <article class="arch-corp-card glass-panel">
-              <h4>Infraestructura corporativa</h4>
-              <div class="arch-corp-section">
-                <strong>Herramientas de detección externa</strong>
-                <span>• Solución Sandbox</span>
-                <span>• Detección de intrusiones (IDS)</span>
-              </div>
-              <div class="arch-corp-section">
-                <strong>Plataforma de protección</strong>
-                <span>• Endpoints corporativos <span class="arch-flow-tag">Telemetría →</span></span>
-              </div>
-              <p class="arch-footnote">*Las soluciones Kaspersky Sandbox e IDS se ofrecen por separado y no son necesarias para MDR.</p>
-            </article>
+                <rect x="235" y="181" width="137" height="59" rx="17" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                <text x="303" y="216" fill="#FFFFFF" font-size="16" text-anchor="middle">Procesamiento</text>
+                
+                <path d="M 372 210 L 382 210" stroke="#5FFFE5" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+                <rect x="388" y="181" width="127" height="59" rx="17" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                <text x="451" y="208" fill="#FFFFFF" font-size="15" text-anchor="middle">Almacena-</text>
+                <text x="451" y="226" fill="#FFFFFF" font-size="15" text-anchor="middle">miento</text>
+              </g>
+
+              <!-- KSN Badge -->
+              <rect x="552" y="125" width="220" height="130" rx="20" fill="rgba(95, 255, 229, 0.08)" stroke="#5FFFE5" stroke-width="2"/>
+              <polygon points="662,140 682,150 682,170 662,180 642,170 642,150" fill="none" stroke="#5FFFE5" stroke-width="2.5"/>
+              <text x="662" y="165" fill="#5FFFE5" font-size="13" font-weight="800" text-anchor="middle">KSN</text>
+              <text x="662" y="205" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">Kaspersky</text>
+              <text x="662" y="225" fill="#FFFFFF" font-size="16" font-weight="700" text-anchor="middle">Security Network</text>
+
+              <!-- SECTION 2: SOC de Kaspersky -->
+              <rect x="31" y="321" width="781" height="477" rx="35" fill="rgba(0,32,92,0.4)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <rect x="124" y="285" width="594" height="60" rx="20" fill="#00205C" stroke="#5FFFE5" stroke-width="3"/>
+              <text x="421" y="323" fill="#5FFFE5" font-size="26" font-weight="700" text-anchor="middle">SOC de Kaspersky</text>
+
+              <!-- Monitoreo -->
+              <rect x="76" y="380" width="314" height="85" rx="19" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <text x="233" y="430" fill="#FFFFFF" font-size="22" font-weight="600" text-anchor="middle">Monitoreo</text>
+
+              <!-- Plus Symbol -->
+              <text x="415" y="430" fill="#5FFFE5" font-size="45" font-weight="700" text-anchor="middle">+</text>
+
+              <!-- Búsqueda de amenazas -->
+              <rect x="454" y="380" width="313" height="85" rx="19" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <text x="610" y="430" fill="#FFFFFF" font-size="20" font-weight="600" text-anchor="middle">Búsqueda de amenazas</text>
+
+              <!-- Arrow Monitoreo -> Evaluación -->
+              <path d="M 233 465 L 233 505" stroke="#5FFFE5" stroke-width="2.5" marker-end="url(#arrowDown)"/>
+
+              <!-- Evaluación, correlación y enriquecimiento -->
+              <rect x="76" y="510" width="313" height="85" rx="18" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <text x="232" y="546" fill="#FFFFFF" font-size="18" font-weight="600" text-anchor="middle">Evaluación, correlación</text>
+              <text x="232" y="570" fill="#FFFFFF" font-size="18" font-weight="600" text-anchor="middle">y enriquecimiento</text>
+
+              <!-- Incident Response Platform -->
+              <rect x="455" y="510" width="313" height="85" rx="18" fill="rgba(0,92,255,0.3)" stroke="#5FFFE5" stroke-width="2"/>
+              <text x="611" y="546" fill="#5FFFE5" font-size="20" font-weight="700" text-anchor="middle">Incident Response</text>
+              <text x="611" y="570" fill="#5FFFE5" font-size="20" font-weight="700" text-anchor="middle">Platform</text>
+
+              <!-- Arrow Búsqueda de amenazas -> IRP -->
+              <path d="M 610 465 L 610 505" stroke="#5FFFE5" stroke-width="2.5" marker-end="url(#arrowDown)"/>
+
+              <!-- Arrow Evaluación -> SOC Analyst -->
+              <path d="M 232 595 L 232 635" stroke="#5FFFE5" stroke-width="2.5" marker-end="url(#arrowDown)"/>
+
+              <!-- Investigación por parte de analistas de SOC -->
+              <rect x="76" y="640" width="313" height="80" rx="18" fill="rgba(0,92,255,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <text x="232" y="675" fill="#FFFFFF" font-size="18" font-weight="600" text-anchor="middle">Investigación por parte</text>
+              <text x="232" y="698" fill="#FFFFFF" font-size="18" font-weight="600" text-anchor="middle">de analistas de SOC</text>
+
+              <!-- Arrow SOC Analyst -> IRP -->
+              <path d="M 389 680 L 420 680 L 420 552 L 450 552" stroke="#5FFFE5" stroke-width="2.5" fill="none" marker-end="url(#arrowRight)"/>
+
+              <!-- SECTION 3: Portal web de MDR (Center Circle) -->
+              <circle cx="1072" cy="447" r="130" fill="#00205C" stroke="#5FFFE5" stroke-width="8"/>
+              <text x="1072" y="435" fill="#5FFFE5" font-size="28" font-weight="800" text-anchor="middle">Portal web</text>
+              <text x="1072" y="468" fill="#5FFFE5" font-size="28" font-weight="800" text-anchor="middle">de MDR</text>
+
+              <!-- SECTION 4: Infraestructura corporativa -->
+              <rect x="1330" y="65" width="441" height="733" rx="33" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+              <rect x="1390" y="36" width="320" height="70" rx="20" fill="#00205C" stroke="#5FFFE5" stroke-width="3"/>
+              <text x="1550" y="65" fill="#5FFFE5" font-size="22" font-weight="700" text-anchor="middle">Infraestructura</text>
+              <text x="1550" y="90" fill="#5FFFE5" font-size="22" font-weight="700" text-anchor="middle">corporativa</text>
+
+              <!-- External Detection Tools Dashed Box -->
+              <rect x="1365" y="150" width="370" height="185" rx="25" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6 5"/>
+              <g transform="translate(1385, 175)">
+                <rect x="10" y="10" width="330" height="60" rx="12" fill="rgba(0,92,255,0.2)" stroke="rgba(255,255,255,0.15)"/>
+                <text x="50" y="45" fill="#FFFFFF" font-size="18" font-weight="600">Solución Sandbox</text>
+                
+                <rect x="10" y="85" width="330" height="65" rx="12" fill="rgba(0,92,255,0.2)" stroke="rgba(255,255,255,0.15)"/>
+                <text x="50" y="112" fill="#FFFFFF" font-size="16" font-weight="600">Sistema de detección</text>
+                <text x="50" y="134" fill="#FFFFFF" font-size="16" font-weight="600">de intrusiones en la red</text>
+              </g>
+
+              <!-- Endpoint Protection Platform Dashed Box -->
+              <rect x="1365" y="360" width="370" height="260" rx="25" fill="rgba(95,255,229,0.05)" stroke="#5FFFE5" stroke-width="2" stroke-dasharray="6 5"/>
+              <text x="1550" y="405" fill="#5FFFE5" font-size="20" font-weight="700" text-anchor="middle">Plataforma de protección</text>
+              <text x="1550" y="430" fill="#5FFFE5" font-size="20" font-weight="700" text-anchor="middle">de endpoints</text>
+              
+              <circle cx="1470" cy="520" r="45" fill="rgba(0,92,255,0.4)" stroke="#5FFFE5" stroke-width="2"/>
+              <path d="M1455 520 l10 10 l20 -20" fill="none" stroke="#5FFFE5" stroke-width="3"/>
+              
+              <circle cx="1630" cy="520" r="45" fill="rgba(0,92,255,0.4)" stroke="#5FFFE5" stroke-width="2"/>
+              <path d="M1615 520 l10 10 l20 -20" fill="none" stroke="#5FFFE5" stroke-width="3"/>
+
+              <!-- Footnote -->
+              <text x="1375" y="660" fill="rgba(255,255,255,0.72)" font-size="14" font-weight="600">*Las soluciones Kaspersky Sandbox e IDS</text>
+              <text x="1375" y="682" fill="rgba(255,255,255,0.72)" font-size="14" font-weight="600">se ofrecen por separado, y no son necesarias para MDR</text>
+
+              <!-- CONNECTORS & DATA FLOWS -->
+              <path d="M 1330 115 L 817 115" stroke="#5FFFE5" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrowLeft)"/>
+              <rect x="1000" y="88" width="140" height="34" rx="8" fill="#00205C" stroke="#5FFFE5" stroke-width="1.5"/>
+              <text x="1070" y="110" fill="#5FFFE5" font-size="15" font-weight="700" text-anchor="middle">Telemetría ←</text>
+
+              <path d="M 772 190 L 1320 190" stroke="#005CFF" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrowRight)"/>
+
+              <path d="M 812 177 L 880 177 L 880 250 L 1320 250" stroke="#5FFFE5" stroke-width="3" fill="none" marker-end="url(#arrowRight)"/>
+              <rect x="895" y="228" width="120" height="30" rx="6" fill="#00205C" stroke="#5FFFE5" stroke-width="1.5"/>
+              <text x="955" y="248" fill="#5FFFE5" font-size="14" font-weight="700" text-anchor="middle">Respuesta →</text>
+
+              <path d="M 768 552 L 810 552 L 810 447 L 937 447" stroke="#5FFFE5" stroke-width="3" fill="none" marker-end="url(#arrowRight)"/>
+              <rect x="800" y="525" width="160" height="32" rx="8" fill="#00205C" stroke="#5FFFE5" stroke-width="1.5"/>
+              <text x="880" y="546" fill="#5FFFE5" font-size="14" font-weight="700" text-anchor="middle">Respuesta guiada →</text>
+
+              <path d="M 1330 447 L 1207 447" stroke="#005CFF" stroke-width="3" marker-end="url(#arrowLeft)"/>
+              <rect x="1225" y="425" width="100" height="30" rx="6" fill="#00205C" stroke="#005CFF" stroke-width="1.5"/>
+              <text x="1275" y="445" fill="#5FFFE5" font-size="14" font-weight="700" text-anchor="middle">← Acceda a</text>
+            </svg>
           </div>
         </article>
       </section>
