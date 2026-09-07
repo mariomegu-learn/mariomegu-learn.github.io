@@ -264,7 +264,7 @@ p { color: var(--text-secondary); line-height: 1.65; }
 .sla-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.75rem; }
 .sla-table th { color: var(--gms-aqua); font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.5rem 0.8rem; border-bottom: 2px solid var(--gms-blue); font-size: 0.72rem; }
 .sla-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); color: var(--white); vertical-align: middle; }
-.sla-table td small { color: var(--text-secondary); display: block; font-size: 0.65rem; }
+.sla-table td small { color: var(--text-secondary); display: block; font-size: var(--text-sm); margin-top: 3px; font-weight: 500; }
 .sla-table tr:last-child td { border-bottom: none; }
 .sla-table tr:hover td { background: rgba(95, 255, 229, 0.05); }
 
