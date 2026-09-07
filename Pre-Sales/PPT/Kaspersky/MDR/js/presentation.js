@@ -14,9 +14,6 @@
   let activeIndex = 0;
   let touchStartX = 0;
   let touchStartY = 0;
-  let presenterWindow = null;
-
-  const channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('html_ppt_presenter') : null;
 
   totalSlides.textContent = String(slides.length).padStart(2, '0');
   presentationDate.textContent = new Intl.DateTimeFormat('es-CO', {
@@ -52,18 +49,6 @@
     fullscreenButton.addEventListener('click', toggleFullscreen);
   }
 
-  const getPresenterPayload = () => {
-    const currentNotes = slides[activeIndex].querySelector('.speaker-notes')?.innerHTML || '<p>Sin notas registradas para esta diapositiva.</p>';
-    const nextTitle = activeIndex < slides.length - 1 ? (slides[activeIndex + 1].querySelector('h1, h2')?.textContent || `Diapositiva ${activeIndex + 2}`) : 'Fin de la presentación';
-    return {
-      type: 'UPDATE_PRESENTER',
-      index: activeIndex,
-      total: slides.length,
-      notes: currentNotes,
-      nextTitle: nextTitle
-    };
-  };
-
   const updateControls = () => {
     currentSlide.textContent = String(activeIndex + 1).padStart(2, '0');
     progressBar.style.width = `${((activeIndex + 1) / slides.length) * 100}%`;
@@ -71,9 +56,7 @@
     nextButton.disabled = activeIndex === slides.length - 1;
     if (slideSelect) slideSelect.value = activeIndex;
 
-    if (channel) {
-      channel.postMessage(getPresenterPayload());
-    }
+    window.dispatchEvent(new CustomEvent('slidechanged', { detail: { index: activeIndex } }));
   };
 
   const showSlide = (nextIndex) => {
@@ -104,138 +87,6 @@
     updateControls();
   };
 
-  const openPresenterMode = () => {
-    if (presenterWindow && !presenterWindow.closed) {
-      presenterWindow.focus();
-      return;
-    }
-
-    presenterWindow = window.open('', 'PresenterMode', 'width=950,height=650,resizable=yes');
-    if (!presenterWindow) return;
-
-    const currentNotes = slides[activeIndex].querySelector('.speaker-notes')?.innerHTML || 'Sin notas registradas para esta diapositiva.';
-    const nextTitle = activeIndex < slides.length - 1 ? (slides[activeIndex + 1].querySelector('h1, h2')?.textContent || `Diapositiva ${activeIndex + 2}`) : 'Fin de la presentación';
-
-    const selectOptions = slides.map((slide, index) => {
-      const titleEl = slide.querySelector('h1, h2');
-      const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Diapositiva ${index + 1}`;
-      return `<option value="${index}">${String(index + 1).padStart(2, '0')}. ${titleText}</option>`;
-    }).join('');
-
-    presenterWindow.document.write(`
-      <!DOCTYPE html>
-      <html lang="es">
-      <head>
-        <meta charset="UTF-8">
-        <title>Modo Presentador - Kaspersky MDR</title>
-        <style>
-          body { margin: 0; font-family: Inter, sans-serif; background: #00153D; color: #FFFFFF; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-          header { display: flex; justify-content: space-between; align-items: center; background: #00205C; padding: 1rem 1.5rem; border-bottom: 2px solid #5FFFE5; }
-          header h1 { margin: 0; font-size: 1.2rem; color: #5FFFE5; }
-          .header-tools { display: flex; align-items: center; gap: 1rem; }
-          .p-slide-select { background: #00153D; color: #5FFFE5; border: 1px solid #5FFFE5; padding: 0.45rem 0.8rem; border-radius: 8px; font-weight: 600; outline: none; cursor: pointer; max-width: 250px; text-overflow: ellipsis; }
-          .p-slide-select option { background: #00205C; color: #FFFFFF; }
-          .timer { font-size: 1.5rem; font-weight: 800; color: #5FFFE5; font-family: monospace; }
-          .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; padding: 1.5rem; flex: 1; overflow: hidden; }
-          .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(95,255,229,0.3); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; overflow: auto; }
-          .card h2 { margin-top: 0; font-size: 1rem; color: #5FFFE5; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
-          .notes-content { font-size: 1rem; line-height: 1.6; color: #E5E9F0; flex: 1; }
-          .next-preview { font-size: 1.1rem; font-weight: 700; color: #FFFFFF; }
-          footer { display: flex; gap: 1rem; padding: 1rem 1.5rem; background: #00205C; justify-content: center; }
-          button { background: #005CFF; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; }
-          button:disabled { opacity: 0.4; cursor: not-allowed; }
-          button:hover:not(:disabled) { background: #5FFFE5; color: #00205C; }
-        </style>
-      </head>
-      <body>
-        <header>
-          <h1>Modo Presentador | GMS - Kaspersky MDR</h1>
-          <div class="header-tools">
-            <select class="p-slide-select" id="pSlideSelect" aria-label="Seleccionar diapositiva">
-              ${selectOptions}
-            </select>
-            <div class="timer" id="clock">00:00:00</div>
-          </div>
-        </header>
-        <div class="grid">
-          <div class="card">
-            <h2>Diapositiva Actual (<span id="slideIdx">${String(activeIndex + 1).padStart(2, '0')}</span> / ${String(slides.length).padStart(2, '0')})</h2>
-            <div class="notes-content" id="notesBox">${currentNotes}</div>
-          </div>
-          <div class="card">
-            <h2>Siguiente Diapositiva</h2>
-            <div class="next-preview" id="nextBox">${nextTitle}</div>
-          </div>
-        </div>
-        <footer>
-          <button id="pBtn">← Anterior</button>
-          <button id="nBtn">Siguiente →</button>
-        </footer>
-        <script>
-          let seconds = 0;
-          setInterval(() => {
-            seconds++;
-            const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
-            const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-            const s = String(seconds % 60).padStart(2, '0');
-            document.getElementById('clock').textContent = \`\${h}:\${m}:\${s}\`;
-          }, 1000);
-
-          const bc = new BroadcastChannel('html_ppt_presenter');
-          const pSelect = document.getElementById('pSlideSelect');
-          pSelect.value = ${activeIndex};
-          pSelect.onchange = (e) => {
-            bc.postMessage({ type: 'NAVIGATE', index: parseInt(e.target.value, 10) });
-          };
-
-          document.getElementById('pBtn').onclick = () => bc.postMessage({ type: 'PREV' });
-          document.getElementById('nBtn').onclick = () => bc.postMessage({ type: 'NEXT' });
-
-          document.addEventListener('keydown', (e) => {
-            if (e.target.matches('select, input, textarea')) return;
-            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
-              e.preventDefault();
-              bc.postMessage({ type: 'NEXT' });
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-              e.preventDefault();
-              bc.postMessage({ type: 'PREV' });
-            }
-          });
-
-          bc.onmessage = (event) => {
-            if (event.data.type === 'UPDATE_PRESENTER') {
-              document.getElementById('slideIdx').textContent = String(event.data.index + 1).padStart(2, '0');
-              document.getElementById('notesBox').innerHTML = event.data.notes;
-              document.getElementById('nextBox').textContent = event.data.nextTitle;
-              if (pSelect) pSelect.value = event.data.index;
-            }
-          };
-
-          bc.postMessage({ type: 'REQUEST_UPDATE' });
-        </script>
-      </body>
-      </html>
-    `);
-
-    presenterWindow.document.close();
-  };
-
-  if (channel) {
-    channel.onmessage = (event) => {
-      if (event.data.type === 'NAVIGATE') {
-        if (event.data.index !== activeIndex) {
-          showSlide(event.data.index);
-        }
-      } else if (event.data.type === 'PREV') {
-        showSlide(activeIndex - 1);
-      } else if (event.data.type === 'NEXT') {
-        showSlide(activeIndex + 1);
-      } else if (event.data.type === 'REQUEST_UPDATE') {
-        channel.postMessage(getPresenterPayload());
-      }
-    };
-  }
-
   previousButton.addEventListener('click', () => showSlide(activeIndex - 1));
   nextButton.addEventListener('click', () => showSlide(activeIndex + 1));
   homeLink.addEventListener('click', (event) => {
@@ -244,12 +95,35 @@
     window.history.replaceState(null, '', window.location.pathname);
   });
 
+  // Help Modal Functionality
+  const helpModal = document.getElementById('helpModal');
+  const helpModalBtn = document.getElementById('helpModalBtn');
+  const closeHelpModal = document.getElementById('closeHelpModal');
+
+  const toggleHelpModal = (show) => {
+    if (!helpModal) return;
+    const shouldShow = show !== undefined ? show : helpModal.hidden;
+    helpModal.hidden = !shouldShow;
+  };
+
+  if (helpModalBtn) helpModalBtn.addEventListener('click', () => toggleHelpModal(true));
+  if (closeHelpModal) closeHelpModal.addEventListener('click', () => toggleHelpModal(false));
+  if (helpModal) {
+    helpModal.addEventListener('click', (e) => {
+      if (e.target === helpModal) toggleHelpModal(false);
+    });
+  }
+
   document.addEventListener('keydown', (event) => {
-    if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input, textarea, select, button')) return;
+    if (event.key === 'Escape') {
+      toggleHelpModal(false);
+      return;
+    }
+    if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input, textarea, select')) return;
     if (event.key === 'ArrowRight') showSlide(activeIndex + 1);
     if (event.key === 'ArrowLeft') showSlide(activeIndex - 1);
-    if (event.key === 'p' || event.key === 'P') openPresenterMode();
     if (event.key === 'f' || event.key === 'F') toggleFullscreen();
+    if (event.key === '?' || event.key === 'h' || event.key === 'H') toggleHelpModal();
   });
 
   presentation.addEventListener('touchstart', (event) => {
@@ -265,6 +139,9 @@
     if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
     showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
   }, { passive: true });
+
+  window.getCurrentSlideIndex = () => activeIndex;
+  window.showSlideIndex = (idx) => showSlide(idx);
 
   updateControls();
 })();

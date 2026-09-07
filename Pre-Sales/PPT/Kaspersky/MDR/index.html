@@ -22,7 +22,12 @@
         <span class="brand__divider" aria-hidden="true"></span>
         <img class="brand__logo brand__logo--kaspersky" src="http://mariomegu-learn.github.io/Pre-Sales/Assets/Kaspersky_logotype_white.png" alt="Kaspersky">
       </a>
-      <span class="presentation-header__label">Ciberseguridad Gestionada 24/7</span>
+      <div style="display:flex; align-items:center; gap: 0.8rem;">
+        <span class="presentation-header__label">Ciberseguridad Gestionada 24/7</span>
+        <button class="control-button control-button--icon" type="button" id="helpModalBtn" aria-label="Ayuda y Atajos" title="Ayuda y Atajos de Teclado">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </button>
+      </div>
     </header>
 
     <div class="slides-viewport">
@@ -1017,7 +1022,48 @@
       </nav>
     </footer>
   </main>
+  <!-- Help Modal Overlay -->
+  <div class="help-modal-overlay" id="helpModal" hidden>
+    <div class="help-modal-content glass-panel">
+      <div class="help-modal-header">
+        <h3>Atajos de Teclado y Funcionalidades</h3>
+        <button type="button" class="help-modal-close" id="closeHelpModal" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="help-modal-body">
+        <div class="help-shortcut-row">
+          <kbd>P</kbd>
+          <div>
+            <strong>Modo Presentador (Presenter Mode)</strong>
+            <span>Abre la ventana interactiva del orador con notas sincronizadas, reloj y vista previa.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>D</kbd>
+          <div>
+            <strong>Herramientas de Dibujo (Draw Mode)</strong>
+            <span>Activa la barra flotante con lápiz, borrador, formas geométricas, líneas, flechas y puntero láser.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>F</kbd>
+          <div>
+            <strong>Pantalla Completa (Fullscreen)</strong>
+            <span>Alterna entre la vista estándar y el modo pantalla completa.</span>
+          </div>
+        </div>
+        <div class="help-shortcut-row">
+          <kbd>←</kbd> <kbd>→</kbd>
+          <div>
+            <strong>Navegación entre Diapositivas</strong>
+            <span>Navega libremente hacia adelante o atrás (compatible con gestos táctiles).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/presentation.js" defer></script>
+  <script src="js/presenter.js" defer></script>
   <script src="js/drawing.js" defer></script>
 </body>
 </html>
