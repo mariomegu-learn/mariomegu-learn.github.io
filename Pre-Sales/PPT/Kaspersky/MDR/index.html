@@ -630,8 +630,18 @@
             <div class="anatomy-left glass-panel">
               <h3>Incidente Manual</h3>
               <p>Respuesta ante incidentes y acciones correctivas controladas.</p>
-              <div class="anatomy-icon-hero" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2v3M4.93 4.93l2.12 2.12M19.07 4.93l-2.12 2.12"></path><path d="M12 8a6 6 0 0 0-6 6v3h12v-3a6 6 0 0 0-6-6z"></path><path d="M9 17v1a3 3 0 0 0 6 0v-1"></path></svg>
+              <div class="anatomy-icon-flat" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="32" y1="8" x2="32" y2="2" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="15" y1="15" x2="10" y2="10" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="49" y1="15" x2="54" y2="10" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="8" y1="32" x2="2" y2="32" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="56" y1="32" x2="62" y2="32" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 20 40 C 20 23, 44 23, 44 40 Z" fill="rgba(95, 255, 229, 0.2)" stroke="#5FFFE5" stroke-width="3" stroke-linejoin="round"/>
+                  <circle cx="32" cy="28" r="5" fill="#5FFFE5"/>
+                  <rect x="16" y="40" width="32" height="12" rx="4" fill="#005CFF" stroke="#5FFFE5" stroke-width="2.5"/>
+                  <rect x="20" y="52" width="24" height="8" rx="2" fill="rgba(0, 32, 92, 0.8)" stroke="#5FFFE5" stroke-width="2"/>
+                </svg>
               </div>
             </div>
 
@@ -674,8 +684,16 @@
             <div class="anatomy-left glass-panel">
               <h3>MDR AI Analyst</h3>
               <p>Inteligencia artificial aplicada al análisis y filtrado automático de alertas.</p>
-              <div class="anatomy-icon-hero" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 4.5a3.5 3.5 0 0 0-3.5 3.5c0 1.25.65 2.35 1.63 2.97A3.5 3.5 0 0 0 8.5 17a3.5 3.5 0 0 0 3.5 2.5V4.5zM12 4.5a3.5 3.5 0 0 1 3.5 3.5c0 1.25-.65 2.35-1.63 2.97A3.5 3.5 0 0 1 15.5 17a3.5 3.5 0 0 1-3.5 2.5V4.5z"></path></svg>
+              <div class="anatomy-icon-flat" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 31 12 C 22 12, 12 20, 12 32 C 12 42, 18 50, 26 52 C 16 46, 20 32, 28 30 C 20 22, 26 14, 31 14 Z" fill="rgba(95, 255, 229, 0.2)" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M 33 12 C 42 12, 52 20, 52 32 C 52 42, 46 50, 38 52 C 48 46, 44 32, 36 30 C 44 22, 38 14, 33 14 Z" fill="rgba(95, 255, 229, 0.2)" stroke="#5FFFE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="32" y1="12" x2="32" y2="52" stroke="#005CFF" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="24" cy="24" r="2.5" fill="#5FFFE5"/>
+                  <circle cx="40" cy="24" r="2.5" fill="#5FFFE5"/>
+                  <circle cx="22" cy="38" r="2.5" fill="#5FFFE5"/>
+                  <circle cx="42" cy="38" r="2.5" fill="#5FFFE5"/>
+                </svg>
               </div>
             </div>
 
@@ -707,6 +725,64 @@
                 <span class="ai-metric-card__label">de las alertas resueltas</span>
                 <p>Aumenta significativamente el rendimiento de los analistas al permitir SLA de tiempo de reacción minimizados.</p>
               </article>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide" id="slide-13" data-slide aria-labelledby="slide-13-title" hidden>
+        <article class="slide__content">
+          <header class="slide-heading slide-heading--compact">
+            <p class="eyebrow">Captura y Análisis de Datos</p>
+            <h2 id="slide-13-title">Tipos de telemetría</h2>
+          </header>
+          <div class="telemetry-grid">
+            <!-- Col 1: Categories Card -->
+            <div class="telemetry-cat-card glass-panel">
+              <div class="telemetry-cat-item">
+                <strong>Eventos del sistema de archivos</strong>
+                <span>(creación de archivos, modificación)</span>
+              </div>
+              <div class="telemetry-cat-item">
+                <strong>Eventos del proceso</strong>
+                <span>(inicio del proceso, inyección del proceso, etc.)</span>
+              </div>
+              <div class="telemetry-cat-item">
+                <strong>Eventos de red</strong>
+                <span>(conexión, consulta DNS, descarga de archivos, correo electrónico, etc.)</span>
+              </div>
+              <div class="telemetry-cat-item">
+                <strong>Eventos del sistema</strong>
+                <span>(registro, registros de eventos, WMI, ejecución automática, etc.)</span>
+              </div>
+              <div class="telemetry-cat-item">
+                <strong>Eventos de seguridad de endpoints</strong>
+                <span>(por ejemplo, detección AV)</span>
+              </div>
+              <div class="telemetry-cat-item">
+                <strong>Eventos de servicio</strong>
+              </div>
+            </div>
+
+            <!-- Col 2: Structured Telemetry Event Example -->
+            <div class="telemetry-example-col">
+              <div>
+                <h3>Ejemplo</h3>
+                <p>Algunos campos del evento de inicio del proceso:</p>
+              </div>
+              <div class="telemetry-code-box">
+<pre>{
+  <span class="key">"EventType"</span>: <span class="val">"ProcessStart"</span>,
+  <span class="key">"ProcessId"</span>: <span class="val">4820</span>,
+  <span class="key">"ExecutablePath"</span>: <span class="val">"C:\\Windows\\System32\\powershell.exe"</span>,
+  <span class="key">"CommandLine"</span>: <span class="val">"powershell.exe -ExecutionPolicy Bypass -File script.ps1"</span>,
+  <span class="key">"User"</span>: <span class="val">"NT AUTHORITY\\SYSTEM"</span>,
+  <span class="key">"SessionId"</span>: <span class="val">1</span>,
+  <span class="key">"ParentProcessId"</span>: <span class="val">1044</span>,
+  <span class="key">"ProductVersion"</span>: <span class="val">"10.0.19041.1"</span>,
+  <span class="key">"IntegrityLevel"</span>: <span class="val">"High"</span>
+}</pre>
+              </div>
             </div>
           </div>
         </article>
