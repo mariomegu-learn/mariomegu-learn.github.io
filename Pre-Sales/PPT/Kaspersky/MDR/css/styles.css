@@ -4,11 +4,11 @@
   --gms-aqua: #5FFFE5;
   --gms-gray: #C8C8C8;
   --white: #FFFFFF;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.14);
-  --glass-shadow: rgba(0, 32, 92, 0.20);
+  --glass-bg: rgba(0, 32, 92, 0.45);
+  --glass-border: rgba(95, 255, 229, 0.22);
+  --glass-shadow: rgba(0, 32, 92, 0.35);
   --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-secondary: rgba(255, 255, 255, 0.82);
   --accent-primary: #005CFF;
   --accent-secondary: #5FFFE5;
   --radius-sm: 12px;
@@ -45,7 +45,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--gms-aqua); outl
 .ambient { position: absolute; z-index: -1; border-radius: 50%; filter: blur(38px); pointer-events: none; }
 .ambient--blue { width: min(60vw, 780px); height: min(60vw, 780px); top: -30vw; right: -12vw; background: rgba(0, 92, 255, 0.46); }
 .ambient--aqua { width: min(32vw, 500px); height: min(32vw, 500px); bottom: -20vw; left: 10vw; background: rgba(95, 255, 229, 0.15); }
-.glass-panel { border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: var(--glass-bg); box-shadow: var(--shadow-soft); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast); }.glass-panel:hover:not(.presentation-header):not(.control-bar) { border-color: var(--gms-aqua); box-shadow: 0 0 0 1px rgba(95, 255, 229, .25), 0 16px 36px rgba(0, 92, 255, .26); transform: translateY(-2px); }
+.glass-panel { border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: var(--glass-bg); box-shadow: var(--shadow-soft); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast); }.glass-panel:hover:not(.presentation-header):not(.control-bar) { border-color: var(--gms-aqua); box-shadow: 0 0 15px rgba(95, 255, 229, 0.35), 0 16px 36px rgba(0, 92, 255, 0.3); transform: translateY(-2px); }
 
 .presentation-header { position: absolute; z-index: 5; top: 0.85rem; left: var(--space-5); right: var(--space-5); display: flex; align-items: center; justify-content: space-between; min-height: 58px; padding: 0.4rem 1.2rem; }
 .brand { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--white); text-decoration: none; }
@@ -161,6 +161,8 @@ p { color: var(--text-secondary); line-height: 1.65; }
 
 .arch-svg-container { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; }
 .arch-svg-container svg { width: 100%; height: auto; max-height: calc(100vh - 200px); display: block; filter: drop-shadow(0 10px 30px rgba(0, 32, 92, 0.4)); }
+.arch-svg-container path[stroke-dasharray] { animation: dashFlow 25s linear infinite; }
+@keyframes dashFlow { to { stroke-dashoffset: -200; } }
 
 .arch-center-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.8rem; border-radius: var(--radius-md); border: 2px solid var(--gms-aqua); background: linear-gradient(135deg, rgba(0, 92, 255, 0.4), rgba(0, 32, 92, 0.7)); box-shadow: 0 0 20px rgba(95, 255, 229, 0.2); gap: 0.4rem; }
 .arch-center-card h3 { font-size: 1.1rem; color: var(--gms-aqua); font-weight: 800; margin: 0; }
