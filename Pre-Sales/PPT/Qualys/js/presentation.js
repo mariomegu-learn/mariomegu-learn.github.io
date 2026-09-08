@@ -112,8 +112,48 @@
     window.history.replaceState(null, '', window.location.pathname);
   });
 
+  // Image Zoom Lightbox
+  const imageModal = document.getElementById('imageModal');
+  const imageModalImg = document.getElementById('imageModalImg');
+  const closeImageModal = document.getElementById('closeImageModal');
+
+  const closeZoomModal = () => {
+    if (!imageModal) return;
+    imageModal.classList.remove('active');
+    imageModal.setAttribute('aria-hidden', 'true');
+  };
+
+  const openZoomModal = (imgSrc, imgAlt) => {
+    if (!imageModal || !imageModalImg) return;
+    imageModalImg.src = imgSrc;
+    imageModalImg.alt = imgAlt || 'Imagen ampliada';
+    imageModal.classList.add('active');
+    imageModal.setAttribute('aria-hidden', 'false');
+  };
+
+  if (closeImageModal) closeImageModal.addEventListener('click', closeZoomModal);
+  if (imageModal) {
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal || e.target === imageModalImg) closeZoomModal();
+    });
+  }
+
+  // Make slide content images zoomable on click
+  const slideImages = document.querySelectorAll('.slide figure img, .vmdr-diagram img, .dashboard-preview img');
+  slideImages.forEach((img) => {
+    img.classList.add('zoomable-image');
+    img.setAttribute('title', 'Haz clic para agrandar');
+    img.addEventListener('click', () => {
+      openZoomModal(img.src, img.alt);
+    });
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+      if (imageModal && imageModal.classList.contains('active')) {
+        closeZoomModal();
+        return;
+      }
       toggleHelpModal(false);
       return;
     }

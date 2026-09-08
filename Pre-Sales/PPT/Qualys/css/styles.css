@@ -77,6 +77,15 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--gms-aqua); outl
 .help-shortcut-row strong { font-size: var(--text-sm); color: var(--white); }
 .help-shortcut-row span { font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.35; }
 
+.zoomable-image { cursor: zoom-in; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+.zoomable-image:hover { transform: scale(1.02); }
+.image-modal-overlay { position: fixed; inset: 0; z-index: 1100; background: rgba(0, 15, 45, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 250ms ease; }
+.image-modal-overlay.active { opacity: 1; pointer-events: auto; }
+.image-modal-content { position: relative; max-width: 92vw; max-height: 88vh; display: flex; align-items: center; justify-content: center; }
+.image-modal-content img { max-width: 92vw; max-height: 88vh; object-fit: contain; border-radius: var(--radius-md); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7); border: 1px solid var(--glass-border); cursor: zoom-out; }
+.image-modal-close { position: absolute; top: -1.25rem; right: -1.25rem; background: rgba(0, 32, 92, 0.95); border: 1px solid var(--gms-aqua); color: var(--white); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.5); transition: transform 150ms, background 150ms; }
+.image-modal-close:hover { transform: scale(1.1); background: rgba(255, 77, 77, 0.85); border-color: #FF4D4D; }
+
 .slides-viewport { position: relative; width: 100%; min-height: 100svh; }
 .slide { position: absolute; inset: 0; display: grid; align-items: center; overflow: auto; overscroll-behavior: contain; padding: 7.75rem clamp(1.5rem, 6vw, 7rem) 7.5rem; opacity: 0; transform: translateX(5%) scale(0.985); pointer-events: none; transition: opacity var(--transition-base) var(--ease-premium), transform var(--transition-base) var(--ease-premium); }
 .slide.slide--active { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
