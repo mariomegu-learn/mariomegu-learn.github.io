@@ -231,7 +231,7 @@
                     text-align:justify;
                     padding-bottom:15px;
                   ">
-                  Las credenciales comprometidas continúan siendo un vector relevante de acceso inicial. Cuando esas credenciales pertenecen a cuentas privilegiadas, el impacto puede escalar rápidamente: movimiento lateral, acceso a sistemas críticos, cambios no autorizados y exposición de información sensible.
+                  Las claves robadas o compartidas son la principal puerta de entrada para los ciberataques. Cuando un atacante toma el control de una cuenta de administrador, puede tomar el control de toda la empresa: acceder a bases de datos, detener operaciones y exponer información confidencial.
                 </td>
               </tr>
 
@@ -633,7 +633,7 @@
                 text-align:justify;
                 padding-bottom:12px;
               ">
-              En términos simples: PAM es una disciplina y conjunto de tecnologías de ciberseguridad destinadas a descubrir, asegurar, controlar, monitorear y auditar cuentas, credenciales, sesiones y privilegios de alto impacto.
+              En términos simples: PAM (Gestión de Accesos Privilegiados) es la <b>bóveda de seguridad digital</b> que guarda, controla y graba en video todo lo que hacen los administradores de tecnología y los proveedores externos dentro de la empresa.
             </div>
 
             <div
@@ -643,7 +643,12 @@
                 color:#606970;
                 text-align:justify;
               ">
-              PAM aplica principios como <b>Least Privilege</b>, <b>Just-in-Time (JIT)</b> y, cuando la arquitectura lo permite, <b>Zero Standing Privileges</b>: reducir los privilegios permanentes y conceder acceso elevado solo cuando existe una necesidad autorizada y por un tiempo limitado.
+              PAM aplica 3 conceptos clave fáciles de explicar a cualquier cliente:
+              <ul style="margin-top:8px; margin-bottom:0; padding-left:20px;">
+                <li style="padding-bottom:4px;"><b>Mínimo Privilegio (Least Privilege):</b> Entregar a cada usuario únicamente los permisos estrictamente necesarios para su trabajo.</li>
+                <li style="padding-bottom:4px;"><b>Permisos por Demanda (Just-in-Time / JIT):</b> Otorgar accesos elevados solo cuando el usuario los solicita y durante el tiempo exacto que dura la labor.</li>
+                <li style="padding-bottom:4px;"><b>Cero Claves Permanentes (Zero Standing Privileges):</b> Eliminar superusuarios con acceso libre las 24 horas para evitar riesgos si una clave es robada.</li>
+              </ul>
             </div>
 
           </td>
@@ -735,11 +740,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Privileged Account &amp; Session Management
+                    PASM (Bóveda y Monitoreo de Sesiones)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Vaulting, rotación de credenciales, control de acceso, proxy de sesiones, grabación y evidencia de actividad privilegiada.
+                    Guarda y rota contraseñas automáticamente, y graba en video todo lo que hace un usuario avanzado durante su sesión.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -781,11 +786,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Privilege Elevation &amp; Delegation Management
+                    PEDM (Elevación de Permisos sin Dar Claves)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Elevación granular de privilegios para aplicaciones, comandos o tareas sin entregar credenciales administrativas al usuario.
+                    Permite a un empleado ejecutar programas de administrador para tareas específicas sin tener que entregarle la contraseña maestra.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -834,11 +839,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Privileged Remote Access
+                    PRA / VPAM (Acceso Seguro para Proveedores)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Acceso de terceros a recursos autorizados, con control de sesión y sin necesidad de exponer la contraseña privilegiada.
+                    Conecta a contratistas directamente al sistema que necesitan reparar sin revelarles claves corporativas ni usar VPNs complejas.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -880,11 +885,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Secrets &amp; Workload Identity
+                    SECRETS (Protección de Claves en Scripts y Apps)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Protección de secretos utilizados por aplicaciones, pipelines, APIs, scripts, automatizaciones y workloads.
+                    Oculta y protege las contraseñas que usan las aplicaciones, programas automáticos y robots sin dejarlas visibles en texto plano.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -931,11 +936,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    Just-in-Time y reducción de privilegios permanentes
+                    JIT / ZSP (Permisos Temporales por Demanda)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Concede privilegios elevados únicamente cuando son necesarios, durante una ventana limitada y bajo controles como MFA, aprobación o políticas de contexto.
+                    Otorga permisos de administrador únicamente mientras se realiza una tarea previamente aprobada y los retira automáticamente al terminar.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -1235,11 +1240,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    ¿Quién puede acceder?
+                    ¿Quién entra a la empresa? (IAM)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Identidad, autenticación, SSO, MFA, autorización, roles, ciclo de vida y acceso a aplicaciones.
+                    Gestiona la identidad de empleados comunes: inicio de sesión, correo electrónico, verificación en dos pasos (MFA) y permisos para usar aplicaciones del día a día.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
@@ -1281,11 +1286,11 @@
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    ¿Quién puede usar privilegios críticos y qué puede hacer?
+                    ¿Quién controla los servidores y qué puede hacer? (PAM)
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
-                    Credenciales privileged, sesiones, elevación, JIT, terceros, secretos, auditoría y mínimo privilegio.
+                    Protege las llaves maestras de la empresa: accesos a servidores y bases de datos, claves de proveedores externos, permisos temporales y grabación en video.
                   </div>
                   <!--[if mso]>
                   </v:textbox>
