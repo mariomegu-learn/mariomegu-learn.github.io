@@ -645,9 +645,9 @@
               ">
               PAM aplica 3 conceptos clave fáciles de explicar a cualquier cliente:
               <ul style="margin-top:8px; margin-bottom:0; padding-left:20px;">
-                <li style="padding-bottom:4px;"><b>Mínimo Privilegio (Least Privilege):</b> Entregar a cada usuario únicamente los permisos estrictamente necesarios para su trabajo.</li>
-                <li style="padding-bottom:4px;"><b>Permisos por Demanda (Just-in-Time / JIT):</b> Otorgar accesos elevados solo cuando el usuario los solicita y durante el tiempo exacto que dura la labor.</li>
-                <li style="padding-bottom:4px;"><b>Cero Claves Permanentes (Zero Standing Privileges):</b> Eliminar superusuarios con acceso libre las 24 horas para evitar riesgos si una clave es robada.</li>
+                <li style="padding-bottom:4px;"><b>Mínimo Privilegio:</b> Entregar a cada usuario únicamente los permisos estrictamente necesarios para su trabajo.</li>
+                <li style="padding-bottom:4px;"><b>Permisos Temporales por Demanda:</b> Otorgar accesos elevados solo cuando el usuario los solicita y durante el tiempo exacto que dura la labor.</li>
+                <li style="padding-bottom:4px;"><b>Cero Claves Permanentes:</b> Eliminar superusuarios con acceso libre las 24 horas para evitar riesgos si una clave es robada.</li>
               </ul>
             </div>
 
@@ -695,7 +695,7 @@
                 color:#606970;
                 text-align:justify;
               ">
-              PASM y PEDM siguen siendo pilares centrales, pero una estrategia PAM moderna puede incorporar descubrimiento, acceso remoto privilegiado, secretos, JIT y control de identidades de máquina según el alcance de cada plataforma.
+              La gestión de contraseñas y los permisos temporales son los pilares centrales, pero una estrategia PAM moderna también protege los accesos de proveedores externos, asegura claves automáticas de aplicaciones y audita todas las actividades críticas.
             </div>
 
           </td>
@@ -734,13 +734,13 @@
                         <img src="https://img.icons8.com/ios-filled/64/005CFF/lock.png" width="32" height="32" alt="PASM" style="width:32px; height:32px; display:block;">
                       </td>
                       <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PASM</span>
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">BÓVEDA Y SESIONES</span>
                       </td>
                     </tr>
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    PASM (Bóveda y Monitoreo de Sesiones)
+                    Bóveda de Claves y Monitoreo de Sesiones
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
@@ -780,13 +780,13 @@
                         <img src="https://img.icons8.com/ios-filled/64/005CFF/security-pass.png" width="32" height="32" alt="PEDM" style="width:32px; height:32px; display:block;">
                       </td>
                       <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PEDM</span>
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">ELEVACIÓN DE PERMISOS</span>
                       </td>
                     </tr>
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    PEDM (Elevación de Permisos sin Dar Claves)
+                    Elevación Controlada de Permisos
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
@@ -833,13 +833,13 @@
                         <img src="https://img.icons8.com/ios-filled/64/005CFF/remote-desktop.png" width="32" height="32" alt="PRA / VPAM" style="width:32px; height:32px; display:block;">
                       </td>
                       <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PRA / VPAM</span>
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PROVEEDORES Y TERCEROS</span>
                       </td>
                     </tr>
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    PRA / VPAM (Acceso Seguro para Proveedores)
+                    Acceso Seguro para Proveedores
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
@@ -879,13 +879,13 @@
                         <img src="https://img.icons8.com/ios-filled/64/005CFF/password.png" width="32" height="32" alt="SECRETS" style="width:32px; height:32px; display:block;">
                       </td>
                       <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">SECRETS</span>
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">CLAVES DE APLICACIONES</span>
                       </td>
                     </tr>
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    SECRETS (Protección de Claves en Scripts y Apps)
+                    Protección de Claves en Apps y Scripts
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
@@ -930,13 +930,13 @@
                         <img src="https://img.icons8.com/ios-filled/64/005CFF/clock.png" width="32" height="32" alt="JIT / ZSP" style="width:32px; height:32px; display:block;">
                       </td>
                       <td align="right" valign="middle">
-                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">JIT / ZSP</span>
+                        <span style="display:inline-block; padding:3px 8px; background-color:#e6f0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.5px;">PERMISOS TEMPORALES</span>
                       </td>
                     </tr>
                   </table>
 
                   <div style="font-size:17px; line-height:23px; font-weight:bold; color:#062351; padding-top:12px; padding-bottom:9px;">
-                    JIT / ZSP (Permisos Temporales por Demanda)
+                    Permisos Temporales por Demanda
                   </div>
 
                   <div style="font-size:14px; line-height:22px; color:#606970;">
@@ -1369,10 +1369,10 @@
                 <!-- ROW 1 -->
                 <tr style="background-color:#ffffff;">
                   <td valign="top" style="padding:14px 16px; font-size:14px; font-weight:bold; color:#062351; border-bottom:1px solid #e4e9ee;">
-                    Vaulting + Rotación
+                    Bóveda y Cambio Automático de Claves
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    Reduce exposición de credenciales compartidas o estáticas y automatiza su ciclo de vida.
+                    Elimina claves compartidas en Excel o notas, y renueva contraseñas de forma automática.
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#005CFF; font-style:italic; border-bottom:1px solid #e4e9ee;">
                     “Tenemos las claves en Excel / KeePass / un documento compartido.”
@@ -1382,10 +1382,10 @@
                 <!-- ROW 2 -->
                 <tr style="background-color:#f9fafb;">
                   <td valign="top" style="padding:14px 16px; font-size:14px; font-weight:bold; color:#062351; border-bottom:1px solid #e4e9ee;">
-                    Session Monitoring
+                    Grabación y Monitoreo de Sesiones
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    Aporta trazabilidad, evidencia y capacidad de investigación sobre acciones privileged.
+                    Graba en video y genera evidencia exacta de todo lo que realiza un usuario avanzado.
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#005CFF; font-style:italic; border-bottom:1px solid #e4e9ee;">
                     “No sabemos exactamente qué hizo el proveedor.”
@@ -1395,10 +1395,10 @@
                 <!-- ROW 3 -->
                 <tr style="background-color:#ffffff;">
                   <td valign="top" style="padding:14px 16px; font-size:14px; font-weight:bold; color:#062351; border-bottom:1px solid #e4e9ee;">
-                    PRA / VPAM
+                    Acceso Seguro para Proveedores
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    Limita a terceros a recursos autorizados sin exponer credenciales y con mayor control de sesión.
+                    Conecta a terceros solo a lo que necesitan sin revelar claves ni requerir VPNs complejas.
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#005CFF; font-style:italic; border-bottom:1px solid #e4e9ee;">
                     “Los proveedores ingresan por VPN, RDP, AnyDesk o TeamViewer.”
@@ -1408,10 +1408,10 @@
                 <!-- ROW 4 -->
                 <tr style="background-color:#f9fafb;">
                   <td valign="top" style="padding:14px 16px; font-size:14px; font-weight:bold; color:#062351; border-bottom:1px solid #e4e9ee;">
-                    JIT / PEDM
+                    Permisos Temporales y Control de Administrador
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    Reduce la ventana de exposición asociada a privilegios permanentes y administrador local.
+                    Elimina permisos de administrador permanente en laptops y servidores, dándolos solo por horas.
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#005CFF; font-style:italic; border-bottom:1px solid #e4e9ee;">
                     “Necesitan ser administradores para poder trabajar.”
@@ -1421,10 +1421,10 @@
                 <!-- ROW 5 -->
                 <tr style="background-color:#ffffff;">
                   <td valign="top" style="padding:14px 16px; font-size:14px; font-weight:bold; color:#062351;">
-                    Secrets Management
+                    Gestión de Claves en Código y Apps
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970;">
-                    Evita secretos estáticos embebidos en código, scripts o pipelines.
+                    Oculta contraseñas dentro de programas y scripts para que no queden visibles en texto plano.
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#005CFF; font-style:italic;">
                     “La contraseña está dentro del script / pipeline.”
@@ -1559,7 +1559,7 @@
                         </div>
 
                         <div style="font-size:14px; line-height:22px; color:#606970; padding-bottom:10px;">
-                          <b>Oportunidad:</b> PRA/VPAM, acceso granular, ocultamiento de credenciales y monitoreo de sesión.
+                          <b>Oportunidad:</b> Acceso remoto seguro para proveedores, permisos granulares, ocultamiento de credenciales y grabación de sesión.
                         </div>
 
                         <div style="font-size:14px; line-height:20px; color:#005CFF; font-weight:bold; background-color:#f3f8ff; padding:10px 14px; border-radius:6px; border-left:3px solid #005CFF;">
@@ -1602,7 +1602,7 @@
                         </div>
 
                         <div style="font-size:14px; line-height:22px; color:#606970; padding-bottom:10px;">
-                          <b>Oportunidad:</b> JIT, PEDM, control de Domain Admins, cuentas locales y dispositivos de red.
+                          <b>Oportunidad:</b> Permisos temporales por demanda, elevación controlada, auditoría de administradores y equipos de red.
                         </div>
 
                         <div style="font-size:14px; line-height:20px; color:#005CFF; font-weight:bold; background-color:#f3f8ff; padding:10px 14px; border-radius:6px; border-left:3px solid #005CFF;">
@@ -1645,7 +1645,7 @@
                         </div>
 
                         <div style="font-size:14px; line-height:22px; color:#606970; padding-bottom:10px;">
-                          <b>Oportunidad:</b> Secrets Management, rotación y acceso dinámico para aplicaciones y workloads.
+                          <b>Oportunidad:</b> Protección de claves en aplicaciones, rotación automática y acceso dinámico para programas.
                         </div>
 
                         <div style="font-size:14px; line-height:20px; color:#005CFF; font-weight:bold; background-color:#f3f8ff; padding:10px 14px; border-radius:6px; border-left:3px solid #005CFF;">
@@ -1721,7 +1721,7 @@
                     “Ya tenemos KeePass.”
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    Un gestor de contraseñas almacena secretos; PAM puede añadir descubrimiento, rotación, control de acceso, sesiones, JIT y políticas especializadas.
+                    Un gestor de contraseñas solo guarda claves; PAM descubre cuentas ocultas, cambia claves automáticamente, graba sesiones en video y otorga permisos por tiempo limitado.
                   </td>
                 </tr>
 
@@ -1741,7 +1741,7 @@
                     “Ya tenemos VPN.”
                   </td>
                   <td valign="top" style="padding:14px 16px; font-size:14px; line-height:20px; color:#606970; border-bottom:1px solid #e4e9ee;">
-                    La VPN proporciona conectividad. PAM/PRA agrega control específico sobre el recurso privilegiado, la credencial utilizada y la actividad realizada.
+                    La VPN solo abre un canal de red; PAM controla qué servidor exacto puede tocar el proveedor, oculta la contraseña corporativa y graba en video todo lo que realiza.
                   </td>
                 </tr>
 
