@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,8 +56,32 @@
 
     .container {
       width: 100%;
-      max-width: 680px;
+      max-width: 600px;
+      margin: 0 auto;
       background: #ffffff;
+    }
+
+    .feature-card-inner {
+      width: 100%;
+      /* The outer table cell owns the outline and stretches with its row. */
+      border-collapse: separate !important;
+      background-color: transparent;
+      display: table !important;
+    }
+
+    .radar-grid { border-collapse: separate !important; }
+    .feature-card {
+      vertical-align: top;
+      transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    @media (hover: hover) {
+      .feature-card:hover {
+        border-color: #005CFF !important;
+        box-shadow: 0 4px 12px rgba(0,92,255,0.1);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .feature-card { transition: none; }
     }
 
     .px {
@@ -132,16 +156,35 @@
       font-weight: 700;
     }
 
-    @media screen and (max-width: 680px) {
+    body, table, td, p, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    .stack { box-sizing: border-box; }
+    a:focus-visible { outline: 3px solid #5FFFE5; outline-offset: 4px; }
+    @media screen and (max-width: 620px) {
+      .wrapper > tbody > tr > td { padding: 0 !important; }
+      .container { border-radius: 0 !important; }
       .container { width: 100% !important; }
       .px { padding-left: 22px !important; padding-right: 22px !important; }
       .section { padding-top: 32px !important; padding-bottom: 32px !important; }
-      .stack { display: block !important; width: 100% !important; }
-      .stack-spacer { height: 12px !important; line-height: 12px !important; }
+      .stack { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+      .stack-spacer { display: block !important; width: 100% !important; height: 12px !important; line-height: 12px !important; font-size: 0 !important; padding: 0 !important; }
+      .section-copy, .card-copy { font-size: 16px !important; line-height: 25px !important; }
+      .card-title { font-size: 17px !important; line-height: 24px !important; }
+      .mobile-center img { margin-left: auto !important; margin-right: auto !important; }
+      .mobile-center + .mobile-center { padding-top: 16px !important; }
+      .cta-table { width: 100% !important; }
+      .cta-link { display: block !important; padding: 16px !important; font-size: 16px !important; line-height: 24px !important; }
+      .objections, .objections tbody, .objections tr, .objections td { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+      .objections tr:first-child { display: none !important; }
+      .objections td:first-child { padding: 18px 18px 6px !important; border-bottom: 0 !important; font-size: 16px !important; line-height: 24px !important; color: #00205C !important; }
+      .objections td + td { padding: 0 18px 18px !important; font-size: 16px !important; line-height: 25px !important; }
       .section-title { font-size: 24px !important; line-height: 30px !important; }
-      .hero-title { font-size: 32px !important; line-height: 38px !important; }
+      .hero-title { font-size: 30px !important; line-height: 38px !important; }
       .mobile-center { text-align: center !important; }
       .mobile-full { width: 100% !important; }
+    }
+    @media screen and (max-width: 360px) {
+      .px { padding-left: 18px !important; padding-right: 18px !important; }
+      .hero-title { font-size: 27px !important; line-height: 35px !important; }
     }
   </style>
 
@@ -162,19 +205,20 @@
     <tr>
       <td align="center" style="padding:24px 12px;">
 
-        <table role="presentation" width="680" class="container" bgcolor="#ffffff" style="max-width:680px;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,32,92,.08);">
+        <!--[if mso]><table role="presentation" width="600" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" class="container" bgcolor="#ffffff" style="width:100%;max-width:600px;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,32,92,.08);">
 
           <!-- HEADER -->
           <tr>
-            <td class="px" style="padding-top:24px;padding-bottom:20px;border-bottom:1px solid #e8ebef;">
+            <td class="px" style="padding-top:24px;padding-bottom:24px;">
               <table role="presentation" width="100%">
                 <tr>
                   <td valign="middle" class="stack mobile-center">
                     <img src="https://gmsseguridad.com/wp-content/uploads/2022/10/logo-header.png" width="118" alt="GMS" style="width:118px;max-width:118px;height:auto;">
                   </td>
-                  <td valign="middle" align="right" class="stack mobile-center" style="font-size:11px;line-height:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5a6370;">
-                    Kaspersky ASAP · Awareness<br>
-                    <span style="color:#005CFF;">Habilitación comercial GMS</span>
+                  <td valign="middle" align="right" class="stack mobile-center" style="padding-top:10px;">
+                    <span style="display:inline-block; padding:4px 10px; background-color:#eaf0ff; color:#005CFF; border-radius:4px; font-size:11px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase;">Kaspersky ASAP</span>
+                    <div style="font-size:10px; line-height:14px; font-weight:bold; color:#5a6370; margin-top:4px; text-transform:uppercase; letter-spacing:0.5px;">Habilitación comercial GMS</div>
                   </td>
                 </tr>
               </table>
@@ -228,44 +272,74 @@
                 No necesitas escuchar todas. Una o dos señales bien identificadas son suficientes para avanzar con discovery.
               </p>
 
-              <table role="presentation" width="100%">
+              <table role="presentation" class="radar-grid" width="100%" style="border-collapse:separate;border-spacing:0;">
                 <tr>
-                  <td class="stack" width="49%" valign="top" style="border:1px solid #e5e9ef;border-radius:12px;padding:18px;">
-                    <span class="pill">Programa</span>
-                    <div class="card-title" style="margin-top:10px;">La capacitación ocurre una o dos veces al año</div>
-                    <div class="card-copy" style="margin-top:6px;">Hay charlas o cursos aislados, pero no existe un ciclo continuo de aprendizaje y refuerzo.</div>
+                  <td class="stack feature-card" width="49%" valign="top" style="border:1px solid #e4e9ee;border-radius:12px;background:#ffffff;">
+                    <table role="presentation" width="100%" class="feature-card-inner">
+                      <tr>
+                        <td style="padding:22px;">
+                          <span class="pill">Programa</span>
+                          <div class="card-title" style="margin-top:10px;">La capacitación ocurre una o dos veces al año</div>
+                          <div class="card-copy" style="margin-top:6px;">Hay charlas o cursos aislados, pero no existe un ciclo continuo de aprendizaje y refuerzo.</div>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                   <td class="stack-spacer" width="2%">&nbsp;</td>
-                  <td class="stack" width="49%" valign="top" style="border:1px solid #e5e9ef;border-radius:12px;padding:18px;">
-                    <span class="pill">Riesgo humano</span>
-                    <div class="card-title" style="margin-top:10px;">El phishing sigue siendo recurrente</div>
-                    <div class="card-copy" style="margin-top:6px;">El cliente continúa registrando errores de usuario o no conoce su nivel real de exposición.</div>
+                  <td class="stack feature-card" width="49%" valign="top" style="border:1px solid #e4e9ee;border-radius:12px;background:#ffffff;">
+                    <table role="presentation" width="100%" class="feature-card-inner">
+                      <tr>
+                        <td style="padding:22px;">
+                          <span class="pill">Riesgo humano</span>
+                          <div class="card-title" style="margin-top:10px;">El phishing sigue siendo recurrente</div>
+                          <div class="card-copy" style="margin-top:6px;">El cliente continúa registrando errores de usuario o no conoce su nivel real de exposición.</div>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
 
                 <tr><td colspan="3" height="12" style="height:12px;line-height:12px;">&nbsp;</td></tr>
 
                 <tr>
-                  <td class="stack" width="49%" valign="top" style="border:1px solid #e5e9ef;border-radius:12px;padding:18px;">
-                    <span class="pill">Medición</span>
-                    <div class="card-title" style="margin-top:10px;">No pueden demostrar si el programa funciona</div>
-                    <div class="card-copy" style="margin-top:6px;">Tienen actividades, pero pocos indicadores sobre progreso, desempeño o necesidad de refuerzo.</div>
+                  <td class="stack feature-card" width="49%" valign="top" style="border:1px solid #e4e9ee;border-radius:12px;background:#ffffff;">
+                    <table role="presentation" width="100%" class="feature-card-inner">
+                      <tr>
+                        <td style="padding:22px;">
+                          <span class="pill">Medición</span>
+                          <div class="card-title" style="margin-top:10px;">No pueden demostrar si el programa funciona</div>
+                          <div class="card-copy" style="margin-top:6px;">Tienen actividades, pero pocos indicadores sobre progreso, desempeño o necesidad de refuerzo.</div>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                   <td class="stack-spacer" width="2%">&nbsp;</td>
-                  <td class="stack" width="49%" valign="top" style="border:1px solid #e5e9ef;border-radius:12px;padding:18px;">
-                    <span class="pill">Operación</span>
-                    <div class="card-title" style="margin-top:10px;">Administrar el programa consume demasiado tiempo</div>
-                    <div class="card-copy" style="margin-top:6px;">Asignación, seguimiento, recordatorios y reportes dependen de tareas manuales.</div>
+                  <td class="stack feature-card" width="49%" valign="top" style="border:1px solid #e4e9ee;border-radius:12px;background:#ffffff;">
+                    <table role="presentation" width="100%" class="feature-card-inner">
+                      <tr>
+                        <td style="padding:22px;">
+                          <span class="pill">Operación</span>
+                          <div class="card-title" style="margin-top:10px;">Administrar el programa consume demasiado tiempo</div>
+                          <div class="card-copy" style="margin-top:6px;">Asignación, seguimiento, recordatorios y reportes dependen de tareas manuales.</div>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
 
                 <tr><td colspan="3" height="12" style="height:12px;line-height:12px;">&nbsp;</td></tr>
 
                 <tr>
-                  <td colspan="3" valign="top" style="border:1px solid #e5e9ef;border-radius:12px;padding:18px;">
-                    <span class="pill">Segmentación</span>
-                    <div class="card-title" style="margin-top:10px;">Todos reciben prácticamente la misma formación</div>
-                    <div class="card-copy" style="margin-top:6px;">El programa no diferencia suficientemente por función, grupo, nivel de conocimiento o necesidad de aprendizaje.</div>
+                  <td class="feature-card" colspan="3" valign="top" style="border:1px solid #e4e9ee;border-radius:12px;background:#ffffff;">
+                    <table role="presentation" width="100%" class="feature-card-inner">
+                      <tr>
+                        <td style="padding:22px;">
+                          <span class="pill">Segmentación</span>
+                          <div class="card-title" style="margin-top:10px;">Todos reciben prácticamente la misma formación</div>
+                          <div class="card-copy" style="margin-top:6px;">El programa no diferencia suficientemente por función, grupo, nivel de conocimiento o necesidad de aprendizaje.</div>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
@@ -444,7 +518,7 @@
                 La idea no es discutir con el cliente, sino ampliar la conversación desde lo que ya tiene hacia lo que todavía no puede medir o automatizar.
               </p>
 
-              <table role="presentation" width="100%" style="border:1px solid #e5e9ef;">
+              <table role="presentation" class="objections" width="100%" style="border:1px solid #e5e9ef;">
                 <tr bgcolor="#00205C">
                   <td width="34%" style="padding:12px 14px;color:#ffffff;font-size:12px;line-height:16px;font-weight:700;">EL CLIENTE DICE</td>
                   <td width="66%" style="padding:12px 14px;color:#ffffff;font-size:12px;line-height:16px;font-weight:700;">CONVERSACIÓN QUE PODEMOS ABRIR</td>
@@ -538,17 +612,17 @@
           <!-- CTA -->
           <tr>
             <td class="px" style="padding-top:18px;padding-bottom:46px;">
-              <table role="presentation" align="center">
+              <table role="presentation" align="center" class="cta-table">
                 <tr>
                   <td align="center" bgcolor="#005CFF" style="border-radius:8px;">
-                    <a href="https://outlook.office.com/bookwithme/user/68e7e56cbb494f5eb12e03416097c4f6%40gmsseguridad.com?anonymous=&ep=bwmEmailSignature" target="_blank" style="display:inline-block;padding:15px 24px;font-size:14px;line-height:18px;font-weight:700;color:#ffffff;background:#005CFF;border-radius:8px;">
+                    <a class="cta-link" href="https://outlook.office.com/bookwithme/user/68e7e56cbb494f5eb12e03416097c4f6%40gmsseguridad.com?anonymous=&ep=bwmEmailSignature" target="_blank" style="display:inline-block;padding:15px 24px;font-size:14px;line-height:20px;font-weight:700;color:#ffffff;background:#005CFF;border-radius:8px;">
                       Tengo una posible oportunidad ASAP →
                     </a>
                   </td>
                 </tr>
               </table>
 
-              <p style="margin:16px 0 0 0;text-align:center;font-size:12px;line-height:18px;color:#7a8492;">
+              <p style="margin:16px 0 0 0;text-align:center;font-size:12px;line-height:18px;color:#5a6370;">
                 No necesitas tener el proyecto completamente definido para involucrar a Preventa.
               </p>
             </td>
@@ -572,6 +646,7 @@
           </tr>
 
         </table>
+        <!--[if mso]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
