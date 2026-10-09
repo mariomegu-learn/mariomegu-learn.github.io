@@ -1,0 +1,82 @@
+Post 01 (L01)
+Tener herramientas de seguridad, políticas y capacitaciones no significa necesariamente que una organización haya alcanzado una cultura de ciberseguridad madura.
+La diferencia está en qué tan integrada está la seguridad en la forma en que las personas trabajan, toman decisiones y responden ante situaciones inesperadas.
+Kaspersky plantea una evolución en cinco niveles:
+Fragmentada → Consciente y reactiva → Administrada → Integrada → Resistente
+En los primeros niveles, la organización depende principalmente de reglas y acciones aisladas. A medida que madura, la seguridad se incorpora a los procesos y la organización adquiere mayor capacidad para adaptarse a un panorama de amenazas cambiante.     Kaspersky Security Awareness Ev…
+La pregunta no es solamente:
+“¿Capacitamos a nuestros colaboradores?”
+La pregunta debería ser:
+“¿Qué tan integrada está la ciberseguridad en nuestra forma de trabajar?”
+Con Kaspersky Security Awareness, las organizaciones pueden desarrollar un programa estructurado para avanzar en la construcción de una cultura de seguridad.
+CTA
+¿En qué nivel ubicarías hoy a tu organización: 0, 1, 2, 3 o 4?
+#CybersecurityAwareness #SecurityAwareness #Kaspersky #KasperskyASAP #Cybersecurity #CulturaDeCiberseguridad
+
+-----
+
+
+Post 2 — La cultura de seguridad también empieza en el liderazgo
+Texto para LinkedIn
+La ciberseguridad no se puede delegar únicamente al área de TI.
+Una organización puede invertir en tecnología, establecer políticas y capacitar a sus colaboradores. Pero si la seguridad no forma parte de las decisiones del negocio, será difícil convertirla en una capacidad organizacional.
+La alta dirección tiene un papel fundamental.
+Sus decisiones pueden influir directamente en:
+- la exposición al riesgo;
+- las prioridades de inversión;
+- el cumplimiento;
+- la respuesta ante incidentes;
+- y la resiliencia de la organización.
+Por eso, hablar de cultura de ciberseguridad también significa involucrar a quienes toman decisiones.
+Kaspersky plantea este enfoque mediante capacitación dirigida específicamente a ejecutivos y líderes, ayudándolos a comprender cómo el panorama de amenazas puede afectar al negocio y qué papel desempeñan antes, durante y después de un incidente.     Kaspersky Security Awareness Ev…
+Porque una cultura de seguridad sólida no se construye únicamente desde TI.
+También se construye desde la dirección.
+¿Qué tan involucrados están hoy los líderes de tu organización en la estrategia de ciberseguridad?
+CTA: Conoce cómo Kaspersky Security Awareness puede involucrar a todos los niveles de la organización.
+#CybersecurityAwareness #SecurityAwareness #Kaspersky #Cybersecurity #CybersecurityCulture #CyberRisk #Leadership
+-------
+
+
+
+Post 03 — Las amenazas ya no llegan por un solo canal
+Texto para LinkedIn
+Las amenazas ya no llegan únicamente por correo electrónico.
+Una llamada convincente.
+Un mensaje por WhatsApp.
+Un código QR.
+Una aplicación móvil.
+Una solicitud aparentemente legítima en redes sociales.
+Incluso una herramienta basada en inteligencia artificial.
+El entorno digital de los colaboradores se ha ampliado y, con él, también lo han hecho los escenarios que pueden utilizar los atacantes.
+Por eso, un programa de Security Awareness no debería limitarse a enseñar cómo identificar un correo sospechoso.
+La preparación debe acompañar situaciones que forman parte del trabajo diario: vishing, dispositivos móviles, redes sociales y mensajería, inteligencia artificial, navegación web, datos confidenciales y riesgos asociados a terceros y cadenas de suministro.
+Kaspersky ASAP contempla contenidos sobre estos y otros escenarios para ayudar a preparar a los usuarios frente a situaciones reales.     Kaspersky Security Awareness Ge…
+El panorama de amenazas evoluciona.
+La preparación de las personas también debe hacerlo.
+¿Tu programa de Security Awareness cubre los escenarios que tus colaboradores enfrentan hoy?
+CTA: Amplía tu estrategia de Security Awareness con Kaspersky ASAP.
+#SecurityAwareness #KasperskyASAP #Kaspersky #Cybersecurity #CybersecurityAwareness #HumanRisk #ArtificialIntelligence
+
+------------------------
+
+
+Post 04 — Security Awareness también es parte del cumplimiento
+Texto para LinkedIn
+Security Awareness no es solo una buena práctica. También es parte del cumplimiento.
+Muchas organizaciones relacionan la concientización únicamente con reducir errores o prevenir ataques.
+Pero existe otra dimensión igual de importante: demostrar que las personas conocen sus responsabilidades frente a la seguridad y la protección de la información.
+Marcos y regulaciones como ISO/IEC 27001, PCI DSS, RGPD y NIS2 incluyen requisitos o recomendaciones relacionadas con programas de concientización y formación en seguridad.     Kaspersky Security Awareness Ge…
+Esto significa que un programa de Security Awareness debería ayudar a responder preguntas como:
+- ¿Los colaboradores reciben formación periódica?
+- ¿El contenido es relevante para sus responsabilidades?
+- ¿Existe evidencia de participación y avance?
+- ¿La organización puede demostrar que el programa forma parte de un proceso continuo?
+El objetivo no debería ser simplemente “cumplir con una capacitación”.
+Debe ser construir un programa que permita combinar:
+Seguridad + concientización + evidencia + mejora continua.
+Kaspersky ASAP ayuda a estructurar y gestionar programas de capacitación, proporcionando seguimiento, informes y diferentes contenidos para apoyar este proceso.
+Porque cumplir no debería significar marcar una casilla.
+Debería significar estar mejor preparado.
+CTA
+¿Tu programa de Security Awareness está preparado para demostrar cumplimiento además de capacitar?
+#SecurityAwareness #KasperskyASAP #Kaspersky #Cybersecurity #Compliance #ISO27001 #PCIDSS #CybersecurityAwareness
