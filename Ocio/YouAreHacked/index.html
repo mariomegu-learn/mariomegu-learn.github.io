@@ -1,168 +1,222 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riesgos de Escanear Códigos QR</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-        }
-    </style>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1173d4",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101922",
-                    },
-                    fontFamily: {
-                        "display": ["Century Gothic", "Inter", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#070b12">
+    <title>Aviso de seguridad</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_downward,aspect_ratio,battery_full,cancel,check,check_circle,close,credit_card,dark_mode,developer_board,devices,fingerprint,history,lightbulb,link,location_on,lock_reset,mail,map,memory,memory_alt,phishing,phone_android,public,qr_code_scanner,quiz,report,schedule,smartphone,sticky_note_2,support_agent,touch_app,translate,visibility,warning,web,wifi&display=block" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-    <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
-        <div class="layout-container flex h-full grow flex-col">
-            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <div class="@container">
-                        <div class="@[480px]:p-4">
-                            <!-- Overlay de advertencia inicial -->
-                            <div id="overlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-                                <div class="bg-white dark:bg-white/5 p-8 rounded-xl border border-gray-200 dark:border-white/10 max-w-md w-full mx-4 text-center">
-                                    <h1 class="text-red-600 text-3xl font-black mb-4">¡Usted ha sido hackeado!</h1>
-                                    <p class="text-gray-600 dark:text-white/70 mb-6">Toda la información de su dispositivo esta siendo transferida en este momento.</p>
-                                    <div class="mb-6">
-                                        <div class="w-full bg-gray-200 dark:bg-white/10 rounded-full h-4 mb-2">
-                                            <div id="progressBar" class="bg-red-600 h-4 rounded-full transition-all duration-100" style="width: 0%"></div>
-                                        </div>
-                                        <p id="progressText" class="text-gray-600 dark:text-white/70 text-sm">Descargando datos... 0%</p>
-                                        <p id="fileTransfer" class="text-gray-500 dark:text-white/50 text-xs mt-1 opacity-0 transition-opacity duration-300"></p>
-                                    </div>
-                                    <button id="closeOverlay" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" style="display: none;">Cancelar</button>
-                                </div>
-                            </div>
-
-                            <!-- Contenido principal de concienciación -->
-                            <div id="mainContent" class="opacity-0 transition-opacity duration-500">
-                                <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://images.unsplash.com/photo-1582266255765-fa5cf1a1d501?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");'>
-                                    <div class="flex flex-col gap-2 text-left">
-                                        <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                                            Riesgos de Escanear Códigos QR
-                                        </h1>
-                                        <h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                                            Tranquil@ esto es una simulación - Aprende por qué debes ser cauteloso
-                                        </h2>
-                                    </div>
-                                    <!-- <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90 transition-colors">
-                                        <span class="truncate">Leer Más</span>
-                                    </button> -->
-                                </div>
-
-                                <div class="flex flex-col gap-10 px-4 py-10 @container">
-                                    <div class="flex flex-col gap-4">
-                                        <h1 class="text-gray-800 dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                                            ¿Qué son los Códigos QR?
-                                        </h1>
-                                        <p class="text-gray-600 dark:text-white/70 text-base font-normal leading-normal max-w-[1080px]">Los códigos QR (Quick Response) son códigos de barras bidimensionales que almacenan información. Se usan comúnmente para acceder rápidamente a sitios web, compartir datos o realizar pagos.</p>
-                                    </div>
-                                    
-
-                                    <h2 class="text-gray-800 dark:text-white text-[32px] font-bold leading-tight tracking-[-0.015em] text-center mb-8">Riesgos Asociados</h2>
-                                    <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4 p-0">
-                                        <div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 flex-col">
-                                            <span class="material-symbols-outlined text-red-600" style="font-size: 28px;">phishing</span>
-                                            <div class="flex flex-col gap-1">
-                                                <h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Phishing</h2>
-                                                <p class="text-gray-500 dark:text-white/60 text-sm font-normal leading-normal">Sitios falsos que roban tus datos personales.</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 flex-col">
-                                            <span class="material-symbols-outlined text-red-600" style="font-size: 28px;">bug_report</span>
-                                            <div class="flex flex-col gap-1">
-                                                <h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Malware</h2>
-                                                <p class="text-gray-500 dark:text-white/60 text-sm font-normal leading-normal">Virus y ransomware en tu dispositivo.</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 flex-col">
-                                            <span class="material-symbols-outlined text-red-600" style="font-size: 28px;">person_off</span>
-                                            <div class="flex flex-col gap-1">
-                                                <h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Robo de Identidad</h2>
-                                                <p class="text-gray-500 dark:text-white/60 text-sm font-normal leading-normal">Información sensible capturada.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="px-4 py-10">
-                                    <h2 class="text-gray-800 dark:text-white text-[32px] font-bold leading-tight tracking-[-0.015em] text-center mb-8">Consejos para Protegerte</h2>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-primary" style="font-size: 48px;">verified_user</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Verifica la Fuente</h3>
-                                            <p class="text-gray-600 dark:text-white/80">Siempre verifica la fuente del código QR antes de escanearlo.</p>
-                                        </div>
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-primary" style="font-size: 48px;">security</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Usa Apps Confiables</h3>
-                                            <p class="text-gray-600 dark:text-white/80">Utiliza aplicaciones de escaneo con funciones de seguridad.</p>
-                                        </div>
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-primary" style="font-size: 48px;">block</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Evita Desconocidos</h3>
-                                            <p class="text-gray-600 dark:text-white/80">No escanees códigos QR de fuentes desconocidas.</p>
-                                        </div>
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-primary" style="font-size: 48px;">update</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Mantén Actualizado</h3>
-                                            <p class="text-gray-600 dark:text-white/80">Actualiza tu software antivirus regularmente.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="px-4 py-10">
-                                    <h2 class="text-gray-800 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Ejemplos Reales</h2>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 py-5">
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-red-600" style="font-size: 48px;">warning</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ataques en 2023</h3>
-                                            <p class="text-gray-600 dark:text-white/80">Varios ataques de phishing utilizaron códigos QR en carteles publicitarios para robar credenciales de usuarios.</p>
-                                        </div>
-                                        <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-                                            <span class="material-symbols-outlined text-red-600" style="font-size: 48px;">location_on</span>
-                                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Lugares Públicos</h3>
-                                            <p class="text-gray-600 dark:text-white/80">Códigos QR en lugares públicos pueden ser alterados para redirigir a contenido peligroso.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body>
+    <!-- Simulación de ataque -->
+    <div id="overlay" class="overlay" role="alertdialog" aria-modal="true" aria-labelledby="alarmTitle" aria-describedby="alarmText">
+        <div class="alarm" id="alarm" tabindex="-1">
+            <span class="material-symbols-outlined alarm__icon" aria-hidden="true">warning</span>
+            <h1 id="alarmTitle" class="alarm__title">¡Usted ha sido hackeado!</h1>
+            <p id="alarmText" class="alarm__text">Toda la información de su dispositivo está siendo transferida en este momento.</p>
+            <div class="progress" role="progressbar" id="progress" aria-label="Transferencia de datos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress__bar" id="progressBar"></div>
             </div>
+            <p class="alarm__status" id="progressText">Enviando datos… 0%</p>
+            <p class="alarm__file" id="fileTransfer" aria-hidden="true"></p>
+        </div>
+
+        <div class="reveal" id="reveal" tabindex="-1" hidden>
+            <span class="material-symbols-outlined reveal__icon" aria-hidden="true">check_circle</span>
+            <h1 class="reveal__title" id="revealTitle">Tranquil@, esto es una simulación</h1>
+            <p class="reveal__text">No se envió nada. Pero escaneaste un código QR sin saber a dónde llevaba. Tómate 2 minutos para ver cómo evitarlo.</p>
+            <button type="button" class="btn btn--primary" id="closeOverlay">Ver qué pasó</button>
         </div>
     </div>
 
-    <footer class="w-full bg-white/5 py-8 mt-10 border-t border-white/10">
-        <div class="max-w-[960px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-gray-500 dark:text-white/60">Created by: Mario Mendoza</p>
+    <main id="mainContent" inert>
+        <header class="hero">
+            <div class="hero__grid" aria-hidden="true"></div>
+            <div class="wrap hero__inner">
+                <p class="pill"><span class="pill__dot" aria-hidden="true"></span><span id="orgLabel">Simulación de seguridad · No se envió nada</span></p>
+                <h1 class="hero__title" id="mainTitle" tabindex="-1">Escaneaste un QR desconocido. <span class="gradient-text">Si hubiera sido real, ya sería tarde.</span></h1>
+                <p class="hero__lead" id="privacyNote">Esta página es inofensiva y no guarda ningún dato. Su objetivo es que la próxima vez lo pienses dos veces antes de escanear.</p>
+                <nav class="toc" aria-label="Contenido">
+                    <a href="#huella">Tu huella</a>
+                    <a href="#quishing">Quishing</a>
+                    <a href="#habitos">Hábitos</a>
+                    <a href="#prueba">Prueba</a>
+                    <a href="#casos">Casos</a>
+                    <a href="#ayuda">Qué hacer</a>
+                </nav>
+                <a class="hero__scroll" href="#huella"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>Empieza aquí</a>
+            </div>
+        </header>
+
+        <section class="section" id="huella" aria-labelledby="seenTitle">
+            <div class="wrap">
+                <header class="section__head" data-animate>
+                    <p class="eyebrow">01 · Tu huella digital</p>
+                    <h2 class="section__title" id="seenTitle">Esto es lo que vi de ti en 1 segundo</h2>
+                    <p class="section__lead">Solo con abrir el enlace, cualquier página puede leer esto. Se calculó en tu propio dispositivo y no salió de él. Un atacante sí lo guardaría y lo usaría para que su engaño parezca más creíble.</p>
+                </header>
+
+                <div class="dossier" data-animate>
+                    <div class="dossier__bar">
+                        <span class="dossier__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="dossier__name"><span class="material-symbols-outlined" aria-hidden="true">fingerprint</span>perfil_del_dispositivo</span>
+                        <span class="dossier__tag">capturado en 1 s</span>
+                    </div>
+                    <dl class="facts" id="facts"></dl>
+
+                    <div class="locate" id="locate">
+                        <div class="locate__head">
+                            <span class="icon-tile icon-tile--accent" aria-hidden="true"><span class="material-symbols-outlined">location_on</span></span>
+                            <div>
+                                <h3>¿Me dejarías ver tu ubicación exacta?</h3>
+                                <p>Muchas páginas falsas piden permisos "para continuar". Toca el botón y decide qué harías. La ubicación no se guarda; para dibujar el mapa, tu navegador descarga las imágenes de esa zona desde OpenStreetMap.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn--primary" id="locationButton"><span class="material-symbols-outlined" aria-hidden="true">map</span>Ver mi ubicación</button>
+                        <p class="locate__result" id="locationResult" aria-live="polite"></p>
+                        <div class="locate__map" id="locationMap" role="img" aria-label="Mapa con tu ubicación aproximada" hidden></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="quishing" aria-labelledby="whyTitle">
+            <div class="wrap">
+                <header class="section__head" data-animate>
+                    <p class="eyebrow">02 · Quishing</p>
+                    <h2 class="section__title" id="whyTitle">¿Por qué los atacantes usan códigos QR?</h2>
+                    <p class="section__lead">Un QR esconde el enlace: no ves a dónde vas hasta que ya llegaste. A este tipo de engaño se le llama <strong>quishing</strong> (phishing con QR).</p>
+                </header>
+                <div class="cards cards--4">
+                    <article class="card" data-animate>
+                        <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">phishing</span></span>
+                        <h3>Páginas de inicio de sesión falsas</h3>
+                        <p>Copias de Microsoft 365, tu banco o tu correo que capturan la contraseña que escribes.</p>
+                    </article>
+                    <article class="card" data-animate>
+                        <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">credit_card</span></span>
+                        <h3>Pagos desviados</h3>
+                        <p>Stickers pegados sobre el QR legítimo de parquímetros, restaurantes o facturas.</p>
+                    </article>
+                    <article class="card" data-animate>
+                        <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">mail</span></span>
+                        <h3>Evaden los filtros del correo</h3>
+                        <p>Un QR dentro de una imagen no lo analizan muchos filtros de enlaces, y lo abres en el celular, que suele estar menos protegido.</p>
+                    </article>
+                    <article class="card" data-animate>
+                        <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">devices</span></span>
+                        <h3>Apps y permisos maliciosos</h3>
+                        <p>Te piden instalar una app o aceptar permisos que dan acceso a tus mensajes, fotos o códigos de verificación.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="habitos" aria-labelledby="habitsTitle">
+            <div class="wrap">
+                <header class="section__head" data-animate>
+                    <p class="eyebrow">03 · Prevención</p>
+                    <h2 class="section__title" id="habitsTitle">Antes de escanear: 5 hábitos que sí te protegen</h2>
+                </header>
+                <ol class="habits">
+                    <li data-animate><span class="habits__num" aria-hidden="true">01</span><div><h3>Lee la URL antes de abrirla</h3><p>La cámara del celular la muestra en una vista previa. Fíjate en el dominio (lo que va justo antes de <code>.com</code>, <code>.pe</code>, etc.), no solo en el candado.</p></div></li>
+                    <li data-animate><span class="habits__num" aria-hidden="true">02</span><div><h3>Nunca escribas contraseñas ni datos de pago</h3><p>No lo hagas en una página a la que llegaste desde un QR. Mejor abre la app oficial o escribe tú la dirección.</p></div></li>
+                    <li data-animate><span class="habits__num" aria-hidden="true">03</span><div><h3>Revisa el QR físico</h3><p>Si parece un sticker pegado encima, está despegado o luce distinto, no lo uses.</p></div></li>
+                    <li data-animate><span class="habits__num" aria-hidden="true">04</span><div><h3>Desconfía de los QR por correo o mensaje</h3><p>Sobre todo si hablan de urgencia: "tu cuenta será bloqueada", "valida tu MFA", "revisa tu nómina".</p></div></li>
+                    <li data-animate><span class="habits__num" aria-hidden="true">05</span><div><h3>Activa la verificación en dos pasos (MFA)</h3><p>Si te roban la contraseña, no basta para entrar a tu cuenta.</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="prueba" aria-labelledby="quizTitle">
+            <div class="wrap">
+                <header class="section__head" data-animate>
+                    <p class="eyebrow">04 · Ponte a prueba</p>
+                    <h2 class="section__title" id="quizTitle">¿Cuál de estos enlaces abrirías?</h2>
+                    <p class="section__lead">Escaneas un QR en un afiche de tu banco. La página oficial es <code>bancoejemplo.com</code>. Solo uno de estos enlaces es legítimo.</p>
+                </header>
+                <div class="quiz" id="quiz" role="group" aria-labelledby="quizTitle" data-animate>
+                    <div class="quiz__scan" aria-hidden="true"><span class="material-symbols-outlined">qr_code_scanner</span>Vista previa del código QR</div>
+                    <button type="button" class="quiz__option" data-correct="false" data-feedback="Falso. El dominio real es «verificar-cuenta.net»: todo lo que va antes es solo un disfraz. El dominio real es lo que aparece justo antes de la primera barra «/».">
+                        <span class="quiz__mark" aria-hidden="true"></span>
+                        <span class="quiz__url">https://bancoejemplo.com.<mark>verificar-cuenta.net</mark>/login</span>
+                    </button>
+                    <button type="button" class="quiz__option" data-correct="true" data-feedback="Correcto. El dominio es exactamente «bancoejemplo.com». Aun así, si te pide la contraseña, es más seguro abrir la app oficial.">
+                        <span class="quiz__mark" aria-hidden="true"></span>
+                        <span class="quiz__url">https://www.<mark>bancoejemplo.com</mark>/pagos</span>
+                    </button>
+                    <button type="button" class="quiz__option" data-correct="false" data-feedback="Falso. Dice «bancoejempl0» con un cero en lugar de la letra «o». Los atacantes registran dominios casi idénticos.">
+                        <span class="quiz__mark" aria-hidden="true"></span>
+                        <span class="quiz__url">https://<mark>bancoejempl0.com</mark>/pagos</span>
+                    </button>
+                    <p class="quiz__feedback" id="quizFeedback" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="casos" aria-labelledby="casesTitle">
+            <div class="wrap">
+                <header class="section__head" data-animate>
+                    <p class="eyebrow">05 · Casos reales</p>
+                    <h2 class="section__title" id="casesTitle">Esto ya pasó</h2>
+                </header>
+                <ol class="timeline">
+                    <li data-animate>
+                        <span class="timeline__year">2022</span>
+                        <article class="card">
+                            <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">sticky_note_2</span></span>
+                            <h3>Parquímetros con QR falsos</h3>
+                            <p>Ciudades de Texas (EE. UU.) como Austin y San Antonio alertaron sobre stickers con QR pegados en los parquímetros que llevaban a páginas de pago falsas.</p>
+                        </article>
+                    </li>
+                    <li data-animate>
+                        <span class="timeline__year">2022</span>
+                        <article class="card">
+                            <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">warning</span></span>
+                            <h3>Alerta del FBI</h3>
+                            <p>El FBI advirtió que los delincuentes alteran códigos QR para robar credenciales y dinero. <a href="https://www.ic3.gov/PSA/2022/PSA220118" target="_blank" rel="noopener">Ver aviso (IC3)</a></p>
+                        </article>
+                    </li>
+                    <li data-animate>
+                        <span class="timeline__year">2023</span>
+                        <article class="card">
+                            <span class="icon-tile icon-tile--danger" aria-hidden="true"><span class="material-symbols-outlined">mail</span></span>
+                            <h3>Correos de "valida tu cuenta"</h3>
+                            <p>Se volvieron comunes los correos que suplantan a Microsoft 365 y piden escanear un QR para "reactivar MFA". El QR lleva a una página que roba la contraseña.</p>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section--help" id="ayuda" aria-labelledby="helpTitle">
+            <div class="wrap">
+                <div class="help" data-animate>
+                    <header class="section__head">
+                        <p class="eyebrow eyebrow--success">06 · Qué hacer</p>
+                        <h2 class="section__title" id="helpTitle">¿Ya escaneaste uno sospechoso?</h2>
+                    </header>
+                    <ol class="steps">
+                        <li><span class="icon-tile icon-tile--success" aria-hidden="true"><span class="material-symbols-outlined">cancel</span></span><div><h3>Cierra la página</h3><p>Sin escribir nada más ni descargar archivos.</p></div></li>
+                        <li><span class="icon-tile icon-tile--success" aria-hidden="true"><span class="material-symbols-outlined">lock_reset</span></span><div><h3>Cambia tu contraseña</h3><p>Si la ingresaste, cámbiala ya desde la app o el sitio oficial, y revisa que tengas MFA activo.</p></div></li>
+                        <li><span class="icon-tile icon-tile--success" aria-hidden="true"><span class="material-symbols-outlined">credit_card</span></span><div><h3>Avisa a tu banco</h3><p>Si pagaste algo, llama al número que aparece en tu tarjeta.</p></div></li>
+                        <li><span class="icon-tile icon-tile--success" aria-hidden="true"><span class="material-symbols-outlined">report</span></span><div><h3>Repórtalo</h3><p><span id="reportTarget">Al área de TI o de seguridad de tu organización</span>. Avisar a tiempo protege a los demás.</p></div></li>
+                    </ol>
+                    <p id="reportAction" hidden><a class="btn btn--success" id="reportLink" href="#"><span class="material-symbols-outlined" aria-hidden="true">report</span>Reportar un QR sospechoso</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer" inert>
+        <div class="wrap">
+            <p>Creado por Mario Mendoza</p>
         </div>
     </footer>
 
