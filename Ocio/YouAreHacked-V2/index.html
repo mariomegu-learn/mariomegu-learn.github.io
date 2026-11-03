@@ -42,7 +42,12 @@
                 <h1 class="reveal__title" id="revealTitle">No te preocupes, esto es una simulación</h1>
                 <p class="reveal__text">No se envió nada: ni tus fotos, ni tu ubicación, ni los datos de tu empresa. Pero escaneaste un código QR sin saber a dónde llevaba. Tómate 2 minutos para ver cómo evitarlo.</p>
                 <button type="button" class="btn btn--primary" id="closeOverlay">Ver qué pasó</button>
-                <br><br><p>Creado por <a href="https://www.linkedin.com/in/mariomegu/" target="_blank" style="color:#5FFFE5;text-decoration:underline;font-weight:700;">Mario Mendoza</a></p>
+                <a class="credit" href="https://www.linkedin.com/in/mariomegu/" target="_blank" rel="noopener">
+                    <span class="credit__avatar" aria-hidden="true">MM</span>
+                    <span class="credit__text">Creado por <strong>Mario Mendoza</strong></span>
+                    <svg class="credit__in" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                    <span class="sr-only">(abre LinkedIn en una pestaña nueva)</span>
+                </a>
             </div>
         </div>
     </div>
@@ -61,6 +66,7 @@
                     <a href="#prueba">Prueba</a>
                     <a href="#casos">Casos</a>
                     <a href="#ayuda">Qué hacer</a>
+                    <a href="#contacto">Contacto</a>
                 </nav>
                 <a class="hero__scroll" href="#huella"><span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>Empieza aquí</a>
             </div>
@@ -224,11 +230,32 @@
                 </div>
             </div>
         </section>
+
+        <section class="section section--contact" id="contacto" aria-labelledby="contactTitle">
+            <div class="wrap">
+                <article class="contact" data-animate>
+                    <div class="contact__avatar" aria-hidden="true">MM</div>
+                    <div class="contact__body">
+                        <p class="eyebrow">07 · Sobre el autor</p>
+                        <h2 class="contact__name" id="contactTitle">Mario Mendoza</h2>
+                        <p class="contact__role">Ingeniero de preventa · Ciberseguridad</p>
+                        <p class="contact__text">Creé esta simulación para mostrar, sin riesgo, lo fácil que es caer con un código QR. ¿Quieres usarla en tu organización o tienes preguntas? Escríbeme por LinkedIn.</p>
+                        <div class="contact__actions">
+                            <a class="btn btn--linkedin" href="https://www.linkedin.com/in/mariomegu/" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                                Conectar en LinkedIn<span class="sr-only"> (abre en una pestaña nueva)</span>
+                            </a>
+                            <span class="contact__handle">linkedin.com/in/mariomegu</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer class="footer" id="footer" inert>
         <div class="wrap">
-            <p>Creado por Mario Mendoza</p>
+            <p>Creado por <a href="https://www.linkedin.com/in/mariomegu/" target="_blank" rel="noopener">Mario Mendoza</a></p>
         </div>
     </footer>
 
