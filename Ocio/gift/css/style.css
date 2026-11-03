@@ -61,7 +61,8 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-body.is-locked { overflow: hidden; }
+/* --scrollbar lo mide el JS: ocupa el hueco de la barra para que nada salte al cerrar la simulación */
+body.is-locked { overflow: hidden; padding-right: var(--scrollbar, 0px); }
 
 a { color: var(--accent); text-underline-offset: 3px; }
 code {

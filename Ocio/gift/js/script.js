@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupQuiz();
     setupScrollAnimations();
 
+    // En Windows la barra de desplazamiento ocupa espacio: se mide antes de ocultarla
+    document.documentElement.style.setProperty('--scrollbar', (window.innerWidth - document.documentElement.clientWidth) + 'px');
     document.body.classList.add('is-locked');
     alarm.focus();
 
