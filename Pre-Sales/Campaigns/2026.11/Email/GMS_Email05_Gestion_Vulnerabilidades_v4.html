@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>Gestión de vulnerabilidades | Guía comercial GMS · Noviembre sin puertas abiertas</title>
+
+  <!--
+    E05 v4 (secciones propias de la categoría) · Campaña "Noviembre sin puertas abiertas" · Envío: martes 10 de noviembre de 2026
+
+    ASUNTO (elige uno):
+    1. 4.000 hallazgos: ¿por cuál empieza tu cliente?
+    2. No todas las vulnerabilidades son urgentes. Algunas sí
+    3. Escanear no basta: detecta la oportunidad
+
+    PREHEADER (elige uno):
+    1. Qué significa lo que dice el cliente y qué preguntarle después.
+    2. Clientes que escanean pero no priorizan: así detectas la oportunidad.
+    3. Así ayudas al cliente a cerrar primero lo que de verdad importa.
+
+    MARCADORES PENDIENTES:
+    - {{URL_REGISTRO}}: enlace del botón "Registra tu cliente con Preventa".
+    - {{URL_MATERIAL}}: enlace al material de venta (pie).
+  -->
+
+  <style>
+    html, body { margin:0 !important; padding:0 !important; width:100% !important; background:#F4F7FC; font-family:Arial, Helvetica, sans-serif; }
+    table { border-collapse:collapse !important; border-spacing:0 !important; mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    img { border:0; outline:none; text-decoration:none; display:block; -ms-interpolation-mode:bicubic; }
+    a { text-decoration:none; }
+    body, table, td, p, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    .radar-grid, .feature-card-inner, .funnel, .brands { border-collapse:separate !important; }
+    .feature-card { vertical-align:top; transition:border-color .2s ease-in-out, box-shadow .2s ease-in-out; }
+    @media (hover:hover) { .feature-card:hover { border-color:#005CFF !important; box-shadow:0 4px 12px rgba(0,92,255,0.1); } }
+    @media (prefers-reduced-motion:reduce) { .feature-card { transition:none; } }
+    .stack { box-sizing:border-box; }
+    a:focus-visible { outline:3px solid #5FFFE5; outline-offset:4px; }
+
+    @media screen and (max-width:620px) {
+      .wrapper > tbody > tr > td { padding:0 !important; }
+      .container { width:100% !important; border-radius:0 !important; }
+      .px { padding-left:22px !important; padding-right:22px !important; }
+      .section { padding-top:32px !important; padding-bottom:32px !important; }
+      .stack { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .stack-spacer { display:block !important; width:100% !important; height:12px !important; line-height:12px !important; font-size:0 !important; padding:0 !important; }
+      .section-copy, .card-copy { font-size:16px !important; line-height:25px !important; }
+      .card-title { font-size:17px !important; line-height:24px !important; }
+      .mobile-center { text-align:center !important; }
+      .mobile-center img { margin-left:auto !important; margin-right:auto !important; }
+      .mobile-center + .mobile-center { padding-top:16px !important; }
+      .cta-table { width:100% !important; }
+      .cta-cell { padding:0 !important; }
+      .cta-link { display:block !important; padding:16px !important; font-size:16px !important; line-height:24px !important; }
+      .objections, .objections tbody, .objections tr, .objections td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .objections tr:first-child { display:none !important; }
+      .objections td:first-child { padding:18px 18px 6px !important; border-bottom:0 !important; font-size:16px !important; line-height:24px !important; color:#00205C !important; }
+      .objections td + td { padding:0 18px 18px !important; font-size:16px !important; line-height:25px !important; }
+      .section-title { font-size:24px !important; line-height:30px !important; }
+      .hero-title { font-size:30px !important; line-height:38px !important; }
+      .radar-label { padding:16px 0 2px !important; border-bottom:0 !important; }
+      .radar-body { padding:0 0 16px !important; }
+      .xl-say { padding:16px 0 6px !important; border-bottom:0 !important; }
+      .xl-mean { padding:0 0 6px !important; border-bottom:0 !important; }
+      .xl-ask { padding:0 0 16px !important; }
+    }
+    @media screen and (max-width:480px) {
+      .funnel, .funnel tbody, .funnel tr { display:block !important; width:100% !important; }
+      .fn-cell { display:block !important; width:100% !important; box-sizing:border-box !important; border-top:0 !important; border-left:3px solid #52647E !important; padding:8px 12px !important; margin-bottom:8px !important; }
+      .fn-hot { border-left-color:#5FFFE5 !important; }
+      .fn-gap { display:none !important; }
+    }
+    @media screen and (max-width:360px) {
+      .px { padding-left:18px !important; padding-right:18px !important; }
+      .hero-title { font-size:27px !important; line-height:35px !important; }
+    }
+  </style>
+
+  <!--[if mso]>
+  <style type="text/css">body, table, td, p, a, h1, h2, h3 { font-family:Arial, Helvetica, sans-serif !important; }</style>
+  <xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+  <![endif]-->
+
+  <style id="email-dark-mode">
+    @media (prefers-color-scheme:dark) {
+      .dm-0{background-color:#101722 !important;}
+      .dm-1{background-color:#182232 !important;}
+      .dm-2{background-color:#202d40 !important;}
+      .dm-4{background-color:#253650 !important;}
+      .dm-5{background-color:#253650 !important;}
+      .dm-6{background-color:#00205c !important;}
+      .dm-7{background-color:#005cff !important;}
+      .dm-8{background-color:#222222 !important;}
+      .dm-9{background-color:#5fffe5 !important;}
+      .dm-10{color:#f4f7fc !important;-webkit-text-fill-color:#f4f7fc !important;}
+      .dm-11{color:#d1dced !important;-webkit-text-fill-color:#d1dced !important;}
+      .dm-16{color:#c2d5ff !important;-webkit-text-fill-color:#c2d5ff !important;}
+      .dm-17{color:#9fc0ff !important;-webkit-text-fill-color:#9fc0ff !important;}
+      .dm-18{color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;}
+      .dm-19{color:#dbe5ff !important;-webkit-text-fill-color:#dbe5ff !important;}
+      .dm-20{color:#5fffe5 !important;-webkit-text-fill-color:#5fffe5 !important;}
+      .feature-card{border-color:#52647e !important;}
+      .dark-mint-ink{color:#00205c !important;-webkit-text-fill-color:#00205c !important;}
+    }
+    [data-ogsc] .dm-0,[data-ogsb] .dm-0{background-color:#101722 !important;}
+    [data-ogsc] .dm-1,[data-ogsb] .dm-1{background-color:#182232 !important;}
+    [data-ogsc] .dm-2,[data-ogsb] .dm-2{background-color:#202d40 !important;}
+    [data-ogsc] .dm-4,[data-ogsb] .dm-4{background-color:#253650 !important;}
+    [data-ogsc] .dm-5,[data-ogsb] .dm-5{background-color:#253650 !important;}
+    [data-ogsc] .dm-6,[data-ogsb] .dm-6{background-color:#00205c !important;}
+    [data-ogsc] .dm-7,[data-ogsb] .dm-7{background-color:#005cff !important;}
+    [data-ogsc] .dm-8,[data-ogsb] .dm-8{background-color:#222222 !important;}
+    [data-ogsc] .dm-9,[data-ogsb] .dm-9{background-color:#5fffe5 !important;}
+    [data-ogsc] .dm-10{color:#f4f7fc !important;-webkit-text-fill-color:#f4f7fc !important;}
+    [data-ogsc] .dm-11{color:#d1dced !important;-webkit-text-fill-color:#d1dced !important;}
+    [data-ogsc] .dm-16{color:#c2d5ff !important;-webkit-text-fill-color:#c2d5ff !important;}
+    [data-ogsc] .dm-17{color:#9fc0ff !important;-webkit-text-fill-color:#9fc0ff !important;}
+    [data-ogsc] .dm-18{color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;}
+    [data-ogsc] .dm-19{color:#dbe5ff !important;-webkit-text-fill-color:#dbe5ff !important;}
+    [data-ogsc] .dm-20{color:#5fffe5 !important;-webkit-text-fill-color:#5fffe5 !important;}
+    [data-ogsc] .dark-mint-ink{color:#00205c !important;-webkit-text-fill-color:#00205c !important;}
+  </style>
+</head>
+
+<body class="dm-0" style="margin:0;padding:0;width:100%;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+
+  <!-- PREHEADER -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;font-family:Arial, Helvetica, sans-serif;">
+    Qué significa lo que dice el cliente y qué preguntarle después.&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+  </div>
+
+  <table role="presentation" width="100%" class="wrapper dm-0" bgcolor="#F4F7FC" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+    <tbody><tr>
+      <td align="center" style="padding:24px 12px;font-family:Arial, Helvetica, sans-serif;">
+
+        <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+        <table role="presentation" width="600" class="container dm-1" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,32,92,0.08);font-family:Arial, Helvetica, sans-serif;">
+          <tbody>
+
+          <!-- 1. ENCABEZADO -->
+          <tr>
+            <td class="px" style="padding:24px 42px;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td valign="middle" class="stack mobile-center" style="font-family:Arial, Helvetica, sans-serif;">
+                    <img src="https://gmsseguridad.com/wp-content/uploads/2022/10/logo-header.png" width="118" alt="GMS" style="display:block;width:118px;max-width:118px;height:auto;background-color:#FFFFFF;padding:10px 12px;border-radius:8px;border:0;">
+                  </td>
+                  <td valign="middle" align="right" class="stack mobile-center" style="padding-top:10px;font-family:Arial, Helvetica, sans-serif;">
+                    <span class="dm-5 dm-17" style="display:inline-block;padding:4px 10px;background-color:#EEF3FF;color:#005CFF;border-radius:4px;font-size:11px;font-weight:bold;letter-spacing:0.8px;text-transform:uppercase;font-family:Arial, Helvetica, sans-serif;">Gestión de vulnerabilidades</span>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="4" style="height:4px;font-size:0;line-height:4px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:bold;color:#52647E;text-transform:uppercase;letter-spacing:0.5px;font-family:Arial, Helvetica, sans-serif;">Habilitación comercial GMS · Noviembre sin puertas abiertas</div>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 2. HERO: SALUDO Y APERTURA -->
+          <tr>
+            <td class="px dm-6" bgcolor="#00205C" style="padding:48px 42px;background:#00205C;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-20" style="font-size:12px;line-height:17px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5FFFE5;font-family:Arial, Helvetica, sans-serif;">La puerta de esta semana: la exposición</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="14" style="height:14px;font-size:0;line-height:14px;">&nbsp;</td></tr></tbody></table>
+
+              <div class="dm-19" style="font-size:15px;line-height:22px;color:#DBE5FF;font-family:Arial, Helvetica, sans-serif;">Hola *|FNAME|*,</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+
+              <h1 class="hero-title dm-18" style="margin:0;font-size:34px;line-height:40px;font-weight:700;color:#FFFFFF;font-family:Arial, Helvetica, sans-serif;">
+                No todas las vulnerabilidades son urgentes.<br>
+                <span class="dm-20" style="color:#5FFFE5;">Algunas sí.</span>
+              </h1>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="16" style="height:16px;font-size:0;line-height:16px;">&nbsp;</td></tr></tbody></table>
+
+              <p class="dm-19" style="margin:0;font-size:16px;line-height:25px;color:#DBE5FF;font-family:Arial, Helvetica, sans-serif;">
+                Muchos de tus clientes ya escanean su red. El problema llega después: un reporte con miles de hallazgos y nadie sabe por dónde empezar. Ahí está la conversación.
+              </p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="24" style="height:24px;font-size:0;line-height:24px;">&nbsp;</td></tr></tbody></table>
+
+              <!-- EMBUDO DE PRIORIZACIÓN (texto real, sin imágenes ni cifras) -->
+              <div class="dm-20" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5FFFE5;font-family:Arial, Helvetica, sans-serif;">De la lista interminable a lo que se cierra primero</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="10" style="height:10px;font-size:0;line-height:10px;">&nbsp;</td></tr></tbody></table>
+              <table role="presentation" width="100%" class="funnel" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td class="fn-cell" width="32%" valign="top" style="padding:12px 10px;border-top:3px solid #52647E;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-19" style="font-size:11px;line-height:15px;font-weight:700;color:#DBE5FF;text-transform:uppercase;letter-spacing:0.6px;">Hoy</div>
+                    <div class="dm-19" style="font-size:12px;line-height:17px;color:#DBE5FF;padding-top:4px;">Miles de hallazgos, todos con la misma urgencia aparente.</div>
+                  </td>
+                  <td class="fn-gap" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="fn-cell" width="32%" valign="top" style="padding:12px 10px;border-top:3px solid #005CFF;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-19" style="font-size:11px;line-height:15px;font-weight:700;color:#DBE5FF;text-transform:uppercase;letter-spacing:0.6px;">Priorizar</div>
+                    <div class="dm-19" style="font-size:12px;line-height:17px;color:#DBE5FF;padding-top:4px;">¿Se puede atacar? ¿Está expuesta? ¿Toca algo crítico para el negocio?</div>
+                  </td>
+                  <td class="fn-gap" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="fn-cell fn-hot" width="32%" valign="top" style="padding:12px 10px;border-top:3px solid #5FFFE5;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;color:#5FFFE5;text-transform:uppercase;letter-spacing:0.6px;">Cerrar primero</div>
+                    <div class="dm-18" style="font-size:12px;line-height:17px;color:#FFFFFF;padding-top:4px;">Las pocas que <strong>sí</strong> abren una puerta. A tiempo.</div>
+                  </td>
+                </tr></tbody>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="20" style="height:20px;font-size:0;line-height:20px;">&nbsp;</td></tr></tbody></table>
+
+              <p class="dm-19" style="margin:0;font-size:14px;line-height:22px;color:#DBE5FF;font-family:Arial, Helvetica, sans-serif;">
+                Escanear y acumular hallazgos no reduce el riesgo. Lo reduce saber cuáles importan de verdad y cerrarlas antes de que alguien las use. Eso es <strong class="dm-18" style="color:#FFFFFF;">gestión de vulnerabilidades basada en riesgo</strong>.
+              </p>
+            </td>
+          </tr>
+
+          <!-- A. TRADUCTOR DEL CLIENTE: lo que dice, lo que significa, tu siguiente pregunta -->
+          <tr>
+            <td class="px section" style="padding:42px 42px 36px;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Traductor del cliente</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">Cuando escuches esto, ya hay oportunidad</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr></tbody></table>
+              <p class="section-copy dm-11" style="margin:0;font-size:15px;line-height:23px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">No vendes una herramienta: detectas un problema. Estas frases te dicen dónde está y cómo seguir.</p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="20" style="height:20px;font-size:0;line-height:20px;">&nbsp;</td></tr></tbody></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:2px solid #00205C;">
+                <tbody>
+                <!-- fila -->
+                <tr>
+                  <td class="stack xl-say" width="30%" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Dice</div>
+                    <div class="dm-16" style="font-size:15px;line-height:21px;font-weight:700;color:#00205C;padding-top:3px;">&ldquo;Escaneamos cada trimestre.&rdquo;</div>
+                  </td>
+                  <td class="stack xl-mean" width="35%" valign="top" style="padding:16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Significa</div>
+                    <div class="dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Entre un escaneo y otro aparecen activos y vulnerabilidades que nadie ve.</div>
+                  </td>
+                  <td class="stack xl-ask" width="35%" valign="top" style="padding:16px 0 16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005CFF;">Tu siguiente pregunta</div>
+                    <div class="dm-10" style="font-size:13px;line-height:20px;font-weight:700;color:#222222;padding-top:3px;">¿Qué pasa con lo que aparece en esos tres meses?</div>
+                  </td>
+                </tr>
+                <!-- fila -->
+                <tr>
+                  <td class="stack xl-say" width="30%" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Dice</div>
+                    <div class="dm-16" style="font-size:15px;line-height:21px;font-weight:700;color:#00205C;padding-top:3px;">&ldquo;El reporte lo recibe TI y ya.&rdquo;</div>
+                  </td>
+                  <td class="stack xl-mean" width="35%" valign="top" style="padding:16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Significa</div>
+                    <div class="dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Hay datos, pero no un proceso para decidir qué corregir ni para hacerle seguimiento.</div>
+                  </td>
+                  <td class="stack xl-ask" width="35%" valign="top" style="padding:16px 0 16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005CFF;">Tu siguiente pregunta</div>
+                    <div class="dm-10" style="font-size:13px;line-height:20px;font-weight:700;color:#222222;padding-top:3px;">¿Cómo deciden qué se corrige primero?</div>
+                  </td>
+                </tr>
+                <!-- fila -->
+                <tr>
+                  <td class="stack xl-say" width="30%" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Dice</div>
+                    <div class="dm-16" style="font-size:15px;line-height:21px;font-weight:700;color:#00205C;padding-top:3px;">&ldquo;Parcheamos cuando se puede.&rdquo;</div>
+                  </td>
+                  <td class="stack xl-mean" width="35%" valign="top" style="padding:16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Significa</div>
+                    <div class="dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">La urgencia la marca la agenda de TI, no el riesgo. Las puertas críticas pueden quedar abiertas semanas.</div>
+                  </td>
+                  <td class="stack xl-ask" width="35%" valign="top" style="padding:16px 0 16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005CFF;">Tu siguiente pregunta</div>
+                    <div class="dm-10" style="font-size:13px;line-height:20px;font-weight:700;color:#222222;padding-top:3px;">¿Cuánto tarda en aplicarse un parche crítico?</div>
+                  </td>
+                </tr>
+                <!-- fila -->
+                <tr>
+                  <td class="stack xl-say" width="30%" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Dice</div>
+                    <div class="dm-16" style="font-size:15px;line-height:21px;font-weight:700;color:#00205C;padding-top:3px;">&ldquo;Tenemos un Excel de activos.&rdquo;</div>
+                  </td>
+                  <td class="stack xl-mean" width="35%" valign="top" style="padding:16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Significa</div>
+                    <div class="dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">El inventario depende de que alguien lo actualice. Lo que no está en la lista no se protege.</div>
+                  </td>
+                  <td class="stack xl-ask" width="35%" valign="top" style="padding:16px 0 16px 12px;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005CFF;">Tu siguiente pregunta</div>
+                    <div class="dm-10" style="font-size:13px;line-height:20px;font-weight:700;color:#222222;padding-top:3px;">¿Cómo se enteran de un servidor o servicio nuevo en la nube?</div>
+                  </td>
+                </tr>
+                <!-- fila -->
+                <tr>
+                  <td class="stack xl-say" width="30%" valign="top" style="padding:16px 12px 16px 0;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Dice</div>
+                    <div class="dm-16" style="font-size:15px;line-height:21px;font-weight:700;color:#00205C;padding-top:3px;">&ldquo;Auditoría nos pidió evidencia.&rdquo;</div>
+                  </td>
+                  <td class="stack xl-mean" width="35%" valign="top" style="padding:16px 12px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#52647E;">Significa</div>
+                    <div class="dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Ya no basta con el reporte: tienen que mostrar qué corrigieron y en cuánto tiempo.</div>
+                  </td>
+                  <td class="stack xl-ask" width="35%" valign="top" style="padding:16px 0 16px 12px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005CFF;">Tu siguiente pregunta</div>
+                    <div class="dm-10" style="font-size:13px;line-height:20px;font-weight:700;color:#222222;padding-top:3px;">¿Qué les pidieron exactamente y para cuándo?</div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- B. ANTES Y DESPUÉS: solo escanear vs. gestionar por riesgo -->
+          <tr>
+            <td class="px section dm-2" bgcolor="#F4F7FC" style="padding:40px 42px;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">La diferencia que vendes</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">Solo escanear vs. gestionar por riesgo</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="20" style="height:20px;font-size:0;line-height:20px;">&nbsp;</td></tr></tbody></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;">
+                <tbody><tr>
+                  <td class="stack dm-1" width="49%" valign="top" bgcolor="#FFFFFF" style="background:#FFFFFF;border:1px solid #E1E7F2;border-radius:12px;padding:20px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-11" style="font-size:12px;line-height:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#52647E;">Solo escanear</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;font-weight:700;color:#52647E;">Qué entrega</div>
+                    <div class="dm-10" style="font-size:14px;line-height:20px;color:#222222;padding:2px 0 12px;">Una lista larga de hallazgos.</div>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;font-weight:700;color:#52647E;">Cómo prioriza</div>
+                    <div class="dm-10" style="font-size:14px;line-height:20px;color:#222222;padding:2px 0 12px;">Por severidad genérica, igual para todos.</div>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;font-weight:700;color:#52647E;">Cada cuánto mira</div>
+                    <div class="dm-10" style="font-size:14px;line-height:20px;color:#222222;padding:2px 0 12px;">De vez en cuando: el día del escaneo.</div>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;font-weight:700;color:#52647E;">Qué ve Auditoría</div>
+                    <div class="dm-10" style="font-size:14px;line-height:20px;color:#222222;padding-top:2px;">Reportes acumulados.</div>
+                  </td>
+                  <td class="stack-spacer" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="stack dm-6" width="49%" valign="top" bgcolor="#00205C" style="background:#00205C;border-radius:12px;padding:20px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-20" style="font-size:12px;line-height:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5FFFE5;">Gestionar por riesgo</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;color:#5FFFE5;">Qué entrega</div>
+                    <div class="dm-18" style="font-size:14px;line-height:20px;color:#FFFFFF;padding:2px 0 12px;">Una lista corta de lo que se corrige primero.</div>
+                    <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;color:#5FFFE5;">Cómo prioriza</div>
+                    <div class="dm-18" style="font-size:14px;line-height:20px;color:#FFFFFF;padding:2px 0 12px;">Por explotabilidad (si es fácil de usar para atacar o ya se está usando), exposición e impacto en el negocio.</div>
+                    <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;color:#5FFFE5;">Cada cuánto mira</div>
+                    <div class="dm-18" style="font-size:14px;line-height:20px;color:#FFFFFF;padding:2px 0 12px;">De forma continua, con inventario actualizado.</div>
+                    <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;color:#5FFFE5;">Qué ve Auditoría</div>
+                    <div class="dm-18" style="font-size:14px;line-height:20px;color:#FFFFFF;padding-top:2px;">Avance: qué se cerró, en cuánto tiempo y qué falta.</div>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- C. FRASE PARA ABRIR LA CONVERSACIÓN -->
+          <tr>
+            <td class="px" style="padding:40px 42px 8px;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Listo para usar</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">Abre la conversación con esta frase</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr></tbody></table>
+              <p class="section-copy dm-11" style="margin:0;font-size:15px;line-height:23px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">Sirve en una llamada, un correo o un mensaje. Adáptala a tu estilo.</p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="16" style="height:16px;font-size:0;line-height:16px;">&nbsp;</td></tr></tbody></table>
+              <table role="presentation" width="100%" bgcolor="#EEF3FF" class="dm-4" cellpadding="0" cellspacing="0" border="0" style="background:#EEF3FF;border-radius:12px;">
+                <tbody><tr>
+                  <td style="padding:22px 24px;border-left:4px solid #005CFF;border-radius:12px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-16" style="font-size:16px;line-height:25px;color:#00205C;font-style:italic;">
+                      &ldquo;Varias empresas escanean su red, pero el reporte trae tantos hallazgos que no saben por dónde empezar. ¿Les pasa algo parecido? Si quieren, revisamos con nuestro equipo de Preventa cómo priorizar lo que de verdad importa.&rdquo;
+                    </div>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- D. PORTAFOLIO GMS + PREVENTA -->
+          <tr>
+            <td class="px" style="padding:36px 42px 6px;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;text-align:center;">Portafolio GMS en esta categoría</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+              <table role="presentation" width="100%" bgcolor="#00205C" class="dm-6" cellpadding="0" cellspacing="0" border="0" style="background:#00205C;border-radius:12px;">
+                <tbody><tr>
+                  <td width="33%" align="center" class="dm-18" style="padding:18px 6px;font-size:18px;line-height:24px;font-weight:700;color:#FFFFFF;text-align:center;font-family:Arial, Helvetica, sans-serif;">Qualys</td>
+                  <td width="1" style="padding:14px 0;font-size:0;"><div style="width:1px;height:26px;background:#5FFFE5;font-size:0;line-height:0;">&nbsp;</div></td>
+                  <td width="33%" align="center" class="dm-18" style="padding:18px 6px;font-size:18px;line-height:24px;font-weight:700;color:#FFFFFF;text-align:center;font-family:Arial, Helvetica, sans-serif;">Tenable</td>
+                  <td width="1" style="padding:14px 0;font-size:0;"><div style="width:1px;height:26px;background:#5FFFE5;font-size:0;line-height:0;">&nbsp;</div></td>
+                  <td width="33%" align="center" class="dm-18" style="padding:18px 6px;font-size:18px;line-height:24px;font-weight:700;color:#FFFFFF;text-align:center;font-family:Arial, Helvetica, sans-serif;">Vicarius</td>
+                </tr></tbody>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+              <p class="dm-11" style="margin:0;font-size:14px;line-height:21px;color:#52647E;text-align:center;font-family:Arial, Helvetica, sans-serif;">Cada fabricante tiene un enfoque distinto; Preventa recomienda el adecuado según el contexto, la infraestructura y la madurez del cliente.</p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="26" style="height:26px;font-size:0;line-height:26px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="dm-10" style="margin:0;font-size:22px;line-height:28px;color:#222222;text-align:center;font-family:Arial, Helvetica, sans-serif;">Tú detectas el problema. Preventa hace el resto contigo.</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr></tbody></table>
+              <p class="dm-11" style="margin:0 auto;max-width:520px;font-size:14px;line-height:21px;color:#52647E;text-align:center;font-family:Arial, Helvetica, sans-serif;">Calificamos la cuenta, preparamos el discovery, hacemos la presentación técnica y recomendamos el fabricante. No necesitas saber qué marca encaja.</p>
+            </td>
+          </tr>
+
+          <!-- 13. CTA -->
+          <tr>
+            <td class="px" style="padding:18px 42px 46px;font-family:Arial, Helvetica, sans-serif;">
+
+              
+
+              <!-- BOTÓN (VML para Outlook de escritorio, HTML para el resto) -->
+              <!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL_REGISTRO}}" style="height:50px;v-text-anchor:middle;width:330px;" arcsize="16%" stroke="f" fillcolor="#005CFF">
+                <w:anchorlock/>
+                <center style="color:#FFFFFF;font-family:Arial, Helvetica, sans-serif;font-size:15px;font-weight:bold;">Registra tu cliente con Preventa &rarr;</center>
+              </v:roundrect>
+              <![endif]-->
+              <!--[if !mso]><!-->
+              <table role="presentation" align="center" class="cta-table" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td align="center" bgcolor="#005CFF" class="cta-cell dm-7" style="border-radius:8px;font-family:Arial, Helvetica, sans-serif;">
+                    <a class="cta-link dm-18" href="{{URL_REGISTRO}}" target="_blank" style="display:inline-block;padding:15px 28px;font-size:15px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:8px;font-family:Arial, Helvetica, sans-serif;">Registra tu cliente con Preventa &rarr;</a>
+                  </td>
+                </tr></tbody>
+              </table>
+              <!--<![endif]-->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="16" style="height:16px;font-size:0;line-height:16px;">&nbsp;</td></tr></tbody></table>
+              <p class="dm-11" style="margin:0;text-align:center;font-size:13px;line-height:20px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">
+                Registra los clientes en los que escuches alguna de estas frases. Preventa toma la conversación desde ahí.
+              </p>
+            </td>
+          </tr>
+
+          <!-- 14. PIE -->
+          <tr>
+            <td class="px dm-8" bgcolor="#222222" style="padding:24px 42px;background:#222222;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td class="stack mobile-center" valign="middle" style="font-family:Arial, Helvetica, sans-serif;">
+                    <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/LOGO_BLANCO.png" width="92" alt="GMS" style="display:block;width:92px;max-width:92px;height:auto;border:0;">
+                  </td>
+                  <td class="stack mobile-center" align="right" valign="middle" style="font-size:11px;line-height:17px;color:#C8C8C8;font-family:Arial, Helvetica, sans-serif;">
+                    GMS · Preventa<br>
+                    Mario Mendoza · Colombia<br>
+                    <a href="{{URL_MATERIAL}}" target="_blank" style="color:#5FFFE5;text-decoration:underline;font-weight:700;">Material de venta: gestión de vulnerabilidades</a>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr></tbody>
+  </table>
+
+<!--
+  CIFRAS Y AFIRMACIONES EXTERNAS
+  Sin cifras externas.
+
+  Notas:
+  - Las cuatro ideas (Ver, Priorizar, Remediar, Demostrar) se describen como capacidades de la categoría, sin atribuirlas a Qualys, Tenable ni Vicarius.
+-->
+</body>
+</html>

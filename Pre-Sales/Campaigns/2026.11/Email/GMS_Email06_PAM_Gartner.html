@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <title>Accesos privilegiados (PAM) | Guía comercial GMS · Noviembre sin puertas abiertas</title>
+
+  <!--
+    E06 · Campaña "Noviembre sin puertas abiertas" · Accesos privilegiados (PAM)
+
+    ASUNTO (elige uno):
+    1. ¿Qué dice Gartner? Nuestro portafolio PAM responde
+    2. PAM: 2 de 3 líderes de Gartner, en nuestro portafolio
+    3. Magic Quadrant de PAM 2026: lo que debes saber
+
+    PREHEADER (elige uno):
+    1. Delinea e IDIRA, Líderes; One Identity, Retador. Así lo usas bien con tus clientes.
+    2. 5 señales y 4 preguntas para detectar clientes que necesitan controlar sus accesos.
+    3. Cuándo usar Gartner en la conversación y cuándo llamar a Preventa.
+
+    MARCADORES PENDIENTES:
+    - {{URL_REPRINT_GARTNER}}: enlace oficial de descarga del reporte (Delinea o Palo Alto Networks).
+    - {{URL_REGISTRO}}: enlace del botón "Registra tu cliente con Preventa".
+    - {{URL_MATERIAL}}: enlace al material de venta (pie).
+    - {{AUTORES}} y {{FECHA DE PUBLICACIÓN}}: aviso legal de Gartner.
+  -->
+
+  <style>
+    html, body { margin:0 !important; padding:0 !important; width:100% !important; background:#F4F7FC; font-family:Arial, Helvetica, sans-serif; }
+    table { border-collapse:collapse !important; border-spacing:0 !important; mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+    img { border:0; outline:none; text-decoration:none; display:block; -ms-interpolation-mode:bicubic; }
+    a { text-decoration:none; }
+    body, table, td, p, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    .radar-grid, .feature-card-inner, .funnel, .brands { border-collapse:separate !important; }
+    .feature-card { vertical-align:top; transition:border-color .2s ease-in-out, box-shadow .2s ease-in-out; }
+    @media (hover:hover) { .feature-card:hover { border-color:#005CFF !important; box-shadow:0 4px 12px rgba(0,92,255,0.1); } }
+    @media (prefers-reduced-motion:reduce) { .feature-card { transition:none; } }
+    .stack { box-sizing:border-box; }
+    a:focus-visible { outline:3px solid #5FFFE5; outline-offset:4px; }
+
+    @media screen and (max-width:620px) {
+      .wrapper > tbody > tr > td { padding:0 !important; }
+      .container { width:100% !important; border-radius:0 !important; }
+      .px { padding-left:22px !important; padding-right:22px !important; }
+      .section { padding-top:32px !important; padding-bottom:32px !important; }
+      .stack { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .stack-spacer { display:block !important; width:100% !important; height:12px !important; line-height:12px !important; font-size:0 !important; padding:0 !important; }
+      .section-copy, .card-copy { font-size:16px !important; line-height:25px !important; }
+      .card-title { font-size:17px !important; line-height:24px !important; }
+      .mobile-center { text-align:center !important; }
+      .mobile-center img { margin-left:auto !important; margin-right:auto !important; }
+      .mobile-center + .mobile-center { padding-top:16px !important; }
+      .cta-table { width:100% !important; }
+      .cta-cell { padding:0 !important; }
+      .cta-link { display:block !important; padding:16px !important; font-size:16px !important; line-height:24px !important; }
+      .objections, .objections tbody, .objections tr, .objections td { display:block !important; width:100% !important; box-sizing:border-box !important; }
+      .objections tr:first-child { display:none !important; }
+      .objections td:first-child { padding:18px 18px 6px !important; border-bottom:0 !important; font-size:16px !important; line-height:24px !important; color:#00205C !important; }
+      .objections td + td { padding:0 18px 18px !important; font-size:16px !important; line-height:25px !important; }
+      .section-title { font-size:24px !important; line-height:30px !important; }
+      .hero-title { font-size:30px !important; line-height:38px !important; }
+      .radar-label { padding:16px 0 2px !important; border-bottom:0 !important; }
+      .radar-body { padding:0 0 16px !important; }
+      .xl-say { padding:16px 0 6px !important; border-bottom:0 !important; }
+      .xl-mean { padding:0 0 6px !important; border-bottom:0 !important; }
+      .xl-ask { padding:0 0 16px !important; }
+      .step-cell { padding:0 0 8px !important; }
+    }
+    @media screen and (max-width:480px) {
+      .funnel, .funnel tbody, .funnel tr { display:block !important; width:100% !important; }
+      .fn-cell { display:block !important; width:100% !important; box-sizing:border-box !important; border-top:0 !important; border-left:3px solid #52647E !important; padding:8px 12px !important; margin-bottom:8px !important; }
+      .fn-hot { border-left-color:#5FFFE5 !important; }
+      .fn-gap { display:none !important; }
+    }
+    @media screen and (max-width:360px) {
+      .px { padding-left:18px !important; padding-right:18px !important; }
+      .hero-title { font-size:27px !important; line-height:35px !important; }
+    }
+  </style>
+
+  <!--[if mso]>
+  <style type="text/css">body, table, td, p, a, h1, h2, h3 { font-family:Arial, Helvetica, sans-serif !important; }</style>
+  <xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+  <![endif]-->
+
+  <style id="email-dark-mode">
+    @media (prefers-color-scheme:dark) {
+      .dm-0{background-color:#101722 !important;}
+      .dm-1{background-color:#182232 !important;}
+      .dm-2{background-color:#202d40 !important;}
+      .dm-4{background-color:#253650 !important;}
+      .dm-5{background-color:#253650 !important;}
+      .dm-6{background-color:#00205c !important;}
+      .dm-7{background-color:#005cff !important;}
+      .dm-8{background-color:#222222 !important;}
+      .dm-9{background-color:#5fffe5 !important;}
+      .dm-10{color:#f4f7fc !important;-webkit-text-fill-color:#f4f7fc !important;}
+      .dm-11{color:#d1dced !important;-webkit-text-fill-color:#d1dced !important;}
+      .dm-16{color:#c2d5ff !important;-webkit-text-fill-color:#c2d5ff !important;}
+      .dm-17{color:#9fc0ff !important;-webkit-text-fill-color:#9fc0ff !important;}
+      .dm-18{color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;}
+      .dm-19{color:#dbe5ff !important;-webkit-text-fill-color:#dbe5ff !important;}
+      .dm-20{color:#5fffe5 !important;-webkit-text-fill-color:#5fffe5 !important;}
+      .feature-card{border-color:#52647e !important;}
+      .dark-mint-ink{color:#00205c !important;-webkit-text-fill-color:#00205c !important;}
+    }
+    [data-ogsc] .dm-0,[data-ogsb] .dm-0{background-color:#101722 !important;}
+    [data-ogsc] .dm-1,[data-ogsb] .dm-1{background-color:#182232 !important;}
+    [data-ogsc] .dm-2,[data-ogsb] .dm-2{background-color:#202d40 !important;}
+    [data-ogsc] .dm-4,[data-ogsb] .dm-4{background-color:#253650 !important;}
+    [data-ogsc] .dm-5,[data-ogsb] .dm-5{background-color:#253650 !important;}
+    [data-ogsc] .dm-6,[data-ogsb] .dm-6{background-color:#00205c !important;}
+    [data-ogsc] .dm-7,[data-ogsb] .dm-7{background-color:#005cff !important;}
+    [data-ogsc] .dm-8,[data-ogsb] .dm-8{background-color:#222222 !important;}
+    [data-ogsc] .dm-9,[data-ogsb] .dm-9{background-color:#5fffe5 !important;}
+    [data-ogsc] .dm-10{color:#f4f7fc !important;-webkit-text-fill-color:#f4f7fc !important;}
+    [data-ogsc] .dm-11{color:#d1dced !important;-webkit-text-fill-color:#d1dced !important;}
+    [data-ogsc] .dm-16{color:#c2d5ff !important;-webkit-text-fill-color:#c2d5ff !important;}
+    [data-ogsc] .dm-17{color:#9fc0ff !important;-webkit-text-fill-color:#9fc0ff !important;}
+    [data-ogsc] .dm-18{color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;}
+    [data-ogsc] .dm-19{color:#dbe5ff !important;-webkit-text-fill-color:#dbe5ff !important;}
+    [data-ogsc] .dm-20{color:#5fffe5 !important;-webkit-text-fill-color:#5fffe5 !important;}
+    [data-ogsc] .dark-mint-ink{color:#00205c !important;-webkit-text-fill-color:#00205c !important;}
+  </style>
+</head>
+
+<body class="dm-0" style="margin:0;padding:0;width:100%;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+
+  <!-- PREHEADER -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;font-family:Arial, Helvetica, sans-serif;">
+    Delinea e IDIRA, Líderes; One Identity, Retador. Así lo usas bien con tus clientes.&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+  </div>
+
+  <table role="presentation" width="100%" class="wrapper dm-0" bgcolor="#F4F7FC" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+    <tbody><tr>
+      <td align="center" style="padding:24px 12px;font-family:Arial, Helvetica, sans-serif;">
+
+        <!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+        <table role="presentation" width="600" class="container dm-1" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,32,92,0.08);font-family:Arial, Helvetica, sans-serif;">
+          <tbody>
+
+          <!-- 1. ENCABEZADO -->
+          <tr>
+            <td class="px" style="padding:24px 42px;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td valign="middle" class="stack mobile-center" style="font-family:Arial, Helvetica, sans-serif;">
+                    <img src="https://gmsseguridad.com/wp-content/uploads/2022/10/logo-header.png" width="118" alt="GMS" style="display:block;width:118px;max-width:118px;height:auto;background-color:#FFFFFF;padding:10px 12px;border-radius:8px;border:0;">
+                  </td>
+                  <td valign="middle" align="right" class="stack mobile-center" style="padding-top:10px;font-family:Arial, Helvetica, sans-serif;">
+                    <span class="dm-5 dm-17" style="display:inline-block;padding:4px 10px;background-color:#EEF3FF;color:#005CFF;border-radius:4px;font-size:11px;font-weight:bold;letter-spacing:0.8px;text-transform:uppercase;font-family:Arial, Helvetica, sans-serif;">Accesos privilegiados (PAM)</span>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="4" style="height:4px;font-size:0;line-height:4px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-11" style="font-size:10px;line-height:14px;font-weight:bold;color:#52647E;text-transform:uppercase;letter-spacing:0.5px;font-family:Arial, Helvetica, sans-serif;">Habilitación comercial GMS · Noviembre sin puertas abiertas</div>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 2-3. HERO: SALUDO, APERTURA Y BLOQUE DESTACADO DEL MAGIC QUADRANT -->
+          <tr>
+            <td class="px dm-6" bgcolor="#00205C" style="padding:48px 42px 44px;background:#00205C;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-20" style="font-size:12px;line-height:17px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5FFFE5;font-family:Arial, Helvetica, sans-serif;">La puerta de esta semana: los accesos privilegiados</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="14" style="height:14px;font-size:0;line-height:14px;">&nbsp;</td></tr></tbody></table>
+
+              <div class="dm-19" style="font-size:15px;line-height:22px;color:#DBE5FF;font-family:Arial, Helvetica, sans-serif;">Hola *|FNAME|*,</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+
+              <h1 class="hero-title dm-18" style="margin:0;font-size:34px;line-height:40px;font-weight:700;color:#FFFFFF;font-family:Arial, Helvetica, sans-serif;">
+                &ldquo;¿Qué dice Gartner?&rdquo;<br>
+                <span class="dm-20" style="color:#5FFFE5;">Nuestro portafolio responde bien.</span>
+              </h1>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="16" style="height:16px;font-size:0;line-height:16px;">&nbsp;</td></tr></tbody></table>
+
+              <p class="dm-19" style="margin:0;font-size:16px;line-height:25px;color:#DBE5FF;font-family:Arial, Helvetica, sans-serif;">
+                Cuando un cliente evalúa PAM (gestión de accesos privilegiados: controlar quién usa las cuentas con más permisos, cuándo y para qué), una de las primeras preguntas de su comité es esa. Llegamos con buena respuesta.
+              </p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="30" style="height:30px;font-size:0;line-height:30px;">&nbsp;</td></tr></tbody></table>
+
+              <!-- BLOQUE DESTACADO -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #52647E;">
+                <tbody><tr><td style="padding-top:28px;font-family:Arial, Helvetica, sans-serif;">
+                  <div class="dm-20" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5FFFE5;">Gartner Magic Quadrant for Privileged Access Management · septiembre de 2026</div>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="10" style="height:10px;font-size:0;line-height:10px;">&nbsp;</td></tr></tbody></table>
+                  <h2 class="section-title dm-18" style="margin:0;font-size:25px;line-height:32px;font-weight:700;color:#FFFFFF;font-family:Arial, Helvetica, sans-serif;">Dos de los tres líderes del Magic Quadrant de PAM 2026 están en nuestro portafolio</h2>
+                </td></tr></tbody>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="22" style="height:22px;font-size:0;line-height:22px;">&nbsp;</td></tr></tbody></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;">
+                <tbody><tr>
+                  <td class="stack dm-1" width="32%" valign="top" bgcolor="#FFFFFF" style="background:#FFFFFF;border-radius:12px;padding:20px 16px;text-align:center;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:19px;line-height:24px;font-weight:700;color:#00205C;">Delinea</div>
+                    <div class="dm-11" style="font-size:12px;line-height:16px;font-weight:700;color:#52647E;padding-top:2px;">&nbsp;</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+                    <span class="dm-5 dm-16" style="display:inline-block;padding:6px 12px;background:#EEF3FF;color:#00205C;border-radius:99px;font-size:12px;line-height:16px;font-weight:700;">Líder</span>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;color:#52647E;padding-top:6px;">Cuadrante Leaders</div>
+                  </td>
+                  <td class="stack-spacer" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="stack dm-1" width="32%" valign="top" bgcolor="#FFFFFF" style="background:#FFFFFF;border-radius:12px;padding:20px 16px;text-align:center;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:19px;line-height:24px;font-weight:700;color:#00205C;">IDIRA</div>
+                    <div class="dm-11" style="font-size:12px;line-height:16px;font-weight:700;color:#52647E;padding-top:2px;">(Palo Alto Networks)</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+                    <span class="dm-5 dm-16" style="display:inline-block;padding:6px 12px;background:#EEF3FF;color:#00205C;border-radius:99px;font-size:12px;line-height:16px;font-weight:700;">Líder</span>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;color:#52647E;padding-top:6px;">Cuadrante Leaders</div>
+                  </td>
+                  <td class="stack-spacer" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="stack dm-1" width="32%" valign="top" bgcolor="#FFFFFF" style="background:#FFFFFF;border-radius:12px;padding:20px 16px;text-align:center;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:19px;line-height:24px;font-weight:700;color:#00205C;">One Identity</div>
+                    <div class="dm-11" style="font-size:12px;line-height:16px;font-weight:700;color:#52647E;padding-top:2px;">&nbsp;</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+                    <span class="dm-5 dm-16" style="display:inline-block;padding:6px 12px;background:#EEF3FF;color:#00205C;border-radius:99px;font-size:12px;line-height:16px;font-weight:700;">Retador</span>
+                    <div class="dm-11" style="font-size:11px;line-height:15px;color:#52647E;padding-top:6px;">Cuadrante Challengers</div>
+                  </td>
+                </tr></tbody>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="26" style="height:26px;font-size:0;line-height:26px;">&nbsp;</td></tr></tbody></table>
+
+              <!-- BOTÓN DEL REPORTE (aqua sobre azul marino) -->
+              <!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL_REPRINT_GARTNER}}" style="height:46px;v-text-anchor:middle;width:260px;" arcsize="16%" stroke="f" fillcolor="#5FFFE5">
+                <w:anchorlock/>
+                <center style="color:#00205C;font-family:Arial, Helvetica, sans-serif;font-size:15px;font-weight:bold;">Ver el reporte completo &rarr;</center>
+              </v:roundrect>
+              <![endif]-->
+              <!--[if !mso]><!-->
+              <table role="presentation" align="center" class="cta-table" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td align="center" bgcolor="#5FFFE5" class="cta-cell dm-9" style="border-radius:8px;font-family:Arial, Helvetica, sans-serif;">
+                    <a class="cta-link dark-mint-ink" href="{{URL_REPRINT_GARTNER}}" target="_blank" style="display:inline-block;padding:14px 26px;font-size:15px;line-height:20px;font-weight:700;color:#00205C;text-decoration:none;border-radius:8px;font-family:Arial, Helvetica, sans-serif;">Ver el reporte completo &rarr;</a>
+                  </td>
+                </tr></tbody>
+              </table>
+              <!--<![endif]-->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="12" style="height:12px;font-size:0;line-height:12px;">&nbsp;</td></tr></tbody></table>
+              <p class="dm-19" style="margin:0;font-size:12px;line-height:18px;color:#DBE5FF;text-align:center;font-family:Arial, Helvetica, sans-serif;">Enlace oficial de descarga ofrecido por el fabricante.</p>
+            </td>
+          </tr>
+
+          <!-- 4. QUÉ SIGNIFICA PARA TU CONVERSACIÓN (tres columnas con barra) -->
+          <tr>
+            <td class="px section" style="padding:42px 42px 34px;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Qué significa para tu conversación</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">Tres ideas para llevar a la reunión</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="22" style="height:22px;font-size:0;line-height:22px;">&nbsp;</td></tr></tbody></table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td class="stack step-cell" width="33%" valign="top" style="padding:0 10px 0 0;font-family:Arial, Helvetica, sans-serif;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" bgcolor="#00205C" class="dm-6" style="height:6px;font-size:0;line-height:6px;background:#00205C;border-radius:3px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-10" style="font-size:16px;line-height:22px;font-weight:700;color:#222222;padding-top:12px;">Cómo lee Gartner</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding:4px 0 16px;">Ubica a cada fabricante en dos ejes: capacidad de ejecución (qué tan bien cumple hoy) y completitud de visión (qué tan bien entiende hacia dónde va el mercado).</div>
+                  </td>
+                  <td class="stack step-cell" width="33%" valign="top" style="padding:0 5px;font-family:Arial, Helvetica, sans-serif;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" bgcolor="#005CFF" class="dm-7" style="height:6px;font-size:0;line-height:6px;background:#005CFF;border-radius:3px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-10" style="font-size:16px;line-height:22px;font-weight:700;color:#222222;padding-top:12px;">Menos dudas sobre la marca</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding:4px 0 16px;">Llegar con fabricantes evaluados por Gartner reduce la objeción &ldquo;¿y esta marca quién es?&rdquo;.</div>
+                  </td>
+                  <td class="stack step-cell" width="33%" valign="top" style="padding:0 0 0 10px;font-family:Arial, Helvetica, sans-serif;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" bgcolor="#5FFFE5" class="dm-9" style="height:6px;font-size:0;line-height:6px;background:#5FFFE5;border-radius:3px;">&nbsp;</td></tr></tbody></table>
+                    <div class="dm-10" style="font-size:16px;line-height:22px;font-weight:700;color:#222222;padding-top:12px;">Tres opciones, no una</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding:4px 0 16px;">Preventa puede recomendar la adecuada según el contexto del cliente, sin forzar una sola marca.</div>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 5. CÓMO USARLO BIEN (tres reglas) -->
+          <tr>
+            <td class="px" style="padding:0 42px 42px;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" bgcolor="#EEF3FF" class="dm-4" cellpadding="0" cellspacing="0" border="0" style="background:#EEF3FF;border-radius:14px;">
+                <tbody><tr>
+                  <td style="padding:24px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Cómo usarlo bien</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="14" style="height:14px;font-size:0;line-height:14px;">&nbsp;</td></tr></tbody></table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                      <tr>
+                        <td width="64" valign="top" style="padding-bottom:14px;"><span class="dm-6 dm-18" style="display:inline-block;padding:4px 8px;background:#00205C;color:#FFFFFF;border-radius:4px;font-size:11px;line-height:14px;font-weight:700;">Regla 1</span></td>
+                        <td valign="top" class="dm-10" style="padding-bottom:14px;font-size:14px;line-height:21px;color:#222222;"><strong>Primero el problema del cliente.</strong> Gartner es un argumento de confianza, no el argumento de venta.</td>
+                      </tr>
+                      <tr>
+                        <td width="64" valign="top" style="padding-bottom:14px;"><span class="dm-6 dm-18" style="display:inline-block;padding:4px 8px;background:#00205C;color:#FFFFFF;border-radius:4px;font-size:11px;line-height:14px;font-weight:700;">Regla 2</span></td>
+                        <td valign="top" class="dm-10" style="padding-bottom:14px;font-size:14px;line-height:21px;color:#222222;"><strong>No compares marcas frente al cliente</strong> usando el cuadrante.</td>
+                      </tr>
+                      <tr>
+                        <td width="64" valign="top"><span class="dm-6 dm-18" style="display:inline-block;padding:4px 8px;background:#00205C;color:#FFFFFF;border-radius:4px;font-size:11px;line-height:14px;font-weight:700;">Regla 3</span></td>
+                        <td valign="top" class="dm-10" style="font-size:14px;line-height:21px;color:#222222;"><strong>Comparte el reporte solo con el enlace oficial</strong> del fabricante, nunca como captura de pantalla.</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 6. RADAR (filas con etiqueta lateral) -->
+          <tr>
+            <td class="px section dm-2" bgcolor="#F4F7FC" style="padding:40px 42px 36px;background:#F4F7FC;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Radar de oportunidad</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">5 señales de que el cliente necesita PAM</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr></tbody></table>
+              <p class="section-copy dm-11" style="margin:0;font-size:15px;line-height:23px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">Con una o dos señales claras ya hay motivo para profundizar.</p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="18" style="height:18px;font-size:0;line-height:18px;">&nbsp;</td></tr></tbody></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:2px solid #00205C;">
+                <tbody>
+                <tr>
+                  <td class="stack radar-label" width="120" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;"><span class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#005CFF;">Credenciales</span></td>
+                  <td class="stack radar-body" valign="top" style="padding:16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="card-title dm-10" style="font-size:15px;line-height:21px;font-weight:700;color:#222222;">Contraseñas de administrador compartidas</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Varias personas usan la misma clave y nadie puede decir quién hizo qué.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="stack radar-label" width="120" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;"><span class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#005CFF;">Servicios</span></td>
+                  <td class="stack radar-body" valign="top" style="padding:16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="card-title dm-10" style="font-size:15px;line-height:21px;font-weight:700;color:#222222;">Cuentas de servicio sin dueño</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Aplicaciones y procesos usan cuentas con muchos permisos que nadie revisa ni cambia.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="stack radar-label" width="120" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;"><span class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#005CFF;">Terceros</span></td>
+                  <td class="stack radar-body" valign="top" style="padding:16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="card-title dm-10" style="font-size:15px;line-height:21px;font-weight:700;color:#222222;">Proveedores con acceso remoto permanente</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Entran cuando lo necesitan, sin aprobación previa ni registro de lo que hacen.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="stack radar-label" width="120" valign="top" style="padding:16px 12px 16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;"><span class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#005CFF;">Auditoría</span></td>
+                  <td class="stack radar-body" valign="top" style="padding:16px 0;border-bottom:1px solid #E1E7F2;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="card-title dm-10" style="font-size:15px;line-height:21px;font-weight:700;color:#222222;">Les piden trazabilidad de sesiones privilegiadas</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Deben demostrar quién entró, cuándo y qué hizo, y hoy no tienen cómo.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="stack radar-label" width="120" valign="top" style="padding:16px 12px 16px 0;font-family:Arial, Helvetica, sans-serif;"><span class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#005CFF;">Retiros</span></td>
+                  <td class="stack radar-body" valign="top" style="padding:16px 0;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="card-title dm-10" style="font-size:15px;line-height:21px;font-weight:700;color:#222222;">Personas que salen y conservan accesos</div>
+                    <div class="card-copy dm-11" style="font-size:13px;line-height:20px;color:#52647E;padding-top:3px;">Las cuentas de quienes se van siguen activas días o semanas después.</div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 7. DISCOVERY (tarjetas + frases como etiquetas) -->
+          <tr>
+            <td class="px section" style="padding:40px 42px;font-family:Arial, Helvetica, sans-serif;">
+              <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Discovery</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="6" style="height:6px;font-size:0;line-height:6px;">&nbsp;</td></tr></tbody></table>
+              <h2 class="section-title dm-10" style="margin:0;font-size:27px;line-height:33px;font-weight:700;color:#222222;font-family:Arial, Helvetica, sans-serif;">4 preguntas para abrir la conversación</h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="20" style="height:20px;font-size:0;line-height:20px;">&nbsp;</td></tr></tbody></table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;">
+                <tbody>
+                <tr>
+                  <td class="stack dm-1" width="49%" valign="top" style="border:1px solid #E1E7F2;border-left:3px solid #005CFF;border-radius:8px;padding:14px 16px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:14px;line-height:21px;font-weight:700;color:#222222;">¿Quién tiene hoy las contraseñas de administrador y cómo se comparten?</div>
+                  </td>
+                  <td class="stack-spacer" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="stack dm-1" width="49%" valign="top" style="border:1px solid #E1E7F2;border-left:3px solid #005CFF;border-radius:8px;padding:14px 16px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:14px;line-height:21px;font-weight:700;color:#222222;">¿Cuántas cuentas con privilegios tienen, incluidas las de servicio?</div>
+                  </td>
+                </tr>
+                <tr><td colspan="3" height="10" style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>
+                <tr>
+                  <td class="stack dm-1" width="49%" valign="top" style="border:1px solid #E1E7F2;border-left:3px solid #005CFF;border-radius:8px;padding:14px 16px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:14px;line-height:21px;font-weight:700;color:#222222;">¿Cómo entran los proveedores a sus sistemas y quién aprueba ese acceso?</div>
+                  </td>
+                  <td class="stack-spacer" width="2%" style="font-size:0;">&nbsp;</td>
+                  <td class="stack dm-1" width="49%" valign="top" style="border:1px solid #E1E7F2;border-left:3px solid #005CFF;border-radius:8px;padding:14px 16px;font-family:Arial, Helvetica, sans-serif;">
+                    <div class="dm-10" style="font-size:14px;line-height:21px;font-weight:700;color:#222222;">Si Auditoría pregunta quién hizo un cambio crítico el mes pasado, ¿pueden mostrarlo?</div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="22" style="height:22px;font-size:0;line-height:22px;">&nbsp;</td></tr></tbody></table>
+              <div class="dm-16" style="font-size:13px;line-height:19px;font-weight:700;color:#00205C;font-family:Arial, Helvetica, sans-serif;">Señal práctica: si escuchas alguna de estas respuestas, hay oportunidad.</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="10" style="height:10px;font-size:0;line-height:10px;">&nbsp;</td></tr></tbody></table>
+              <div style="font-size:0;line-height:0;">
+                <span class="dm-6 dm-18" style="display:inline-block;margin:0 6px 8px 0;padding:8px 12px;background:#00205C;color:#FFFFFF;border-radius:99px;font-size:13px;line-height:17px;font-family:Arial, Helvetica, sans-serif;">&ldquo;La clave la tiene el líder de TI&rdquo;</span>
+                <span class="dm-6 dm-18" style="display:inline-block;margin:0 6px 8px 0;padding:8px 12px;background:#00205C;color:#FFFFFF;border-radius:99px;font-size:13px;line-height:17px;font-family:Arial, Helvetica, sans-serif;">&ldquo;El proveedor entra por VPN cuando necesita&rdquo;</span>
+                <span class="dm-6 dm-18" style="display:inline-block;margin:0 6px 8px 0;padding:8px 12px;background:#00205C;color:#FFFFFF;border-radius:99px;font-size:13px;line-height:17px;font-family:Arial, Helvetica, sans-serif;">&ldquo;No sabemos cuántas cuentas de administrador hay&rdquo;</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 8. ACOMPAÑAMIENTO GMS -->
+          <tr>
+            <td class="px" style="padding:6px 42px 6px;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E1E7F2;">
+                <tbody><tr><td style="padding-top:30px;text-align:center;font-family:Arial, Helvetica, sans-serif;">
+                  <div class="dm-17" style="font-size:11px;line-height:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#005CFF;">Acompañamiento GMS</div>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="7" style="height:7px;font-size:0;line-height:7px;">&nbsp;</td></tr></tbody></table>
+                  <h2 class="dm-10" style="margin:0;font-size:22px;line-height:28px;color:#222222;font-family:Arial, Helvetica, sans-serif;">Tú detectas la necesidad. Preventa hace el resto contigo.</h2>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr></tbody></table>
+                  <p class="dm-11" style="margin:0 auto;max-width:520px;font-size:14px;line-height:21px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">Calificamos la cuenta, preparamos el discovery, hacemos la presentación técnica y recomendamos entre Delinea, IDIRA (Palo Alto Networks) y One Identity según el contexto del cliente.</p>
+                </td></tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 13. CTA -->
+          <tr>
+            <td class="px" style="padding:18px 42px 30px;font-family:Arial, Helvetica, sans-serif;">
+
+              
+
+              <!-- BOTÓN (VML para Outlook de escritorio, HTML para el resto) -->
+              <!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL_REGISTRO}}" style="height:50px;v-text-anchor:middle;width:330px;" arcsize="16%" stroke="f" fillcolor="#005CFF">
+                <w:anchorlock/>
+                <center style="color:#FFFFFF;font-family:Arial, Helvetica, sans-serif;font-size:15px;font-weight:bold;">Registra tu cliente con Preventa &rarr;</center>
+              </v:roundrect>
+              <![endif]-->
+              <!--[if !mso]><!-->
+              <table role="presentation" align="center" class="cta-table" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td align="center" bgcolor="#005CFF" class="cta-cell dm-7" style="border-radius:8px;font-family:Arial, Helvetica, sans-serif;">
+                    <a class="cta-link dm-18" href="{{URL_REGISTRO}}" target="_blank" style="display:inline-block;padding:15px 28px;font-size:15px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:8px;font-family:Arial, Helvetica, sans-serif;">Registra tu cliente con Preventa &rarr;</a>
+                  </td>
+                </tr></tbody>
+              </table>
+              <!--<![endif]-->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td height="16" style="height:16px;font-size:0;line-height:16px;">&nbsp;</td></tr></tbody></table>
+              <p class="dm-11" style="margin:0;text-align:center;font-size:13px;line-height:20px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">
+                Registra <strong>antes del viernes 27 de noviembre</strong> los clientes con una o dos señales del radar.
+              </p>
+            </td>
+          </tr>
+
+          <!-- 10. AVISO LEGAL DE GARTNER -->
+          <tr>
+            <td class="px" style="padding:0 42px 30px;font-family:Arial, Helvetica, sans-serif;">
+              <p class="dm-11" style="margin:0;padding-top:18px;border-top:1px solid #E1E7F2;font-size:10px;line-height:15px;color:#52647E;font-family:Arial, Helvetica, sans-serif;">Gartner, Magic Quadrant for Privileged Access Management, {{AUTORES}}, {{FECHA DE PUBLICACIÓN}}. GARTNER is a registered trademark and service mark of Gartner, Inc. and/or its affiliates in the U.S. and internationally, and MAGIC QUADRANT is a registered trademark of Gartner, Inc. and/or its affiliates and are used herein with permission. All rights reserved. Gartner does not endorse any vendor, product or service depicted in its research publications, and does not advise technology users to select only those vendors with the highest ratings or other designation. Gartner research publications consist of the opinions of Gartner's research organization and should not be construed as statements of fact. Gartner disclaims all warranties, expressed or implied, with respect to this research, including any warranties of merchantability or fitness for a particular purpose.</p>
+            </td>
+          </tr>
+
+          <!-- 14. PIE -->
+          <tr>
+            <td class="px dm-8" bgcolor="#222222" style="padding:24px 42px;background:#222222;font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <td class="stack mobile-center" valign="middle" style="font-family:Arial, Helvetica, sans-serif;">
+                    <img src="https://mariomegu-learn.github.io/Pre-Sales/Campaigns/assets/LOGO_BLANCO.png" width="92" alt="GMS" style="display:block;width:92px;max-width:92px;height:auto;border:0;">
+                  </td>
+                  <td class="stack mobile-center" align="right" valign="middle" style="font-size:11px;line-height:17px;color:#C8C8C8;font-family:Arial, Helvetica, sans-serif;">
+                    GMS · Preventa<br>
+                    Mario Mendoza · Colombia<br>
+                    <a href="{{URL_MATERIAL}}" target="_blank" style="color:#5FFFE5;text-decoration:underline;font-weight:700;">Material de venta: accesos privilegiados (PAM)</a>
+                  </td>
+                </tr></tbody>
+              </table>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr></tbody>
+  </table>
+
+<!--
+  CIFRAS Y AFIRMACIONES EXTERNAS
+  - Posiciones en el Gartner Magic Quadrant for Privileged Access Management (posicionamiento a septiembre de 2026):
+    Delinea, Líder; Palo Alto Networks (IDIRA en GMS), Líder; One Identity, Retador.
+    El cuadrante de Líderes tiene tres fabricantes; dos están en el portafolio GMS.
+    Fuente: datos entregados en el brief de la campaña. Validar contra el reprint oficial ({{URL_REPRINT_GARTNER}}) antes del envío.
+  - La explicación de los dos ejes (capacidad de ejecución y completitud de visión) describe la metodología general del Magic Quadrant, en palabras simples.
+  - No se usan fortalezas, precauciones, funcionalidades ni otros fabricantes del reporte.
+-->
+</body>
+</html>
