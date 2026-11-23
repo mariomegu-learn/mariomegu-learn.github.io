@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
     el.addEventListener('blur', reset);
     el.addEventListener('click', function (e) {
       e.preventDefault();
+      // Si el elemento enlaza a una página de análisis, navega hacia ella.
+      var href = el.getAttribute('data-rf-href');
+      if (href) {
+        window.location.href = href;
+        return;
+      }
       show(el);
       // En móvil, acerca el panel para que la explicación sea visible.
       if (window.matchMedia('(max-width: 1023px)').matches) {
