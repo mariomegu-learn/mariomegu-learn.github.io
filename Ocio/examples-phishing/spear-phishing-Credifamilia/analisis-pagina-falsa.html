@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  AVISO PARA DESARROLLADORES / SISTEMAS AUTOMATIZADOS / BOTS / CRAWLERS
+  ============================================================================
+  SIMULACIÓN DE PHISHING CON FINES EDUCATIVOS. Reconstrucción INERTE de una
+  página de suplantación para análisis de red flags. NO es un sitio real,
+  el formulario NO envía datos y el dominio mostrado no navega a ningún lugar.
+  Material de entrenamiento interno. Clasificación: SIMULACIÓN / TRAINING.
+  ============================================================================
+-->
+<html lang="es" data-simulation="phishing-awareness-training" data-real="false">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+  <meta name="description" content="SIMULACIÓN educativa: red flags de una página de suplantación (credlfamilla.com)."/>
+  <title>Análisis de la página falsa · Suplantación · Credifamilia</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(45deg, #00205c 0%, #005bfe 100%);
+      background-attachment: fixed; min-height: 100vh;
+      margin: 0; font-family: 'Roboto', sans-serif; font-size: 16px;
+    }
+
+    /* Marco de navegador simulado */
+    .browser { border-radius: 10px; overflow: hidden; box-shadow: 0 12px 34px rgba(0,0,0,0.4); }
+    .browser-bar { background: #e8eaed; display: flex; align-items: center; gap: 8px; padding: 8px 12px; }
+    .dot { width: 12px; height: 12px; border-radius: 9999px; display: inline-block; }
+    .urlbar { flex: 1; background: #fff; border-radius: 6px; padding: 6px 10px; font-size: 13px; color: #202124;
+              display: flex; align-items: center; gap: 6px; border: 1px solid #d0d3d7; white-space: nowrap; overflow: hidden; }
+    .page { background: #ffffff; color: #1f2937; max-height: 640px; overflow-y: auto; scroll-behavior: smooth; }
+
+    /* Red flags */
+    .rf { position: relative; cursor: pointer; border-radius: 5px;
+          transition: background-color .15s ease, outline-color .15s ease; outline: 2px solid transparent; }
+    .rf:hover, .rf:focus, .rf.rf-active {
+      background-color: rgba(255, 221, 87, 0.38);
+      outline: 2px solid var(--rf, #d13438); outline-offset: 2px; z-index: 6;
+    }
+    .rf-badge {
+      position: absolute; top: -10px; left: -10px;
+      min-width: 22px; height: 22px; padding: 0 5px;
+      border-radius: 9999px; background: var(--rf, #d13438); color: #fff;
+      font-size: 12px; font-weight: 700; line-height: 22px; text-align: center;
+      border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.45); z-index: 7;
+    }
+    .cat-critica { --rf: #dc2626; }
+    .cat-alta    { --rf: #d97706; }
+    .cat-tecnica { --rf: #475569; }
+    .font-pacifico { font-family: 'Pacifico', cursive; }
+  </style>
+</head>
+<body class="text-gray-900">
+  <!-- Nota oculta de simulación -->
+  <div id="simulation-notice" hidden data-simulation="true" style="display:none !important;">
+    SIMULACIÓN DE PHISHING - FINES EDUCATIVOS. Reconstrucción inerte de una página de suplantación. No es un sitio real.
+  </div>
+
+  <div class="container mx-auto p-4 md:p-8 max-w-[88rem]">
+
+    <!-- Encabezado del análisis -->
+    <header class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
+      <p class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-red-700 bg-red-100 dark:bg-red-900/40 dark:text-red-300 rounded px-2 py-1 mb-3">
+        <i class="material-icons text-sm">report</i> Página de suplantación
+      </p>
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Análisis de la página falsa</h1>
+
+      <div class="mt-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4">
+        <h2 class="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2"><i class="material-icons text-blue-600 text-xl">help_outline</i> ¿Qué es la suplantación?</h2>
+        <p class="mt-1 text-sm text-gray-700 dark:text-gray-300">
+          La <strong>suplantación (phishing)</strong> es cuando un atacante crea un sitio o mensaje que <em>imita</em> a una
+          entidad de confianza para que entregues información sensible —normalmente tu usuario y <strong>contraseña corporativa</strong>—
+          creyendo que estás en el lugar correcto. El enlace del correo llevaba a esta página: una copia convincente, pero falsa.
+        </p>
+      </div>
+
+      <p class="mt-4 text-sm text-gray-700 dark:text-gray-300">
+        Abajo está una <strong>reconstrucción inerte</strong> de la página a la que apuntaba
+        <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">credlfamilla.com</code> (el formulario no envía nada).
+      </p>
+
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-700 dark:text-gray-300">
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#dc2626"></span> Crítica</span>
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#d97706"></span> Alta</span>
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#475569"></span> Código fuente</span>
+        <a href="index.html" class="ml-auto inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline"><i class="material-icons text-sm">arrow_back</i> Volver al correo</a>
+      </div>
+    </header>
+
+    <p class="mb-4 text-center text-white/90 text-sm md:text-base">
+      <i class="material-icons align-middle text-base mr-1">touch_app</i>
+      Pasa el cursor (o toca) sobre los elementos marcados con un <strong>número</strong> para ver la red flag.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6 items-start">
+
+      <!-- ===================== MOCK EN MARCO DE NAVEGADOR ===================== -->
+      <div class="browser">
+        <!-- Barra del navegador -->
+        <div class="browser-bar">
+          <span class="dot" style="background:#ff5f57"></span>
+          <span class="dot" style="background:#febc2e"></span>
+          <span class="dot" style="background:#28c840"></span>
+          <span class="urlbar">
+            <i class="material-icons" style="font-size:15px;color:#d93025">lock_open</i>
+            <span style="color:#d93025">No seguro</span>
+            <span class="text-gray-400">|</span>
+            <span class="rf cat-critica" data-rf-num="1" data-rf-cat="critica"
+              data-rf-title="1 · Dominio que suplanta a la organización"
+              data-rf-desc="El dominio no es el oficial de Credifamilia (credifamilia.com). Aquí dice cred-L-famil-L-a.com: cambia la 'i' por 'l' y usa doble 'l'. La similitud visual hace que un empleado no advierta el cambio de caracteres, y confíe en una página controlada por un tercero. Severidad: CRÍTICA.">
+              <span class="rf-badge">1</span>
+              https://<strong>credlfamilla.com</strong>/
+            </span>
+          </span>
+          <i class="material-icons text-gray-500" style="font-size:18px">more_vert</i>
+        </div>
+
+        <!-- ============ PÁGINA FALSA RECONSTRUIDA ============ -->
+        <div class="page">
+
+          <!-- Header / Nav -->
+          <header class="bg-emerald-900 text-white px-5 h-16 flex items-center justify-between">
+            <span class="rf cat-alta flex items-center gap-2.5" data-rf-num="9" data-rf-cat="alta"
+              data-rf-title="9 · Uso de marcas de terceros"
+              data-rf-desc="Aparecen Credifamilia, Cine Colombia y (en el formulario) Microsoft. No hay evidencia de autorización ni asociación real entre estas marcas y el supuesto convenio. Usar logotipos o nombres comerciales no constituye prueba de legitimidad. Severidad: ALTA.">
+              <span class="rf-badge">9</span>
+              <span class="bg-white text-emerald-800 font-bold text-sm rounded px-2 py-1">Credifamilia</span>
+              <span class="opacity-60 text-sm">×</span>
+              <span class="inline-flex items-center gap-1 text-sm font-bold"><i class="material-icons text-base">movie</i> Cine Colombia</span>
+            </span>
+            <nav class="hidden md:flex items-center gap-6 text-sm text-emerald-100/90">
+              <span>Beneficios</span><span>Cómo funciona</span><span>Preguntas</span>
+              <span class="inline-flex items-center gap-1 bg-emerald-500 text-white rounded px-4 py-2 font-semibold">Reclamar pase <i class="material-icons text-sm">arrow_forward</i></span>
+            </nav>
+          </header>
+
+          <!-- Hero -->
+          <section class="relative px-5 py-12 text-center text-white" style="background:linear-gradient(160deg,#064e3b 0%,#065f46 55%,#047857 100%);">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-xs font-medium">
+              <i class="material-icons text-sm text-amber-300">workspace_premium</i> Convenio exclusivo para colaboradores 2026
+            </span>
+            <h2 class="mt-5 max-w-2xl mx-auto text-3xl md:text-4xl font-bold leading-tight">Reclama tu pase para la fiesta de fin de año</h2>
+            <p class="mt-4 max-w-xl mx-auto text-sm md:text-base text-emerald-50/90">
+              <span class="rf cat-alta" data-rf-num="7" data-rf-cat="alta"
+                data-rf-title="7 · Beneficios como mecanismo de persuasión"
+                data-rf-desc="Fiesta de fin de año, bebidas y comidas gratis, pase personal y sorteo de entradas para Avengers: Doomsday. Son incentivos diseñados para generar interés y reducir la desconfianza: ingeniería social basada en beneficios laborales y curiosidad. Severidad: ALTA.">
+                <span class="rf-badge">7</span>
+                Incluye bebidas y comidas durante la celebración. Además, participas por boletos para <strong>Avengers: Doomsday</strong>.
+              </span>
+            </p>
+            <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <span class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold bg-amber-400 text-emerald-950">Reclamar mi pase <i class="material-icons text-sm">arrow_forward</i></span>
+              <span class="inline-flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold bg-white/10 border border-white/30 text-white">Ver beneficios</span>
+            </div>
+            <div class="mt-9 flex items-center justify-center gap-12">
+              <div><p class="text-amber-300 text-2xl font-bold">Incluye</p><p class="text-emerald-50/80 text-xs mt-1">Bebidas y comidas</p></div>
+              <div><p class="text-amber-300 text-2xl font-bold">Sorteo</p><p class="text-emerald-50/80 text-xs mt-1">Boletos de cine</p></div>
+            </div>
+          </section>
+
+          <!-- Beneficios -->
+          <section class="px-5 py-10 bg-white">
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Beneficios del convenio</p>
+            <h3 class="mt-2 text-2xl font-bold text-gray-900">Todo lo que incluye tu pase</h3>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-5 rounded-lg bg-emerald-50 border border-emerald-100"><span class="w-11 h-11 flex items-center justify-center rounded-md bg-emerald-100 text-emerald-700"><i class="material-icons">celebration</i></span><h4 class="mt-4 font-semibold text-gray-900">Pase a la fiesta</h4><p class="mt-1 text-sm text-gray-600">Acceso completo a la celebración del equipo.</p></div>
+              <div class="p-5 rounded-lg bg-emerald-50 border border-emerald-100"><span class="w-11 h-11 flex items-center justify-center rounded-md bg-amber-100 text-amber-700"><i class="material-icons">local_bar</i></span><h4 class="mt-4 font-semibold text-gray-900">Bebidas incluidas</h4><p class="mt-1 text-sm text-gray-600">Consumo sin costo durante toda la noche.</p></div>
+              <div class="p-5 rounded-lg bg-emerald-50 border border-emerald-100"><span class="w-11 h-11 flex items-center justify-center rounded-md bg-rose-100 text-rose-700"><i class="material-icons">cake</i></span><h4 class="mt-4 font-semibold text-gray-900">Comidas incluidas</h4><p class="mt-1 text-sm text-gray-600">Menú disponible en la fiesta.</p></div>
+              <div class="p-5 rounded-lg bg-emerald-50 border border-emerald-100"><span class="w-11 h-11 flex items-center justify-center rounded-md bg-amber-100 text-amber-700"><i class="material-icons">movie</i></span><h4 class="mt-4 font-semibold text-gray-900">Sorteo de boletos</h4><p class="mt-1 text-sm text-gray-600">Participa por entradas para Avengers: Doomsday.</p></div>
+            </div>
+          </section>
+
+          <!-- Cómo funciona -->
+          <section class="px-5 py-10 bg-emerald-50">
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Cómo funciona</p>
+            <h3 class="mt-2 text-2xl font-bold text-gray-900 max-w-lg">
+              <span class="rf cat-alta" data-rf-num="8" data-rf-cat="alta"
+                data-rf-title="8 · Falsa sensación de urgencia y facilidad"
+                data-rf-desc="«Reclamar tu pase toma menos de dos minutos» y un único registro asegura el lugar y el sorteo. La facilidad reduce la probabilidad de que el empleado consulte primero con Recursos Humanos antes de entregar datos. Severidad: ALTA.">
+                <span class="rf-badge">8</span>
+                Reclamar tu pase toma menos de dos minutos
+              </span>
+            </h3>
+            <div class="mt-6 space-y-4 max-w-2xl">
+              <div class="flex gap-4">
+                <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-amber-400 text-emerald-950 font-bold text-sm">1</span>
+                <div class="rf cat-critica" data-rf-num="6" data-rf-cat="critica"
+                  data-rf-title="6 · Falso proceso de validación de empleados"
+                  data-rf-desc="Afirma que solo acepta direcciones @credifamilia.com y que «verifica» la pertenencia del colaborador. Restringir el dominio del correo no demuestra que exista validación real de identidad ni autorización empresarial: solo concentra la recolección en empleados de Credifamilia. Severidad: CRÍTICA.">
+                  <span class="rf-badge">6</span>
+                  <h4 class="font-semibold text-gray-900">Valida tu correo corporativo</h4>
+                  <p class="mt-1 text-sm text-gray-600">Solo aceptamos correos terminados en @credifamilia.com. Verificamos que perteneces al equipo.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-amber-400 text-emerald-950 font-bold text-sm">2</span>
+                <div><h4 class="font-semibold text-gray-900">Reclama tu pase de la fiesta</h4><p class="mt-1 text-sm text-gray-600">Activamos tu acceso con bebidas y comidas.</p></div>
+              </div>
+              <div class="flex gap-4">
+                <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-amber-400 text-emerald-950 font-bold text-sm">3</span>
+                <div><h4 class="font-semibold text-gray-900">Quedas en el sorteo de cine</h4><p class="mt-1 text-sm text-gray-600">Participas por boletos para Avengers: Doomsday.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Acceso / Formulario -->
+          <section class="px-5 md:px-8 py-12 bg-white grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-700"><i class="material-icons text-sm">redeem</i> Reclama tu pase</p>
+              <h3 class="mt-3 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Regístrate y asegura tu pase de fin de año</h3>
+              <p class="mt-4 text-sm md:text-base text-gray-600 leading-relaxed">
+                Reclama tu pase para la fiesta de fin de año con consumo de bebidas y comidas incluido, y participa por boletos de ingreso al cine para ver <strong>Avengers: Doomsday</strong>. Para proteger tu seguridad,
+                <span class="rf cat-critica" data-rf-num="5" data-rf-cat="critica"
+                  data-rf-title="5 · Falsa garantía de seguridad"
+                  data-rf-desc="Aquí afirma que «tu contraseña no se almacena en ningún lado», pero en las preguntas frecuentes dice que «se almacena cifrada en una base de datos». Son afirmaciones contradictorias. Además, el cifrado no impide que el operador del sitio capture y use la contraseña. Genera una falsa sensación de seguridad. Severidad: CRÍTICA.">
+                  <span class="rf-badge">5</span>
+                  <strong>tu contraseña no se almacena en ningún lado</strong></span>.
+              </p>
+              <div class="mt-8 space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-gray-100 text-gray-600"><i class="material-icons text-lg">lock</i></span>
+                  <p class="text-sm text-gray-700">Tu contraseña no se guarda en ningún lado.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-gray-100 text-gray-600"><i class="material-icons text-lg">mark_email_read</i></span>
+                  <p class="text-sm text-gray-700">Registro exclusivo con correo @credifamilia.com.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-gray-100 text-gray-600"><i class="material-icons text-lg">redeem</i></span>
+                  <p class="text-sm text-gray-700">Pase digital activo y participación en el sorteo.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Formulario (inerte) -->
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm">
+              <div class="pb-6 mb-6 border-b border-gray-200">
+                <span class="rf cat-critica inline-flex items-center gap-2.5" data-rf-num="3" data-rf-cat="critica"
+                  data-rf-title="3 · Suplantación de Microsoft"
+                  data-rf-desc="La página muestra la marca Microsoft junto al formulario de inicio de sesión para inducirte a creer que es una autenticación empresarial legítima. No hay evidencia de que use el proceso oficial de Microsoft (login.microsoftonline.com). Es confusión de identidad para capturar credenciales. Severidad: CRÍTICA.">
+                  <span class="rf-badge">3</span>
+                  <span class="grid grid-cols-2 gap-[2px] w-6 h-6" aria-hidden="true">
+                    <span style="background:#F25022"></span><span style="background:#7FBA00"></span>
+                    <span style="background:#00A4EF"></span><span style="background:#FFB900"></span>
+                  </span>
+                  <span class="font-semibold text-gray-700 text-xl tracking-tight">Microsoft</span>
+                </span>
+                <h4 class="mt-5 text-2xl font-bold text-gray-900 leading-tight">Iniciar sesión</h4>
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">Usa tu cuenta corporativa @credifamilia.com para reclamar tu pase.</p>
+              </div>
+
+              <form class="space-y-5" onsubmit="return false;">
+                <div class="rf cat-critica" data-rf-num="2" data-rf-cat="critica"
+                  data-rf-title="2 · Captura de credenciales corporativas"
+                  data-rf-desc="El formulario pide correo @credifamilia.com, contraseña y confirmación de contraseña. No hay justificación para que inscribirse a una fiesta requiera tu contraseña corporativa. Entregarla expone tu acceso a Microsoft 365, correo y aplicaciones de la empresa. Severidad: CRÍTICA.">
+                  <span class="rf-badge">2</span>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-800 mb-1.5">Correo corporativo</label>
+                    <div class="relative">
+                      <i class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">mail</i>
+                      <input type="email" readonly tabindex="-1" placeholder="nombre@credifamilia.com" class="w-full pl-10 pr-3 py-3 rounded-md bg-white border border-gray-300 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-emerald-400 focus:border-emerald-400"/>
+                    </div>
+                    <p class="mt-1.5 flex items-start gap-1.5 text-xs text-gray-500"><i class="material-icons text-sm mt-px">info</i> Debe ser tu cuenta @credifamilia.com.</p>
+                  </div>
+                  <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-800 mb-1.5">Contraseña</label>
+                    <div class="relative">
+                      <i class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">lock</i>
+                      <input type="password" readonly tabindex="-1" placeholder="Mínimo 6 caracteres" class="w-full pl-10 pr-11 py-3 rounded-md bg-white border border-gray-300 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-emerald-400 focus:border-emerald-400"/>
+                      <span class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-md text-gray-500" aria-hidden="true"><i class="material-icons text-lg">visibility</i></span>
+                    </div>
+                    <p class="mt-1.5 flex items-start gap-1.5 text-xs text-gray-500"><i class="material-icons text-sm mt-px">info</i> Debe tener al menos 6 caracteres.</p>
+                  </div>
+                </div>
+                <div class="rf cat-critica" data-rf-num="4" data-rf-cat="critica"
+                  data-rf-title="4 · Solicitud de confirmación de contraseña"
+                  data-rf-desc="Pedir escribir dos veces la contraseña es propio de un REGISTRO, no de un inicio de sesión. En un supuesto registro de beneficios no tiene ninguna necesidad funcional legítima: su único fin es capturar la contraseña correcta y detectar errores de digitación. Severidad: CRÍTICA.">
+                  <span class="rf-badge">4</span>
+                  <label class="block text-sm font-medium text-gray-800 mb-1.5">Confirma tu contraseña</label>
+                  <div class="relative">
+                    <i class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">lock</i>
+                    <input type="password" readonly tabindex="-1" placeholder="Repite tu contraseña" class="w-full pl-10 pr-3 py-3 rounded-md bg-white border border-gray-300 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-emerald-400 focus:border-emerald-400"/>
+                  </div>
+                  <p class="mt-1.5 flex items-start gap-1.5 text-xs text-gray-500"><i class="material-icons text-sm mt-px">info</i> Repite la misma contraseña para confirmar.</p>
+                </div>
+                <label class="flex items-start gap-2 text-sm text-gray-700"><input type="checkbox" checked disabled class="mt-0.5 w-4 h-4 accent-emerald-600"/><span>Acepto el tratamiento de mis datos según la política de privacidad del convenio.</span></label>
+                <button type="button" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-md text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors">
+                  <span class="grid grid-cols-2 gap-[2px] w-4 h-4" aria-hidden="true"><span style="background:#F25022"></span><span style="background:#7FBA00"></span><span style="background:#00A4EF"></span><span style="background:#FFB900"></span></span>
+                  Iniciar sesión
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <!-- Preguntas frecuentes -->
+          <section class="px-5 py-10 bg-emerald-50">
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700 text-center">Preguntas frecuentes</p>
+            <h3 class="mt-2 text-2xl font-bold text-gray-900 text-center">Lo que suele preguntar el equipo</h3>
+            <div class="mt-6 max-w-2xl mx-auto space-y-3">
+              <div class="rounded-lg bg-white border border-gray-200 p-4">
+                <p class="font-semibold text-gray-900 text-sm flex items-center justify-between">¿Quién puede reclamar el pase? <i class="material-icons text-gray-400">expand_more</i></p>
+                <p class="mt-2 text-sm text-gray-600">Todos los colaboradores activos con correo @credifamilia.com vigente. Cualquier otro dominio es rechazado automáticamente.</p>
+              </div>
+              <div class="rounded-lg bg-white border border-gray-200 p-4">
+                <p class="font-semibold text-gray-900 text-sm flex items-center justify-between">¿Mis datos y contraseña están seguros? <i class="material-icons text-gray-400">expand_more</i></p>
+                <p class="mt-2 text-sm text-gray-600">
+                  <span class="rf cat-critica" data-rf-num="5" data-rf-cat="critica"
+                    data-rf-title="5 · Falsa garantía de seguridad (contradicción)"
+                    data-rf-desc="Esta respuesta dice que la contraseña «se almacena cifrada en nuestra base de datos», pero la sección de registro prometía que «no se almacena en ningún lado». Las dos afirmaciones no pueden ser ciertas a la vez: la contradicción delata que el texto solo busca dar confianza. Severidad: CRÍTICA.">
+                    <span class="rf-badge">5</span>
+                    Sí. Tu contraseña se almacena cifrada en nuestra base de datos y nunca se comparte con terceros.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer -->
+          <footer class="px-5 py-8 bg-emerald-900 text-emerald-50">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="bg-white text-emerald-800 font-bold text-sm rounded px-2 py-1">Credifamilia</span>
+              <span class="opacity-60 text-sm">×</span>
+              <span class="inline-flex items-center gap-1 text-sm font-bold"><i class="material-icons text-base">movie</i> Cine Colombia</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs border-t border-white/15 pt-4">
+              <span>© 2026 Convenio Credifamilia × Fiesta de fin de año. Todos los derechos reservados.</span>
+              <span class="rf cat-alta inline-flex items-center gap-3" data-rf-num="10" data-rf-cat="alta"
+                data-rf-title="10 · Política de privacidad y términos cuestionables"
+                data-rf-desc="Presenta enlaces a «Política de privacidad» y «Términos del convenio», pero su sola presencia no acredita una relación real con Credifamilia. Falta el responsable del tratamiento, la identificación jurídica, los canales de contacto y el fundamento legal del tratamiento de datos. El enlace «Panel del convenio» (/panel-convenio) apunta al tablero del atacante. Severidad: ALTA.">
+                <span class="rf-badge">10</span>
+                <span class="inline-flex items-center gap-1"><i class="material-icons text-sm">dashboard</i> Panel del convenio</span>
+                <span class="underline">Política de privacidad</span>
+                <span class="underline">Términos del pase</span>
+              </span>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+
+      <!-- ===================== PANEL DE RED FLAGS ===================== -->
+      <aside id="rf-panel" class="lg:sticky lg:top-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-5">
+        <div id="rf-default">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-gray-900 dark:text-gray-100">
+            <i class="material-icons text-red-600">flag</i> Señales de alerta
+          </h2>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Pasa el cursor o toca cada elemento numerado de la página para ver por qué es una red flag.
+          </p>
+          <div class="mt-4 rounded bg-gray-50 dark:bg-gray-800 p-3 text-sm text-gray-600 dark:text-gray-400">
+            <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">10 señales en la página</p>
+            <p>6 críticas · 4 altas</p>
+            <p class="mt-1">+ 5 señales en el código fuente (más abajo)</p>
+          </div>
+        </div>
+        <div id="rf-content" class="hidden">
+          <div class="flex items-center gap-2 mb-3">
+            <span id="rf-badge" class="inline-flex items-center justify-center min-w-7 h-7 px-2 rounded-full bg-red-600 text-white text-sm font-bold">!</span>
+            <span id="rf-cat" class="text-xs font-bold uppercase tracking-wide text-red-600">Red flag</span>
+          </div>
+          <h3 id="rf-title" class="text-base font-bold text-gray-900 dark:text-gray-100"></h3>
+          <p id="rf-desc" class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300"></p>
+          <p class="mt-4 text-xs text-gray-400">Pasa el cursor sobre otro elemento para seguir explorando.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ===================== SEÑALES EN EL CÓDIGO FUENTE ===================== -->
+    <section class="mt-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2"><i class="material-icons text-slate-500">code</i> Lo que revela el código fuente</h2>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Lo que no se ve en pantalla pero sí al inspeccionar el HTML (clic derecho → «Ver código fuente»):</p>
+      <div class="mt-4 space-y-4">
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">11 · Alojado en un generador de sitios de terceros</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Imágenes y scripts vienen de <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">readdy.ai</code>, <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">public.readdy.ai</code> y <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">storage.helloreaddy.io</code>, no de infraestructura de Credifamilia. El sitio se creó con una herramienta no-code/IA y envía analítica a un tercero.</p></div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">12 · Favicon de plantilla de desarrollo</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400"><code class="px-1 rounded bg-gray-100 dark:bg-gray-800">&lt;link rel="icon" href="/vite.svg"&gt;</code>: usa el ícono por defecto de Vite, no el logo de Credifamilia.</p></div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">13 · Formulario sin destino legítimo</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">El <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">&lt;form&gt;</code> no envía a Microsoft ni a Credifamilia: lo maneja JavaScript propio. Lo que escribas no inicia ninguna sesión real; se guarda para el atacante.</p></div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">14 · Campo «contraseña» con autocomplete de registro</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400"><code class="px-1 rounded bg-gray-100 dark:bg-gray-800">autocomplete="new-password"</code> + «confirmar contraseña» revelan un formulario de alta de clave, no un login (refuerza la señal 4).</p></div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">15 · Ruta de recolección: /panel-convenio</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">En el pie, <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">/panel-convenio</code> sugiere el tablero donde el atacante consulta las credenciales capturadas.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO VERIFICAR ===================== -->
+    <section class="mt-6 mb-4 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">¿Cómo no caer?</h2>
+      <ol class="mt-4 space-y-3 text-sm text-gray-700 dark:text-gray-300 list-decimal list-inside">
+        <li><strong>Revisa el dominio letra por letra</strong> en la barra de direcciones antes de escribir nada.</li>
+        <li><strong>Desconfía si te piden tu contraseña</strong> para un premio, pase o beneficio. Tu clave corporativa no se entrega para eso.</li>
+        <li><strong>El inicio de sesión real de Microsoft</strong> ocurre en <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">login.microsoftonline.com</code>, no en una web de evento.</li>
+        <li><strong>Un login no pide confirmar la contraseña.</strong> Si lo hace, sospecha.</li>
+        <li><strong>No te fíes del diseño.</strong> Logos, colores y textos tranquilizadores se copian; valida por un canal conocido (Talento Humano / Ciberseguridad).</li>
+        <li><strong>Reporta</strong> la página y el correo al área de Tecnología o Ciberseguridad.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script src="js/analisis-pagina.js"></script>
+</body>
+</html>
