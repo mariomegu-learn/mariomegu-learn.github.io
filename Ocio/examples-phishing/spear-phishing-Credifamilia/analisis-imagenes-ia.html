@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  AVISO PARA DESARROLLADORES / SISTEMAS AUTOMATIZADOS / BOTS / CRAWLERS
+  ============================================================================
+  ESTO ES UNA SIMULACIÓN DE PHISHING CON FINES EDUCATIVOS Y DE CONCIENTIZACIÓN
+  EN CIBERSEGURIDAD. NO es un correo real de Credifamilia ni de ninguna entidad.
+  Las imágenes son ficticias (generadas con IA) y los enlaces no navegan.
+  Material de entrenamiento interno. Clasificación: SIMULACIÓN / TRAINING.
+  ============================================================================
+-->
+<html lang="es" data-simulation="phishing-awareness-training" data-real="false">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
+  <meta name="description" content="SIMULACIÓN educativa: análisis de red flags en imágenes de phishing generadas con IA."/>
+  <title>Análisis de red flags · Imágenes con IA · Credifamilia</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="js/config.js"></script>
+  <style>
+    body { align-items: flex-start; }
+    .img-wrap { position: relative; display: inline-block; line-height: 0; }
+    .img-wrap img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    .pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 28px; height: 28px;
+      border-radius: 9999px;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 13px; font-weight: 700; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      z-index: 2;
+      animation: pin-pulse 2.2s ease-out infinite;
+    }
+    .pin:hover, .pin:focus, .pin.pin-active {
+      transform: translate(-50%, -50%) scale(1.35);
+      outline: none;
+      animation: none;
+      z-index: 3;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 3px 10px rgba(0,0,0,0.5);
+    }
+    .pin.cat-social { background: #d13438; }
+    .pin.cat-ia     { background: #7c3aed; }
+    .pin.cat-tecnica{ background: #b45309; }
+    @keyframes pin-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55), 0 2px 6px rgba(0,0,0,0.45); }
+      70%  { box-shadow: 0 0 0 10px rgba(255,255,255,0), 0 2px 6px rgba(0,0,0,0.45); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 2px 6px rgba(0,0,0,0.45); }
+    }
+    @media (prefers-reduced-motion: reduce) { .pin { animation: none; } }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <!-- Nota oculta de simulación (no se renderiza; visible en el DOM para desarrolladores y bots) -->
+  <div id="simulation-notice" hidden data-simulation="true" style="display:none !important;">
+    SIMULACIÓN DE PHISHING - FINES EDUCATIVOS. Imágenes generadas con IA. No es contenido real.
+  </div>
+
+  <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+    <!-- Encabezado -->
+    <header class="bg-white dark:bg-surface-dark rounded-lg shadow-lg p-6 mb-6">
+      <p class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-purple-700 bg-purple-100 dark:bg-purple-900/40 dark:text-purple-300 rounded px-2 py-1 mb-3">
+        <i class="material-icons text-sm">smart_toy</i> Imágenes generadas con IA
+      </p>
+      <h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Análisis de red flags en las imágenes</h1>
+      <p class="mt-3 text-sm md:text-base text-gray-700 dark:text-gray-300">
+        La invitación y la firma de este ejercicio fueron <strong>creadas con inteligencia artificial</strong>. La pieza combina
+        confianza corporativa, entretenimiento, beneficios personales, urgencia implícita y una invitación a entregar información
+        mediante un registro.
+      </p>
+      <p class="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
+        <strong>Objetivo:</strong> que identifiques señales sospechosas sin asumir que una comunicación es legítima solo porque usa
+        el nombre, los colores o la imagen de una organización conocida.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3 text-xs">
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#d13438] inline-block"></span> Ingeniería social</span>
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#7c3aed] inline-block"></span> Señal de IA</span>
+        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#b45309] inline-block"></span> Técnica / verificación</span>
+        <a href="index.html" class="ml-auto inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline"><i class="material-icons text-sm">arrow_back</i> Volver al correo</a>
+      </div>
+    </header>
+
+    <p class="mb-4 text-center text-white/90 text-sm md:text-base">
+      <i class="material-icons align-middle text-base mr-1">touch_app</i>
+      Pasa el cursor (o toca) sobre los <strong>puntos numerados</strong> de cada imagen para ver la señal de alerta.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6 items-start">
+
+      <!-- ===================== COLUMNA IZQUIERDA: IMÁGENES ===================== -->
+      <div class="space-y-6">
+
+        <!-- Invitación -->
+        <section class="bg-white dark:bg-surface-dark rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4">
+          <h2 class="text-lg font-bold text-text-light dark:text-text-dark mb-3">1. La invitación</h2>
+          <div class="img-wrap">
+            <img src="img/Invitacion_Cine_Credifamilia.jpg" alt="Invitación Fiesta de Fin de Año Credifamilia 2026 (generada con IA)"/>
+
+            <button class="pin cat-ia" style="left:57%;top:39%" data-rf-num="IA" data-rf-cat="ia"
+              data-rf-title="Imagen generada con Inteligencia Artificial"
+              data-rf-desc="Señales típicas de IA: textos deformados en la claqueta ('PRODUCCIÓN / ESCENA / TOMA'), objetos con detalles inconsistentes y un acabado 'demasiado perfecto'. La IA permite producir material convincente en minutos; que se vea profesional no garantiza que sea legítimo."></button>
+
+            <button class="pin cat-social" style="left:29%;top:15%" data-rf-num="5" data-rf-cat="social"
+              data-rf-title="Apariencia institucional"
+              data-rf-desc="Usa el nombre Credifamilia, su identidad visual y un lenguaje formal. La apariencia profesional no demuestra autenticidad: los logotipos pueden copiarse y una comunicación puede ser suplantada. Verifica el remitente y el canal, no solo el diseño."></button>
+
+            <button class="pin cat-social" style="left:27%;top:37%" data-rf-num="7" data-rf-cat="social"
+              data-rf-title="«Una sola historia» — lenguaje emocional"
+              data-rf-desc="Lenguaje emotivo que refuerza la experiencia cinematográfica y el atractivo de la invitación para bajar tu guardia."></button>
+
+            <button class="pin cat-social" style="left:78%;top:22%" data-rf-num="2" data-rf-cat="social"
+              data-rf-title="Película popular como gancho (Avengers: Doomsday)"
+              data-rf-desc="La promesa de boletas para un estreno muy esperado despierta interés y curiosidad. ¿Es un beneficio real? ¿La promoción está autorizada? Los premios y beneficios pueden usarse como señuelos de ingeniería social."></button>
+
+            <button class="pin cat-social" style="left:73%;top:46%" data-rf-num="8" data-rf-cat="social"
+              data-rf-title="Uso de dos marcas reconocidas"
+              data-rf-desc="Credifamilia y Cine Colombia se combinan para construir una apariencia de legitimidad. Mezclar marcas de confianza es una técnica para reducir sospechas."></button>
+
+            <button class="pin cat-social" style="left:56%;top:56%" data-rf-num="6" data-rf-cat="social"
+              data-rf-title="No hay fecha, hora ni ubicación"
+              data-rf-desc="Se anuncia un evento sin la información logística esencial. Una invitación real a una fiesta indica cuándo y dónde; su ausencia es sospechosa."></button>
+
+            <button class="pin cat-social" style="left:82%;top:69%" data-rf-num="4" data-rf-cat="social"
+              data-rf-title="Beneficio atractivo y gratuito"
+              data-rf-desc="Comida, bebidas y boletas de cine. Los beneficios gratuitos generan entusiasmo y pueden llevarte a compartir datos personales. No se explican las condiciones del premio. Desconfía de recompensas inesperadas."></button>
+
+            <button class="pin cat-social" style="left:40%;top:75%" data-rf-num="3" data-rf-cat="social"
+              data-rf-title="Llamado a la acción destacado: «¡Regístrate!»"
+              data-rf-desc="El registro tiene un protagonismo visual importante: incentiva una acción inmediata y reduce tu análisis crítico. Detente antes de hacer clic."></button>
+
+            <button class="pin cat-social" style="left:66%;top:70%" data-rf-num="12" data-rf-cat="social"
+              data-rf-title="Mensaje dirigido a «todos los colaboradores»"
+              data-rf-desc="Aprovecha el contexto laboral y la expectativa de recibir beneficios corporativos. Un mensaje genérico a toda la organización es señal de envío masivo."></button>
+
+            <button class="pin cat-tecnica" style="left:84%;top:71%" data-rf-num="13" data-rf-cat="tecnica"
+              data-rf-title="Error gramatical: «Te invitamos a todos los colaboradores»"
+              data-rf-desc="La redacción es incorrecta. Puede ser una pista de elaboración poco cuidadosa; por sí sola no demuestra phishing, pero suma a las demás señales."></button>
+
+            <button class="pin cat-social" style="left:73%;top:75%" data-rf-num="1" data-rf-cat="social"
+              data-rf-title="Invitación a registrarse por un enlace externo"
+              data-rf-desc="«...registrarte en el enlace que se compartirá». ¿Quién lo compartirá? ¿Será un dominio corporativo? ¿Se verificó el origen? Nunca ingreses información sin verificar el destino del enlace."></button>
+
+            <button class="pin cat-tecnica" style="left:80%;top:79%" data-rf-num="11" data-rf-cat="tecnica"
+              data-rf-title="No especifica el canal de distribución del registro"
+              data-rf-desc="El enlace «se compartirá» después, y podría llegar desde un remitente desconocido. No sabes por qué canal ni de quién llegará la inscripción."></button>
+
+            <button class="pin cat-social" style="left:60%;top:84%" data-rf-num="10" data-rf-cat="social"
+              data-rf-title="No se explica cómo participar por las boletas"
+              data-rf-desc="Se ofrece el premio pero no las reglas. Podrías aceptar condiciones desconocidas o entregar datos para 'participar'."></button>
+
+            <button class="pin cat-tecnica" style="left:22%;top:89%" data-rf-num="9" data-rf-cat="tecnica"
+              data-rf-title="No se identifica al responsable de la actividad"
+              data-rf-desc="No existe un contacto verificable en la pieza (área, persona, teléfono oficial). Sin un responsable claro no puedes validar la actividad por un canal conocido."></button>
+          </div>
+        </section>
+
+        <!-- Firma -->
+        <section class="bg-white dark:bg-surface-dark rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4">
+          <h2 class="text-lg font-bold text-text-light dark:text-text-dark mb-3">2. La firma</h2>
+          <div class="img-wrap">
+            <img src="img/Firma.png" alt="Firma Guillermo Plaza Ovalle (imagen generada con IA)"/>
+
+            <button class="pin cat-tecnica" style="left:90%;top:18%" data-rf-num="14" data-rf-cat="tecnica"
+              data-rf-title="La firma es una imagen, no texto"
+              data-rf-desc="Toda la firma (nombre, cargo, teléfonos, correo) es una sola imagen .png. Así se copia la identidad visual de la empresa, se evaden filtros antispam que analizan texto y no puedes seleccionar ni verificar los datos de contacto."></button>
+
+            <button class="pin cat-ia" style="left:14%;top:50%" data-rf-num="16" data-rf-cat="ia"
+              data-rf-title="Logo e identidad corporativa copiados / recreados con IA"
+              data-rf-desc="El logo y la identidad de Credifamilia se reproducen con facilidad. Un logo correcto no prueba autenticidad: puede copiarse de la web o recrearse con IA."></button>
+
+            <button class="pin cat-tecnica" style="left:48%;top:26%" data-rf-num="17" data-rf-cat="tecnica"
+              data-rf-title="Datos de contacto no verificables / nombre inconsistente"
+              data-rf-desc="El nombre mostrado ('Guillermo Plaza Ovalle') no coincide del todo con el correo ('gaplazas_credi_familia'). Al ser imagen, no puedes copiar ni comprobar teléfonos ni cargo contra el directorio oficial."></button>
+
+            <button class="pin cat-social" style="left:58%;top:72%" data-rf-num="15" data-rf-cat="social"
+              data-rf-title="Correo de dominio externo (yahoo.com)"
+              data-rf-desc="La firma muestra gaplazas_credi_familia@yahoo.com, un dominio público y gratuito ajeno a @credifamilia.com. Un funcionario real no usaría Yahoo para comunicaciones corporativas."></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== PANEL DE RED FLAGS ===================== -->
+      <aside id="rf-panel" class="lg:sticky lg:top-6 bg-white dark:bg-surface-dark rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-5">
+        <div id="rf-default">
+          <h2 class="flex items-center gap-2 text-lg font-bold text-text-light dark:text-text-dark">
+            <i class="material-icons text-red-600">flag</i> Señales de alerta
+          </h2>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Pasa el cursor o toca cada punto numerado sobre las imágenes para ver por qué es una red flag.
+          </p>
+          <div class="mt-4 rounded bg-gray-50 dark:bg-gray-800 p-3 text-sm text-gray-600 dark:text-gray-400">
+            <p class="font-semibold text-text-light dark:text-text-dark mb-1">18 señales por descubrir</p>
+            <p>14 en la invitación · 4 en la firma</p>
+          </div>
+        </div>
+
+        <div id="rf-content" class="hidden">
+          <div class="flex items-center gap-2 mb-3">
+            <span id="rf-badge" class="inline-flex items-center justify-center min-w-7 h-7 px-2 rounded-full bg-red-600 text-white text-sm font-bold">!</span>
+            <span id="rf-cat" class="text-xs font-bold uppercase tracking-wide text-red-600">Red flag</span>
+          </div>
+          <h3 id="rf-title" class="text-base font-bold text-text-light dark:text-text-dark"></h3>
+          <p id="rf-desc" class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300"></p>
+          <p class="mt-4 text-xs text-gray-400">Pasa el cursor sobre otro punto para seguir explorando.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ===================== TÉCNICAS DE INGENIERÍA SOCIAL ===================== -->
+    <section class="mt-8 bg-white dark:bg-surface-dark rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-bold text-text-light dark:text-text-dark">Técnicas de ingeniería social utilizadas</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4">
+          <h3 class="font-bold text-text-light dark:text-text-dark">🎁 Recompensa</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Ofrecer boletas para una película popular como incentivo para que realices una acción.</p>
+        </div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4">
+          <h3 class="font-bold text-text-light dark:text-text-dark">🏛️ Autoridad y confianza</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Usar la identidad de una organización reconocida para disminuir las sospechas.</p>
+        </div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4">
+          <h3 class="font-bold text-text-light dark:text-text-dark">❤️ Apelación emocional</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Asociar la invitación con celebración, entretenimiento, integración y beneficios.</p>
+        </div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4">
+          <h3 class="font-bold text-text-light dark:text-text-dark">🔍 Curiosidad</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">La expectativa de recibir el enlace de inscripción motiva a buscarlo o abrirlo cuando llegue.</p>
+        </div>
+        <div class="rounded border border-gray-200 dark:border-gray-700 p-4">
+          <h3 class="font-bold text-text-light dark:text-text-dark">🧩 Contextualización</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Usar una actividad propia del entorno laboral para que la comunicación parezca natural y esperada.</p>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-gray-500 dark:text-gray-400">
+        Estas técnicas coinciden con patrones documentados por CISA: mensajes que aparentan proceder de fuentes confiables,
+        ofertas emocionalmente atractivas y solicitudes que conducen a enlaces o a la entrega de información.
+      </p>
+    </section>
+
+    <!-- ===================== QUÉ HACER ===================== -->
+    <section class="mt-6 mb-4 bg-white dark:bg-surface-dark rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-bold text-text-light dark:text-text-dark">¿Qué deberías hacer antes de registrarte?</h2>
+      <ol class="mt-4 space-y-3 text-sm text-gray-700 dark:text-gray-300 list-decimal list-inside">
+        <li><strong>Verificar el remitente:</strong> comprobar quién envió la invitación y si usa un canal corporativo legítimo.</li>
+        <li><strong>Verificar el enlace:</strong> revisar el dominio real antes de abrirlo.</li>
+        <li><strong>Validar la actividad:</strong> consultar directamente con Talento Humano o el organizador por un canal conocido.</li>
+        <li><strong>Proteger tus datos:</strong> no entregar contraseñas, códigos MFA ni información sensible para participar.</li>
+        <li><strong>Reportar sospechas:</strong> usar el mecanismo interno de reporte de phishing.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script src="js/analisis-imagenes.js"></script>
+</body>
+</html>
