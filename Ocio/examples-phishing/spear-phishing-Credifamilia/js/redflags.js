@@ -19,9 +19,17 @@ document.addEventListener('DOMContentLoaded', function () {
     elContent.classList.remove('hidden');
   }
 
+  function reset() {
+    flags.forEach(function (f) { f.classList.remove('rf-active'); });
+    elContent.classList.add('hidden');
+    elDefault.classList.remove('hidden');
+  }
+
   flags.forEach(function (el) {
     el.addEventListener('mouseenter', function () { show(el); });
+    el.addEventListener('mouseleave', reset);
     el.addEventListener('focus', function () { show(el); });
+    el.addEventListener('blur', reset);
     el.addEventListener('click', function (e) {
       e.preventDefault();
       show(el);
