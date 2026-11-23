@@ -86,7 +86,6 @@
       <div class="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-700 dark:text-gray-300">
         <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#dc2626"></span> Crítica</span>
         <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#d97706"></span> Alta</span>
-        <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full inline-block" style="background:#475569"></span> Código fuente</span>
         <a href="index.html" class="ml-auto inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline"><i class="material-icons text-sm">arrow_back</i> Volver al correo</a>
       </div>
     </header>
@@ -354,7 +353,6 @@
           <div class="mt-4 rounded bg-gray-50 dark:bg-gray-800 p-3 text-sm text-gray-600 dark:text-gray-400">
             <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">10 señales en la página</p>
             <p>6 críticas · 4 altas</p>
-            <p class="mt-1">+ 5 señales en el código fuente (más abajo)</p>
           </div>
         </div>
         <div id="rf-content" class="hidden">
@@ -368,19 +366,6 @@
         </div>
       </aside>
     </div>
-
-    <!-- ===================== SEÑALES EN EL CÓDIGO FUENTE ===================== -->
-    <section class="mt-8 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6">
-      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2"><i class="material-icons text-slate-500">code</i> Lo que revela el código fuente</h2>
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Lo que no se ve en pantalla pero sí al inspeccionar el HTML (clic derecho → «Ver código fuente»):</p>
-      <div class="mt-4 space-y-4">
-        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">11 · Alojado en un generador de sitios de terceros</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Imágenes y scripts vienen de <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">readdy.ai</code>, <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">public.readdy.ai</code> y <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">storage.helloreaddy.io</code>, no de infraestructura de Credifamilia. El sitio se creó con una herramienta no-code/IA y envía analítica a un tercero.</p></div>
-        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">12 · Favicon de plantilla de desarrollo</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400"><code class="px-1 rounded bg-gray-100 dark:bg-gray-800">&lt;link rel="icon" href="/vite.svg"&gt;</code>: usa el ícono por defecto de Vite, no el logo de Credifamilia.</p></div>
-        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">13 · Formulario sin destino legítimo</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">El <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">&lt;form&gt;</code> no envía a Microsoft ni a Credifamilia: lo maneja JavaScript propio. Lo que escribas no inicia ninguna sesión real; se guarda para el atacante.</p></div>
-        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">14 · Campo «contraseña» con autocomplete de registro</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400"><code class="px-1 rounded bg-gray-100 dark:bg-gray-800">autocomplete="new-password"</code> + «confirmar contraseña» revelan un formulario de alta de clave, no un login (refuerza la señal 4).</p></div>
-        <div class="rounded border border-gray-200 dark:border-gray-700 p-4"><h3 class="font-bold text-gray-900 dark:text-gray-100">15 · Ruta de recolección: /panel-convenio</h3><p class="mt-1 text-sm text-gray-600 dark:text-gray-400">En el pie, <code class="px-1 rounded bg-gray-100 dark:bg-gray-800">/panel-convenio</code> sugiere el tablero donde el atacante consulta las credenciales capturadas.</p></div>
-      </div>
-    </section>
 
     <!-- ===================== CÓMO VERIFICAR ===================== -->
     <section class="mt-6 mb-4 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6">
